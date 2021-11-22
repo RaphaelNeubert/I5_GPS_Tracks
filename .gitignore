@@ -1,0 +1,6 @@
+*~
+.DS_Store
+*.html
+*.pdf
+.asciidoctor/
+**/images/diagrams/
