@@ -1,0 +1,47 @@
+== Protokoll Meeting 2
+|===
+2+| *Thema* +
+Einteilung der Rollen und erste Gedanken über das Meeting mit dem Product Owner.
+|*Datum* +
+26.11.2021 11:00 Uhr
+| *Ort* +
+Element (online)
+|*Anwesend* +
+Anton Peschel +
+Alex Schechtel +
+Raphael Neubert +
+Richard Michel +
+Quang + Duy Pham +
+Felix Reuß +
+Ludwig +
+Schönthier +
+Tom Nicolai
+| *Abwesend* +
+
+|*Leitung der Besprechung* +
+Anton Peschel
+|*Protokollführung* +
+Felix Reuß
+|===
+
+=== Rollenverteilung
+Die einzelnen Rollen wurden diskutiert und verteilt. Es Ergab folgende Verteilung.
+|===
+|Anton Peschel | Projektleitung
+|Felix Reuß | Analyst , Unterstützung Projektleitung
+|Ludwig Schönthier | Analyst, Test
+|Richard Michel | Any Role
+|Raphael Neubert | Developer , Entwurf , Deployment Engineer, stellvertretende Projektleitung
+|Alex Schechtel | Developer , Tester , Any Role
+|Tom Nicolai | Developer , Tester
+|Quang Duy Pham | Tester, Entwurf
+|===
+
+=== Planung des nächsten Meetings
+Das nächste Meeting wird am 28.11.2021 18:00 Uhr stattfinden.
+
+.Bis dahin zu erledigen:
+* Passende Termine für Meeting mit Product Owner (PO) auf Doodle eintragen
+* Fragen für Meeting mit PO überlegen
+* erste Projektrisiken für eigene Teilbereiche identifizieren
+
