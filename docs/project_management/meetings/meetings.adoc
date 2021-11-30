@@ -1,0 +1,6 @@
+= Protokollierung der Meetings des Projektes "I5_GPS_Tracks"
+:toc: 
+:toc-title: Inhaltsverzeichnis
+
+include::meeting_1.adoc[]
+include::meeting_2.adoc[]
