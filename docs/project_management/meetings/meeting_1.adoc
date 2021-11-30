@@ -1,2 +1,28 @@
 = Meeting Nummer 1
 22.11. 17.:30 Uhr
+
+*nicht anwesend:* alle anwesend
+
+* Rollenzuteilung
+** Einlesen und Rolle für sich selbst festlegen -> nächstes Meeting zuteilen
+* Repository anlegen
+** Titel: I5_GPS_Tracks
+* Kontakt mit 'Kunden' aufbaue
+* nächstes Meeting festlegen -> Freitag, 26.11. um 11 Uhr
+
+.*Teilnehmer und präferierte Rolle(n):*
+_Primäre Rolle | Sekundäre Rolle_
+|===
+|Ludwig Schönthier |Analyst |Test
+|Felix Reuß |Analyst |Unterstützung Projektleitung
+|Richard Michel |Any Role |
+|Alex Schechtel |Developer |Tester / Any Role
+|Raphael Neubert |Developer |Entwurf / Deployment Engineer
+|Quang Duy Pham |Tester | Entwurf
+|Anton Peschel |*Projektleiter* |
+|===
+
+== Plan für nächstes Meeting:
+* Rollen festlegen
+* in Belegarbeit einlesen
+* Mail an Betreuer und Dozenten
