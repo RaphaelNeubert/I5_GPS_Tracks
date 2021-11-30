@@ -1,29 +1,41 @@
-= Meeting Nummer 1
-22.11. 17.:30 Uhr
+== Protokoll Meeting 1
+|===
+2+| *Thema* +
+Kennenlernen und planen der ersten Schritte.
+|*Datum* +
+22.11.2021 17:30 Uhr
+| *Ort* +
+Element (online)
+|*Anwesend* +
+Anton Peschel +
+Alex Schechtel +
+Raphael Neubert +
+Richard Michel +
+Quang + Duy Pham +
+Felix Reuß +
+Ludwig +
+Schönthier +
+Tom Nicolai
+| *Abwesend* +
 
-*nicht anwesend:* alle anwesend
+|*Leitung der Besprechung* +
+Anton Peschel
+|*Protokollführung* +
+Felix Reuß
+|===
 
+=== Besprochene Punkte
 * Rollenzuteilung
 ** Einlesen und Rolle für sich selbst festlegen -> nächstes Meeting zuteilen
 * Repository anlegen
-** Titel: I5_GPS_Tracks
+** Titel: https://github.com/RaphaelNeubert/I5_GPS_Tracks[I5_GPS_Tracks]
 * Kontakt mit 'Kunden' aufbauen
 * nächstes Meeting festlegen -> Freitag, 26.11. um 11 Uhr
 
-.*Teilnehmer und präferierte Rolle(n):*
-_Primäre Rolle | Sekundäre Rolle_
-|===
-|Ludwig Schönthier |Analyst |Test
-|Felix Reuß |Analyst |Unterstützung Projektleitung
-|Richard Michel |Any Role |
-|Alex Schechtel |Developer |Tester / Any Role
-|Tom Nicolai |Developer |Tester
-|Raphael Neubert |Developer |Entwurf / Deployment Engineer
-|Quang Duy Pham |Tester | Entwurf
-|Anton Peschel |*Projektleiter* |
-|===
+=== Planung des nächsten Meetings
+Das nächste Meeting wird am 26.11.2021 um 11 Uhr stattfinden.
 
-== Plan für nächstes Meeting:
-* Rollen festlegen
-* in Belegarbeit einlesen
-* Mail an Betreuer und Dozenten
+.Bis dahin zu erledigen:
+* Einlesen in die Rollen und Wunsch überlegen.
+* Einlesen in den Ablauf des Projektes
+* Mail an Betreuer und Dozenten mit Repository Link
