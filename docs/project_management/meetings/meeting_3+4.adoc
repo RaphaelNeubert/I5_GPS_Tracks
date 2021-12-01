@@ -35,6 +35,81 @@ Anton Peschel
 Felix Reuß
 |===
 
+=== Fragen zum Belegprojekt
+===== 1. Fragen zum Roboter
+** 1.1 Welche Aufgaben des Roboters haben Prorität? +
+** 1.2 Wie werden die Tests ablaufen?
+** 1.3 Soll der Roboter während der Fahrt mit dem Server kommunizieren?
+** 1.4 Wie kommunizieren wir mit dem Roboter, bzw. was bietet der Roboter zur Kommunikation an? +
+
+===== Antworten zu 1.: +
+* -> Die höchste Priorität des Projektes liegt beim korrekten   Aufnehmen der Tracks und dem Vornehmen von Korrekturen auf der Karte über die App +
+-> Eine untergeordnete Priorität hat die Live-Verfolgung
+* -> Der Roboter an sich wird eventuell für Transport-Aufgaben (Transportieren von Messgeräten) genutzt werden +
+-> Er könnte benutzt werden um Bilder oder Wärmebilder zu machen +
+-> Eine vorstellbare Aufgabe wäre das systematische Abfahren eines bestimmten Bereiches, wobei Müll erkannt und fotografiert werden könnte und anschließend aufgenommen würde
+* -> Der Server könnte direkt am Roboter über einen Rechner angebracht sein +
+-> Optimal wäre ein zentraler Server/ Speicherung in der Cloud +
+-> Damit wird die App verbunden und die Tracks werden auf dem Server dann gespeichert +
+-> Die Tracks werden dann vorgegeben und Abgefahren und dabei aufgezeichnet +
+
+===== 2. Fragen zum GPS
+** 2.1 Wie sieht es mit Datenschutz aus (GPS-Daten)? +
+→ Abfrage zur Einverständniserklärung zum Datenschutz? 
+** 2.2 Einfügen von besonderen Punkten innerhalb der Tracks, an welchen Aufgaben bearbeitet werden sollen. +
+→ welche besonderen Punkte sind gemeint?
+** 2.3 Soll der GPS-Track überall anwendbar sein können? (Weltkarte)
+** 2.4 Wie soll der GPS-Track damit umgehen, falls die App auf dem Gerät kein Empfang bekommt/ Wie kann das GPS korrigiert werden?
+** 2.5 In welchem Format sollen die GPS tracks gespeichert werden? (csv, sqlite) +
+
+===== Antworten zu 2.: +
+* -> Es sollte keine öffentliche IP-Adresse verwendet werden, da es sonst sehr schwierig wird die Sicherheit der Daten zu gewährleisten +
+-> Am besten werden keine personenbezogenen Daten abgefragt/genutzt +
+-> Es werden keine genauen Zeiten/ Geschwindigkeiten aufgenommen +
+-> eventuell werden die Tracks unabhängig vom Nutzer gespeichert +
+* -> Es ist ausreichend wenn der Roboter alle 10m ein Foto macht
+* -> Die Strecke wird zum korrigieren der GPS-Daten mehrfach abgekaufen +
+-> Punkte werden auf der Karte eingeblendet und können manuell verschoben werden +
+* -> Als Format bietet sich GPX an +
+
+===== 3. Fragen zum Server
+* 3.1 Was soll der Server alles können? 
+
+* 3.2 Soll der Server eine öffentliche IP haben?
+
+===== Antworten zu 3.: +
+
+* siehe <<Antworten zu 1.:>>
+-> Überschneidungen mit Datenschutz/ Kommunikation mit Server +
+
+===== 4. Fragen zur App
+* 4.1 Soll die Rest API nur mit einem Login möglich sein?
+
+* 4.2 Welche Technologie ist beim Programmieren gewünscht?
+* 4.3 Wer wird später mit den Tracks bzw. mit der App arbeiten? +
+ 
+===== Antworten zu 4.: +
+* -> Nutzer/ Passwort anlegen könnte sehr komplex/ unsicher werden +
+-> niedrige Priorität für das Projekt +
+* -> Als Programmiersprachen könnten sich Java oder Python eignen +
+* -> Nutzer der App könnten Studenten innerhalb eines studentischen Forschungsprojektes werden +
+
+=== Nächste Meetings +
+Die Entwickler und Tester treffen sich am Freitag dem 03.12. 2021 um 11:00 Uhr um erste technische Details zu klären. +
+Die Analysten werden sich mit dem Projektleiter ebenfalls am Freitag treffen, die Uhrzeit ist noch offen. +
+Dort werden Risikoprorisierung un erste Use-Cases im Vordergrund stehen.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
