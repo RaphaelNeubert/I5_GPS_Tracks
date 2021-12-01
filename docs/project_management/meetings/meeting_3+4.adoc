@@ -1,0 +1,46 @@
+== Protokoll Meeting 3 und 4 
+|===
+2+| *Thema* +
+Fragen zum Belegprojekt mit dem Themensteller Mario Neugebauer.
+| *Datum* +
+28.11. 2021 18:00 Uhr +
+30.11. 2021 15:00 Uhr
+| *Ort* +
+Meeting 3: Element (online) +
+Meeting 4: BigBlueButton (online)
+| *Anwesend (Meeting 3)* +
+Anton Peschel +
+Alex Schechtel +
+Raphael Neubert +
+Richard Michel +
+Quang Duy Pham +
+Ludwig Schönthier +
+Tom Nicolai
+| *Abwesend (Meeting 3)* +
+Felix Reuß
+| *Anwesend (Meeting 4)* +
+Anton Peschel +
+Alex Schechtel +
+Raphael Neubert +
+Richard Michel +
+Quang Duy Pham +
+Felix Reuß +
+Ludwig Schönthier +
+Tom Nicolai
+| *Abwesend (Meeting 4)* +
+
+|*Leitung der Besprechung* +
+Anton Peschel
+|*Protokollführung* +
+Felix Reuß
+|===
+
+
+
+
+
+
+
+
+
+
