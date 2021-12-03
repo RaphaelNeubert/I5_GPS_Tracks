@@ -1,0 +1,55 @@
+
+== Protokoll Meeting 5
+|===
+2+| *Thema* +
+Entwicklermeeting zur Beratung über in frage kommende Technologien
+|*Datum* +
+03.12.2021 11:00 Uhr
+| *Ort* +
+Element (online)
+|*Anwesend* +
+Alex Schechtel +
+Raphael Neubert +
+Quang + Duy Pham +
+Tom Nicolai
+| *Abwesend* +
+Anton Peschel +
+Felix Reuß +
+Ludwig Schönthier +
+Richard Michel +
+
+|*Leitung der Besprechung* +
+Raphael Neubert
+|*Protokollführung* +
+Raphael Neubert
+|===
+
+=== Programmiersprachen
+.Server
+* Python
+
+.App
+* Java
+
+=== Build tools
+Andorid Studio zum erstellen des Projektes und optional zur Entwicklung, +
+Grandle oder Maven zum Bauen.
+
+=== Frameworks
+.Server
+* Flask
+
+.App (Optionen)
+* https://github.com/osmdroid/osmdroid[osmdroid] mit tile server +
+* Mapbox +
+* Google Maps
+
+=== Dateiformate
+.(Optionen)
+* GeoJSON
+* GPX
+
+=== Nächsten Schritte
+* Prüfung auf Eignung des Frameworks osmdroid
+* Abklären ob Deutschlandkarte ausreicht. Falls nicht VM mit 130GB anfragen.
+* Abklärung Sicherheit von öffentlicher IP (coach fragen)
