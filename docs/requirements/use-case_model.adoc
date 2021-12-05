@@ -11,8 +11,12 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Identifizierte Use Cases
 // Liste aller identifizierten Use Cases (priorisiert)
-* *UC01*: ...
-* *UC02*: ...
+* *UC01*: GPX-Datei in App hochladen
+* *UC02*: GPX-Datei aus DB runterladen
+* *UC03*: GPS-Track in App bearbeiten
+* *UC04*: Änderung des Tracks speichern
+* *UC05*: Besondere(n) Punkt(e) in Track einfügen
+* *UC06*: Abrufen der gespeicherten GPS-Tracks
 
 
 == Use Case Diagramm
