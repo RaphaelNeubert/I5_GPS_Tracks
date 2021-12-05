@@ -32,7 +32,7 @@ Raphael Neubert
 * Java
 
 === Build tools
-Andorid Studio zum erstellen des Projektes und optional zur Entwicklung, +
+Android Studio zum erstellen des Projektes und optional zur Entwicklung, +
 Grandle oder Maven zum Bauen.
 
 === Frameworks
