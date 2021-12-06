@@ -19,6 +19,7 @@ Tom Nicolai
 | *Abwesend (Meeting 3)* +
 Felix Reuß
 | *Anwesend (Meeting 4)* +
+Mario Neugebauer + 
 Anton Peschel +
 Alex Schechtel +
 Raphael Neubert +
