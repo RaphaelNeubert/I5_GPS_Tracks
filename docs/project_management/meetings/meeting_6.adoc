@@ -1,0 +1,41 @@
+== Protokoll Meeting 6
+|===
+2+| *Thema* +
+Meeting der Analysten zur Besprechung von Risiken, Anforderungen und Use-Cases
+|*Datum* +
+05.12.2021 16:00 Uhr
+| *Ort* +
+Element (online)
+|*Anwesend* +
+Felix Reuß (Protokoll) +
+Anton Peschel +
+Ludwig Schönthier
+| *Abwesend* +
+Alex Schechtel +
+Raphael Neubert +
+Quang + Duy Pham +
+Tom Nicolai +
+Richard Michel
+|===
+
+=== Inhalte der Besprechung
+* FMEA
+** Brainstorming über mögliche Risiken des Belegprojektes
+** Einteilung der *ca. 30* erarbeiteten Risiken in:
+*** *Geschäftlich*
+*** *Ressourcen*
+*** *Technisch*
+*** *Zeitlich*
+** __Bewertung der Risiken (Stärke) ausstehend__
+* Anforderungen definiert
+** Einteilung in:
+*** *funktional* (4)
+*** *qualitativ* (4)
+*** *Randbedingungen* (3)
+* Use-Cases (6)
+** *UC01*: Aufnehmen von GPS-Tracks
+** *UC02*: GPS-Track in App hochladen
+** *UC03*: GPS-Track aus DB runterladen
+** *UC04*: GPS-Track in App bearbeiten
+** *UC05*: Besondere(n) Punkt(e) in Track einfügen
+** *UC06*: Abrufen der gespeicherten GPS-Tracks
