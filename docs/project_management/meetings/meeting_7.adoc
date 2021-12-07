@@ -1,0 +1,39 @@
+
+== Protokoll Meeting 7
+|===
+2+| *Thema* +
+Besprechung vom aktuellem Status mit coach
+|*Datum* +
+07.12.2021 15:00 Uhr
+| *Ort* +
+Element (online)
+|*Anwesend* +
+Christoph Zirkelbach +
+Alex Schechtel +
+Raphael Neubert +
+Quang Duy Pham +
+Tom Nicolai +
+Anton Peschel +
+Felix Reuß +
+Ludwig Schönthier +
+Richard Michel 
+| *Abwesend* +
+
+|*Leitung der Besprechung* +
+Anton Peschel, Felix Reuß, Raphael Neubert
+|*Protokollführung* +
+Raphael Neubert
+|===
+
+=== Erhaltene Tipps und Informationen
+* VM dient zunächst nur der Entwicklung
+* Wir sollten einen genaueren Iterationsplan machen
+* Bei den usecases die Formulierung verbessern um klar zu stellen was die App bzw. den Server betrifft
+* potenzielles Risiko: Kollisionen bei gleichzeitiger offline Bearbeitung von GPS-tracks auf mehreren Geräten
+
+=== Abzusprechen mit Kunde
+* vorstellung der (geplanten) Technologien und fragen ob in Ordnung
+* vorstellung osm, osmdroid
+* öffentlicher tile Server oder selbst hosten?
+** falls selbst hosten, Weltkarte oder Deutschlandkarte?
+
