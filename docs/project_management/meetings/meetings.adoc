@@ -6,4 +6,5 @@ include::meeting_1.adoc[]
 include::meeting_2.adoc[]
 include::meeting_3+4.adoc[]
 include::meeting_5.adoc[]
+include::meeting_7.adoc[]
 
