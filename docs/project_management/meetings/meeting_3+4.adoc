@@ -64,14 +64,14 @@ Felix Reuß
 ** 2.5 In welchem Format sollen die GPS tracks gespeichert werden? (csv, sqlite) +
 
 ===== Antworten zu 2.: +
-* -> Es sollte keine öffentliche IP-Adresse verwendet werden, da es sonst sehr schwierig wird die Sicherheit der Daten zu gewährleisten +
+* -> Es sollte nur eine öffentliche IP-Adresse verwendet werden, wenn wir die Sicherheit der Daten gewährleisten können +
 -> Am besten werden keine personenbezogenen Daten abgefragt/genutzt +
 -> Es werden keine genauen Zeiten/ Geschwindigkeiten aufgenommen +
 -> eventuell werden die Tracks unabhängig vom Nutzer gespeichert +
-* -> Es ist ausreichend wenn der Roboter alle 10m ein Foto macht
-* -> Die Strecke wird zum korrigieren der GPS-Daten mehrfach abgekaufen +
+* -> Beispiel: Roboter soll an bestimmtem geografischen Punkt Foto machen +
+* -> Die Strecke wird zum korrigieren der GPS-Daten mehrfach abgelaufen +
 -> Punkte werden auf der Karte eingeblendet und können manuell verschoben werden +
-* -> Als Format bietet sich GPX an +
+* -> Als Format bietet sich GPX an, andere Formate sind mit Absprache möglich +
 
 ===== 3. Fragen zum Server
 * 3.1 Was soll der Server alles können? 
@@ -90,15 +90,14 @@ Felix Reuß
 * 4.3 Wer wird später mit den Tracks bzw. mit der App arbeiten? +
  
 ===== Antworten zu 4.: +
-* -> Nutzer/ Passwort anlegen könnte sehr komplex/ unsicher werden +
--> niedrige Priorität für das Projekt +
-* -> Als Programmiersprachen könnten sich Java oder Python eignen +
+* -> Wenn die IP des Servers öffentlich ist, ist ein login sinvoll/notwendig, falls nicht dann ist es nicht notwendig.
+* -> Als Programmiersprache für den Server sollte Java oder Python verwendet werden, für die App steht uns freie Wahl +
 * -> Nutzer der App könnten Studenten innerhalb eines studentischen Forschungsprojektes werden +
 
 === Nächste Meetings +
 Die Entwickler und Tester treffen sich am Freitag dem 03.12. 2021 um 11:00 Uhr um erste technische Details zu klären. +
 Die Analysten werden sich mit dem Projektleiter ebenfalls am Freitag treffen, die Uhrzeit ist noch offen. +
-Dort werden Risikoprorisierung un erste Use-Cases im Vordergrund stehen.
+Dort werden Risikopriorisierung un erste Use-Cases im Vordergrund stehen.
 
 
 
