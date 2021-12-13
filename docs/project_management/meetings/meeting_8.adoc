@@ -1,0 +1,34 @@
+== Protokoll Meeting 8
+|===
+2+| *Thema* +
+Zusammenführung Ergebnisse von Analysten und Entwicklern
+|*Datum* +
+12.12.2021 17:00 Uhr
+| *Ort* +
+Element (online)
+|*Anwesend* +
+Alex Schechtel +
+Raphael Neubert +
+Quang Duy Pham +
+Tom Nicolai +
+Anton Peschel +
+Felix Reuß +
+Ludwig Schönthier +
+Richard Michel 
+| *Abwesend* +
+
+|*Leitung der Besprechung* +
+Anton Peschel, Raphael Neubert
+|*Protokollführung* +
+Felix Reuß
+|===
+
+=== Agenda
+* Alle auf einen Stand bringen --> Use Cases ergänzen
+* Fragen für Themenstellermeeting am 14.12 formulieren
+* Risikoanalyse fehlende Eintrittswahrscheinlichkeiten und Fehlerschwere ergänzen
+
+=== Aussicht für kommende Woche
+* Ab Donnerstag Iterationspläne digitalisieren, gleiches mit Meilensteinen
+* Dienstag im Anschluss zum Themenstellermeeting --> Kurzes Meeting der Entwickler --> Link für Meeting im Element-Raum "Links"
+* Richard arbeitet schonmal erste Use-Cases für Meeting mit TS aus
