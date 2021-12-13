@@ -2,7 +2,7 @@
 == Protokoll Meeting 7
 |===
 2+| *Thema* +
-Besprechung vom aktuellem Status mit coach
+Besprechung vom aktuellem Status mit Coach
 |*Datum* +
 07.12.2021 15:00 Uhr
 | *Ort* +
@@ -32,8 +32,8 @@ Raphael Neubert
 * potenzielles Risiko: Kollisionen bei gleichzeitiger offline Bearbeitung von GPS-tracks auf mehreren Geräten
 
 === Abzusprechen mit Kunde
-* vorstellung der (geplanten) Technologien und fragen ob in Ordnung
+* Vorstellung der (geplanten) Technologien und Fragen ob in Ordnung
 * vorstellung osm, osmdroid
-* öffentlicher tile Server oder selbst hosten?
+* Öffentlicher tile Server oder selbst hosten?
 ** falls selbst hosten, Weltkarte oder Deutschlandkarte?
 
