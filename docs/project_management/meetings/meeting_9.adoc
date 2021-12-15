@@ -1,0 +1,49 @@
+== Protokoll Meeting 9
+|===
+2+| *Thema* +
+Meeting mit Themensteller Prof. Dr. Mario Neugebauer & anschließende Besprechung der Aufgaben für die kommende Woche
+|*Datum* +
+14.12.2021 15:00 Uhr
+| *Ort* +
+BBB (online)
+|*Anwesend* +
+Alex Schechtel +
+Raphael Neubert +
+Quang Duy Pham +
+Tom Nicolai +
+Anton Peschel +
+Felix Reuß +
+Ludwig Schönthier +
+Richard Michel 
+| *Abwesend* +
+
+|*Leitung der Besprechung* +
+Anton Peschel, Raphael Neubert
+|*Protokollführung* +
+Felix Reuß
+|===
+
+=== Ergebnisse der Besprechung mit Prof. Dr. Neugebauer
+==== Sprachen und Formate
+* Java als Programmiersprache für Android
+* Python Flask für Server
+* Gradle in Android Studio zur Unterstützung
+* GPX
+
+==== zu erfüllende Funktionen
+* innerhalb der Route besondere Punkte mit Aufgaben einfügen
+** Ausführbarkeit realisierbar?
+* GPS-Tracks nach Änderung wenn möglich immer automatisch synchronisieren (1:1)
+* Automatische Downloads der Tracks in die App höchstens in 'Gruppen' aufgrund von Speicherplatz
+* Pfade sollen manuell verändert werden
+** von Start zu Ende per Linie annähern
+** starke Ausreiser automatisch verändern (fließender Mittelwert?)
+
+==== Use Cases
+* UC03 wurde zu hoch priorisiert
+* Synchronisation kan später erfolgen
+* neuer *UC07*: GPS-Tracks in Gruppen einteilen (für Synchronisation)
+
+=== Aufgaben für nächstes Meeting
+* Anton & Felix: Entwurf UC01 & UC02
+* Freitag, 17.12.2021, 11 Uhr nächstes Meeting, UC03 ausarbeiten

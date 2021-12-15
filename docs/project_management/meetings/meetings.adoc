@@ -9,5 +9,5 @@ include::meeting_5.adoc[]
 include::meeting_6.adoc[]
 include::meeting_7.adoc[]
 include::meeting_8.adoc[]
-
+include::meeting_9.adoc[]
 
