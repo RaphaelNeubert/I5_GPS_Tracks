@@ -13,8 +13,8 @@ include::../_includes/default-attributes.inc.adoc[]
 // Liste aller identifizierten Use Cases (priorisiert)
 * *UC01*: GPS-Tracks aufnehmen
 * *UC02*: GPS-Tracks auf Karte anzeigen 
-* *UC03*: GPS-Tracks über Server verwalten
-* *UC04*: GPS-Tracks bearbeiten
+* *UC03*: GPS-Tracks bearbeiten
+* *UC04*: GPS-Tracks über Server verwalten
 * *UC05*: Besondere(n) Punkt(e) in Track einfügen
 * *UC06*: Verbesserung existierender Tracks durch erneute Aufnahme
 
