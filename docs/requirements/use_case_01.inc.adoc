@@ -1,6 +1,6 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
 
-== Use-Case: <GPS-Track aufnehmen>
+== Use-Case: GPS-Track aufnehmen
 
 === Kurzbeschreibung
 Der Use Case beschreibt die Aufnahme eines GPS-Tracks per App
@@ -8,7 +8,7 @@ Der Use Case beschreibt die Aufnahme eines GPS-Tracks per App
 === Kurzbeschreibung der Akteure
 
 ==== Nutzer
-* Möchte einen GPS-Track während der Roboterfahrt aufnehmen
+* Möchte einen GPS-Track aufnehmen
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
@@ -20,61 +20,75 @@ Der Use Case beschreibt die Aufnahme eines GPS-Tracks per App
 
 . Der Use Case beginnt, wenn der Nutzer die Aufnahme der GPS-Daten auslöst
 . WHILE Aufnahme läuft
-* a) Roboter gibt ständig Standort an Server weiter
-* b) Server speichert Standortpunkte
-* c) App zeigt Routenverlauf Live auf der Karte an (UC02)
-. Nutzer beendet die Aufnahme am Ende der Fahrt
-* a) Bestätigung "Aufnahme wirklich beenden?"
-. Server nimmt den GPS-Track auf
-. App bestätigt die erfolgreiche Speicherung 
+* App ermittelt und speichert Standort
+* App zeigt Routenverlauf Live auf der Karte an (UC02)
+. Nutzer beendet die Aufnahme
+* Bestätigung "Aufnahme wirklich beenden?"
+*** IF "Ja, beenden"
+**** Aufnahme wird gestoppt
+**** Dialogfeld "Bitte geben sie einen Dateinamen an" -> Bestätigung "speichern"
+**** GPS-Track wird zur Synchronisation mit Server freigegeben (UC04)
+**** App bestätigt die erfolgreiche Speicherung 
+*** ELSE -> Aufnahme wird fortgesetzt
 . Der Use Case ist abgeschlossen.
 
 === Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
 
-==== Alternativer Ablauf 1: Aufnahme wird abgebrochen
-Wenn die Verbindung zum Server im Schritt 2 des Standardablauf abbricht, dann +
-• a) bleibt der Roboter stehen +
-• b) IF Erneute Verbindungsversuche erfolgreich +
-* i. Fortsetzung der Aufnahme +
-* ii. Roboter färt weiter +
-    • ELSE +
-* i. Aufnahmevorgang wird abgebrochen + 
-* ii. Nutzer bekommt Fehlermeldung "Aufnahme abgebrochen" +
+==== Alternativer Ablauf: App wird während der Aufnahme beendet
+Wenn die App während der Aufnahme beendet wird, dann +
 
-==== Alternativer Ablauf 2: Aufnahme soll noch nicht beendet werden
-Wenn die Bestätigung "Aufnahme wirklich beenden" im Schritt 3a) bei Beendigung der Aufnahme aufploppt, dann +
-- a) IF "Ja, beenden" --> Aufnahme beenden +
-- ELSE Aufnahme fortsetzen +
-
+. Wird die Aufnahme abrupt gestoppt +
+. Der bisher aufgenommene GPS-Track gespeichert +
+. Nach erneutem öffnen der App kann die angefangene Strecke am gleichen Ort wie bisher aufgenommene
+    Stecken ausgewählte werden. Die Erkennung welche die Abgebrochene Strecke ist, erfolgt über einen automatisierten Namen.
+. Nach der Auswahl des Tracks wird die Option "Aufnahme fortsetzen" wird gewählt
+. Die bisherige Strecke wird auf der Karte angezeigt (UC02) und der Button "Aufnehmen" wird zum Button "fortsetzen".
+. Durch Betätigung von "fortsetzen" wird die Aufnahme fortgesetzt.
+. Nutzer beendet die Aufnahme
+. Bestätigung "Aufnahme wirklich beenden?"
+*** IF "Ja, beenden"
+**** Aufnahme wird gestoppt
+**** Dialogfeld "Bitte geben sie einen Dateinamen an" -> Bestätigung "speichern"
+**** GPS-Track wird zur Synchronisation mit Server freigegeben (UC04)
+**** App bestätigt die erfolgreiche Speicherung 
+*** ELSE -> Aufnahme wird fortgesetzt
+. Der Use Case ist abgeschlossen.
 
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
 
 ==== Szenario 1: Erfolgreiche Trackaufnahme
-. SC1: Nutzer X startet die Aufnahme des Tracks per App. Der Roboter fährt die vorgegebene Route ab und kommuniziert dabei ständig mit dem Server und gint Standortsignale zur Ortung ab. Der Server speichert die Standortpunkte. Sobald die Fahrt beendet ist, beendet der Nutzer die Aufzeichnung und der Server speichert den Track. Am Ende wird die Speicherung der Datei bestätigt un die Aufnahme ist erfolgreich abgeschlossen.
+. SC1: Nutzer X startet die Aufnahme des Tracks per App. Der Nutzer läuft/fährt die aufzunehmende Route ab.
+Die App ermittelt und speichert die Standortpunkte. Sobald die aufzunehmende Route abgelaufen/fahren wurde, 
+beendet der Nutzer die Aufzeichnung und gibt dem Track ein Name. Am Ende wird der Nutzer über die erfolgreiche Speicherung
+des Tracks informiert.
 
-==== Szenario 2: Fehlgeschlagene Trackaufnahme
-. SC2: Nutzer X startet die Aufnahme des Tracks per App. Der Roboter fährt die vorgegebene Route ab und verliert während der Fahrt die Verbindung zum Server, sodass die Standortsignale nicht mehr ankommen. Der Roboter bleibt stehen. Er versucht die Verbindung zum Server wieder herzustellen, dies gelingt aber nicht und die Aufnahme wird somit abgebrochen. Der Nutzer bekommt eine Fehlermeldung.
+==== Szenario 2: Ungewollte Beendigung der Trackaufnahme
+. SC2: Nutzer X startet die Aufnahme des Tracks per App und läuft die aufzunehmende Route ab. Während der Aufnahme
+wird die App durch das Betriebssystem des Smartphones um Akku zu sparen beendet. Nach dem erneuten öffnen der App
+findet der Nutzer die bisher aufgenommene Strecke unter dem Namen <Datum Uhrzeit>. Durch anklicken des Namens
+wird dem Nutzer die Option gegeben die Aufzeichnung fortzusetzen. Durch die Wahl dieser Option sieht der Nutzer nun
+die stelle an der die Aufnahme abgebrochen wurde. Er kann sich nun an diese Stelle begeben und durch den Button
+"fortsetzen" die Aufnahme der Strecke fortsetzen. Sobald die aufzunehmende Route abgelaufen/fahren wurde, 
+beendet der Nutzer die Aufzeichnung und gibt dem Track ein Name. Am Ende wird der Nutzer über die erfolgreiche Speicherung
+des Tracks informiert.
+
 
 === Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
 
-Bei erfolgreicher Durchführung des Use Cases müssen folgende Nachbedingungen erfüllt sein +
-1. Der Nutzer hat die Aufnahme gestartet +
-2. Die Kommunikation während der Fahrt zwischen Roboter und Server muss bestehen bleiben +
-3. Der Nutzer beendet die Aufnahme +
-4. Der Server speichert die GPS-Datei + 
+Die gewünschte Strecke liegt als Datei vor.
 
-=== Besondere Anforderungen
+//=== Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
-
-==== Usability +
-• Der Use Case gehört zu der grundlegenden Funktionalität des Systems und muss daher eine
-einfache Bedienbarkeit ermöglichen.
-• Der Text für das Starten und Abschließen der Aufnahme, sowie die Dialogfelder müssen in der App gut lesbar sein +
-
-==== Performance +
-• Der Standort muss alle 10 Meter an den Server kommuniziert werden
-• Die Anzeige auf der Karte des gerade gespeicherten Punktes sollte innerhalb von 5 Sekunden erfolgen
-
+//
+//==== Usability +
+//• Der Use Case gehört zu der grundlegenden Funktionalität des Systems und muss daher eine
+//einfache Bedienbarkeit ermöglichen.
+//• Der Text für das Starten und Abschließen der Aufnahme, sowie die Dialogfelder müssen in der App gut lesbar sein +
+//
+//==== Performance +
+//• Der Standort muss alle 10 Meter an den Server kommuniziert werden
+//• Die Anzeige auf der Karte des gerade gespeicherten Punktes sollte innerhalb von 5 Sekunden erfolgen
+//
