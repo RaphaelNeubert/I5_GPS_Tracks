@@ -1,58 +1,80 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
 
-== Use-Case: <use-case name>
+== Use-Case: <GPS-Track aufnehmen>
 
 === Kurzbeschreibung
-//<Kurze Beschreibung des Use Case>
+Der Use Case beschreibt die Aufnahme eines GPS-Tracks per App
 
 === Kurzbeschreibung der Akteure
 
-==== <Akteur 1 Name>
+==== Nutzer
+* Möchte einen GPS-Track während der Roboterfahrt aufnehmen
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
 
-<Vorbedingung 1>
+* Nutzer hat die App zum Aufnehmen des GPS-Tracks gestartet
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-. Der Use Case beginnt, wenn <akteur> <macht>…
-. <Standardablauf Schritt 1>
-. …
-. <Standardablauf Schritt n>
+. Der Use Case beginnt, wenn der Nutzer die Aufnahme der GPS-Daten auslöst
+. WHILE Aufnahme läuft
+* a) Roboter gibt ständig Standort an Server weiter
+* b) Server speichert Standortpunkte
+* c) App zeigt Routenverlauf Live auf der Karte an (UC02)
+. Nutzer beendet die Aufnahme am Ende der Fahrt
+* a) Bestätigung "Aufnahme wirklich beenden?"
+. Server nimmt den GPS-Track auf
+. App bestätigt die erfolgreiche Speicherung 
 . Der Use Case ist abgeschlossen.
 
 === Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
 
-==== <Alternativer Ablauf 1>
-Wenn <Akteur> im Schritt <x> des Standardablauf <etwas macht>, dann
-. <Ablauf beschreiben>
-. Der Use Case wird im Schritt <y> fortgesetzt.
+==== Alternativer Ablauf 1: Aufnahme wird abgebrochen
+Wenn die Verbindung zum Server im Schritt 2 des Standardablauf abbricht, dann +
+• a) bleibt der Roboter stehen +
+• b) IF Erneute Verbindungsversuche erfolgreich +
+* i. Fortsetzung der Aufnahme +
+* ii. Roboter färt weiter +
+    • ELSE +
+* i. Aufnahmevorgang wird abgebrochen + 
+* ii. Nutzer bekommt Fehlermeldung "Aufnahme abgebrochen" +
 
-=== Unterabläufe (subflows)
-//Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
+==== Alternativer Ablauf 2: Aufnahme soll noch nicht beendet werden
+Wenn die Bestätigung "Aufnahme wirklich beenden" im Schritt 3a) bei Beendigung der Aufnahme aufploppt, dann +
+- a) IF "Ja, beenden" --> Aufnahme beenden +
+- ELSE Aufnahme fortsetzen +
 
-==== <Unterablauf 1>
-. <Unterablauf 1, Schritt 1>
-. …
-. <Unterablauf 1, Schritt n>
 
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
 
-==== <Szenario 1>
-. <Szenario 1, Schritt 1>
-. …
-. <Szenario 1, Schritt n>
+==== Szenario 1: Erfolgreiche Trackaufnahme
+. SC1: Nutzer X startet die Aufnahme des Tracks per App. Der Roboter fährt die vorgegebene Route ab und kommuniziert dabei ständig mit dem Server und gint Standortsignale zur Ortung ab. Der Server speichert die Standortpunkte. Sobald die Fahrt beendet ist, beendet der Nutzer die Aufzeichnung und der Server speichert den Track. Am Ende wird die Speicherung der Datei bestätigt un die Aufnahme ist erfolgreich abgeschlossen.
+
+==== Szenario 2: Fehlgeschlagene Trackaufnahme
+. SC2: Nutzer X startet die Aufnahme des Tracks per App. Der Roboter fährt die vorgegebene Route ab und verliert während der Fahrt die Verbindung zum Server, sodass die Standortsignale nicht mehr ankommen. Der Roboter bleibt stehen. Er versucht die Verbindung zum Server wieder herzustellen, dies gelingt aber nicht und die Aufnahme wird somit abgebrochen. Der Nutzer bekommt eine Fehlermeldung.
 
 === Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
 
-==== <Nachbedingung 1>
+Bei erfolgreicher Durchführung des Use Cases müssen folgende Nachbedingungen erfüllt sein +
+1. Der Nutzer hat die Aufnahme gestartet +
+2. Die Kommunikation während der Fahrt zwischen Roboter und Server muss bestehen bleiben +
+3. Der Nutzer beendet die Aufnahme +
+4. Der Server speichert die GPS-Datei + 
 
 === Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 
-==== <Besondere Anforderung 1>
+==== Usability +
+• Der Use Case gehört zu der grundlegenden Funktionalität des Systems und muss daher eine
+einfache Bedienbarkeit ermöglichen.
+• Der Text für das Starten und Abschließen der Aufnahme, sowie die Dialogfelder müssen in der App gut lesbar sein +
+
+==== Performance +
+• Der Standort muss alle 10 Meter an den Server kommuniziert werden
+• Die Anzeige auf der Karte des gerade gespeicherten Punktes sollte innerhalb von 5 Sekunden erfolgen
+
