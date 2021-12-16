@@ -5,7 +5,7 @@ Meeting mit Themensteller Prof. Dr. Mario Neugebauer & anschließende Besprechun
 |*Datum* +
 14.12.2021 15:00 Uhr
 | *Ort* +
-BBB (online)
+BBB (online), Element
 |*Anwesend* +
 Alex Schechtel +
 Raphael Neubert +
@@ -24,24 +24,28 @@ Felix Reuß
 |===
 
 === Ergebnisse der Besprechung mit Prof. Dr. Neugebauer
-==== Sprachen und Formate
-* Java als Programmiersprache für Android
-* Python Flask für Server
-* Gradle in Android Studio zur Unterstützung
-* GPX
+==== Technologien
+Der geplante Tech-stack wurde mit dem Themensteller besprochen und genehmigt.
+
+* Java als Programmiersprache für App
+* osmdroid als Kartenbibliothek (für App)
+* Python mit Flask für Server
+* Gradle zum Bauen des Projektes, Android Studio zum erstellen und optional zur Entwicklung.
+* GPX oder gsoJSON als Dateiformat für die Tracks
 
 ==== zu erfüllende Funktionen
 * innerhalb der Route besondere Punkte mit Aufgaben einfügen
-** Ausführbarkeit realisierbar?
-* GPS-Tracks nach Änderung wenn möglich immer automatisch synchronisieren (1:1)
-* Automatische Downloads der Tracks in die App höchstens in 'Gruppen' aufgrund von Speicherplatz
+** Speicherung dieser Punkte mit geoJSON realisierbar?
+* GPS-Tracks nach Änderung wenn möglich immer automatisch mit Server synchronisieren (1:1)
+* Automatische Downloads der Tracks möglichst flexible gestalten damit in Zukunft  Synchronisationsgruppen 
+eingerichtet werden könnten (aufgrund von Speicherplatz)
 * Pfade sollen manuell verändert werden
 ** von Start zu Ende per Linie annähern
 ** starke Ausreiser automatisch verändern (fließender Mittelwert?)
 
 ==== Use Cases
 * UC03 wurde zu hoch priorisiert
-* Synchronisation kan später erfolgen
+* Synchronisation kann später erfolgen
 * neuer *UC07*: GPS-Tracks in Gruppen einteilen (für Synchronisation)
 
 === Aufgaben für nächstes Meeting
