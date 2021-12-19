@@ -23,6 +23,7 @@ Anton Peschel, Raphael Neubert
 Felix Reuß
 |===
 
+
 === Ergebnisse der Besprechung mit Prof. Dr. Neugebauer
 ==== Technologien
 Der geplante Tech-stack wurde mit dem Themensteller besprochen und genehmigt.
