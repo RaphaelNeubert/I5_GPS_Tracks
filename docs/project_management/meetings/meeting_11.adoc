@@ -1,0 +1,67 @@
+== Protokoll Meeting 11
+|===
+2+| *Thema* +
+Meeting mit Coach Christoph Zirkelbach & anschließende Besprechung innerhalb des Teams
+|*Datum* +
+21.12.2021 15:00 Uhr
+| *Ort* +
+BBB (online), Element
+|*Anwesend* +
+Alex Schechtel +
+Raphael Neubert +
+Quang Duy Pham +
+Tom Nicolai +
+Anton Peschel +
+Felix Reuß +
+Ludwig Schönthier +
+Richard Michel 
+| *Abwesend* +
+
+|*Leitung der Besprechung* +
+Raphael Neubert
+|*Protokollführung* +
+Felix Reuß
+|===
+
+
+=== Ergebnisse der Besprechung mit Herrn Zirkelbach
+==== Fragen
+* CSV-Datei?
+** nicht Pflicht
+** Excel Screenshot auch in Ordnung -> Farben noch vorhanden
+* Programmierstart?
+** erster Prototyp muss bis Ende des Semesters vorhanden sein
+* Vorgehen beim Architecture Notebook?
+** wird in KW02 in SE behandelt
+** -> in einzelnen Iterationsrunden thematisieren (OpenUP)
+** -> *vertikaler Prototyp* nützlich
+* Was soll am Ende von SE 1 stehen?
+** auf App anzeigen + Tests durchführen
+** später synchronisieren
+* Aufnahme der Tracks für Prototyp ausreichend?
+** ja, zeigt Funktionalität
+** eventuell bereits an Anzeige der Karte arbeiten
+
+==== Use Cases
+* *Visionsdokument muss ergänzt werden*
+* *Ausflistung der GPS-Tracks als einzelner Use Case*
+** eventuell zweite Stelle
+* Umformulierung UC05 & UC06
+* Stakeholder ergänzen (evtl. gesetzlicher Rahmen, Bereitsteller der Software)
+* Vorbedingung bei UC01 ergänzen
+* Referenz zu UC02 entfernen: WHILE Aufnahme läuft
+* Synchronisation in Klammern setzen (geringere Priorität)
+* genaue Definition von "abrupter Stopp"
+* *Fortsetzung einer Aufnahme eines Tracks als einzelner Use Case*
+* *Wireframes* für nächstes Meeting mit Themensteller
+* *Use Case Digramme* für *alle* Use Cases als Ellipse
+** Beziehung Akteur - Use Cases
+* *Iterationspläne ergänzen*
+** Verweise auf Protokolle
+** kritische Bewertung
+** erste Iteration war sehr lang, nächste verkürzen
+* Github Milestones nicht unbedingt optimal und nötig
+** geht auch in Dokumentation
+
+=== Nach Meeting
+* es wurden alle Aufgaben in Github übertragen

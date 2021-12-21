@@ -1,0 +1,38 @@
+== Protokoll Meeting 10
+|===
+2+| *Thema* +
+Meeting mit Themensteller Prof. Dr. Mario Neugebauer & anschließende Besprechung der Aufgaben für die kommende Woche
+|*Datum* +
+19.12.2021 17:00 Uhr
+| *Ort* +
+Element
+|*Anwesend* +
+Alex Schechtel +
+Raphael Neubert +
+Tom Nicolai +
+Anton Peschel +
+Felix Reuß +
+Ludwig Schönthier +
+
+| *Abwesend* +
+Quang Duy Pham +
+Richard Michel 
+
+|*Leitung der Besprechung* +
+Anton Peschel, Raphael Neubert
+|*Protokollführung* +
+Felix Reuß
+|===
+
+
+=== Ergebnisse der Besprechung
+* über Githun Iterationen anlegen
+* Aufgaben zuweisen
+* Meilensteine anlegen
+
+-> Fragen für Coach formulieren
+
+* Was muss noch gemacht werden?
+
+-> Meeting mit Coach am kommenden Dienstag um 15.00 Uhr
+
