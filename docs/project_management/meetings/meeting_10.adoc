@@ -26,7 +26,7 @@ Felix Reuß
 
 
 === Ergebnisse der Besprechung
-* über Githun Iterationen anlegen
+* über Github Iterationen anlegen
 * Aufgaben zuweisen
 * Meilensteine anlegen
 
