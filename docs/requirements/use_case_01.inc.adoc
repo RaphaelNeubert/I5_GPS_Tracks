@@ -1,4 +1,5 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
+:imagesdir: images
 
 == Use-Case: GPS-Track aufnehmen
 
@@ -31,6 +32,9 @@ Der Use Case beschreibt die Aufnahme eines GPS-Tracks per App
 **** App bestätigt die erfolgreiche Speicherung 
 *** ELSE -> Aufnahme wird fortgesetzt
 . Der Use Case ist abgeschlossen.
+
+.UC01
+image::Use Case 01_GPS-Track aufnehmen.jpg[]
 
 === Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
