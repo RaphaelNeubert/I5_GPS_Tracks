@@ -27,7 +27,7 @@ Siehe <<#glossary, Glossar>>.
 === Fachliche Motivation
 //Erläutern Sie kurz den Hintergrund, in dem das Projekt angesiedelt ist. Welches Problem soll gelöst werden, wie ist es entstanden? Welche Verbesserung wird angestrebt. Achten Sie darauf, eine fachliche (organisatorische, betriebswirtschaftliche) Perspektive einzunehmen.
 
-
+An der HTW Dresden wird im Modul Software Engineering 1 eine Projektarbeit gefordert, bei welcher ein zusammengestelltes Team aus Studenten einen Auftrag erfüllen müssen. Ein Professor ist auf diese Projektarbeit zugekommen und möchte für seine mobilen Roboter eine Smartphone App erstellt haben, welche durch GPS-Tracks den Roboter auf der Weltkarte orten kann, um dem Roboter per App an bestimmten Orten Aufgaben zuteilen zu können. Da die meißten GPS-Track Apps nur sehr ungenaues GPS-Signal liefern und es dabei nicht möglich ist, bestimmte Punkte für die Aufgabenverteilung an den Roboter auszuwählen, erhofft sich der Professor dass der mobile Roboter durch die App auch aus großer Entfernung zum Nutzer benutzt werden kann.
 
 
 
@@ -36,9 +36,9 @@ Siehe <<#glossary, Glossar>>.
 
 [cols="1,3"]
 |===
-| Das Problem | Die mobilen Fahrroboter können nicht geortet werden und keine Aufgaben erfüllen
-| betrifft | Nutzer welche Aufgaben an den Roboter delegieren wollen (Studenten, Professoren)
-| die Auswirkung davon ist | Roboter kann keine Aufgaben erfüllen
+| Das Problem | Die mobilen Fahrroboter können nicht präzise geortet werden und keine Aufgaben erfüllen
+| betrifft | Studenten und Professoren, welche Aufgaben an den Roboter delegieren wollen
+| die Auswirkung davon ist | Roboter kann nicht aus großer Entfernung benutzt werden
 | eine erfolgreiche Lösung wäre | Eine App, welche denn kompletten Weg des Roboters auf der Karte aufnehmen kann und spezielle Punkte (auf der Karte) bestimmt, bei welchen Aufgaben vom Roboter erledigt werden.
 |===
 
@@ -60,7 +60,7 @@ Beispiel:
 
 [cols="1,3"]
 |===
-| Für | Nutzer der App (Studenten, Professoren, Privatpersonen)?
+| Für | Studenten, Professoren
 | die | mit dem Roboter arbeiten
 | Das Produkt / die Lösung ist eine | mobile App für Smartphones
 | die | das erstellen von GPS-Tracks und durch eintragen bestimmter Punkte auf der Karte, die Aufgabenverteilung an den Roboter ermöglicht
@@ -106,7 +106,7 @@ Beispiel Produkt:
 
 //Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
 
-==== Nutzer der App (ERGÄNZEN)
+==== Student / Professor 
 * muss GPS-Track aufnehmen können
 * GPS-Track auf der Karte anzeigen lassen können 
 * GPS-Track bearbeiten können
