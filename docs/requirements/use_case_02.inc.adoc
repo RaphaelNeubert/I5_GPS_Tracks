@@ -28,11 +28,11 @@ Der Use Case beginnt, wenn Nutzer die App öffnet
 === Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
 
-==== Optionale Fortsetzung 
-Wenn der Nutzer nach Abschluss des  Standartablaufes den Button "aufnehmen" betätigt, dann
+//==== Optionale Fortsetzung 
+//Wenn der Nutzer nach Abschluss des  Standartablaufes den Button "aufnehmen" betätigt, dann
 
-. wird Use Case 01 gestartet
-. Die bisher aufgezeichnete Route wird auf der Karte abgebildet
+//. wird Use Case 01 gestartet
+//. Die bisher aufgezeichnete Route wird auf der Karte abgebildet
 
 ==== Optionale Fortsetzung 
 Wenn der Nutzer nach Abschluss des Standartablaufes einen abgeschlossenen Track auswählt, dann

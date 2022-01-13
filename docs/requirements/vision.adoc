@@ -27,15 +27,19 @@ Siehe <<#glossary, Glossar>>.
 === Fachliche Motivation
 //Erläutern Sie kurz den Hintergrund, in dem das Projekt angesiedelt ist. Welches Problem soll gelöst werden, wie ist es entstanden? Welche Verbesserung wird angestrebt. Achten Sie darauf, eine fachliche (organisatorische, betriebswirtschaftliche) Perspektive einzunehmen.
 
+An der HTW Dresden wird im Modul Software Engineering 1 eine Projektarbeit gefordert, bei welcher ein zusammengestelltes Team aus Studenten einen Auftrag erfüllen müssen. Ein Professor ist auf diese Projektarbeit zugekommen und möchte für seine mobilen Roboter eine Smartphone App erstellt haben, welche durch GPS-Tracks den Roboter auf der Weltkarte orten kann, um dem Roboter per App an bestimmten Orten Aufgaben zuteilen zu können. Da die meißten GPS-Track Apps nur sehr ungenaues GPS-Signal liefern und es dabei nicht möglich ist, bestimmte Punkte für die Aufgabenverteilung an den Roboter auszuwählen, erhofft sich der Professor dass der mobile Roboter durch die App auch aus großer Entfernung zum Nutzer benutzt werden kann.
+
+
+
 === Problem Statement
 //Stellen Sie zusammenfassend das Problem dar, das mit diesem Projekt gelöst werden soll. Das folgende Format kann dazu verwendet werden:
 
 [cols="1,3"]
 |===
-| Das Problem | [beschreiben Sie das Problem]
-| betrifft | [die Stakeholder, die vom Problem betroffen sind]
-| die Auswirkung davon ist | [welche Auswirkungen hat das Problem?]
-| eine erfolgreiche Lösung wäre | Führen Sie einige wesentliche Vorteile einer erfolgreichen Lösung auf]
+| Das Problem | Die mobilen Fahrroboter können nicht präzise geortet werden und keine Aufgaben erfüllen
+| betrifft | Studenten und Professoren, welche Aufgaben an den Roboter delegieren wollen
+| die Auswirkung davon ist | Roboter kann nicht aus großer Entfernung benutzt werden
+| eine erfolgreiche Lösung wäre | Eine App, welche denn kompletten Weg des Roboters auf der Karte aufnehmen kann und spezielle Punkte (auf der Karte) bestimmt, bei welchen Aufgaben vom Roboter erledigt werden.
 |===
 
 ////
@@ -56,12 +60,12 @@ Beispiel:
 
 [cols="1,3"]
 |===
-| Für | [Zielkunde / Nutzer]
-| der / die | [Angabe des Bedarfs oder Chance]
-| Das Produkt / die Lösung ist ein | [Produktkategorie]
-| Die / Das | [Aussage zum Hauptvorteil / Alleinstellungsmerkmal]
-| Im Gegensatz zu | [wesentliche Lösungsalternative]
-| Unser Produkt | [Aussage zum Hauptunterschied]
+| Für | Studenten, Professoren
+| die | mit dem Roboter arbeiten
+| Das Produkt / die Lösung ist eine | mobile App für Smartphones
+| die | das erstellen von GPS-Tracks und durch eintragen bestimmter Punkte auf der Karte, die Aufgabenverteilung an den Roboter ermöglicht
+| Im Gegensatz zu | sehr ungenauen GPS-Track Apps ohne Möglichkeit zur Aufgabenverteilung
+| Unser Produkt | unterstützt die präszise Erstellung von GPS-Tracks und die Aufgabenvertreilung an den Roboter
 |===
 
 ////
@@ -91,16 +95,27 @@ Beispiel Produkt:
 |===
 
 === Benutzerumgebung
-Beschreiben Sie die Arbeitsumgebung des Nutzers. Hier sind einige Anregungen:
+//Beschreiben Sie die Arbeitsumgebung des Nutzers. Hier sind einige Anregungen:
 
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
-. Anzahl der Personen, die an der Erfüllung der Aufgabe beteiligt sind. Ändert sich das?
-. Wie lange dauert die Bearbeitung der Aufgabe? Wie viel Zeit wird für jeden Arbeitsschritt benötigt? Ändert sich das?
-. Gibt es besondere Umgebungsbedingungen, z.B. mobil, offline, Außeneinsatz, Touchbedienung, Nutzung durch seh- oder hörbeeinträchtigte Personen?
-. Welche Systemplattformen werden heute eingesetzt? Welche sind es ggf. zukünftig?
-. Welche anderen Anwendungen sind im Einsatz? Muss ihre Anwendung mit diesen integriert werden?
+//. Anzahl der Personen, die an der Erfüllung der Aufgabe beteiligt sind. Ändert sich das?
+//. Wie lange dauert die Bearbeitung der Aufgabe? Wie viel Zeit wird für jeden Arbeitsschritt benötigt? Ändert sich das?
+//. Gibt es besondere Umgebungsbedingungen, z.B. mobil, offline, Außeneinsatz, Touchbedienung, Nutzung durch seh- oder hörbeeinträchtigte Personen?
+//. Welche Systemplattformen werden heute eingesetzt? Welche sind es ggf. zukünftig?
+//. Welche anderen Anwendungen sind im Einsatz? Muss ihre Anwendung mit diesen integriert werden?
 
-Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
+//Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
+
+==== Student / Professor 
+* muss GPS-Track aufnehmen können
+* GPS-Track auf der Karte anzeigen lassen können 
+* GPS-Track bearbeiten können
+* zuvor aufgenommene GPS-Tracks wieder anzeigen lassen können
+* GPS-Tracks über den Server verwalten können
+* Besondere Punkte in den Track einfügen, um dem Roboter an bestimmten Punkten der Karte Aufgaben verteilen zu können
+* durch erneutes Aufnehmen existierender Tracks die Genauigkeit erhöhen
+* Darstellung auf einer mobilen App
+* Verwendung mit Touchbedienung
 
 
 == Produkt-/Lösungsüberblick
@@ -111,22 +126,25 @@ Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigra
 [%header, cols="4,1,4,1"]
 |===
 | Bedarf | Priorität | Features | Geplantes Release
-| xx | xx | xx | xx
+| GPS-Track aufnehmen | hoch | zurückgelegter Weg des Roboters speichern |
+| GPS-Track auf Karte anzeigen | hoch | zurückgelegter Weg des Roboters auf Karte anzeigen |
+|GPS-Track bearbeiten | hoch | |
+|Wiederaufnahme von GPS-Track| mittel | |
 |===
 
 
 == Zusätzliche Produktanforderungen
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
-Hinweise:
+//Hinweise:
 
-. Führen Sie die wesentlichen anzuwendenden Standards, Hardware oder andere Plattformanforderungen, Leistungsanforderungen und Umgebungsanforderungen auf
-. Definieren Sie grob die Qualitätsanforderungen für Leistung, Robustheit, Ausfalltoleranz, Benutzbarkeit und ähnliche Merkmale, die nicht von den genannten Features erfasst werden.
-. Notieren Sie alle Entwurfseinschränkungen, externe Einschränkungen, Annahmen oder andere Abhängigkeiten, die wenn Sie geändert werden, das Visions-Dokument beeinflussen. Ein Beispiel wäre die Annahme, dass ein bestimmtes Betriebssystem für die vom System erforderliche Hardware verfügbar ist. Ist das Betriebssystem nicht verfügbar, muss das Visions-Dokument angepasst werden.
-. Definieren Sie alle Dokumentationsanforderugen, inkl. Benutzerhandbücher, Onlinehilfe, Installations-, Kennzeichnungs- und Auslieferungsanforderungen-
-. Definieren Sie die Priorität für diese zusätzlichen Produktanforderungen. Ergänzen Sie, falls sinnvoll, Angaben zu Stabilität, Nutzen, Aufwand und Risiko für diese Anforderungen.
+//. Führen Sie die wesentlichen anzuwendenden Standards, Hardware oder andere Plattformanforderungen, Leistungsanforderungen und Umgebungsanforderungen auf
+//. Definieren Sie grob die Qualitätsanforderungen für Leistung, Robustheit, Ausfalltoleranz, Benutzbarkeit und ähnliche Merkmale, die nicht von den genannten Features erfasst werden.
+//. Notieren Sie alle Entwurfseinschränkungen, externe Einschränkungen, Annahmen oder andere Abhängigkeiten, die wenn Sie geändert werden, das Visions-Dokument beeinflussen. Ein Beispiel wäre die Annahme, dass ein bestimmtes Betriebssystem für die vom System erforderliche Hardware verfügbar ist. Ist das Betriebssystem nicht verfügbar, muss das Visions-Dokument angepasst werden.
+//. Definieren Sie alle Dokumentationsanforderugen, inkl. Benutzerhandbücher, Onlinehilfe, Installations-, Kennzeichnungs- und Auslieferungsanforderungen-
+//. Definieren Sie die Priorität für diese zusätzlichen Produktanforderungen. Ergänzen Sie, falls sinnvoll, Angaben zu Stabilität, Nutzen, Aufwand und Risiko für diese Anforderungen.
 
 [%header, cols="4,1,1"]
 |===
 | Anforderung | Priorität | Geplantes Release
-| xx | xx | xx
+| System muss auf allen mobilen Android Geräten lauffähig sein | hoch | 
 |===
