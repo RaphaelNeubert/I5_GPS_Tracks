@@ -15,37 +15,25 @@ Der Use Case beschreibt die Auflistung aller vorhandenen GPS-Tracks innerhalb de
 * Es ist mindestens ein GPS-Track zum Anzeigen vorhanden
 
 === Standardablauf (Basic Flow)
-. Der Use Case beginnt, wenn
-
+. Der Use Case beginnt, wenn der Nutzer auf den Button "+" auf dem Homescreen drückt.
+. Es werden nun alle gespeicherten GPS-Tracks angezeigt.
 . Der Use Case ist abgeschlossen.
 
 === Alternative Abläufe
-//Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
-
-==== Alternativer Ablauf: App wird während der Aufnahme beendet
-Wenn
-. Der Use Case ist abgeschlossen.
+...
 
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
 
 ==== Szenario 1:
 
-==== Szenario 2:
+=== Optionale Fortsetzung
+. Dem User ist es nun möglich, einen GPS-Track anzuwählen.
+. Nun kann er aus folgenden Optionen wählen:
+* GPS-Track löschen
+* GPS-Track bearbeiten -> UC03
+* GPS-Track auf Karte anzeigen -> UC02
 
 
 === Nachbedingungen
-//Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
-//
-//=== Besondere Anforderungen
-//Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
-//
-//==== Usability +
-//• Der Use Case gehört zu der grundlegenden Funktionalität des Systems und muss daher eine
-//einfache Bedienbarkeit ermöglichen.
-//• Der Text für das Starten und Abschließen der Aufnahme, sowie die Dialogfelder müssen in der App gut lesbar sein +
-//
-//==== Performance +
-//• Der Standort muss alle 10 Meter an den Server kommuniziert werden
-//• Die Anzeige auf der Karte des gerade gespeicherten Punktes sollte innerhalb von 5 Sekunden erfolgen
-//
+* Dem Nutzer werden alle verfügbaren gespeicherten GPS-Tracks angezeigt
