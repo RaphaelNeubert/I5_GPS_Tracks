@@ -10,4 +10,6 @@ include::meeting_6.adoc[]
 include::meeting_7.adoc[]
 include::meeting_8.adoc[]
 include::meeting_9.adoc[]
+include::meeting_10.adoc[]
+include::meeting_11.adoc[]
 

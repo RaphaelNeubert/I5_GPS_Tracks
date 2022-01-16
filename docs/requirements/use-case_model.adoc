@@ -22,6 +22,7 @@ include::../_includes/default-attributes.inc.adoc[]
 
 
 == Use Case Diagramm
+image::use_case_diagram.PNG[]
 // ...
 
 //Fügen Sie nachfolgend alle detailierten Use-Cases per Include ein.
