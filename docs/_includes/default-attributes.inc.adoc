@@ -1,5 +1,5 @@
 // Meta
-:project-name: <Projektname (T00)>
+:project-name: <I5-Erstellung von GPS-Tracks>
 // Settings:
 :toc:
 :toc-title: Inhaltsverzeichnis
