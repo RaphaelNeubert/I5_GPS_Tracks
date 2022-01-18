@@ -1,57 +1,38 @@
-//Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
 
-== Use-Case: GPS-Tracks auf der Karte anzeigen 
+== Use-Case 02: GPS-Track auflisten
 
 === Kurzbeschreibung
-//<Kurze Beschreibung des Use Case>
-Darstellung der aktuellen Position sowie der bisher aufgenommenen Routen auf der Karte.
+Der Use Case beschreibt die Auflistung aller gespeicherten GPS-Tracks innerhalb der App.
 
 === Kurzbeschreibung der Akteure
 
-==== Nutzer 
-Nutzer möchte seine Position, die bisher aufgenommene Route oder eine bereits abgeschlossenen Track auf der Karte sehen.
+==== Nutzer
+* Möchte alle GPS-Tracks sehen
 
 === Vorbedingungen
-//Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
-Nutzer hat die App geöffnet.
-Der App wurde die GPS-Berechtigung erteilt.
-Nutzer verfügt über eine funktionierende Internet-, und GPS-Verbindung.
+* Nutzer hat die App zum Aufnehmen des GPS-Tracks gestartet
+
+* Es ist mindestens ein GPS-Track zum Anzeigen vorhanden
 
 === Standardablauf (Basic Flow)
-//Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
-
-Der Use Case beginnt, wenn Nutzer die App öffnet
-
-. Eine Karte wird angezeigt und die aktuelle Position des Nutzers wird erkennbar
+. Der Use Case beginnt, wenn der Nutzer auf den Button "+" auf dem Homescreen drückt.
+. Es werden nun alle gespeicherten GPS-Tracks angezeigt.
 . Der Use Case ist abgeschlossen.
 
-=== Alternative Abläufe
-//Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
-
-//==== Optionale Fortsetzung 
-//Wenn der Nutzer nach Abschluss des  Standartablaufes den Button "aufnehmen" betätigt, dann
-
-//. wird Use Case 01 gestartet
-//. Die bisher aufgezeichnete Route wird auf der Karte abgebildet
-
-==== Optionale Fortsetzung 
-Wenn der Nutzer nach Abschluss des Standartablaufes einen abgeschlossenen Track auswählt, dann
-
-. wird dieser angezeigt
-
-=== Wesentliche Szenarios
+=== Beispiel Szenario
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
-SC1: Der Nutzer will wissen wo er ist oder ob die Messung der App mit der Realität übereinstimmt.
-SC2: Nutzer will bisher aufgenommene Strecke sehen um festzustellen ob diese seinen Anforderungen entspricht.
-SC3: Nutzer will bereits beendete Strecke betrachten um festzustellen ob manuelle Bearbeitungen notwendig sind (UC03).
+
+Der Nutzer möchte überprüfen ob er sich bei der Benennung eines Tracks beim Speichern
+verschrieben hat. Er betätigt das "+" Symbol auf dem Homescreen und kann daraufhin
+die Namen aller gespeicherten Tracks einsehen.
+
+=== Optionale Fortsetzung
+. Dem User ist es nun möglich, einen GPS-Track anzuwählen.
+. Nun kann er aus folgenden Optionen wählen:
+* GPS-Track löschen
+* GPS-Track bearbeiten -> UC03
+* GPS-Track auf Karte anzeigen -> UC02
+
 
 === Nachbedingungen
-//Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
-Der Nutzer sieht die gewünschten Inhalte auf der Karte.
-
-//==== <Nachbedingung 1>
-//
-//=== Besondere Anforderungen
-//Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
-//
-//==== <Besondere Anforderung 1>
+* Dem Nutzer werden alle verfügbaren gespeicherten GPS-Tracks angezeigt

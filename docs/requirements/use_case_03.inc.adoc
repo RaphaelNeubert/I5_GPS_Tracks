@@ -1,66 +1,57 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
 
-== Use-Case: GPS-Tracks Bearbeiten
+== Use-Case 03: GPS-Tracks auf der Karte anzeigen 
 
 === Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>
-Die App soll das manuelle Bearbeiten bereits aufgenommener Tracks ermöglichen.
+Darstellung der aktuellen Position sowie der bisher aufgenommenen Routen auf der Karte.
 
 === Kurzbeschreibung der Akteure
 
 ==== Nutzer 
-möchte die Bearbeitung vornehmen
+Nutzer möchte seine Position, die bisher aufgenommene Route oder eine bereits abgeschlossenen Track auf der Karte sehen.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
-* Nutzer verfügt über aufgenommenen GPS-Track
+Nutzer hat die App geöffnet.
+Der App wurde die GPS-Berechtigung erteilt.
+Nutzer verfügt über eine funktionierende Internet-, und GPS-Verbindung.
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
-Der Use Case beginnt, wenn der Nutzer auf einen Track die Option "bearbeiten" anwendet.
 
-. Der Track wird auf der Karte angezeigt. Die einzelnen Punkte werden hervorgehoben.
-. Der Nutzer kann die einzelnen Punkte verschieben.
-. Bei Betätigung des Buttons "speichern": Dialog "Soll die Änderung gespeichert werden?"
-** IF "Ja, speichern"
-*** Änderung wird gespeichert und Nutzer kehrt auf Indexseite zurück.
-** ELSE IF "Änderungen Verwerfen"
-*** Änderung gelöscht und Nutzer kehrt auf Indexseite zurück.
-** ELSE IF "Bearbeitung fortsetzen"
-*** Dialog schließt sich 
+Der Use Case beginnt, wenn Nutzer die App öffnet
 
+. Eine Karte wird angezeigt und die aktuelle Position des Nutzers wird erkennbar
 . Der Use Case ist abgeschlossen.
 
-//Kommt später
-//=== Alternative Abläufe
+=== Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
-//
-//==== <Alternativer Ablauf 1>
-//Wenn <Akteur> im Schritt <x> des Standardablauf <etwas macht>, dann
-//. <Ablauf beschreiben>
-//. Der Use Case wird im Schritt <y> fortgesetzt.
-//
-//=== Unterabläufe (subflows)
-//Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
-//
-//==== <Unterablauf 1>
-//. <Unterablauf 1, Schritt 1>
-//. …
-//. <Unterablauf 1, Schritt n>
+
+//==== Optionale Fortsetzung 
+//Wenn der Nutzer nach Abschluss des  Standartablaufes den Button "aufnehmen" betätigt, dann
+
+//. wird Use Case 01 gestartet
+//. Die bisher aufgezeichnete Route wird auf der Karte abgebildet
+
+==== Optionale Fortsetzung 
+Wenn der Nutzer nach Abschluss des Standartablaufes einen abgeschlossenen Track auswählt, dann
+
+. wird dieser angezeigt
 
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
+SC1: Der Nutzer will wissen wo er ist oder ob die Messung der App mit der Realität übereinstimmt.
+SC2: Nutzer will bisher aufgenommene Strecke sehen um festzustellen ob diese seinen Anforderungen entspricht.
+SC3: Nutzer will bereits beendete Strecke betrachten um festzustellen ob manuelle Bearbeitungen notwendig sind (UC03).
 
-SC1: Nutzer stellt fest das durch GPS-Ungenauigkeiten der aufgenommene Track von der gewünschten Route abweicht.
-   Nutzer wendet die Option "bearbeiten" auf den entsprechenden Track an, verschiebt die fehlerhaften Punkte und
-   Speichert anschließend die Änderungen. +
-SC2: Nutzer stellt bei Betrachtung einer aufgenommenen Strecke fest das es eine Abkürzung gibt. 
-    Er wendet die Option "bearbeiten" auf den entsprechenden Track an, verschiebt die betroffenen Punkte und
-    Speichert anschließend die Änderungen.
+=== Nachbedingungen
+//Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
+Der Nutzer sieht die gewünschten Inhalte auf der Karte.
 
-//=== Nachbedingungen
+//==== <Nachbedingung 1>
 //
 //=== Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 //
-//==== <Besondere Anforderung 1>,
+//==== <Besondere Anforderung 1>

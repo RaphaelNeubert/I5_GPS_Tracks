@@ -1,0 +1,66 @@
+//Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
+
+== Use-Case 04: GPS-Tracks Bearbeiten
+
+=== Kurzbeschreibung
+//<Kurze Beschreibung des Use Case>
+Die App soll das manuelle Bearbeiten bereits aufgenommener Tracks ermöglichen.
+
+=== Kurzbeschreibung der Akteure
+
+==== Nutzer 
+möchte die Bearbeitung vornehmen
+
+=== Vorbedingungen
+//Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
+* Nutzer verfügt über aufgenommenen GPS-Track
+
+=== Standardablauf (Basic Flow)
+//Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
+Der Use Case beginnt, wenn der Nutzer auf einen Track die Option "bearbeiten" anwendet.
+
+. Der Track wird auf der Karte angezeigt. Die einzelnen Punkte werden hervorgehoben.
+. Der Nutzer kann die einzelnen Punkte verschieben.
+. Bei Betätigung des Buttons "speichern": Dialog "Soll die Änderung gespeichert werden?"
+** IF "Ja, speichern"
+*** Änderung wird gespeichert und Nutzer kehrt auf Indexseite zurück.
+** ELSE IF "Änderungen Verwerfen"
+*** Änderung gelöscht und Nutzer kehrt auf Indexseite zurück.
+** ELSE IF "Bearbeitung fortsetzen"
+*** Dialog schließt sich 
+
+. Der Use Case ist abgeschlossen.
+
+//Kommt später
+//=== Alternative Abläufe
+//Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
+//
+//==== <Alternativer Ablauf 1>
+//Wenn <Akteur> im Schritt <x> des Standardablauf <etwas macht>, dann
+//. <Ablauf beschreiben>
+//. Der Use Case wird im Schritt <y> fortgesetzt.
+//
+//=== Unterabläufe (subflows)
+//Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
+//
+//==== <Unterablauf 1>
+//. <Unterablauf 1, Schritt 1>
+//. …
+//. <Unterablauf 1, Schritt n>
+
+=== Wesentliche Szenarios
+//Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
+
+SC1: Nutzer stellt fest das durch GPS-Ungenauigkeiten der aufgenommene Track von der gewünschten Route abweicht.
+   Nutzer wendet die Option "bearbeiten" auf den entsprechenden Track an, verschiebt die fehlerhaften Punkte und
+   Speichert anschließend die Änderungen. +
+SC2: Nutzer stellt bei Betrachtung einer aufgenommenen Strecke fest das es eine Abkürzung gibt. 
+    Er wendet die Option "bearbeiten" auf den entsprechenden Track an, verschiebt die betroffenen Punkte und
+    Speichert anschließend die Änderungen.
+
+//=== Nachbedingungen
+//
+//=== Besondere Anforderungen
+//Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
+//
+//==== <Besondere Anforderung 1>,
