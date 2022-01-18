@@ -1,0 +1,63 @@
+== Protokoll Meeting 12
+|===
+2+| *Thema* +
+Coach Christoph Zirkelbach
+|*Datum* +
+18.01.2022 15:00 Uhr
+| *Ort* +
+BBB (online)
+|*Anwesend* +
+Alex Schechtel +
+Raphael Neubert +
+Quang Duy Pham +
+Tom Nicolai +
+Anton Peschel +
+Felix Reuß +
+Ludwig Schönthier 
+| *Abwesend* +
+Richard Michel 
+|*Leitung der Besprechung* +
+Raphael Neubert
+|*Protokollführung* +
+Felix Reuß
+|===
+
+
+=== Ergebnisse der Besprechung mit Herrn Zirkelbach
+* Herrn Zirkelbach auf neuesten Stand gebracht
+
+==== Prototyp
+* keine automatischen Tests
+* erste Testfälle sollen aus Prototyp abgeleitet werden können
+* Tests nur wenn nötig anfertigen (erstmal nur "Dummy Daten")
+* erste Tests nur sehr grundlegend
+
+==== Tipps
+* Name des Domänenmodells
+** bezieht sich auf Fall
+** Überblick: 
+*** vorhandene Objekte
+*** Beziehungen der Objekte
+* Iterationen sehr / zu groß
+** Meilensteine eventuell definieren
+** Iterationen kleiner machen (Umfang 1-2 Wochen)
+** sonst schnell schlechte Nutzung des Zeitkontingents
+
+==== Abgabe
+* Vorstellung Prototyp in erster Januarwoche dem Betreuer vorstellen
+* Beleg an sich in AsciiDoc
+* PDF generieren und an Prof. Anke senden / hochladen
+
+==== Aufgaben
+* Wireframes zu Requirements zuordnen (Unterstützung der Use-Cases)
+* Vision ist noch immer unvollständig
+** am Cocktailversand orientieren
+* Bildunter/überschriften ergänzen
+* Stakeholder "Student/Professor" zu "Benutzer" umändern
+* Wireframes ergänzen
+* UC07 "GPS-Tracks auflisten" in UC-Diagramm aufnehmen
+* Use Cases durchnummerieren für einfache Referenzen
+* Verwendung von "Track" vermeiden und zu "GPS-Track" umändern
+* Iterationspläne ergänzen und inkludieren
+** -> schnell ins Repository
+** sonst nicht alle auf aktuellem Stand
