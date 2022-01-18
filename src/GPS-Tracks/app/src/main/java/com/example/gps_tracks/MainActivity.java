@@ -2,26 +2,33 @@ package com.example.gps_tracks;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
-import org.osmdroid.views.MapView;
-import org.osmdroid.views.CustomZoomButtonsController;
-import org.osmdroid.api.IMapController;
 import org.osmdroid.util.GeoPoint;
+import org.osmdroid.views.CustomZoomButtonsController;
+import org.osmdroid.views.MapView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
     private final int REQUEST_PERMISSIONS_REQUEST_CODE = 1;
     private MapView map = null;
+    private Button rec;
+    private ImageButton list;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,6 +39,11 @@ public class MainActivity extends AppCompatActivity{
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE
         });
+
+        //will hide the title
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        // hide the title bar
+        getSupportActionBar().hide();
 
         //load/initialize the osmdroid configuration
         Context ctx = getApplicationContext();
@@ -55,6 +67,9 @@ public class MainActivity extends AppCompatActivity{
         mapController.setZoom(9.5);
         GeoPoint startPoint = new GeoPoint(48.8583, 2.2944);
         mapController.setCenter(startPoint);
+
+        list=(ImageButton) findViewById(R.id.list);
+
     }
 
     @Override
@@ -108,4 +123,10 @@ public class MainActivity extends AppCompatActivity{
                     REQUEST_PERMISSIONS_REQUEST_CODE);
         }
     }
+
+    public void OnClick(View v) {
+        Intent intent = new Intent(MainActivity.this,ListTracks.class);
+        startActivity(intent);
+    }
+
 }
