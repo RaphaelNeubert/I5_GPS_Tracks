@@ -38,7 +38,7 @@ Felix Reuß
 * Was soll am Ende von SE 1 stehen?
 ** auf App anzeigen + Tests durchführen
 ** später synchronisieren
-* Aufnahme der Tracks für Prototyp ausreichend?
+* Aufnahme der GPS-Tracks für Prototyp ausreichend?
 ** ja, zeigt Funktionalität
 ** eventuell bereits an Anzeige der Karte arbeiten
 
@@ -52,7 +52,7 @@ Felix Reuß
 * Referenz zu UC02 entfernen: WHILE Aufnahme läuft
 * Synchronisation in Klammern setzen (geringere Priorität)
 * genaue Definition von "abrupter Stopp"
-* *Fortsetzung einer Aufnahme eines Tracks als einzelner Use Case*
+* *Fortsetzung einer Aufnahme eines GPS-Tracks als einzelner Use Case*
 * *Wireframes* für nächstes Meeting mit Themensteller
 * *Use Case Digramme* für *alle* Use Cases als Ellipse
 ** Beziehung Akteur - Use Cases

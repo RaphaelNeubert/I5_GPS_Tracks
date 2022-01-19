@@ -48,7 +48,7 @@ Wenn die App während der Aufnahme beendet wird, dann +
 . Der bisher aufgenommene GPS-Track gespeichert +
 . Nach erneutem öffnen der App kann die angefangene Strecke am gleichen Ort wie bisher aufgenommene
     Stecken ausgewählte werden. Die Erkennung welche die Abgebrochene Strecke ist, erfolgt über einen automatisierten Namen.
-. Nach der Auswahl des Tracks wird die Option "Aufnahme fortsetzen" wird gewählt
+. Nach der Auswahl des GPS-Tracks wird die Option "Aufnahme fortsetzen" wird gewählt
 . Die bisherige Strecke wird auf der Karte angezeigt (UC02) und der Button "Aufnehmen" wird zum Button "fortsetzen".
 . Durch Betätigung von "fortsetzen" wird die Aufnahme fortgesetzt.
 . Nutzer beendet die Aufnahme
@@ -64,21 +64,21 @@ Wenn die App während der Aufnahme beendet wird, dann +
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
 
-==== Szenario 1: Erfolgreiche Trackaufnahme
-. SC1: Nutzer X startet die Aufnahme des Tracks per App. Der Nutzer läuft/fährt die aufzunehmende Route ab.
+==== Szenario 1: Erfolgreiche GPS-Trackaufnahme
+. SC1: Nutzer X startet die Aufnahme des GPS-Tracks per App. Der Nutzer läuft/fährt die aufzunehmende Route ab.
 Die App ermittelt und speichert die Standortpunkte. Sobald die aufzunehmende Route abgelaufen/fahren wurde, 
-beendet der Nutzer die Aufzeichnung und gibt dem Track ein Name. Am Ende wird der Nutzer über die erfolgreiche Speicherung
-des Tracks informiert.
+beendet der Nutzer die Aufzeichnung und gibt dem GPS-Track ein Name. Am Ende wird der Nutzer über die erfolgreiche Speicherung
+des GPS-Tracks informiert.
 
-==== Szenario 2: Ungewollte Beendigung der Trackaufnahme
-. SC2: Nutzer X startet die Aufnahme des Tracks per App und läuft die aufzunehmende Route ab. Während der Aufnahme
+==== Szenario 2: Ungewollte Beendigung der GPS-Trackaufnahme
+. SC2: Nutzer X startet die Aufnahme des GPS-Tracks per App und läuft die aufzunehmende Route ab. Während der Aufnahme
 wird die App durch das Betriebssystem des Smartphones um Akku zu sparen beendet. Nach dem erneuten öffnen der App
 findet der Nutzer die bisher aufgenommene Strecke unter dem Namen <Datum Uhrzeit>. Durch anklicken des Namens
 wird dem Nutzer die Option gegeben die Aufzeichnung fortzusetzen. Durch die Wahl dieser Option sieht der Nutzer nun
 die stelle an der die Aufnahme abgebrochen wurde. Er kann sich nun an diese Stelle begeben und durch den Button
 "fortsetzen" die Aufnahme der Strecke fortsetzen. Sobald die aufzunehmende Route abgelaufen/fahren wurde, 
-beendet der Nutzer die Aufzeichnung und gibt dem Track ein Name. Am Ende wird der Nutzer über die erfolgreiche Speicherung
-des Tracks informiert.
+beendet der Nutzer die Aufzeichnung und gibt dem GPS-Track ein Name. Am Ende wird der Nutzer über die erfolgreiche Speicherung
+des GPS-Tracks informiert.
 
 
 === Nachbedingungen

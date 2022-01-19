@@ -4,7 +4,7 @@
 
 === Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>
-Die App soll das manuelle Bearbeiten bereits aufgenommener Tracks ermöglichen.
+Die App soll das manuelle Bearbeiten bereits aufgenommener GPS-Tracks ermöglichen.
 
 === Kurzbeschreibung der Akteure
 
@@ -17,9 +17,9 @@ möchte die Bearbeitung vornehmen
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
-Der Use Case beginnt, wenn der Nutzer auf einen Track die Option "bearbeiten" anwendet.
+Der Use Case beginnt, wenn der Nutzer auf einen GPS-Track die Option "bearbeiten" anwendet.
 
-. Der Track wird auf der Karte angezeigt. Die einzelnen Punkte werden hervorgehoben.
+. Der GPS-Track wird auf der Karte angezeigt. Die einzelnen Punkte werden hervorgehoben.
 . Der Nutzer kann die einzelnen Punkte verschieben.
 . Bei Betätigung des Buttons "speichern": Dialog "Soll die Änderung gespeichert werden?"
 ** IF "Ja, speichern"
@@ -51,11 +51,11 @@ Der Use Case beginnt, wenn der Nutzer auf einen Track die Option "bearbeiten" an
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
 
-SC1: Nutzer stellt fest das durch GPS-Ungenauigkeiten der aufgenommene Track von der gewünschten Route abweicht.
-   Nutzer wendet die Option "bearbeiten" auf den entsprechenden Track an, verschiebt die fehlerhaften Punkte und
+SC1: Nutzer stellt fest das durch GPS-Ungenauigkeiten der aufgenommene GPS-Track von der gewünschten Route abweicht.
+   Nutzer wendet die Option "bearbeiten" auf den entsprechenden GPS-Track an, verschiebt die fehlerhaften Punkte und
    Speichert anschließend die Änderungen. +
 SC2: Nutzer stellt bei Betrachtung einer aufgenommenen Strecke fest das es eine Abkürzung gibt. 
-    Er wendet die Option "bearbeiten" auf den entsprechenden Track an, verschiebt die betroffenen Punkte und
+    Er wendet die Option "bearbeiten" auf den entsprechenden GPS-Track an, verschiebt die betroffenen Punkte und
     Speichert anschließend die Änderungen.
 
 //=== Nachbedingungen

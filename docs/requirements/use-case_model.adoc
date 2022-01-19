@@ -17,8 +17,8 @@ include::../_includes/default-attributes.inc.adoc[]
 * *UC04*: GPS-Track bearbeiten
 * *UC05*: Wiederaufnahme von GPS-Track
 * *UC06*: GPS-Track über Server verwalten
-* *UC07*: Besondere(n) Punkt(e) in Track einfügen
-* *UC08*: Verbesserung existierender Tracks durch erneute Aufnahme
+* *UC07*: Besondere(n) Punkt(e) in GPS-Track einfügen
+* *UC08*: Verbesserung existierender GPS-Tracks durch erneute Aufnahme
 
 
 
