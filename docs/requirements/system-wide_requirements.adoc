@@ -33,9 +33,13 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 
 === Wartbarkeit (Supportability)
 // Dieser Bereich beschreibt sämtliche Anforderungen welche die Supportfähigkeit oder Wartbarkeit des zu entwickelnden Systems verbessern, einschließlich Anpassungsfähigkeit und Erweiterbarkeit, Kompatibilität, Skalierbarkeit und Anforderungen bezüglich der System Installation sowie Maß an Support und Wartbarkeit.
-
+*NFAS-1: Das System soll in der Lage sein, neue Sprachen integrieren zu können.* +
+Zur Überprüfung wird festgestellt, ob entsprechende Schnittstellen vorhanden sind. +
+*NFAS-2: Das System soll in der Lage sein, Kartendaten verschiedener Anbieter zu verwenden.* +
+Zur Überprüfung wird festgestellt, ob entsprechende Schnittstellen vorhanden sind.
 
 == Zusätzliche Anforderungen
+
 
 === Einschränkungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
