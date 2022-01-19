@@ -60,7 +60,7 @@ Beispiel:
 
 [cols="1,3"]
 |===
-| Für | Studenten, Professoren
+| Für | Benutzer
 | die | mit dem Roboter arbeiten
 | Das Produkt / die Lösung ist eine | mobile App für Smartphones
 | die | das erstellen von GPS-Tracks und durch eintragen bestimmter Punkte auf der Karte, die Aufgabenverteilung an den Roboter ermöglicht
@@ -89,8 +89,8 @@ Beispiel Produkt:
 |===
 | Name | Beschreibung | Verantwortlichkeiten
 
-| [Benennung des Stakeholder-Typs.]
-| [Kurze Beschreibung des Stakeholders.]
+| Benutzer 
+| Professoren und Studenten 
 | [Fassen Sie die wesentlichen Verantwortlichkeiten des Stakeholder mit Bezug auf das zu entwickelnde System kurz zusammen, d.h. ihr besonderen Interessen. Beispiele: Dieser Stakeholder sorgt dafür, dass das System gewartet wird / dass die angezeigten Daten aktuell sind / überwacht den Projektfortschritt / usw.]
 |===
 
@@ -106,14 +106,14 @@ Beispiel Produkt:
 
 //Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
 
-==== Student / Professor 
+==== Benutzer
 * muss GPS-Track aufnehmen können
 * GPS-Track auf der Karte anzeigen lassen können 
 * GPS-Track bearbeiten können
 * zuvor aufgenommene GPS-Tracks wieder anzeigen lassen können
 * GPS-Tracks über den Server verwalten können
 * Besondere Punkte in den Track einfügen, um dem Roboter an bestimmten Punkten der Karte Aufgaben verteilen zu können
-* durch erneutes Aufnehmen existierender Tracks die Genauigkeit erhöhen
+* durch erneutes Aufnehmen existierender GPS-Tracks die Genauigkeit erhöhen
 * Darstellung auf einer mobilen App
 * Verwendung mit Touchbedienung
 

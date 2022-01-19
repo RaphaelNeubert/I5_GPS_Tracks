@@ -9,7 +9,7 @@ Darstellung der aktuellen Position sowie der bisher aufgenommenen Routen auf der
 === Kurzbeschreibung der Akteure
 
 ==== Nutzer 
-Nutzer möchte seine Position, die bisher aufgenommene Route oder eine bereits abgeschlossenen Track auf der Karte sehen.
+Nutzer möchte seine Position, die bisher aufgenommene Route oder eine bereits abgeschlossenen GPS-Track auf der Karte sehen.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
@@ -35,7 +35,7 @@ Der Use Case beginnt, wenn Nutzer die App öffnet
 //. Die bisher aufgezeichnete Route wird auf der Karte abgebildet
 
 ==== Optionale Fortsetzung 
-Wenn der Nutzer nach Abschluss des Standartablaufes einen abgeschlossenen Track auswählt, dann
+Wenn der Nutzer nach Abschluss des Standartablaufes einen abgeschlossenen GPS-Track auswählt, dann
 
 . wird dieser angezeigt
 

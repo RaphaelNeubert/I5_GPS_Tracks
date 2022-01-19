@@ -30,8 +30,24 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 == Entscheidungen, Nebenbedingungen und Begründungen
 //[List the decisions that have been made regarding architectural approaches and the constraints being placed on the way that the developers build the system. These will serve as guidelines for defining architecturally significant parts of the system. Justify each decision or constraint so that developers understand the importance of building the system according to the context created by those decisions and constraints. This may include a list of DOs and DON’Ts to guide the developers in building the system.]
 
-. Entscheidung oder Einschränkung oder Begründung 1
-. Entscheidung oder Einschränkung oder Begründung 2
+. *Verwendung der Bibliothek "osmdroid" zum laden und manipulieren von Kartendaten.* +
+    Zur Handhabung von Kartendaten gibt es viele verschiedene Bibliotheken. Dazu zählen
+    zum Beispiel die Maps SDK von Google, Mapbox, Mapsforge, Sout SDK und viele mehr.
+    Osmdroid ist eine großteils identische Reimplementierung von Google Maps SDK.
+    Es gibt dabei zwei große Unterschiede die osmdroid eine bessere Entscheidung machen.
+    Osmdroid ist Open-Source und bietet daher eine höhere Flexibilität, eine leichtere
+    Erweiterbarkeit, eine gute Dokumentation sowie eine Hilfreiche Community und eine
+    sehr hohe Stabilität da der Code von vielen verschieden Menschen überprüft wurde.
+    Der jedoch entscheidendere Punkt ist das osmdroid das Verwenden verschiedener
+    Tile Server ermöglicht. So kann man die Daten von Google Maps oder Mapbox
+    aber auch von freien Providern wie zum Beispiel OpenStreetMap  oder sogar einen
+    selbst gehosteten Tile Server nehmen.
+
+. *Für den Server ist die Programmiersprache Python mit dem Framework Flask zu verwenden* +
+Python ist eine sehr einfache und dank umfangreicher Dokumentation, leicht zu erlerne
+Programmiersprache, die in Verbindung mit Frameworks sehr gut für Server geeignet ist.
+Flask ist ein Micro Framework was sich vor allem durch eine sehr einfache Verwendung auszeichnet.
+Dennoch verfügt Flask über viel Funktionalität und ist sehr erweiterbar.
 
 
 == Architekturmechanismen

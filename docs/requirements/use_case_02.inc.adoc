@@ -22,9 +22,9 @@ Der Use Case beschreibt die Auflistung aller gespeicherten GPS-Tracks innerhalb 
 === Beispiel Szenario
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
 
-Der Nutzer möchte überprüfen ob er sich bei der Benennung eines Tracks beim Speichern
+Der Nutzer möchte überprüfen ob er sich bei der Benennung eines GPS-Tracks beim Speichern
 verschrieben hat. Er betätigt das "+" Symbol auf dem Homescreen und kann daraufhin
-die Namen aller gespeicherten Tracks einsehen.
+die Namen aller gespeicherten GPS-Tracks einsehen.
 
 === Optionale Fortsetzung
 . Dem User ist es nun möglich, einen GPS-Track anzuwählen.

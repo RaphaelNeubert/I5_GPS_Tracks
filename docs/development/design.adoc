@@ -15,4 +15,4 @@ image::menu.PNG[]
 Wenn man "+" klickt, zeigt App die Menu-Fernster
 
 image::optionen.PNG[]
-Wenn man einen Track klickt, zeigt App eine Dropdown-Fernster
+Wenn man einen GPS-Track klickt, zeigt App eine Dropdown-Fernster
