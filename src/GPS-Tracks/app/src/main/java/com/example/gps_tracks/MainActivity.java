@@ -4,12 +4,15 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.R.drawable;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -21,6 +24,7 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.CustomZoomButtonsController;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.Marker;
 
 import java.util.ArrayList;
 
@@ -67,6 +71,16 @@ public class MainActivity extends AppCompatActivity{
         mapController.setZoom(9.5);
         GeoPoint startPoint = new GeoPoint(48.8583, 2.2944);
         mapController.setCenter(startPoint);
+
+        Marker m = new Marker(map);
+        m.setPosition(new GeoPoint(51.051899,13.768021));
+        m.setTextLabelBackgroundColor(Color.TRANSPARENT);
+        m.setTextLabelForegroundColor(Color.RED);
+        m.setTextLabelFontSize(40);
+        m.setIcon(getResources().getDrawable(R.drawable.ic_menu_mylocation));
+        m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_TOP);
+
+        map.getOverlays().add(m);
 
         list=(ImageButton) findViewById(R.id.list);
 
