@@ -37,7 +37,7 @@ Felix Reuß
 |===
 
 === Fragen zum Belegprojekt
-===== 1. Fragen zum Roboter
+==== 1. Fragen zum Roboter
 ** 1.1 Welche Aufgaben des Roboters haben Prorität? +
 ** 1.2 Wie werden die Tests ablaufen?
 ** 1.3 Soll der Roboter während der Fahrt mit dem Server kommunizieren?
@@ -54,7 +54,7 @@ Felix Reuß
 -> Damit wird die App verbunden und die Tracks werden auf dem Server dann gespeichert +
 -> Die Tracks werden dann vorgegeben und Abgefahren und dabei aufgezeichnet +
 
-===== 2. Fragen zum GPS
+==== 2. Fragen zum GPS
 ** 2.1 Wie sieht es mit Datenschutz aus (GPS-Daten)? +
 → Abfrage zur Einverständniserklärung zum Datenschutz? 
 ** 2.2 Einfügen von besonderen Punkten innerhalb der Tracks, an welchen Aufgaben bearbeitet werden sollen. +
@@ -73,7 +73,7 @@ Felix Reuß
 -> Punkte werden auf der Karte eingeblendet und können manuell verschoben werden +
 * -> Als Format bietet sich GPX an, andere Formate sind mit Absprache möglich +
 
-===== 3. Fragen zum Server
+==== 3. Fragen zum Server
 * 3.1 Was soll der Server alles können? 
 
 * 3.2 Soll der Server eine öffentliche IP haben?
@@ -83,7 +83,7 @@ Felix Reuß
 * siehe <<Antworten zu 1.:>>
 -> Überschneidungen mit Datenschutz/ Kommunikation mit Server +
 
-===== 4. Fragen zur App
+==== 4. Fragen zur App
 * 4.1 Soll die Rest API nur mit einem Login möglich sein?
 
 * 4.2 Welche Technologie ist beim Programmieren gewünscht?
