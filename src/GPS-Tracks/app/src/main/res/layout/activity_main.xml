@@ -33,7 +33,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@null"
-        android:onClick="onClick"
+        android:onClick="openListTracks"
         app:layout_constraintHorizontal_bias="0.612"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"

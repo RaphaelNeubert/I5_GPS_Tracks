@@ -69,6 +69,13 @@ public class MainActivity extends AppCompatActivity{
 
 
         list = (ImageButton) findViewById(R.id.listButton);
+        list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                openListTracks();
+            }
+        });
+
         rec = (ImageButton) findViewById(R.id.record);
     }
 
@@ -124,8 +131,8 @@ public class MainActivity extends AppCompatActivity{
         }
     }
 
-    public void onClick(View v) {
-        Intent intent = new Intent(MainActivity.this, ListTracks.class);
+    public void openListTracks() {
+        Intent intent = new Intent(MainActivity.this, ListingTracks.class);
         startActivity(intent);
     }
 

@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ListingTracks">
 
+    <Button
+        android:id="@+id/backToHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="21dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
