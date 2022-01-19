@@ -32,13 +32,13 @@ Der geplante Tech-stack wurde mit dem Themensteller besprochen und genehmigt.
 * osmdroid als Kartenbibliothek (für App)
 * Python mit Flask für Server
 * Gradle zum Bauen des Projektes, Android Studio zum erstellen und optional zur Entwicklung.
-* GPX oder gsoJSON als Dateiformat für die Tracks
+* GPX oder gsoJSON als Dateiformat für die GPS-Tracks
 
 ==== zu erfüllende Funktionen
 * innerhalb der Route besondere Punkte mit Aufgaben einfügen
 ** Speicherung dieser Punkte mit geoJSON realisierbar?
 * GPS-Tracks nach Änderung wenn möglich immer automatisch mit Server synchronisieren (1:1)
-* Automatische Downloads der Tracks möglichst flexible gestalten damit in Zukunft  Synchronisationsgruppen 
+* Automatische Downloads der GPS-Tracks möglichst flexible gestalten damit in Zukunft  Synchronisationsgruppen 
 eingerichtet werden könnten (aufgrund von Speicherplatz)
 * Pfade sollen manuell verändert werden
 ** von Start zu Ende per Linie annähern

@@ -29,7 +29,7 @@ Raphael Neubert
 * VM dient zunächst nur der Entwicklung
 * Wir sollten einen genaueren Iterationsplan machen
 * Bei den usecases die Formulierung verbessern um klar zu stellen was die App bzw. den Server betrifft
-* potenzielles Risiko: Kollisionen bei gleichzeitiger offline Bearbeitung von GPS-tracks auf mehreren Geräten
+* potenzielles Risiko: Kollisionen bei gleichzeitiger offline Bearbeitung von GPS-Tracks auf mehreren Geräten
 
 === Abzusprechen mit Kunde
 * Vorstellung der (geplanten) Technologien und Fragen ob in Ordnung

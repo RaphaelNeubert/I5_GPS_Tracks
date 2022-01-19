@@ -113,7 +113,7 @@ Beispiel Produkt:
 * zuvor aufgenommene GPS-Tracks wieder anzeigen lassen können
 * GPS-Tracks über den Server verwalten können
 * Besondere Punkte in den Track einfügen, um dem Roboter an bestimmten Punkten der Karte Aufgaben verteilen zu können
-* durch erneutes Aufnehmen existierender Tracks die Genauigkeit erhöhen
+* durch erneutes Aufnehmen existierender GPS-Tracks die Genauigkeit erhöhen
 * Darstellung auf einer mobilen App
 * Verwendung mit Touchbedienung
 

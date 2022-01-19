@@ -38,5 +38,5 @@ Richard Michel
 ** *UC02*: GPS-Track in App hochladen
 ** *UC03*: GPS-Track aus DB runterladen
 ** *UC04*: GPS-Track in App bearbeiten
-** *UC05*: Besondere(n) Punkt(e) in Track einfügen
+** *UC05*: Besondere(n) Punkt(e) in GPS-Track einfügen
 ** *UC06*: Abrufen der gespeicherten GPS-Tracks
