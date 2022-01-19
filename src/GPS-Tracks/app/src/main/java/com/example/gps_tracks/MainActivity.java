@@ -4,15 +4,12 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.R.drawable;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -25,6 +22,7 @@ import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.CustomZoomButtonsController;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
+import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 import java.util.ArrayList;
 
@@ -52,13 +50,6 @@ public class MainActivity extends AppCompatActivity{
         //load/initialize the osmdroid configuration
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
-        //setting this before the layout is inflated is a good idea
-        //it 'should' ensure that the map has a writable location for the map cache, even without permissions
-        //if no tiles are displayed, you can try overriding the cache path using Configuration.getInstance().setCachePath
-        //see also StorageUtils
-        //note, the load method also sets the HTTP User Agent to your application's package name, abusing osm's
-        //tile servers will get you banned based on this string
-
         //inflate and create the map
         setContentView(R.layout.activity_main);
 
@@ -72,15 +63,14 @@ public class MainActivity extends AppCompatActivity{
         GeoPoint startPoint = new GeoPoint(48.8583, 2.2944);
         mapController.setCenter(startPoint);
 
+        /*
         Marker m = new Marker(map);
         m.setPosition(new GeoPoint(51.051899,13.768021));
-        m.setTextLabelBackgroundColor(Color.TRANSPARENT);
-        m.setTextLabelForegroundColor(Color.RED);
-        m.setTextLabelFontSize(40);
-        m.setIcon(getResources().getDrawable(R.drawable.ic_menu_mylocation));
-        m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_TOP);
-
+        m.setIcon(getResources().getDrawable(R.drawable.ic_location_map_marker));
+        m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER);
         map.getOverlays().add(m);
+         */
+        //MyLocationNewOverlay locationOverlay = new MyLocationNewOverlay(this, map);
 
         list=(ImageButton) findViewById(R.id.list);
 
