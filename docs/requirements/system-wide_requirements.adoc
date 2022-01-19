@@ -43,11 +43,12 @@ Zur Überprüfung wird festgestellt, ob entsprechende Schnittstellen vorhanden s
 
 === Einschränkungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
-* Ressourcenbegrenzungen
-* zu nutzende Komponenten / Bibliotheken / Frameworks
-* Vorgaben für die Programmiersprache
-* zu unterstützende Plattformen / Betriebssysteme
-* Physische Begrenzungen für Hardware, auf der das System betrieben werden soll
+* Die Verwaltung des Sourcecodes und der Dokumentation muss mittels GitHub erfolgen.
+* Die App muss mit der Programmiersprache Java entwickelt werden.
+* Der Server muss mit der Programmiersprache Java oder Python entwickelt werden.
+* Die App soll nur ein handelsübliches Smartphone benötigen welches als
+Betriebssystem Android verwendet.
+* Der Nutzer muss über die benötigten Berechtigungen informiert werden sowie sie akzeptieren.
 
 === Organisatorische Randbedingungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
