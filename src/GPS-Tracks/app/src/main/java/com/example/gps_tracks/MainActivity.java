@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +26,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity{
     private final int REQUEST_PERMISSIONS_REQUEST_CODE = 1;
     private MapView map = null;
-    private Button rec;
+    private ImageButton rec;
     private ImageButton list;
 
     @Override
@@ -35,7 +34,7 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
 
         //handle permissions
-        requestPermissionsIfNecessary(new String[] {
+        requestPermissionsIfNecessary(new String[]{
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE
         });
@@ -68,8 +67,9 @@ public class MainActivity extends AppCompatActivity{
         GeoPoint startPoint = new GeoPoint(48.8583, 2.2944);
         mapController.setCenter(startPoint);
 
-        list=(ImageButton) findViewById(R.id.list);
 
+        list = (ImageButton) findViewById(R.id.listButton);
+       // rec = (ImageButton) findViewById(R.id.record);
     }
 
     @Override
@@ -124,9 +124,10 @@ public class MainActivity extends AppCompatActivity{
         }
     }
 
-    public void OnClick(View v) {
-        Intent intent = new Intent(MainActivity.this,ListTracks.class);
+    public void onClick(View v) {
+        Intent intent = new Intent(MainActivity.this, ListTracks.class);
         startActivity(intent);
     }
+
 
 }
