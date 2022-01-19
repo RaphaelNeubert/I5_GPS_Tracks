@@ -69,7 +69,8 @@ public class MainActivity extends AppCompatActivity{
         m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER);
         map.getOverlays().add(m);
          */
-        //MyLocationNewOverlay locationOverlay = new MyLocationNewOverlay(this, map);
+        MyLocationNewOverlay locationOverlay = new MyLocationNewOverlay(map); //TODO optional use own IMyLocationProvider object
+        map.getOverlays().add(locationOverlay);
 
         list = (ImageButton) findViewById(R.id.listButton);
         rec = (ImageButton) findViewById(R.id.record);
