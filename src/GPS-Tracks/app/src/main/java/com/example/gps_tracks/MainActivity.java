@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity{
 
 
         list = (ImageButton) findViewById(R.id.listButton);
-       // rec = (ImageButton) findViewById(R.id.record);
+        rec = (ImageButton) findViewById(R.id.record);
     }
 
     @Override
