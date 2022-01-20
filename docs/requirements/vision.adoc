@@ -27,7 +27,7 @@ Siehe <<#glossary, Glossar>>.
 === Fachliche Motivation
 //Erläutern Sie kurz den Hintergrund, in dem das Projekt angesiedelt ist. Welches Problem soll gelöst werden, wie ist es entstanden? Welche Verbesserung wird angestrebt. Achten Sie darauf, eine fachliche (organisatorische, betriebswirtschaftliche) Perspektive einzunehmen.
 
-An der HTW Dresden wird im Modul Software Engineering 1 eine Projektarbeit gefordert, bei welcher ein zusammengestelltes Team aus Studenten einen Auftrag erfüllen müssen. Ein Professor ist auf diese Projektarbeit zugekommen und möchte für seine mobilen Roboter eine Smartphone App erstellt haben, welche durch GPS-Tracks den Roboter auf der Weltkarte orten kann, um dem Roboter per App an bestimmten Orten Aufgaben zuteilen zu können. Da die meißten GPS-Track Apps nur sehr ungenaues GPS-Signal liefern und es dabei nicht möglich ist, bestimmte Punkte für die Aufgabenverteilung an den Roboter auszuwählen, erhofft sich der Professor dass der mobile Roboter durch die App auch aus großer Entfernung zum Nutzer benutzt werden kann.
+An der HTW Dresden wird im Modul Software Engineering 1 eine Projektarbeit gefordert, bei welcher ein zusammengestelltes Team aus Studenten einen Auftrag erfüllen müssen. Ein Professor ist auf diese Projektarbeit zugekommen und möchte für seine mobilen Roboter eine Smartphone App erstellt haben, welche durch GPS-Tracks den mobilen Roboter auf der Weltkarte orten kann, um dem mobilen Roboter per App an bestimmten Orten Aufgaben zuteilen zu können. Da die meißten GPS-Track Apps nur sehr ungenaues GPS-Signal liefern und es dabei nicht möglich ist, bestimmte Punkte für die Aufgabenverteilung an den Roboter auszuwählen, erhofft sich der Professor, dass der mobile Roboter durch die App, auch aus großer Entfernung vom Nutzer benutzt werden kann.
 
 
 
@@ -36,8 +36,8 @@ An der HTW Dresden wird im Modul Software Engineering 1 eine Projektarbeit gefor
 
 [cols="1,3"]
 |===
-| Das Problem | Die mobilen Fahrroboter können nicht präzise geortet werden und keine Aufgaben erfüllen
-| betrifft | Studenten und Professoren, welche Aufgaben an den Roboter delegieren wollen
+| Das Problem | Die mobilen Roboter können nicht präzise geortet werden und es können keine Aufgaben an die Roboter verteilt werden
+| betrifft | Benutzer, welche Aufgaben an den Roboter delegieren wollen
 | die Auswirkung davon ist | Roboter kann nicht aus großer Entfernung benutzt werden
 | eine erfolgreiche Lösung wäre | Eine App, welche denn kompletten Weg des Roboters auf der Karte aufnehmen kann und spezielle Punkte (auf der Karte) bestimmt, bei welchen Aufgaben vom Roboter erledigt werden.
 |===
@@ -61,11 +61,11 @@ Beispiel:
 [cols="1,3"]
 |===
 | Für | Benutzer
-| die | mit dem Roboter arbeiten
+| die | mit dem mobilen Roboter arbeiten
 | Das Produkt / die Lösung ist eine | mobile App für Smartphones
 | die | das erstellen von GPS-Tracks und durch eintragen bestimmter Punkte auf der Karte, die Aufgabenverteilung an den Roboter ermöglicht
-| Im Gegensatz zu | sehr ungenauen GPS-Track Apps ohne Möglichkeit zur Aufgabenverteilung
-| Unser Produkt | unterstützt die präszise Erstellung von GPS-Tracks und die Aufgabenvertreilung an den Roboter
+| Im Gegensatz zu | sehr ungenauen GPS-Track Apps ohne Möglichkeit zur Aufgabenverteilung an den mobilen Roboter
+| Unser Produkt | unterstützt die präszise Erstellung von GPS-Tracks und die Aufgabenvertreilung an den Roboter an gewählten Punkten auf der Karte
 |===
 
 ////
@@ -89,9 +89,25 @@ Beispiel Produkt:
 |===
 | Name | Beschreibung | Verantwortlichkeiten
 
-| Benutzer 
-| Professoren und Studenten 
-| [Fassen Sie die wesentlichen Verantwortlichkeiten des Stakeholder mit Bezug auf das zu entwickelnde System kurz zusammen, d.h. ihr besonderen Interessen. Beispiele: Dieser Stakeholder sorgt dafür, dass das System gewartet wird / dass die angezeigten Daten aktuell sind / überwacht den Projektfortschritt / usw.]
+| Benutzer
+| (Professor, Student, Mitarbeiter ...) arbeitet mit dem mobilen Roboter
+| nimmt GPS-Track Daten auf und verteilt Aufgaben an den mobilen Roboter an gewählten Punkten auf der Karte
+
+| Serverbetreiber
+| synchronisiert Daten
+| Server muss immer betriebsfähig sein und Daten synchronisieren
+
+| Kartendaten Provider
+| synchronisiert Kartendaten
+| stellt die Kartendaten zur Verfügung
+
+| Gesetzgeber
+| gibt rechtliche Rahmenbedingungen vor, z.B. durch Gesetze für Datenschutz, oder wo und wie Daten abgespeichert werden etc.
+| überwacht Gesetze und Regelungen hinsichtlich des Umgangs mit personenbezogenen Daten etc.
+
+| Google Android API
+| ortet die Position
+| stellt sicher, das die Position des mobilen Roboters aktuell ist
 |===
 
 === Benutzerumgebung
@@ -107,15 +123,12 @@ Beispiel Produkt:
 //Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
 
 ==== Benutzer
-* muss GPS-Track aufnehmen können
-* GPS-Track auf der Karte anzeigen lassen können 
-* GPS-Track bearbeiten können
-* zuvor aufgenommene GPS-Tracks wieder anzeigen lassen können
-* GPS-Tracks über den Server verwalten können
-* Besondere Punkte in den Track einfügen, um dem Roboter an bestimmten Punkten der Karte Aufgaben verteilen zu können
-* durch erneutes Aufnehmen existierender GPS-Tracks die Genauigkeit erhöhen
+* muss GPS-Tracks verwalten können
 * Darstellung auf einer mobilen App
 * Verwendung mit Touchbedienung
+
+==== Serverbetreiber
+* benötigt Zugriff auf Server
 
 
 == Produkt-/Lösungsüberblick
@@ -128,7 +141,8 @@ Beispiel Produkt:
 | Bedarf | Priorität | Features | Geplantes Release
 | GPS-Track aufnehmen | hoch | zurückgelegter Weg des Roboters speichern |
 | GPS-Track auf Karte anzeigen | hoch | zurückgelegter Weg des Roboters auf Karte anzeigen |
-|GPS-Track bearbeiten | hoch | |
+| GPS-Track bearbeiten | hoch | |
+| GPS-Track auflisten | hoch | |
 |Wiederaufnahme von GPS-Track| mittel | |
 |===
 
@@ -146,5 +160,5 @@ Beispiel Produkt:
 [%header, cols="4,1,1"]
 |===
 | Anforderung | Priorität | Geplantes Release
-| System muss auf allen mobilen Android Geräten lauffähig sein | hoch | 
+| System muss auf allen mobilen Android Geräten lauffähig sein | hoch |
 |===
