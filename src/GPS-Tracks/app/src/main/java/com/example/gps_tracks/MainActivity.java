@@ -20,8 +20,6 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.CustomZoomButtonsController;
 import org.osmdroid.views.MapView;
-import org.osmdroid.views.overlay.Marker;
-import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 import java.util.ArrayList;
 
@@ -72,7 +70,15 @@ public class MainActivity extends AppCompatActivity{
         MyLocationNewOverlay locationOverlay = new MyLocationNewOverlay(map); //TODO optional use own IMyLocationProvider object
         map.getOverlays().add(locationOverlay);
 
+
         list = (ImageButton) findViewById(R.id.listButton);
+        list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                openListTracks();
+            }
+        });
+
         rec = (ImageButton) findViewById(R.id.record);
     }
 
@@ -128,8 +134,8 @@ public class MainActivity extends AppCompatActivity{
         }
     }
 
-    public void onClick(View v) {
-        Intent intent = new Intent(MainActivity.this, ListTracks.class);
+    public void openListTracks() {
+        Intent intent = new Intent(MainActivity.this, ListingTracks.class);
         startActivity(intent);
     }
 
