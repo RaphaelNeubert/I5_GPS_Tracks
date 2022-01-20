@@ -28,6 +28,10 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 Zur Überprüfung laden sich die Teammitglieder App herunter und halten Smartphone mit ausgestrecktem Arm vors Gesicht +
 *NFAU-2: Drop-Down-Menu verhindert Überdeckung anderer Tracks* +
 Zur Überprüfung wird das Szenario in der App ausprobiert. Wenn man aus der Liste einen Track auswählt sollten die anderen Tracks nicht vom neuen Menu verdeckt werden. Falls man sich verklickt hat und eigentlich einen anderen Track auswählen wollte, muss dies leicht möglich sein. +
+*NFAU-3: Startseite der App sollte Ort auf der Karte anzeigen, einen Knopf zur Trackübersicht und einen Knopf zum Aufnehmen eines Tracks beinhalten.* +
+Zur Überprüfung wird die App geöffnet und geschaut ob die Ortung stimmt. Die Knöpfe zur Aufnahme und zur Trackübersicht sind sichtbar und funktionieren. +
+*NFAU-4: Der Kunde sollte maximal 4 Klicks brauchen um entweder einen Track aufzunehmen oder sich die Details zu einem beliebigen Track anzeigen zu lassen.* +
+Zur Überprüfung wird die App geöffnet und sich zum jeweiligen Szenario durchgeklickt. Liegt die Anzahl der Interaktionen bei maximal 4, ist alles in Ordnung. +
 
 
 
