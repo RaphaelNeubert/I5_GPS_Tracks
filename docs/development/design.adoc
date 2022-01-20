@@ -7,12 +7,3 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Allgemeine Informationen
 //
-== Wireframe erstellen
-image::homescreen.PNG[]
-Homescreen-Windows
-
-image::menu.PNG[]
-Wenn man "+" klickt, zeigt App die Menu-Fernster
-
-image::optionen.PNG[]
-Wenn man einen GPS-Track klickt, zeigt App eine Dropdown-Fernster
