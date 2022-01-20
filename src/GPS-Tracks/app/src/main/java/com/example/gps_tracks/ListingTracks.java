@@ -17,7 +17,6 @@ public class ListingTracks extends AppCompatActivity {
         setContentView(R.layout.activity_listing_tracks);
         
 
-
         back = (Button) findViewById(R.id.backToHome);
         back.setOnClickListener(new View.OnClickListener() {
             @Override

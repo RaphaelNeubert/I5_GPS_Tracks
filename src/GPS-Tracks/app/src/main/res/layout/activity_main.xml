@@ -22,11 +22,11 @@
         android:id="@+id/record"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:srcCompat="@drawable/button_63x63"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:background="@null"
-        android:visibility="visible"
-        app:srcCompat="@drawable/button_70x70" />
+        android:visibility="visible"/>
 
     <ImageButton
         android:id="@+id/listButton"
