@@ -4,8 +4,10 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
@@ -20,6 +22,12 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.CustomZoomButtonsController;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.mylocation.IMyLocationConsumer;
+import org.osmdroid.views.overlay.mylocation.IMyLocationProvider;
+import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
+import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
+import org.osmdroid.views.overlay.Marker;
+
 
 import java.util.ArrayList;
 
@@ -56,9 +64,31 @@ public class MainActivity extends AppCompatActivity{
         map.getZoomController().setVisibility(CustomZoomButtonsController.Visibility.NEVER);
 
         IMapController mapController = map.getController();
-        mapController.setZoom(9.5);
-        GeoPoint startPoint = new GeoPoint(48.8583, 2.2944);
-        mapController.setCenter(startPoint);
+        mapController.setZoom(15.5);
+        mapController.setCenter(new GeoPoint(51.0374,13.7638));
+
+        GpsMyLocationProvider gpsMyLocationProvider = new GpsMyLocationProvider(getApplicationContext());
+        gpsMyLocationProvider.setLocationUpdateMinDistance(5.0f);
+        gpsMyLocationProvider.startLocationProvider(new IMyLocationConsumer() {
+            @Override
+            public void onLocationChanged(Location location, IMyLocationProvider source) {
+                String position = "Location changed to: " + new GeoPoint(location).toDoubleString();
+                Log.i("Test", position);
+            }
+        });
+
+        MyLocationNewOverlay locationOverlay = new MyLocationNewOverlay(map);
+        /* not working for some reason
+        locationOverlay.getMyLocationProvider().startLocationProvider(new IMyLocationConsumer() {
+            @Override
+            public void onLocationChanged(Location location, IMyLocationProvider source) {
+                String position = "Location changed to: " + new GeoPoint(location).toDoubleString();
+                Log.i("Test", position);
+            }
+        });
+         */
+        locationOverlay.enableFollowLocation();
+        map.getOverlays().add(locationOverlay);
 
         /*
         Marker m = new Marker(map);
@@ -67,7 +97,6 @@ public class MainActivity extends AppCompatActivity{
         m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER);
         map.getOverlays().add(m);
          */
-        //MyLocationNewOverlay locationOverlay = new MyLocationNewOverlay(this, map);
 
 
         list = (ImageButton) findViewById(R.id.listButton);
