@@ -63,9 +63,9 @@ Beispiel:
 | Für | Benutzer
 | die | mit dem mobilen Roboter arbeiten
 | Das Produkt / die Lösung ist eine | mobile App für Smartphones
-| die | das erstellen von GPS-Tracks und durch eintragen bestimmter Punkte auf der Karte, die Aufgabenverteilung an den Roboter ermöglicht
+| die | das erstellen von GPS-Tracks und durch eintragen bestimmter Punkte des GPS-Tracks auf der Karte, die Aufgabenverteilung an den Roboter ermöglicht
 | Im Gegensatz zu | sehr ungenauen GPS-Track Apps ohne Möglichkeit zur Aufgabenverteilung an den mobilen Roboter
-| Unser Produkt | unterstützt die präszise Erstellung von GPS-Tracks und die Aufgabenvertreilung an den Roboter an gewählten Punkten auf der Karte
+| Unser Produkt | unterstützt die präszise Erstellung von GPS-Tracks und die Aufgabenvertreilung an den Roboter an gewählten Punkten des GPS-Tracks auf der Karte
 |===
 
 ////
@@ -91,7 +91,7 @@ Beispiel Produkt:
 
 | Benutzer
 | (Professor, Student, Mitarbeiter ...) arbeitet mit dem mobilen Roboter
-| nimmt GPS-Track Daten auf und verteilt Aufgaben an den mobilen Roboter an gewählten Punkten auf der Karte
+| nimmt GPS-Track Daten auf und verteilt Aufgaben an den mobilen Roboter an gewählten Punkten im GPS-Track auf der Karte
 
 | Serverbetreiber
 | synchronisiert Daten
@@ -127,10 +127,6 @@ Beispiel Produkt:
 * Darstellung auf einer mobilen App
 * Verwendung mit Touchbedienung
 
-==== Serverbetreiber
-* benötigt Zugriff auf Server
-
-
 == Produkt-/Lösungsüberblick
 
 === Bedarfe und Hauptfunktionen
@@ -139,11 +135,10 @@ Beispiel Produkt:
 [%header, cols="4,1,4,1"]
 |===
 | Bedarf | Priorität | Features | Geplantes Release
-| GPS-Track aufnehmen | hoch | zurückgelegter Weg des Roboters speichern |
-| GPS-Track auf Karte anzeigen | hoch | zurückgelegter Weg des Roboters auf Karte anzeigen |
-| GPS-Track bearbeiten | hoch | |
-| GPS-Track auflisten | hoch | |
-|Wiederaufnahme von GPS-Track| mittel | |
+| GPS-Track erstellen | hoch | GPS-Track aufnehmen und anzeigen |
+| GPS-Track Daten verwalten | hoch | gespeicherte GPS-Track Daten auflisten und bearbeiten |
+|GPS-Track Daten über Server verwalten | mittel | gespeicherter GPS-Track über Server abrufbar |
+| Aufagbenveretilung an mobilen Roboter | mittel | einfügen besonderer Punkte in GPS-Track  |
 |===
 
 
@@ -161,4 +156,5 @@ Beispiel Produkt:
 |===
 | Anforderung | Priorität | Geplantes Release
 | System muss auf allen mobilen Android Geräten lauffähig sein | hoch |
+| System muss mehrere Sprachen anbieten | niedrig |
 |===
