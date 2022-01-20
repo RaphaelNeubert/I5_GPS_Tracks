@@ -24,6 +24,12 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 
 === Benutzbarkeit (Usability)
 //Beschreiben Sie Anforderungen für Eigenschaften wie einfache Bedienung, einfaches Erlernen, Standards für die Benutzerfreundlichkeit, Lokalisierung (landesspezifische Anpassungen von Sprache, Datumsformaten, Währungen usw.)
+*NFAU-1: Text sollte auf Smartphone noch auf volle Armlänge lesbar sein* +
+Zur Überprüfung laden sich die Teammitglieder App herunter und halten Smartphone mit ausgestrecktem Arm vors Gesicht +
+*NFAU-2: Drop-Down-Menu verhindert Überdeckung anderer Tracks* +
+Zur Überprüfung wird das Szenario in der App ausprobiert. Wenn man aus der Liste einen Track auswählt sollten die anderen Tracks nicht vom neuen Menu verdeckt werden. Falls man sich verklickt hat und eigentlich einen anderen Track auswählen wollte, muss dies leicht möglich sein. +
+
+
 
 === Zuverlässigkeit (Reliability)
 // Zuverlässigkeit beinhaltet die Fähigkeit des Produkts und/oder des Systems unter Stress und ungünstigen Bedingungen am laufen zu bleiben. Spezifizieren Sie Anforderungen für zuverlässige Akzeptanzstufen, und wie diese gemessen und evaluiert werden. Vorgeschlagene Themen sind Verfügbarkeit, Häufigkeit und Schwere von Fehlern und Wiederherstellbarkeit.
