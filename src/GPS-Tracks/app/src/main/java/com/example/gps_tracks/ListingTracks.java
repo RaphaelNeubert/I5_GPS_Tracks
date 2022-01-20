@@ -15,7 +15,7 @@ public class ListingTracks extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listing_tracks);
-        
+
 
         back = (Button) findViewById(R.id.backToHome);
         back.setOnClickListener(new View.OnClickListener() {
