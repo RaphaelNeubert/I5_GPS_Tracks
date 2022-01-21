@@ -12,7 +12,7 @@ Der Use Case beschreibt die Aufnahme eines GPS-Tracks per App
 * Möchte einen GPS-Track aufnehmen
 
 .Homescreen
-image::wireframes_homescreen.PNG[]
+image::wireframes_homescreen.png[]
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
