@@ -41,6 +41,10 @@ Zur Überprüfung wird die App geöffnet und sich zum jeweiligen Szenario durchg
 === Effizienz (Performance)
 // Die Performanz Charakteristiken des Systems sollten in diesem Bereich ausgeführt werden. Beispiele sind Antwortzeit, Durchsatz, Kapazität und Zeiten zum Starten oder Beenden.
 
+*NFAP-1: Das Softwaresystem soll ein Wechsel von Seite zu Seite und die Benutzung bestimmter Aktionen innerhalb der App in maximal 2 Sekunden ermöglichen.* +
+Zur Überprüfung wird ein automatischer Test feststellen, ob alle Anforderungen innerhalb der gegebenen Zeit unter optimalen Bedingungen ablaufen.
+
+
 === Wartbarkeit (Supportability)
 // Dieser Bereich beschreibt sämtliche Anforderungen welche die Supportfähigkeit oder Wartbarkeit des zu entwickelnden Systems verbessern, einschließlich Anpassungsfähigkeit und Erweiterbarkeit, Kompatibilität, Skalierbarkeit und Anforderungen bezüglich der System Installation sowie Maß an Support und Wartbarkeit.
 *NFAS-1: Das System soll in der Lage sein, neue Sprachen integrieren zu können.* +
