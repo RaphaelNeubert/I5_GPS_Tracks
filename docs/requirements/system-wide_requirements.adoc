@@ -37,6 +37,10 @@ Zur Überprüfung wird die App geöffnet und sich zum jeweiligen Szenario durchg
 
 === Zuverlässigkeit (Reliability)
 // Zuverlässigkeit beinhaltet die Fähigkeit des Produkts und/oder des Systems unter Stress und ungünstigen Bedingungen am laufen zu bleiben. Spezifizieren Sie Anforderungen für zuverlässige Akzeptanzstufen, und wie diese gemessen und evaluiert werden. Vorgeschlagene Themen sind Verfügbarkeit, Häufigkeit und Schwere von Fehlern und Wiederherstellbarkeit.
+*NFAR-1: GPS-Tracks müssen eindeutig über ihren Namen identifiziert werden können* +
+Zur Überprüfung wird getestet, ob falls ein neuer Track den Namen eines bereits existierenden Tracks
+bekommt, ein entsprechender Hinweistext angezeigt wird.
+
 
 === Effizienz (Performance)
 // Die Performanz Charakteristiken des Systems sollten in diesem Bereich ausgeführt werden. Beispiele sind Antwortzeit, Durchsatz, Kapazität und Zeiten zum Starten oder Beenden.
@@ -51,6 +55,9 @@ Zur Überprüfung wird ein automatischer Test feststellen, ob alle Anforderungen
 Zur Überprüfung wird festgestellt, ob entsprechende Schnittstellen vorhanden sind. +
 *NFAS-2: Das System soll in der Lage sein, Kartendaten verschiedener Anbieter zu verwenden.* +
 Zur Überprüfung wird festgestellt, ob entsprechende Schnittstellen vorhanden sind.
+*NFAS-3: Die App soll entwicklungsrelevante Systemfehler loggen und an die Entwickler schicken* +
+Zur Überprüfung wird ein solcher Fehler simuliert und überprüft ob die Entwickler
+über diesen Informiert wurden.
 
 == Zusätzliche Anforderungen
 
@@ -63,6 +70,7 @@ Zur Überprüfung wird festgestellt, ob entsprechende Schnittstellen vorhanden s
 * Die App soll nur ein handelsübliches Smartphone benötigen welches als
 Betriebssystem Android verwendet.
 * Der Nutzer muss über die benötigten Berechtigungen informiert werden sowie sie akzeptieren.
+* Die GPS-Tracks sollen in einem standartisierten Dateiformat z.B. GEOJson oder GPX gespeichert werden.
 
 === Organisatorische Randbedingungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
