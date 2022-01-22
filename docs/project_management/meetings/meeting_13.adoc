@@ -1,0 +1,40 @@
+== Protokoll Meeting 13
+|===
+2+| *Thema* +
+Meeting mit Themensteller Mario Neugebauer
+|*Datum* +
+21.01.2022 13:30 Uhr
+| *Ort* +
+BBB (online)
+|*Anwesend* +
+Alex Schechtel +
+Raphael Neubert +
+Quang Duy Pham +
+Tom Nicolai +
+Anton Peschel +
+Felix Reuß +
+Ludwig Schönthier 
+| *Abwesend* +
+Richard Michel 
+|*Leitung der Besprechung* +
+Raphael Neubert
+|*Protokollführung* +
+Felix Reuß
+|===
+
+
+=== Ablauf
+* Vorstellung des bisher erreichten Fortschritts
+* Vorstellung Prototyp
+* Vorstellung Wireframes 
+** eventuell Aufnahmeknopf umfunktionierenn (Aufnahme fortsetzen)
+** "+" Symbol zu Hamburger Symbol ändern
+* Präzision des Prototyps
+** Genauigkeitsradius
+*** schlechter Empfang -> groß
+*** guter Empfang -> klein
+** eventuell Button für Zentrierung (an/aus) ergänzen
+** testen, ob Rotation in der App funktioniert
+* Funktionalitäten nochmal aus der User-Perspektive ausprobieren
+
+*-> guter Stand des Prototypen*
