@@ -98,16 +98,16 @@ Beispiel Produkt:
 | Server muss betriebsfähig sein und Daten synchronisieren
 
 | Kartendaten Provider
-| synchronisiert Kartendaten
+| Liefert Kartendaten
 | stellt die Kartendaten zur Verfügung
 
 | Gesetzgeber
 | gibt rechtliche Rahmenbedingungen vor, z.B. durch Gesetze für Datenschutz, oder wo und wie Daten abgespeichert werden etc.
 | überwacht Gesetze und Regelungen hinsichtlich des Umgangs mit personenbezogenen Daten etc.
 
-| Google Android API
-| ortet die Position
-| stellt sicher, das die Position des mobilen Roboters aktuell ist
+| Google 
+| Stellt Schnittstelle zwischen Betriebssystem und App her und liefert Ortungsdaten.
+| Erfolgreiches erhalten von Ortungsdaten sowie Systemresourcen.
 |===
 
 === Benutzerumgebung
@@ -138,7 +138,7 @@ Beispiel Produkt:
 | GPS-Track erstellen | hoch | GPS-Track aufnehmen und anzeigen |
 | GPS-Track Daten verwalten | hoch | gespeicherte GPS-Track Daten auflisten und bearbeiten |
 |GPS-Track Daten über Server verwalten | mittel | gespeicherter GPS-Track über Server abrufbar |
-| Aufagbenveretilung an mobilen Roboter | mittel | einfügen besonderer Punkte in GPS-Track  |
+| Aufagbenvereteilung an mobilen Roboter | mittel | einfügen besonderer Punkte in GPS-Track  |
 |===
 
 
@@ -155,6 +155,6 @@ Beispiel Produkt:
 [%header, cols="4,1,1"]
 |===
 | Anforderung | Priorität | Geplantes Release
-| System muss auf allen mobilen Android Geräten lauffähig sein | hoch |
+| System muss auf allen aktuellen mobilen Android Geräten lauffähig sein | hoch |
 | System muss mehrere Sprachen anbieten | niedrig |
 |===

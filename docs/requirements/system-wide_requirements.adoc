@@ -46,7 +46,7 @@ Zur Überprüfung wird die App geöffnet und sich zum jeweiligen Szenario durchg
 // Zuverlässigkeit beinhaltet die Fähigkeit des Produkts und/oder des Systems unter Stress und ungünstigen Bedingungen am laufen zu bleiben. Spezifizieren Sie Anforderungen für zuverlässige Akzeptanzstufen, und wie diese gemessen und evaluiert werden. Vorgeschlagene Themen sind Verfügbarkeit, Häufigkeit und Schwere von Fehlern und Wiederherstellbarkeit.
 *NFAR-1: GPS-Tracks müssen eindeutig über ihren Namen identifiziert werden können* +
 Zur Überprüfung wird getestet, ob falls ein neuer Track den Namen eines bereits existierenden Tracks
-bekommt, ein entsprechender Hinweistext angezeigt wird. +
+bekommt, der Name automatisch verändert wird. +
 *NFAR-2: Der Server sowie der Kartendaten Provider muss zu 95% verfügbar sein* +
 Zur Überprüfung wird getestet, ob in einem Langzeittest der Server zu 95% der Zeit erreichbar ist.
 
