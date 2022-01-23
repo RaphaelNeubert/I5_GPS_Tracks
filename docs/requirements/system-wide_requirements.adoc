@@ -22,6 +22,14 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 == Qualitätsanforderungen für das Gesamtsystem
 //Qualitätsanforderungen repräsentieren das "URPS" im FURPS+ zu Klassifikation von Anforderungen
 
+
+=== Funktionalität (Functionality)
+*NFAF-1: Die GPS-Tracks müssen dauerhaft gespeichert sein* +
+Wenn man einen aufgenommenen GPS-Track hochlädt, ist dieser dann dauerhaft verfügbar. +
+*FNAF-2: Man muss den Löschvorgang eines GPS-Tracks zweimal bestätigen* + 
+Um Datensicherheit zu gewährleisten muss der User nachdem er auf "Löschen" drückt noch einmal gefragt werden, ob
+er sich sicher ist. 
+
 === Benutzbarkeit (Usability)
 //Beschreiben Sie Anforderungen für Eigenschaften wie einfache Bedienung, einfaches Erlernen, Standards für die Benutzerfreundlichkeit, Lokalisierung (landesspezifische Anpassungen von Sprache, Datumsformaten, Währungen usw.)
 *NFAU-1: Text sollte auf Smartphone noch auf volle Armlänge lesbar sein* +
@@ -40,6 +48,7 @@ Zur Überprüfung wird die App geöffnet und sich zum jeweiligen Szenario durchg
 *NFAR-1: GPS-Tracks müssen eindeutig über ihren Namen identifiziert werden können* +
 Zur Überprüfung wird getestet, ob falls ein neuer Track den Namen eines bereits existierenden Tracks
 bekommt, ein entsprechender Hinweistext angezeigt wird.
+*NFAR-2: Der Server muss zu 95% verfügbar sein*
 
 
 === Effizienz (Performance)
