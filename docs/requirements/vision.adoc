@@ -27,8 +27,13 @@ Siehe <<#glossary, Glossar>>.
 === Fachliche Motivation
 //Erläutern Sie kurz den Hintergrund, in dem das Projekt angesiedelt ist. Welches Problem soll gelöst werden, wie ist es entstanden? Welche Verbesserung wird angestrebt. Achten Sie darauf, eine fachliche (organisatorische, betriebswirtschaftliche) Perspektive einzunehmen.
 
-An der HTW Dresden wird im Modul Software Engineering 1 eine Projektarbeit gefordert, bei welcher ein zusammengestelltes Team aus Studenten einen Auftrag erfüllen müssen. Ein Professor ist auf diese Projektarbeit zugekommen und möchte für seine mobilen Roboter eine Smartphone App erstellt haben, welche durch GPS-Tracks den mobilen Roboter auf der Weltkarte orten kann, um dem mobilen Roboter per App an bestimmten Orten Aufgaben zuteilen zu können. Da die meißten GPS-Track Apps nur sehr ungenaues GPS-Signal liefern und es dabei nicht möglich ist, bestimmte Punkte für die Aufgabenverteilung an den Roboter auszuwählen, erhofft sich der Professor, dass der mobile Roboter durch die App, auch aus großer Entfernung vom Nutzer benutzt werden kann.
-
+An der HTW Dresden wird im Modul Software Engineering 1 eine Projektarbeit gefordert,
+bei welcher ein zusammengestelltes Team aus Studenten einen Auftrag erfüllen müssen.
+Ein Professor ist auf diese Projektarbeit zugekommen und möchte eine Smartphone App erstellt haben,
+welche das erstellen von Strecken für mobilen Roboter ermöglicht. 
+Da die meisten GPS-Track Apps sehr unflexibel sind und es daher nicht möglich ist Strecken auf die Gegebenheiten
+des Roboters anzupassen, erhofft sich der Professor, durch die App Strecken aufnehmen zu können, die der Roboter optimal
+verarbeiten und umsetzen kann.
 
 
 === Problem Statement
@@ -36,10 +41,14 @@ An der HTW Dresden wird im Modul Software Engineering 1 eine Projektarbeit gefor
 
 [cols="1,3"]
 |===
-| Das Problem | Die mobilen Roboter können nicht präzise geortet werden und es können keine Aufgaben an die Roboter verteilt werden
+| Das Problem | Die Genauigkeit von GPS-Daten ist sehr gering. Es gibt bei herkömmlichen GPS-Track Apps keinerlei Möglichkeit
+Punkte einzuzeichnen bei den der Roboter das Abarbeiten von Aufgaben starten soll.
 | betrifft | Benutzer, welche Aufgaben an den Roboter delegieren wollen
-| die Auswirkung davon ist | Roboter kann nicht aus großer Entfernung benutzt werden
-| eine erfolgreiche Lösung wäre | Eine App, welche denn kompletten Weg des Roboters auf der Karte aufnehmen kann und spezielle Punkte (auf der Karte) bestimmt, bei welchen Aufgaben vom Roboter erledigt werden.
+| die Auswirkung davon ist | Automatisierte Steuerung der Roboter ist nicht möglich.
+| eine erfolgreiche Lösung wäre | Eine App, welche das Aufnehmen von GPS-Tracks sowie eine anschließende manuelle Bearbeitung
+dieser, zur Erhöhung der Genauigkeit ermöglicht. Des weiteren muss die Funktionalität des Einfügens spezieller Aktionspunkte,
+bei denen der Roboter das Abarbeiten von Aufgaben beginnt,
+vorhanden sein.
 |===
 
 ////
@@ -61,10 +70,11 @@ Beispiel:
 [cols="1,3"]
 |===
 | Für | Benutzer
-| die | mit dem mobilen Roboter arbeiten
+| die | mit den mobilen Robotern arbeiten
 | Das Produkt / die Lösung ist eine | mobile App für Smartphones
-| die | das erstellen von GPS-Tracks und durch eintragen bestimmter Punkte des GPS-Tracks auf der Karte, die Aufgabenverteilung an den Roboter ermöglicht
-| Im Gegensatz zu | sehr ungenauen GPS-Track Apps ohne Möglichkeit zur Aufgabenverteilung an den mobilen Roboter
+| die | durch das erstellen von GPS-Tracks, die manuelle Bearbeitung dieser und das eintragen bestimmter Punkte 
+auf der Karte, die Aufgabenverteilung an den Roboter ermöglicht
+| Im Gegensatz zu | sehr ungenauen GPS-Track Apps ohne Möglichkeit zur Aufgabenverteilung an die mobilen Roboter
 | Unser Produkt | unterstützt die präszise Erstellung von GPS-Tracks und die Aufgabenvertreilung an den Roboter an gewählten Punkten des GPS-Tracks auf der Karte
 |===
 
