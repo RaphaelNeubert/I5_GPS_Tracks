@@ -95,7 +95,7 @@ Beispiel Produkt:
 
 | Serverbetreiber
 | synchronisiert Daten
-| Server muss immer betriebsfähig sein und Daten synchronisieren
+| Server muss betriebsfähig sein und Daten synchronisieren
 
 | Kartendaten Provider
 | synchronisiert Kartendaten

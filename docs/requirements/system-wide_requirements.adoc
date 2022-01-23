@@ -6,7 +6,7 @@ include::../_includes/default-attributes.inc.adoc[]
 
 
 == Einführung
-In diesem Dokument werden die systemweiten Anforderungen für das Projekt <Thema> spezifiziert. Die Gliederung erfolgt nach der FURPS+ Anforderungsklassifikation:
+In diesem Dokument werden die systemweiten Anforderungen für das Projekt {project-name} spezifiziert. Die Gliederung erfolgt nach der FURPS+ Anforderungsklassifikation:
 
 * Systemweite funktionale Anforderungen (F),
 * Qualitätsanforderungen für Benutzbarkeit, Zuverlässigkeit, Effizienz und Wartbarkeit (URPS) sowie
@@ -18,26 +18,25 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 == Systemweite funktionale Anforderungen
 //Angabe von system-weiten funktionalen Anforderungen, die nicht als Use Cases ausgedrückt werden können. Beispiele sind Drucken, Berichte, Authentifizierung, Änderungsverfolgung (Auditing), zeitgesteuerte Aktivitäten (Scheduling), Sicherheit / Maßnahmen zum Datenschutz
 
+*SWFA-1: Die GPS-Tracks müssen dauerhaft gespeichert sein* +
+Wenn man einen aufgenommenen GPS-Track hochlädt, ist dieser dann dauerhaft verfügbar. +
+*SWFA-2: Man muss den Löschvorgang eines GPS-Tracks zweimal bestätigen* + 
+Um Datensicherheit zu gewährleisten muss der User nachdem er auf "Löschen" drückt noch einmal gefragt werden, ob
+er sich sicher ist. 
 
 == Qualitätsanforderungen für das Gesamtsystem
 //Qualitätsanforderungen repräsentieren das "URPS" im FURPS+ zu Klassifikation von Anforderungen
 
 
-=== Funktionalität (Functionality)
-*NFAF-1: Die GPS-Tracks müssen dauerhaft gespeichert sein* +
-Wenn man einen aufgenommenen GPS-Track hochlädt, ist dieser dann dauerhaft verfügbar. +
-*FNAF-2: Man muss den Löschvorgang eines GPS-Tracks zweimal bestätigen* + 
-Um Datensicherheit zu gewährleisten muss der User nachdem er auf "Löschen" drückt noch einmal gefragt werden, ob
-er sich sicher ist. 
-
 === Benutzbarkeit (Usability)
 //Beschreiben Sie Anforderungen für Eigenschaften wie einfache Bedienung, einfaches Erlernen, Standards für die Benutzerfreundlichkeit, Lokalisierung (landesspezifische Anpassungen von Sprache, Datumsformaten, Währungen usw.)
 *NFAU-1: Text sollte auf Smartphone noch auf volle Armlänge lesbar sein* +
 Zur Überprüfung laden sich die Teammitglieder App herunter und halten Smartphone mit ausgestrecktem Arm vors Gesicht +
-*NFAU-2: Drop-Down-Menu verhindert Überdeckung anderer Tracks* +
-Zur Überprüfung wird das Szenario in der App ausprobiert. Wenn man aus der Liste einen Track auswählt sollten die anderen Tracks nicht vom neuen Menu verdeckt werden. Falls man sich verklickt hat und eigentlich einen anderen Track auswählen wollte, muss dies leicht möglich sein. +
-*NFAU-3: Startseite der App sollte Ort auf der Karte anzeigen, einen Knopf zur Trackübersicht und einen Knopf zum Aufnehmen eines Tracks beinhalten.* +
-Zur Überprüfung wird die App geöffnet und geschaut ob die Ortung stimmt. Die Knöpfe zur Aufnahme und zur Trackübersicht sind sichtbar und funktionieren. +
+*NFAU-2: Inhalte müssen übersichtlicht dargestellt werden* +
+Zur Überprüfung laden sich die Teammitglieder App herunter und bewerten die Übersichtlichkeit. +
+*NFAU-3: Die Hauptfunktionen befinden sich auf der Startseite* +
+Zur Überprüfung werden die Funktionalitäten der Relevanz nach sortiert und geschaut ob die Wichtigsten auf der
+Startseite zu finden sind. +
 *NFAU-4: Der Kunde sollte maximal 4 Klicks brauchen um entweder einen Track aufzunehmen oder sich die Details zu einem beliebigen Track anzeigen zu lassen.* +
 Zur Überprüfung wird die App geöffnet und sich zum jeweiligen Szenario durchgeklickt. Liegt die Anzahl der Interaktionen bei maximal 4, ist alles in Ordnung. +
 
@@ -47,15 +46,15 @@ Zur Überprüfung wird die App geöffnet und sich zum jeweiligen Szenario durchg
 // Zuverlässigkeit beinhaltet die Fähigkeit des Produkts und/oder des Systems unter Stress und ungünstigen Bedingungen am laufen zu bleiben. Spezifizieren Sie Anforderungen für zuverlässige Akzeptanzstufen, und wie diese gemessen und evaluiert werden. Vorgeschlagene Themen sind Verfügbarkeit, Häufigkeit und Schwere von Fehlern und Wiederherstellbarkeit.
 *NFAR-1: GPS-Tracks müssen eindeutig über ihren Namen identifiziert werden können* +
 Zur Überprüfung wird getestet, ob falls ein neuer Track den Namen eines bereits existierenden Tracks
-bekommt, ein entsprechender Hinweistext angezeigt wird.
-*NFAR-2: Der Server muss zu 95% verfügbar sein*
-
+bekommt, ein entsprechender Hinweistext angezeigt wird. +
+*NFAR-2: Der Server sowie der Kartendaten Provider muss zu 95% verfügbar sein* +
+Zur Überprüfung wird getestet, ob in einem Langzeittest der Server zu 95% der Zeit erreichbar ist.
 
 === Effizienz (Performance)
 // Die Performanz Charakteristiken des Systems sollten in diesem Bereich ausgeführt werden. Beispiele sind Antwortzeit, Durchsatz, Kapazität und Zeiten zum Starten oder Beenden.
 
 *NFAP-1: Das Softwaresystem soll ein Wechsel von Seite zu Seite und die Benutzung bestimmter Aktionen innerhalb der App in maximal 2 Sekunden ermöglichen.* +
-Zur Überprüfung wird ein automatischer Test feststellen, ob alle Anforderungen innerhalb der gegebenen Zeit unter optimalen Bedingungen ablaufen.
+Zur Überprüfung werden manuelle bzw. automatische Tests feststellen, ob alle Anforderungen innerhalb der gegebenen Zeit unter optimalen Bedingungen ablaufen.
 
 
 === Wartbarkeit (Supportability)
@@ -79,14 +78,15 @@ Zur Überprüfung wird ein solcher Fehler simuliert und überprüft ob die Entwi
 * Die App soll nur ein handelsübliches Smartphone benötigen welches als
 Betriebssystem Android verwendet.
 * Der Nutzer muss über die benötigten Berechtigungen informiert werden sowie sie akzeptieren.
-* Die GPS-Tracks sollen in einem standartisierten Dateiformat z.B. GEOJson oder GPX gespeichert werden.
+* Die GPS-Tracks sollen in einem standardisierten Dateiformat z.B. GEOJson oder GPX gespeichert werden.
 
 === Organisatorische Randbedingungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
-* Anforderungen an Betrieb, Management und Wartung der Anwendung
-* zu beachtende Standards, Normen und Regeln
+* Das Betriebssystem des Servers muss auf dem neuesten Stand gehalten werden.
+* Der Betreiber des Systems muss sich über Lizenz-Änderungen des Kartendaten Providers
+informieren und falls notwendig entsprechende Maßnahmen ergreifen.
 
 === Rechtliche Anforderungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
-* Lizensierung der Anwendung
-* Datenschutz
+* Die Anwendung steht unter der "Creative Commons Attribution 4.0 International" Lizenz.
+* Der Datenschutz der Nutzer muss gewährleistet sein. Die App darf nur notwendige Daten an den Server senden.
