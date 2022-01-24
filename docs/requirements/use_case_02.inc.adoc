@@ -34,9 +34,15 @@ die Namen aller gespeicherten GPS-Tracks einsehen.
 === Optionale Fortsetzung
 . Dem User ist es nun möglich, einen GPS-Track anzuwählen.
 . Nun kann er aus folgenden Optionen wählen:
-* GPS-Track löschen
 * GPS-Track bearbeiten -> UC03
 * GPS-Track auf Karte anzeigen -> UC02
+* GPS-Track löschen
+
+Fall der User "Löschen anwählt"
+* System öffnet Fenster, in dem der User gefragt wird, ob der sich sicher sei, den ausgewählten GPS-Track zu löschen
+* Es gibt die Möglichkeiten "Ja" und "Nein"
+** "Ja" -> der GPS-Track wird gelöscht
+** "Nein" -> der GPS-Track wird nicht gelöscht
 
 
 
