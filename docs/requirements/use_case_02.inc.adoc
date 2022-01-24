@@ -34,6 +34,7 @@ die Namen aller gespeicherten GPS-Tracks einsehen.
 === Optionale Fortsetzung
 . Dem User ist es nun möglich, einen GPS-Track anzuwählen.
 . Nun kann er aus folgenden Optionen wählen:
+* GPS-Track Details anzeigen
 * GPS-Track bearbeiten -> UC03
 * GPS-Track auf Karte anzeigen -> UC02
 * GPS-Track löschen
