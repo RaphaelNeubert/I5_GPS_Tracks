@@ -26,6 +26,25 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 == Architektur-relevante Anforderungen
 //Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
 
+*Functional* +
+
+*NFAF-1* Die GPS-Tracks müssen dauerhaft gespeichert sein.
+
+*NFAF-2* Der Löschvorgang eines GPS-Tracks muss zwei mal bestätigt werden.
+
+*Effizienz (Perfomance)*
+
+*NFAP-1* Das Softwaresystem soll ein Wechsel von Seite zu Seite und die Benutzung bestimmter Aktionen innerhalb der App in maximal 2 Sekunden ermöglichen.
+
+*Wartbarkeit (Supportability)*
+
+*NFAS-1* Das System soll in der Lage sein, neue Sprachen integrieren zu können.
+
+*NFAS-2* Das System soll in der Lage sein, Kartendaten verschiedener Anbieter zu verwenden.
+
+*NFAS-3* Die App soll entwicklungsrelevante Systemfehler loggen und an die Entwickler schicken
+
+
 
 == Entscheidungen, Nebenbedingungen und Begründungen
 //[List the decisions that have been made regarding architectural approaches and the constraints being placed on the way that the developers build the system. These will serve as guidelines for defining architecturally significant parts of the system. Justify each decision or constraint so that developers understand the importance of building the system according to the context created by those decisions and constraints. This may include a list of DOs and DON’Ts to guide the developers in building the system.]

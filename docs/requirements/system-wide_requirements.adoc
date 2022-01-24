@@ -20,9 +20,9 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 
 *SWFA-1: Die GPS-Tracks müssen dauerhaft gespeichert sein* +
 Wenn man einen aufgenommenen GPS-Track hochlädt, ist dieser dann dauerhaft verfügbar. +
-*SWFA-2: Man muss den Löschvorgang eines GPS-Tracks zweimal bestätigen* + 
+*SWFA-2: Der Löschvorgang eines GPS-Tracks muss zwei mal bestätigt werden.* +
 Um Datensicherheit zu gewährleisten muss der User nachdem er auf "Löschen" drückt noch einmal gefragt werden, ob
-er sich sicher ist. 
+er sich sicher ist.
 
 == Qualitätsanforderungen für das Gesamtsystem
 //Qualitätsanforderungen repräsentieren das "URPS" im FURPS+ zu Klassifikation von Anforderungen
