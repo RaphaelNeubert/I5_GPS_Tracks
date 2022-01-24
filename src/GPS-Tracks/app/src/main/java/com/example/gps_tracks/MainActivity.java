@@ -90,13 +90,11 @@ public class MainActivity extends AppCompatActivity{
         locationOverlay.enableFollowLocation();
         map.getOverlays().add(locationOverlay);
 
-        /*
         Marker m = new Marker(map);
         m.setPosition(new GeoPoint(51.051899,13.768021));
         m.setIcon(getResources().getDrawable(R.drawable.ic_location_map_marker));
         m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER);
         map.getOverlays().add(m);
-         */
 
 
         list = (ImageButton) findViewById(R.id.listButton);
