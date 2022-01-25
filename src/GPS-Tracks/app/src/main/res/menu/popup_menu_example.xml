@@ -1,12 +1,18 @@
 <?xml version = "1.0" encoding = "utf-8"?>
 <menu xmlns:android = "http://schemas.android.com/apk/res/android">
     <item
-        android:id = "@+id/android"
-        android:title = "Android" />
+        android:id = "@+id/details"
+        android:title = "Details anzeigen" />
     <item
-        android:id = "@+id/java"
-        android:title = "JAVA"/>
+        android:id = "@+id/showTrack"
+        android:title = "Track auf Karte anzeigen"/>
     <item
-        android:id = "@+id/kotlin"
-        android:title = "Kotlin"/>
+        android:id = "@+id/edit"
+        android:title = "Track bearbeiten"/>
+    <item
+        android:id = "@+id/contRec"
+        android:title = "Aufnahme fortsetzen"/>
+    <item
+        android:id = "@+id/delete"
+        android:title = "Track löschen"/>
 </menu>
