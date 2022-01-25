@@ -19,6 +19,7 @@ public class ListingTracks extends AppCompatActivity {
     private Button back;
     String[] testdata = {"test1","test2","test3"};
     ListView listView;
+    View callingItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,7 @@ public class ListingTracks extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = (String) parent.getItemAtPosition(position);
+                callingItem = view;
                 Log.i("button:", selectedItem);
                 popupMenuExample();
             }
@@ -60,7 +62,7 @@ public class ListingTracks extends AppCompatActivity {
         startActivity(intent);
     }
     private void popupMenuExample() {
-        PopupMenu p = new PopupMenu(this, listView);
+        PopupMenu p = new PopupMenu(this, callingItem);
         p.getMenuInflater().inflate(R.menu.popup_menu_example, p .getMenu());
         p.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             public boolean onMenuItemClick(MenuItem item) {
