@@ -17,11 +17,40 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 //Hinweise: Beschreiben Sie die Philosophie der Architektur, d.h. den zentralen Ansatz für ihre Architektur. Identifizieren Sie alle Aspekte, die die Philosophie beeinflussen, z.B. komplexe Auslieferung Aspekte, Anpassung von Altsystemen oder besondere Geschwindigkeitsanforderungen. Muss es besonders robust sein, um eine langfristige Wartung und Pflege zu ermöglichen?
 
 //Formulieren Sie eine Reihe von Zielen, die die Architektur in ihrer Struktur und ihrem Verhalten erfüllen muss. Identifizieren Sie kritische Fragen, die von der Architektur adressiert werden müssen, z.B. besondere Hardware-Abhängigkeiten, die vom Rest des Systems isoliert werden sollten oder Sicherstellung der Funktionsfähigkeit unter besonderen Bedingungen (z.B. Offline-Nutzung).
+Das System besteht aus einer Android App für das erstellen von GPS-Tracks und einem Server der aufgenommene
+GPS-Tracks mit verschiedenen Geräten synchronisiert. Die Synchronisation soll dabei (zunächst) nur bei Geräten im
+selben Netzwerk wie der Server funktionieren. Die App soll nicht im PlayStore veröffentlicht werden und nur von wenigen
+Personen (<10) parallel genutzt werden
+aber nahezu rund um die Uhr verfügbar sein. Über die verwendeten Endgeräte ist nur bekannt es sich um Android Smartphones
+handelt die über ein Touchscreen bedient werden sollen. 
+Die technische Ausstattung (Bildschirmgröße, RAM, CPU, Bandbreite) sowie die genaue Android Version
+ist unbekannt. +
+
+Die App soll ein möglichst intuitive Benutzeroberfläche haben in der Aktionen durch bekannte Icons oder Begriffe
+beschrieben werden. +
+
+Das System ist die initiale Version und wird vermutlich im Laufe der Zeit noch hinsichtlich verschiedener Aspekte
+erweitert werden. Dazu gehören z.B. weitere Bearbeitungsmöglichkeiten oder die Möglichkeit per App direkt mit den
+Robotern Kommunizieren zu können.
 
 
 == Annahmen und Abhängigkeiten
 //[List the assumptions and dependencies that drive architectural decisions. This could include sensitive or critical areas, dependencies on legacy interfaces, the skill and experience of the team, the availability of important resources, and so forth]
+*Annahmen* +
 
+* Auf dem Smartphone des Nutzers ist mindestens Android 5.0 oder neuer installiert.
+* Jeder Nutzer besitzt ein stabile GPS-Verbindung.
+* Jeder Nutzer besitzt eine meist vorhandene Internetverbindung. 
+* Der Nutzer hat die Möglichkeit sich mit dem selben Netzwerk mit dem der Server verbunden ist, zu verbinden.
+* Der Nutzer hat der App alle benötigten Berechtigungen erteilt.
+* Die verwendeten Frameworks und APIs funktionieren nahezu fehlerfrei und werden in Zukunft gepflegt.
+
+*Abhängigkeiten* +
+
+* Wir sind drauf angewiesen, dass der Kartendaten Provider weiter kostenlos Kartendaten zu Verfügung stellt und nahezu
+rund um die Uhr erreichbar ist.
+* Wir sind von unserem Rechenzentrum abhängig, da der Server zur Synchronisation jederzeit zur Verfügung stehen muss.
+* Wir sind darauf angewiesen, dass alle eingesetzten Frameworks und APIs gepflegt werden.
 
 == Architektur-relevante Anforderungen
 //Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
@@ -58,7 +87,7 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
     Erweiterbarkeit, eine gute Dokumentation sowie eine Hilfreiche Community und eine
     sehr hohe Stabilität da der Code von vielen verschieden Menschen überprüft wurde.
     Der jedoch entscheidendere Punkt ist das osmdroid das Verwenden verschiedener
-    Tile Server ermöglicht. So kann man die Daten von Google Maps oder Mapbox
+    Tile Server (Kartendaten Provider) ermöglicht. So kann man die Daten von Google Maps oder Mapbox
     aber auch von freien Providern wie zum Beispiel OpenStreetMap  oder sogar einen
     selbst gehosteten Tile Server nehmen.
 
