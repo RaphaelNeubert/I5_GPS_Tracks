@@ -8,6 +8,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
@@ -18,6 +19,9 @@ import androidx.core.content.ContextCompat;
 
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
+import org.osmdroid.events.MapListener;
+import org.osmdroid.events.ScrollEvent;
+import org.osmdroid.events.ZoomEvent;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.CustomZoomButtonsController;
@@ -34,8 +38,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity{
     private final int REQUEST_PERMISSIONS_REQUEST_CODE = 1;
     private MapView map = null;
-    private ImageButton rec;
-    private ImageButton list;
+    private MyLocationNewOverlay locationOverlay;
+    private ImageButton toPosButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,39 +77,45 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onLocationChanged(Location location, IMyLocationProvider source) {
                 String position = "Location changed to: " + new GeoPoint(location).toDoubleString();
-                Log.i("Test", position);
+                Log.i("onLocationChanged: ", position);
             }
         });
 
-        MyLocationNewOverlay locationOverlay = new MyLocationNewOverlay(map);
-        /* not working for some reason
-        locationOverlay.getMyLocationProvider().startLocationProvider(new IMyLocationConsumer() {
-            @Override
-            public void onLocationChanged(Location location, IMyLocationProvider source) {
-                String position = "Location changed to: " + new GeoPoint(location).toDoubleString();
-                Log.i("Test", position);
-            }
-        });
-         */
+
+        locationOverlay = new MyLocationNewOverlay(map);
         locationOverlay.enableFollowLocation();
         map.getOverlays().add(locationOverlay);
 
+        toPosButton = (ImageButton) findViewById(R.id.posButton);
+        toPosButton.setVisibility(View.INVISIBLE);
+        toPosButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                locationOverlay.enableFollowLocation();
+                toPosButton.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        MapListener mapListener = new MapListener() {
+            @Override
+            public boolean onScroll(ScrollEvent event) {
+                if (locationOverlay.isFollowLocationEnabled() == false && map.isAnimating() == false) {
+                    toPosButton.setVisibility(View.VISIBLE);
+                }
+                return false;
+            }
+            @Override
+            public boolean onZoom(ZoomEvent event) {
+                return false;
+            }
+        };
+        map.addMapListener(mapListener);
         Marker m = new Marker(map);
         m.setPosition(new GeoPoint(51.051899,13.768021));
         m.setIcon(getResources().getDrawable(R.drawable.ic_location_map_marker));
         m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER);
         map.getOverlays().add(m);
 
-
-        list = (ImageButton) findViewById(R.id.listButton);
-        list.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                openListTracks();
-            }
-        });
-
-        rec = (ImageButton) findViewById(R.id.record);
     }
 
     @Override
@@ -160,9 +170,11 @@ public class MainActivity extends AppCompatActivity{
         }
     }
 
-    public void openListTracks() {
+    public void openListTracks(View view) {
         Intent intent = new Intent(MainActivity.this, ListingTracks.class);
         startActivity(intent);
+    }
+    public void startRecording(View view) {
     }
 
 

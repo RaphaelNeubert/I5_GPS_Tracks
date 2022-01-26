@@ -15,8 +15,18 @@
         android:id="@+id/map"
         android:layout_width="421dp"
         android:layout_height="wrap_content">
+
     </org.osmdroid.views.MapView>
 
+    <ImageButton
+        android:id="@+id/posButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        app:srcCompat="@drawable/osm_ic_center_map"
+        android:background="@null"
+        android:layout_margin="20px" />
 
     <ImageButton
         android:id="@+id/record"
@@ -26,6 +36,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:background="@null"
+        android:layout_margin="20px"
+        android:onClick="startRecording"
         android:visibility="visible"/>
 
     <ImageButton
