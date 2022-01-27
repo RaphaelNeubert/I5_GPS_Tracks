@@ -47,7 +47,7 @@ Zur Überprüfung wird die App geöffnet und sich zum jeweiligen Szenario durchg
 *NFAR-1: GPS-Tracks müssen eindeutig über ihren Namen identifiziert werden können* +
 Zur Überprüfung wird getestet, ob falls ein neuer Track den Namen eines bereits existierenden Tracks
 bekommt, der Name automatisch verändert wird. +
-*NFAR-2: Der Server sowie der Kartendaten Provider muss zu 95% verfügbar sein* +
+*NFAR-2: Der Server sowie der Kartendatenprovider muss zu 95% verfügbar sein* +
 Zur Überprüfung wird getestet, ob in einem Langzeittest der Server zu 95% der Zeit erreichbar ist.
 
 === Effizienz (Performance)

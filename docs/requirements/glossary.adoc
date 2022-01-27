@@ -12,8 +12,15 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 [%header]
 |===
 | Begriff | Definition und Erläuterung | Synonyme
-//| Kommissionierung | Bereitstellung von Waren aus einem Lager entsprechend eines Kundenauftrags | (keine)
-| xx | xx | xx
+|Nutzer | Anwender des Systems | Akteur, Benutzer
+| GPS-Track | Zeigt Aufenthaltsort auf digitaler Karte an | Track
+| Button | Schaltfläche auf Bildschirm, kann durch Antippen aktiviert werden | Knopf
+| Wireframe | Bildliche Darstellung der Funktionalität und des Aussehens der Appoberflächen | -
+| Use Case | Bündelt grafisch mögliche Ereignisse die eintreten können, wenn ein Akteur versucht mit Hilfe des Systems ein bestimmtes Ziel zu erreichen  | Anwendungsfall
+| Source Code | Der für den Nutzer lesbare, in einer Programmiersprache geschriebene Text eines Programms | Quellcode, Quelltext
+| Dialogfeld | Element der Benutzeroberfläche der Kommunikation und Interaktion zwischen Nutzer und Programm ermöglicht | -
+| Schnittstelle | Verbindung zwischen Funktionseinheiten eines Datenverarbeitungssystems, an der der Austausch von Daten erfolgt | -
+| Provider | Stellt etwas bereit, bei uns zB der Kartendatenprovider | -
 |===
 
 
@@ -21,7 +28,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 [%header]
 |===
 | Abkürzung | Bedeutung | Erläuterung
-//| UP | Unified Process | Vorgehensmodell für die Softwareentwicklung
+| UP | Unified Process | Vorgehensmodell für die Softwareentwicklung
 | xx | xx | xx
 |===
 
