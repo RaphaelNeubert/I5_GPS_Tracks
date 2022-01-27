@@ -47,7 +47,7 @@ Zur Überprüfung wird die App geöffnet und sich zum jeweiligen Szenario durchg
 *NFAR-1: GPS-Tracks müssen eindeutig über ihren Namen identifiziert werden können* +
 Zur Überprüfung wird getestet, ob falls ein neuer Track den Namen eines bereits existierenden Tracks
 bekommt, der Name automatisch verändert wird. +
-*NFAR-2: Der Server sowie der Kartendaten Provider muss zu 95% verfügbar sein* +
+*NFAR-2: Der Server sowie der Kartendatenprovider muss zu 95% verfügbar sein* +
 Zur Überprüfung wird getestet, ob in einem Langzeittest der Server zu 95% der Zeit erreichbar ist.
 
 === Effizienz (Performance)
@@ -62,7 +62,7 @@ Zur Überprüfung werden manuelle bzw. automatische Tests feststellen, ob alle A
 *NFAS-1: Das System soll in der Lage sein, neue Sprachen integrieren zu können.* +
 Zur Überprüfung wird festgestellt, ob entsprechende Schnittstellen vorhanden sind. +
 *NFAS-2: Das System soll in der Lage sein, Kartendaten verschiedener Anbieter zu verwenden.* +
-Zur Überprüfung wird festgestellt, ob entsprechende Schnittstellen vorhanden sind.
+Zur Überprüfung wird festgestellt, ob entsprechende Schnittstellen vorhanden sind. +
 *NFAS-3: Die App soll entwicklungsrelevante Systemfehler loggen und an die Entwickler schicken* +
 Zur Überprüfung wird ein solcher Fehler simuliert und überprüft ob die Entwickler
 über diesen Informiert wurden.
