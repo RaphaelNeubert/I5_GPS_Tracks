@@ -62,7 +62,7 @@ Zur Überprüfung werden manuelle bzw. automatische Tests feststellen, ob alle A
 *NFAS-1: Das System soll in der Lage sein, neue Sprachen integrieren zu können.* +
 Zur Überprüfung wird festgestellt, ob entsprechende Schnittstellen vorhanden sind. +
 *NFAS-2: Das System soll in der Lage sein, Kartendaten verschiedener Anbieter zu verwenden.* +
-Zur Überprüfung wird festgestellt, ob entsprechende Schnittstellen vorhanden sind.
+Zur Überprüfung wird festgestellt, ob entsprechende Schnittstellen vorhanden sind. +
 *NFAS-3: Die App soll entwicklungsrelevante Systemfehler loggen und an die Entwickler schicken* +
 Zur Überprüfung wird ein solcher Fehler simuliert und überprüft ob die Entwickler
 über diesen Informiert wurden.
