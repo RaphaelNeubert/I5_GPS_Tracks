@@ -13,7 +13,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |===
 | Begriff | Definition und Erläuterung | Synonyme
 |Nutzer | Anwender des Systems | Akteur, Benutzer
-| GPS-Track | Zeigt Aufenthaltsort auf digitaler Karte an | Track
+| GPS-Track | Zeigt Aufenthaltsort auf digitaler Karte an | Track/Strecke
 | Button | Schaltfläche auf Bildschirm, kann durch Antippen aktiviert werden | Knopf
 | Wireframe | Bildliche Darstellung der Funktionalität und des Aussehens der Appoberflächen | -
 | Use Case | Bündelt grafisch mögliche Ereignisse die eintreten können, wenn ein Akteur versucht mit Hilfe des Systems ein bestimmtes Ziel zu erreichen  | Anwendungsfall
@@ -21,6 +21,12 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Dialogfeld | Element der Benutzeroberfläche der Kommunikation und Interaktion zwischen Nutzer und Programm ermöglicht | -
 | Schnittstelle | Verbindung zwischen Funktionseinheiten eines Datenverarbeitungssystems, an der der Austausch von Daten erfolgt | -
 | Provider | Stellt etwas bereit, bei uns zB der Kartendatenprovider | -
+| Icons | grafisches Symbol (kleines Bild/Piktogramm) für Anwendungsprogramme | Symbole
+| Osmdroid | - | -
+| Tile server | ist eine Server-Software welche auf Geodaten spezialisierte Webservices bereitstellt | Mapserver
+| Homescreen | Anzeige dirket nach dem Startvorgang eines Betriebssystems | Startbildschirm
+
+
 |===
 
 
@@ -29,7 +35,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |===
 | Abkürzung | Bedeutung | Erläuterung
 | UP | Unified Process | Vorgehensmodell für die Softwareentwicklung
-| xx | xx | xx
+| APIs | xx | xx
 |===
 
 == Verzeichnis der Datenstrukturen
