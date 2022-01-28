@@ -1,6 +1,4 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
-:imagesdir: images
-
 
 == Use-Case 04: GPS-Tracks Bearbeiten
 
@@ -14,7 +12,7 @@ Die App soll das manuelle Bearbeiten bereits aufgenommener GPS-Tracks ermöglich
 möchte die Bearbeitung vornehmen
 
 .GPS-Track Bearbeiten
-image::wireframes_optionen.PNG[]
+image::wireframes_optionen.png[]
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...

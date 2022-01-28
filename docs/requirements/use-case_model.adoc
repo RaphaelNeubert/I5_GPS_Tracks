@@ -24,8 +24,6 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Use Case Diagramm
 
-:imagesdir: images
-
 image::use_case_diagram.PNG[]
 Use-Case Model
 // ...
