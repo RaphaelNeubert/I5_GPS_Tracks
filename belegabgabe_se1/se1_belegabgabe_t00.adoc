@@ -1,7 +1,7 @@
 // --- 1. Projektthema -------------------------
 = SE I - Belegabgabe: {project-name}
 // --- 2. Teammitglieder -----------------------
-Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>
+Alex Schechtel <s82055@htw-dresden.de>; Anton Peschel <s81075@htw-dresden.de>; Felix Reuß <s81060@htw-dresden.de>; Ludwig Schoenthier <s83033@htw-dresden.de>; Raphael Neubert <s82038@htw-dresden.de>;Richard Michel <richard.michel@htw-dresden.de>; Tom Nicolai <s81783@htw-dresden.de>; Quang Duy Pham <s82050@htw-dresden.de>
 // --- 3. Abgabedatum --------------------------
 31. Januar 2022
 // ---------------------------------------------
