@@ -36,6 +36,8 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Abkürzung | Bedeutung | Erläuterung
 | UP | Unified Process | Vorgehensmodell für die Softwareentwicklung
 | APIs | Application Programming Interface | Programmierschnittstelle
+| UC | Usecase | -
+| GPS| -| -
 |===
 
 == Verzeichnis der Datenstrukturen
