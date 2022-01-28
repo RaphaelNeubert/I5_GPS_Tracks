@@ -29,12 +29,13 @@ include::../_includes/default-attributes.inc.adoc[]
 
 
 == Aufgabenzuordnung
-https://github.com/RaphaelNeubert/I5_GPS_Tracks/projects/2
+https://github.com/RaphaelNeubert/I5_GPS_Tracks/projects/3
 
 == Bewertungskriterien
-* Die Systemweiten Anforderungen, die Vision und die Risikoliste werden beim Zusammentreffen aller Gruppenmitglieder für gut ausgearbeitet erklärt
-* Die Karte kann in der App auf dem Homescreen angezeigt werden
-* Die Positionsermittlung per GPS in der App funktioniert 
+* Das Glossar, das Domainmodell, das Architecture-Notebook und die Risikoliste werden beim Zusammentreffen aller Gruppenmitglieder für gut ausgearbeitet und vollständig erklärt
+* Der Prototyp funktioniert in all seinen bisher vorhandenen Funktionen und ist bereit für die Vorstellung
+* Alle Gruppenmitglieder stufen den Beleg als abgabebereit ein
+
 
 
 == Assessment
@@ -45,9 +46,9 @@ https://github.com/RaphaelNeubert/I5_GPS_Tracks/projects/2
 | Assessment Ziel
 | Ganze Iteration
 | Assessment Datum
-| 23.01.2022
+| 30.01.2022
 | Teilnehmer
-| Alle Gruppenmitglieder außer Richard
+| Alle Gruppenmitglieder 
 | Projektstatus
 | grün
 |===
