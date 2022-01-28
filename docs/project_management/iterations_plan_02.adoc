@@ -66,4 +66,4 @@ https://github.com/RaphaelNeubert/I5_GPS_Tracks/projects/3
 •	Der fertige Beleg wurde für die Abgabe von allen Gruppenmitgliedern freigegeben und kann nun an Professor Anke geschickt werden.
    
 
-image::alphas2.jpeg[]
+image::alphas2.jpeg[align="center"]

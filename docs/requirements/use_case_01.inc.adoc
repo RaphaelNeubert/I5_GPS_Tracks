@@ -1,5 +1,5 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
-
+:imagesdir: images
 == Use-Case 01: GPS-Track aufnehmen
 
 === Kurzbeschreibung
@@ -11,7 +11,7 @@ Der Use Case beschreibt die Aufnahme eines GPS-Tracks per App
 * Möchte einen GPS-Track aufnehmen
 
 .Homescreen
-image::wireframes_homescreen.png[]
+image::wireframes_homescreen.png[align="center"]
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...

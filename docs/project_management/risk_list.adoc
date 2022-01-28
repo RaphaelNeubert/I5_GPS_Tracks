@@ -40,10 +40,10 @@ Die Risiken sind in folgender Tabelle: <<table_risks>> dargestellt. Das Datum de
 //include::risks.csv[]
 //|===
 
-image::risks1.png[]
-image::risks2.png[]
-image::risks3.png[]
-image::risks4.png[]
+image::risks1.png[align="center"]
+image::risks2.png[align="center"]
+image::risks3.png[align="center"]
+image::risks4.png[align="center"]
 
 // PDF-Export: Seite zurück zum Hochformat
 [.portrait]

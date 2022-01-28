@@ -1,4 +1,4 @@
-
+:imagesdir: images
 == Use-Case 02: GPS-Track auflisten
 
 === Kurzbeschreibung
@@ -10,8 +10,8 @@ Der Use Case beschreibt die Auflistung aller gespeicherten GPS-Tracks innerhalb 
 * Möchte alle GPS-Tracks sehen
 
 .GPS-Track auflisten
-image::wireframes_menu.png[]
-image::wireframes_optionen.png[]
+image::wireframes_menu.png[align="center"]
+image::wireframes_optionen.png[align="center"]
 
 === Vorbedingungen
 * Nutzer hat die App zum Aufnehmen des GPS-Tracks gestartet
