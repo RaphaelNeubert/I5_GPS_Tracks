@@ -1,4 +1,4 @@
-= Iteration Plan 01: {project-name}
+= Iteration Plan 02: {project-name}
 Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
@@ -11,22 +11,22 @@ include::../_includes/default-attributes.inc.adoc[]
 |*Meilenstein*
 |*Datum*
 |Beginn der Iteration
-|16.01.2022
-|Meeting mit Coach
-|18.01.2022
-|Meeting mit TS
-|21.01.2022
-|Ende der Iteration
-|23.01.2022
+|24.01.2022
+|Ende der Iteration; LCA Meilenstein erreicht
+|30.01.2022
 |===
 
 
 == Wesentliche Ziele
-. Systemweite Anforderungen Ausarbeiten
-. Vision vervollständigen
-. Risikoliste updaten
-. Erste Funktionalitäten der App/Software programmieren (Karte auf Homescreen anzeigen, Positionsermittlung per GPS)
-. Iterationsplan erstellen, Projektplan vervollständigen und ins Repo holen
+
+. Glossar erstellen
+. Domainmodell erstellen
+. Architecture Notebook fertigstellen
+. Risikoliste vollenden
+. Funktionalitäten der App/Software weiter programmieren 
+. Alle Dateien für Belegabgabe zusammenführen und Korrektur lesen
+. Prototyp für Vorstellung bereit machen
+
 
 == Aufgabenzuordnung
 https://github.com/RaphaelNeubert/I5_GPS_Tracks/projects/2
