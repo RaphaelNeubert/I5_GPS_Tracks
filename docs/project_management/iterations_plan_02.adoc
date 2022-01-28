@@ -54,17 +54,16 @@ https://github.com/RaphaelNeubert/I5_GPS_Tracks/projects/3
 |===
 
 
-    • Fast alle für die Iteration festgelegten Ziele wurden so weit erfüllt.
-    • Alle Aufgabe, welche geplant waren, wurden bis zum Ende der Iteration bearbeitet.
-    • Jedoch wurden die Iterationspläne und der Projektplan noch nicht ins Repo geholt, weshalb diese Aufgabe in die nächste Iteration verschoben wird. 
-    • Während der Iteration hat es ein paar Änderungen innerhalb der Aufgaben gegeben und Ergänzungen gegeben. 
-    • Dies betrifft zum einen das Architektur Notebook, welches nun schon zusätzlich begonnen worden ist und dann weiter fortgeführt wird.
-    • Des Weiteren kam es zu kleinen Änderungen und Anpassungen durch die Tipps des Coaches und des Themenstellers.
-    • Diese folgenden Anpassungen wurden dabei in der Iteration noch zusätzlich vorgenommen: Der Butten für das Menü der App und der für die Aufnahme bekommen ein anderes Symbol, und es wird ein weiterer Button hinzugefügt. 
-    • Zudem wird noch einmal über die Wörter Track und Tracks geschaut, um diese in allen Dokumenten einheitlich zu schreiben.
-    • Die Beurteilung für die Bewertungskriterien fällt sehr positiv aus.
-    • Die Systemweiten Anforderungen, die Vision und die Risikoliste wurden beim Zusammentreffen aller Gruppenmitglieder für gut ausgearbeitet erklärt und somit als abgabebereit erklärt.
-    • Die App hat die ersten Funktionstests bestanden, dabei kann Karte kann in der App auf dem Homescreen angezeigt werden und die Positionsermittlung per GPS funktioniert mit sogar hoher Genauigkeit.
-    • Da die Iterationen zu Ende hin sehr voll werden wurde sich dazu entschieden die Iteration 3 in zwei Iterationen Aufzuteilen, Wodurch alle sich in der Icebox und Assigned befindlichen Aufgaben in Iteration 4 verschoben werden und nicht zu Iteration 3 zählen.
+ •	Alle für die Iteration festgelegten Ziele wurden erfüllt.
+•	Alle Aufgabe, welche geplant waren, wurden bis zum Ende der Iteration bearbeitet und fertiggestellt. Es befindet sich kein Issue mehr in der IceBox, Assigned oder In progress, wodurch nichts in die nächste Iteration gemoved werden muss.
+•	Währen der Arbeitsphase wurden noch zusätzlich kleine, vor allem optische, Änderungen am Menü der App vorgenommen, um diese noch etwas anschaulicher für die Vorstellung zu machen.
+•	Aufgrund der Tatsache, dass SE I mit dieser, für uns letzte Iteration, abgeschlossen ist, gibt es noch keine genaue Planung für Iteration fünf und die damit verbundenen Aufgaben.
+•	Der LCA-Meilenstein, mit allen dafür notwenigen Aufgaben, wurde erreicht.
+•	Die Planung der nächsten Iteration wird voraussichtlich erst im nächsten Semester mit dem Start von SE II geschehen.
+•	Die Beurteilung für die Bewertungskriterien fällt sehr positiv aus.
+•	Das Glossar, das Domainmodell, das Architecture-Notebook und die Risikoliste wurden beim Zusammentreffen aller Gruppenmitglieder für gut ausgearbeitet befunden und somit als abgabebereit erklärt. Keine weiteren Ergänzungen waren nötig, wodurch ein Verschieben der Issues in die nächste Iteration nicht von Nöten war.
+•	Der Prototyp wurde allen Gruppenmitgliedern bei der Bewertung der Iteration vorgestellt und funktioniert in all seinen bisher vorhandenen Funktionen. Die Gruppe befindet den Prototypen als bereit für die Vorstellung.
+•	Der fertige Beleg wurde für die Abgabe von allen Gruppenmitgliedern freigegeben und kann nun an Professor Anke geschickt werden.
+   
 
 image::alphas.jpeg[]
