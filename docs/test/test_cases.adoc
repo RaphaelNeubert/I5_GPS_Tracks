@@ -7,8 +7,6 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Allgemeine Informationen
 
-== Test Cases
+include::test_case_01.inc.adoc[]
 
-=== Test Case 01
-
-=== Test Case 02
+== Test Case 02
