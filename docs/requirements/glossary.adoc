@@ -25,6 +25,7 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Osmdroid | - | -
 | Tile server | ist eine Server-Software welche auf Geodaten spezialisierte Webservices bereitstellt | Mapserver
 | Homescreen | Anzeige dirket nach dem Startvorgang eines Betriebssystems | Startbildschirm
+| Pop-up | ein kleines Anzeigefenster | -
 
 
 |===

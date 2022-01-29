@@ -99,15 +99,17 @@ Dennoch verfügt Flask über viel Funktionalität und ist sehr erweiterbar.
 
 
 == Architekturmechanismen
-https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/concepts/arch_mechanism_2932DFB6.html[Doku "Concept: Architectural Mechanism"]
+//https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/concepts/arch_mechanism_2932DFB6.html[Doku "Concept: Architectural Mechanism"]
 //[List the architectural mechanisms and describe the current state of each one. Initially, each mechanism may be only name and a brief description. They will evolve until the mechanism is a collaboration or pattern that can be directly applied to some aspect of the design.]
 
 //Beispiele: relationales DBMS, Messaging-Dienste, Transaktionsserver, Webserver, Publish-Subscribe Mechanismus
 
 //Beschreiben Sie den Zweck, Eigenschaften und Funktion der Architekturmechanismen.
 
-. Architekturmechanismus 1
-. Architekturmechanismus 2
+. Speichern der GPS-Tracks +
+    Die GPS-Tracks werden auf dem Endgerät des Nutzers gespeichert und, sofern man Internet verbindung hat, auf dem Server in einer dafür geeigneten Datenbank. Die GPS-Tracks werden in Einer Datenbank gespeichert, damit man auch von einem anderen Gerät diese Abrufen kann.
+. Löschen eines GPS-Tracks +
+    Wenn der Nutzer einen GPS-Track, in der GPS-Trackauswahl, löschen möchte, dann wird ein kleines Pop-up geöffnet, in welchem eine erneute Bestätigung zum Löschen angefragt wird.
 
 
 == Wesentliche Abstraktionen
