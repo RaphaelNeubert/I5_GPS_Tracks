@@ -11,13 +11,13 @@ Der Use Case beschreibt die Aufnahme eines GPS-Tracks per App
 * Möchte einen GPS-Track aufnehmen
 
 .Homescreen
-image::wireframes_homescreen.png[align="center"]
+image::wireframes_homescreen.png[align="center", pdfwidth=55%]
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
 
 * Nutzer hat die App zum Aufnehmen des GPS-Tracks gestartet
-* Der App wurde die GPS-Berechtigung erteilt.
+* Der App wurde die GPS- und Dateispeicher-Berechtigung erteilt.
 * Nutzer verfügt über eine funktionierende GPS-Verbindung.
 
 === Standardablauf (Basic Flow)
@@ -26,19 +26,19 @@ image::wireframes_homescreen.png[align="center"]
 . Der Use Case beginnt, wenn der Nutzer die Aufnahme der GPS-Daten auslöst
 . WHILE Aufnahme läuft
 * App ermittelt und speichert Standort
-* App zeigt Routenverlauf Live auf der Karte an (UC02)
+* App zeigt Routenverlauf Live auf der Karte an (UC03)
 . Nutzer beendet die Aufnahme
 * Bestätigung "Aufnahme wirklich beenden?"
 *** IF "Ja, beenden"
 **** Aufnahme wird gestoppt
 **** Dialogfeld "Bitte geben sie einen Dateinamen an" -> Bestätigung "speichern"
-**** GPS-Track wird zur Synchronisation mit Server freigegeben (UC04)
+**** GPS-Track wird zur Synchronisation mit Server freigegeben (UC06)
 **** App bestätigt die erfolgreiche Speicherung 
 *** ELSE -> Aufnahme wird fortgesetzt
 . Der Use Case ist abgeschlossen.
 
 .UC01
-image::Use Case 01_GPS-Track aufnehmen.jpg[]
+image::Use Case 01_GPS-Track aufnehmen.jpg[align="center"]
 
 === Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
@@ -51,17 +51,9 @@ Wenn die App während der Aufnahme beendet wird, dann +
 . Nach erneutem öffnen der App kann die angefangene Strecke am gleichen Ort wie bisher aufgenommene
     Stecken ausgewählte werden. Die Erkennung welche die Abgebrochene Strecke ist, erfolgt über einen automatisierten Namen.
 . Nach der Auswahl des GPS-Tracks wird die Option "Aufnahme fortsetzen" wird gewählt
-. Die bisherige Strecke wird auf der Karte angezeigt (UC02) und der Button "Aufnehmen" wird zum Button "fortsetzen".
+. Die bisherige Strecke wird auf der Karte angezeigt (UC03) und der Button "Aufnehmen" wird zum Button "fortsetzen".
 . Durch Betätigung von "fortsetzen" wird die Aufnahme fortgesetzt.
-. Nutzer beendet die Aufnahme
-. Bestätigung "Aufnahme wirklich beenden?"
-*** IF "Ja, beenden"
-**** Aufnahme wird gestoppt
-**** Dialogfeld "Bitte geben sie einen Dateinamen an" -> Bestätigung "speichern"
-**** GPS-Track wird zur Synchronisation mit Server freigegeben (UC04)
-**** App bestätigt die erfolgreiche Speicherung 
-*** ELSE -> Aufnahme wird fortgesetzt
-. Der Use Case ist abgeschlossen.
+. Der weitere Ablauf ist der gleiche wie der Standardablauf ab Punkt 3.
 
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
