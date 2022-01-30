@@ -67,7 +67,7 @@ des GPS-Tracks informiert.
 ==== Szenario 2: Ungewollte Beendigung der GPS-Trackaufnahme
 . SC2: Nutzer X startet die Aufnahme des GPS-Tracks per App und läuft die aufzunehmende Route ab. Während der Aufnahme
 wird die App durch das Betriebssystem des Smartphones um Akku zu sparen beendet. Nach dem erneuten öffnen der App
-findet der Nutzer die bisher aufgenommene Strecke unter dem Namen <Datum Uhrzeit>. Durch anklicken des Namens
+findet der Nutzer die bisher aufgenommene Strecke unter dem Namen <Neuer Track Datum Uhrzeit>. Durch anklicken des Namens
 wird dem Nutzer die Option gegeben die Aufzeichnung fortzusetzen. Durch die Wahl dieser Option sieht der Nutzer nun
 die stelle an der die Aufnahme abgebrochen wurde. Er kann sich nun an diese Stelle begeben und durch den Button
 "fortsetzen" die Aufnahme der Strecke fortsetzen. Sobald die aufzunehmende Route abgelaufen/fahren wurde, 
