@@ -107,9 +107,14 @@ Dennoch verfügt Flask über viel Funktionalität und ist sehr erweiterbar.
 //Beschreiben Sie den Zweck, Eigenschaften und Funktion der Architekturmechanismen.
 
 . Speichern eines GPS-Tracks +
-    Die GPS-Tracks werden auf dem Endgerät des Nutzers gespeichert und, sofern man eine Internet verbindung hat, auf dem Server in einer dafür geeigneten Datenbank. Die GPS-Tracks werden in einer Datenbank gespeichert, damit man auch von einem anderen Gerät diese abrufen kann.
+    Die GPS-Tracks werden auf dem Endgerät des Nutzers gespeichert und, sofern man eine Verbindung zum Netzwerk des Servers
+    hat, mit einer dafür geeigneten Datenbank mit dem Server synchronisiert. Bei der Synchronisations handelt es sich (zunächst) um eine 1 zu 1
+    Synchronisation. Nutzeraccounts bzw. eine Nutzerverwaltung und gesonderte Zugriffsrechte soll es zunächst nicht geben.
+    Die Synchronisation mit dem Server ermöglicht es leicht dem Roboter Tracks zuzuweisen, unabhängig auf welchem Gerät
+    sie aufgenommen oder bearbeitet wurden.
 . Löschen eines GPS-Tracks +
-    Wenn der Nutzer einen GPS-Track, in der GPS-Trackauswahl, löschen möchte, dann wird ein kleines Pop-up geöffnet, in welchem eine erneute Bestätigung zum löschen angefragt wird.
+    Wenn der Nutzer einen GPS-Track, in der GPS-Trackauswahl, löschen möchte, dann wird ein kleines Pop-up geöffnet, in welchem eine erneute Bestätigung zum löschen angefragt wird. Bei erfolgreicher Bestätigung wird der Track sowohl auf dem
+    Endgerät als auch auf dem Server gelöscht.
 
 
 == Wesentliche Abstraktionen
