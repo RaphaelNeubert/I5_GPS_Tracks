@@ -1,4 +1,4 @@
-:imagesdir: images
+
 == Use-Case 02: GPS-Track auflisten
 
 === Kurzbeschreibung

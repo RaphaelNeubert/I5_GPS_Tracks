@@ -41,7 +41,7 @@ include::{docs}/_includes/default-attributes.inc.adoc[]
 // --- Technische Spezifikation ---
 = Technische Spezifikation
 * Vision
-* Use Case Model (inkl. Wireframes, sofern vorhanden)
+* Use Case Model 
 * System-wide Requirements
 * Glossar
 * Domänenmodel

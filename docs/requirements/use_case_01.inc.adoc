@@ -1,5 +1,5 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
-:imagesdir: images
+
 == Use-Case 01: GPS-Track aufnehmen
 
 === Kurzbeschreibung
