@@ -6,14 +6,14 @@ include::../_includes/default-attributes.inc.adoc[]
 
 
 == Einführung
-Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten des {project-name} zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die  Details, wie das <Projektname-System> diese Bedarfe erfüllt, werden in der Use-Case und Supplementary Specification beschrieben.
+Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten des GPS-Track-Erstellungssystems zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die  Details, wie das GPS-Track-Erstellungssystem diese Bedarfe erfüllt, werden in der Use-Case und Supplementary Specification beschrieben.
 
 === Zweck
 Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System aus Sicht und mit den Begriffen der künftigen Anwender zu beschreiben.
 
 === Gültigkeitsbereich (Scope)
 
-Dieses Visions-Dokument bezieht sich auf das {project-name}, das von I5 entwickelt wird. Das System wird es Benutzer erlauben, mobile App für Smartphones zu nutzen, um damit die Genauigkeit von GPS-Daten zu erreichen und die Aufgaben an den Roboter zu delegieren.
+Dieses Visions-Dokument bezieht sich auf das GPS-Track-Erstellungssystem, das von I5 entwickelt wird. Das System wird es Benutzern erlauben, durch eine mobile App für Smartphones, genaue GPS-Tracks zu erstellen und Aufgaben an einen Roboter zu delegieren.
 //<Aufgabe> zu erleichtern / <Problem> zu lösen.
 
 === Definitionen, Akronyme und Abkürzungen
@@ -32,7 +32,7 @@ Siehe <<#glossary, Glossar>>.
 An der HTW Dresden wird im Modul Software Engineering 1 eine Projektarbeit gefordert,
 bei welcher ein zusammengestelltes Team aus Studenten einen Auftrag erfüllen müssen.
 Ein Professor ist auf diese Projektarbeit zugekommen und möchte eine Smartphone App erstellt haben,
-welche das erstellen von Strecken für mobilen Roboter ermöglicht. 
+welche das erstellen von GPS-Tracks für mobilen Roboter ermöglicht. 
 Da die meisten GPS-Track Apps sehr unflexibel sind und es daher nicht möglich ist Strecken auf die Gegebenheiten
 des Roboters anzupassen, erhofft sich der Professor, durch die App Strecken aufnehmen zu können, die der Roboter optimal
 verarbeiten und umsetzen kann.
@@ -43,7 +43,7 @@ verarbeiten und umsetzen kann.
 
 [cols="1,3"]
 |===
-| Das Problem | Die Genauigkeit von GPS-Daten ist sehr gering. Es gibt bei herkömmlichen GPS-Track Apps keinerlei Möglichkeit
+| Das Problem | Die Genauigkeit von GPS-Daten ist sehr gering; Es gibt bei herkömmlichen GPS-Track Apps keinerlei Möglichkeit
 Punkte einzuzeichnen bei den der Roboter das Abarbeiten von Aufgaben starten soll.
 | betrifft | Benutzer, welche Aufgaben an den Roboter delegieren wollen
 | die Auswirkung davon ist | Automatisierte Steuerung der Roboter ist nicht möglich.
