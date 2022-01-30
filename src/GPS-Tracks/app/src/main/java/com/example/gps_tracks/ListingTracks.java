@@ -17,7 +17,9 @@ import androidx.appcompat.widget.PopupMenu;
 public class ListingTracks extends AppCompatActivity {
 
     private Button back;
-    String[] testdata = {"test1","test2","test3"};
+    String[] testdata = {"Neuer Track 05.11.2022 12:15 Uhr","Neuer Track 22.08.2022 18:25 Uhr",
+                         "Runde durch den Park","Neuer Track 20.04.2022 03:43 Uhr",
+                         "Neuer Track 20.04.2022 10:14 Uhr"};
     ListView listView;
     View callingItem;
 
