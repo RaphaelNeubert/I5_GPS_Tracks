@@ -35,10 +35,12 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 [%header]
 |===
 | Abkürzung | Bedeutung | Erläuterung
-| UP | Unified Process | Vorgehensmodell für die Softwareentwicklung
+| OpenUP | Open Unified Process | Vorgehensmodell für die Softwareentwicklung
 | APIs | Application Programming Interface | Programmierschnittstelle
-| UC | Usecase | -
-| GPS| -| -
+| UC | Usecase | ist ein Anwednungsfall, welcher alle möglichen, eintretenden Szenarien bündelt, wenn ein  Akteur eine bestimmte Handlung ausführt
+| GPS | Global Positioning System|  globales Navigationssatellitensystem zur Positionsbestimmung
+| SE | Software Engineering|  Softwaretechnologie beschäftigt sich mit der Entwicklung von Software, Modul and der HTW-Dresden
+| TS | Themensteller | unser Auftraggeber/Kunde für das Projekt
 |===
 
 == Verzeichnis der Datenstrukturen
