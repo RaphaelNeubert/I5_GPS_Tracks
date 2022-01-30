@@ -35,7 +35,7 @@ Weitere Praktiken die wir anweden, sind neben dem Iterative Development, technis
 
 
 == Meilensteine und Ziele
-Aufgrund der anfänglich mangelhaften Dokumentation finden sich alle wichtigen Daten und Meetings und deren Ergebnisse in unserer Meeting Dokumentation unter folgendem Link.
+Aufgrund der anfänglich mangelhaften Dokumentation finden sich alle wichtigen Daten und Meetings und deren Ergebnisse in unserer Meeting Dokumentation unter folgendem https://github.com/RaphaelNeubert/I5_GPS_Tracks/tree/master/docs/project_management/meetings[Link].
 Zusammengefasst kann man jedoch festhalten. 
 Phase 1 war eine große Iteration. In wöchentlichen Meetings wurden Aufgaben besprochen, geplant und verglichen. Alle Ergebnisse wurden in den jeweiligen Meeting Protokollen festgehalten. 
 
@@ -68,7 +68,7 @@ a|
 
 | I3
 a|
-* ITERATIONSPLAN 01
+* <<Iteration Plan 01: {project-name}>>
 * Systemweite Anforderungen Ausarbeiten
 * Vision vervollständigen
 * Risikoliste updaten
@@ -78,7 +78,7 @@ a|
 
 | I4
 a|
-* ITERATIONSPLAN 02
+* <<Iteration Plan 02: {project-name}>>
 * Architektur-Notebook fertigstellen
 * Prototyp für Vorstellung bereitmachen
 * Domainmodell erstellen

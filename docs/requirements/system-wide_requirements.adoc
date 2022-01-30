@@ -37,7 +37,7 @@ Zur Überprüfung laden sich die Teammitglieder App herunter und bewerten die Ü
 *NFAU-3: Die Hauptfunktionen befinden sich auf der Startseite* +
 Zur Überprüfung werden die Funktionalitäten der Relevanz nach sortiert und geschaut ob die Wichtigsten auf der
 Startseite zu finden sind. +
-*NFAU-4: Der Kunde sollte maximal 4 Klicks brauchen um entweder einen Track aufzunehmen oder sich die Details zu einem beliebigen Track anzeigen zu lassen.* +
+*NFAU-4: Der Nutzer sollte maximal 4 Klicks brauchen um entweder einen Track aufzunehmen oder sich die Details zu einem beliebigen Track anzeigen zu lassen.* +
 Zur Überprüfung wird die App geöffnet und sich zum jeweiligen Szenario durchgeklickt. Liegt die Anzahl der Interaktionen bei maximal 4, ist alles in Ordnung. +
 
 
@@ -48,7 +48,8 @@ Zur Überprüfung wird die App geöffnet und sich zum jeweiligen Szenario durchg
 Zur Überprüfung wird getestet, ob falls ein neuer Track den Namen eines bereits existierenden Tracks
 bekommt, der Name automatisch verändert wird. +
 *NFAR-2: Der Server sowie der Kartendatenprovider muss zu 95% verfügbar sein* +
-Zur Überprüfung wird getestet, ob in einem Langzeittest der Server zu 95% der Zeit erreichbar ist.
+Zur Überprüfung wird getestet, ob in einem Langzeittest der Server sowie der Kartendatenprovider
+zu 95% der Zeit erreichbar ist.
 
 === Effizienz (Performance)
 // Die Performanz Charakteristiken des Systems sollten in diesem Bereich ausgeführt werden. Beispiele sind Antwortzeit, Durchsatz, Kapazität und Zeiten zum Starten oder Beenden.

@@ -117,6 +117,7 @@ Dennoch verfügt Flask über viel Funktionalität und ist sehr erweiterbar.
     Endgerät als auch auf dem Server gelöscht.
 
 
+////
 == Wesentliche Abstraktionen
 //[List and briefly describe the key abstractions of the system. This should be a relatively short list of the critical concepts that define the system. The key abstractions will usually translate to the initial analysis classes and important patterns.]
 
@@ -138,3 +139,4 @@ Folgende Sichten werden empfohlen:
 
 === Use cases
 //Eine Liste oder ein Diagramm der Use Cases, die architektur-relevante Anforderungne enthalten.
+////

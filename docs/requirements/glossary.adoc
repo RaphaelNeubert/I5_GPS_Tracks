@@ -13,19 +13,28 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 |===
 | Begriff | Definition und Erläuterung | Synonyme
 |Nutzer | Anwender des Systems | Akteur, Benutzer
-| GPS-Track | Zeigt Aufenthaltsort auf digitaler Karte an | Track/Strecke
-| Button | Schaltfläche auf Bildschirm, kann durch Antippen aktiviert werden | Knopf
-| Wireframe | Bildliche Darstellung der Funktionalität und des Aussehens der Appoberflächen | -
-| Use Case | Bündelt grafisch mögliche Ereignisse die eintreten können, wenn ein Akteur versucht mit Hilfe des Systems ein bestimmtes Ziel zu erreichen  | Anwendungsfall
+| GPS-Track | Abfolge von geographischen Punkten welche eine Strecke bilden | Track/Strecke/Route
+| Button | Schaltfläche auf Bildschirm, löst durch Antippen Aktion aus| Knopf
+| Wireframe | Bildliche Darstellung der Funktionalität und des Aussehens (grob) der Appoberflächen | -
+| Use Case | Szenario, das eintreten könnte, wenn ein Akteur versucht, mit Hilfe des betrachteten Systems ein
+bestimmtes fachliches Ziel zu erreichen.| Anwendungsfall
+| Use Case Diagramm | Bündelt grafisch mögliche Ereignisse die eintreten können, wenn ein Akteur versucht mit Hilfe des Systems ein bestimmtes Ziel zu erreichen  | -
 | Source Code | Der für den Nutzer lesbare, in einer Programmiersprache geschriebene Text eines Programms | Quellcode, Quelltext
 | Dialogfeld | Element der Benutzeroberfläche der Kommunikation und Interaktion zwischen Nutzer und Programm ermöglicht | -
-| Schnittstelle | Verbindung zwischen Funktionseinheiten eines Datenverarbeitungssystems, an der der Austausch von Daten erfolgt | -
+| Schnittstelle | Verbindung zwischen Funktionseinheiten eines Datenverarbeitungssystems, an der der Austausch von Daten erfolgt | Interface
 | Provider | Stellt etwas bereit, bei uns zB der Kartendatenprovider | -
 | Icons | grafisches Symbol (kleines Bild/Piktogramm) für Anwendungsprogramme | Symbole
-| Osmdroid | - | -
-| Tile server | ist eine Server-Software welche auf Geodaten spezialisierte Webservices bereitstellt | Mapserver
-| Homescreen | Anzeige dirket nach dem Startvorgang eines Betriebssystems | Startbildschirm
+| osmdroid | Android Bibliothek die Werkzeuge zur Interaktion mit Kartendaten bereitstellt | -
+| Flask | Webframework für Python | -
+| Java | Java ist eine objektorientierte Programmiersprache des Unternehmens Sun Microsystems/Oracle | -
+| Python | Python ist eine universelle, üblicherweise interpretierte, höhere Programmiersprache | -
+| Android | Von Google entwickeltes Betriebssystem für mobile Geräte | -
+| Tile server | Server der das Laden von Geodaten in Form von vielen klein Bildern ermöglicht | Mapserver, Kartendatenprovider
+| Homescreen | Anzeige direkt nach dem Startvorgang eines Systems | Startbildschirm, Indexseite
 | Pop-up | ein kleines Anzeigefenster | -
+| Issues | Verbesserungen, Aufgaben, Probleme, Fragen oder ähnliches die in Verbindung mit einem Github repository
+stehen. | -
+| Icebox | Zustand in dem sich Issues die niemanden zugewiesen sind befinden| -
 
 
 |===
@@ -37,12 +46,14 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Abkürzung | Bedeutung | Erläuterung
 | OpenUP | Open Unified Process | Vorgehensmodell für die Softwareentwicklung
 | APIs | Application Programming Interface | Programmierschnittstelle
-| UC | Usecase | ist ein Anwednungsfall, welcher alle möglichen, eintretenden Szenarien bündelt, wenn ein  Akteur eine bestimmte Handlung ausführt
+| UC | Usecase | Szenario, das eintreten könnte, wenn ein Akteur versucht, mit Hilfe des betrachteten Systems ein
+bestimmtes fachliches Ziel zu erreichen.
 | GPS | Global Positioning System|  globales Navigationssatellitensystem zur Positionsbestimmung
-| SE | Software Engineering|  Softwaretechnologie beschäftigt sich mit der Entwicklung von Software, Modul and der HTW-Dresden
+| SE | Software Engineering|  Software Engineering beschäftigt sich mit dem Entwicklungsprozess von Software, Modul and der HTW-Dresden
 | TS | Themensteller | unser Auftraggeber/Kunde für das Projekt
 |===
 
+////
 == Verzeichnis der Datenstrukturen
 [%header]
 |===
@@ -54,9 +65,11 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Emailadresse muss `@`-Zeichen und `.` Punkt enthalten.
 | Login
 
+
 | xx
 | xx
 | xx
 | xx
 | xx
 |===
+////
