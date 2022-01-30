@@ -11,6 +11,8 @@ Der Use Case beschreibt die Auflistung aller gespeicherten GPS-Tracks innerhalb 
 
 .GPS-Track auflistung
 image::wireframes_menu.png[pdfwidth=55%, align="center"]
+.Optionen (optionale Fortsetzung)
+image::wireframes_optionen.png[pdfwidth=55%, align="center"]
 
 === Vorbedingungen
 * Nutzer hat die App gestartet
@@ -35,7 +37,7 @@ die Namen aller gespeicherten GPS-Tracks einsehen.
 * GPS-Track Details anzeigen
 * GPS-Track auf Karte anzeigen -> UC03
 * GPS-Track bearbeiten -> UC04
-* Aufnahme fortsetzen -> UC04
+* Aufnahme fortsetzen -> UC05
 * GPS-Track löschen
 
 Falls der User "Löschen" auswählt:
@@ -47,3 +49,4 @@ Falls der User "Löschen" auswählt:
 
 === Nachbedingungen
 * Dem Nutzer wurden alle verfügbaren gespeicherten GPS-Tracks angezeigt
+

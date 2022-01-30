@@ -11,16 +11,14 @@ Die App soll das manuelle Bearbeiten bereits aufgenommener GPS-Tracks ermöglich
 ==== Nutzer 
 möchte die Bearbeitung vornehmen
 
-.GPS-Track Bearbeiten
-image::wireframes_optionen.png[align="center"]
-
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
-* Nutzer verfügt über aufgenommenen GPS-Track
+* Nutzer verfügt über aufgenommenen GPS-Track.
+* Der App wurde die Dateispeicher-Berechtigung erteilt.
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
-Der Use Case beginnt, wenn der Nutzer auf einen GPS-Track die Option "bearbeiten" anwendet.
+Der Use Case beginnt, wenn der Nutzer auf einen GPS-Track die Option "bearbeiten" (UC02) anwendet.
 
 . Der GPS-Track wird auf der Karte angezeigt. Die einzelnen Punkte werden hervorgehoben.
 . Der Nutzer kann die einzelnen Punkte verschieben.
@@ -54,10 +52,10 @@ Der Use Case beginnt, wenn der Nutzer auf einen GPS-Track die Option "bearbeiten
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
 
-SC1: Nutzer stellt fest das durch GPS-Ungenauigkeiten der aufgenommene GPS-Track von der gewünschten Route abweicht.
+* SC1: Nutzer stellt fest das durch GPS-Ungenauigkeiten der aufgenommene GPS-Track von der gewünschten Route abweicht.
    Nutzer wendet die Option "bearbeiten" auf den entsprechenden GPS-Track an, verschiebt die fehlerhaften Punkte und
    Speichert anschließend die Änderungen. +
-SC2: Nutzer stellt bei Betrachtung einer aufgenommenen Strecke fest das es eine Abkürzung gibt. 
+* SC2: Nutzer stellt bei Betrachtung einer aufgenommenen Strecke fest das es eine Abkürzung gibt. 
     Er wendet die Option "bearbeiten" auf den entsprechenden GPS-Track an, verschiebt die betroffenen Punkte und
     Speichert anschließend die Änderungen.
 

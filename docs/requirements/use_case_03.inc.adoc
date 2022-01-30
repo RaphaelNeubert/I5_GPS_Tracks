@@ -13,9 +13,10 @@ Nutzer möchte seine Position, die bisher aufgenommene Route oder eine bereits a
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
-Nutzer hat die App geöffnet.
-Der App wurde die GPS-Berechtigung erteilt.
-Nutzer verfügt über eine funktionierende Internet-, und GPS-Verbindung.
+
+* Nutzer hat die App geöffnet.
+* Der App wurde die GPS- und Dateispeicher-Berechtigung erteilt.
+* Nutzer verfügt über eine funktionierende Internet-, und GPS-Verbindung.
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
@@ -33,17 +34,19 @@ Der Use Case beginnt, wenn Nutzer die App öffnet
 
 //. wird Use Case 01 gestartet
 //. Die bisher aufgezeichnete Route wird auf der Karte abgebildet
+==== Optionale Fortsetzung 
+Wenn der Nutzer nach Abschluss des Standardablaufes den "Aufnehemen" Button betätigt, so wird (UC01) gestartet
+und die aufgenommene Route wird in Form eines Pfades auf der Karte angezeigt.
 
 ==== Optionale Fortsetzung 
-Wenn der Nutzer nach Abschluss des Standartablaufes einen abgeschlossenen GPS-Track auswählt, dann
-
-. wird dieser angezeigt
+Wenn der Nutzer nach Abschluss des Standardablaufes einen abgeschlossenen GPS-Track auswählt (UC02)
+und anschließend im Optionsmenu den Punkt "GPS-Track Anzeigen" auswählt, dann wird der ausgewählte GPS-Track angezeigt.
 
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
-SC1: Der Nutzer will wissen wo er ist oder ob die Messung der App mit der Realität übereinstimmt.
-SC2: Nutzer will bisher aufgenommene Strecke sehen um festzustellen ob diese seinen Anforderungen entspricht.
-SC3: Nutzer will bereits beendete Strecke betrachten um festzustellen ob manuelle Bearbeitungen notwendig sind (UC03).
+* SC1: Der Nutzer will wissen wo er ist oder ob die Messung der App mit der Realität übereinstimmt.
+* SC2: Nutzer will bisher aufgenommene Strecke sehen um festzustellen ob diese seinen Anforderungen entspricht.
+* SC3: Nutzer will bereits beendete Strecke betrachten um festzustellen ob manuelle Bearbeitungen notwendig sind (UC03).
 
 === Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
