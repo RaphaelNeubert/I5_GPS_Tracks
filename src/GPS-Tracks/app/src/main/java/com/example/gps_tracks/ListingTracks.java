@@ -68,7 +68,7 @@ public class ListingTracks extends AppCompatActivity {
         p.getMenuInflater().inflate(R.menu.popup_menu_example, p .getMenu());
         p.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             public boolean onMenuItemClick(MenuItem item) {
-                Log.i("menu:", "was geht ab" );
+                Log.i("menu:", "test" );
                 return true;
             }
         });
