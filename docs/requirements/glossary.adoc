@@ -18,7 +18,6 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Wireframe | Bildliche Darstellung der Funktionalität und des Aussehens (grob) der Appoberflächen | -
 | Use Case | Szenario, das eintreten könnte, wenn ein Akteur versucht, mit Hilfe des betrachteten Systems ein
 bestimmtes fachliches Ziel zu erreichen.| Anwendungsfall
-| Use Case Diagramm | Bündelt grafisch mögliche Ereignisse die eintreten können, wenn ein Akteur versucht mit Hilfe des Systems ein bestimmtes Ziel zu erreichen  | -
 | Source Code | Der für den Nutzer lesbare, in einer Programmiersprache geschriebene Text eines Programms | Quellcode, Quelltext
 | Dialogfeld | Element der Benutzeroberfläche der Kommunikation und Interaktion zwischen Nutzer und Programm ermöglicht | -
 | Schnittstelle | Verbindung zwischen Funktionseinheiten eines Datenverarbeitungssystems, an der der Austausch von Daten erfolgt | Interface
