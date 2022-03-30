@@ -133,11 +133,8 @@ Beispiel Produkt:
 //. Welche anderen Anwendungen sind im Einsatz? Muss ihre Anwendung mit diesen integriert werden?
 
 //Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
-
-==== Benutzer
-* muss GPS-Tracks verwalten können
-* Darstellung auf einer mobilen App
-* Verwendung mit Touchbedienung
+Die App soll von wissenschaftlichen Mitarbeitern und Studenten dazu genutzt werden, GPS-Tracks aufzunehmen. Die Tracks sind Routen, die passende Format besitzen, um von einem Roboter gelesen zu werden. Der GPS-Track dient somit als Navigationsanleitung für den Roboter, der die Route dann wie geplant abfahren kann bzw. auch an speziellen Punkten auf dem Weg kleine Aufgaben erledigen kann. Dabei ist eine gewisse Ungenauigkeit bei der Aufnahme via GPS am Handy zu erwarten, was eine nachträgliche Korrektur der GPS-Track-Dateien erfordert. Damit kann man eine saubere Fahrt des Roboters, auf der es keine Hindernisse oder anderweitige Probleme gibt, garantieren.
+Eine Aufnahme erfordert ein Android-Smartphone mit GPS-Verbindung. Die bedienende Person läuft damit die geplante Route ab. Ist die Aufnahme abgeschlossen, benötigt das Smartphone eine aktive Internetverbindung, um die GPS-Track-Datei mit dem Server zu synchronisieren. Der Roboter ist in der Lage, die GPS-Tracks vom Server zu bekommen. Auch zur Synchronisierung bearbeiteter oder geänderter GPS-Tracks benötigt man wieder eine Verbindung zum Internet.
 
 == Produkt-/Lösungsüberblick
 
