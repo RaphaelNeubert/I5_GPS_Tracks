@@ -65,5 +65,3 @@ https://github.com/RaphaelNeubert/I5_GPS_Tracks/projects/2
     • Die Systemweiten Anforderungen, die Vision und die Risikoliste wurden beim Zusammentreffen aller Gruppenmitglieder für gut ausgearbeitet erklärt und somit als abgabebereit erklärt.
     • Die App hat die ersten Funktionstests bestanden, dabei kann Karte kann in der App auf dem Homescreen angezeigt werden und die Positionsermittlung per GPS funktioniert mit sogar hoher Genauigkeit.
     • Da die Iterationen zu Ende hin sehr voll werden wurde sich dazu entschieden die Iteration 3 in zwei Iterationen Aufzuteilen, Wodurch alle sich in der Icebox und Assigned befindlichen Aufgaben in Iteration 4 verschoben werden und nicht zu Iteration 3 zählen.
-
-image::alphas.jpeg[align="center"]
