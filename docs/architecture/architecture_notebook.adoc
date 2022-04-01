@@ -112,9 +112,6 @@ Dennoch verfügt Flask über viel Funktionalität und ist sehr erweiterbar.
     Synchronisation. Nutzeraccounts bzw. eine Nutzerverwaltung und gesonderte Zugriffsrechte soll es zunächst nicht geben.
     Die Synchronisation mit dem Server ermöglicht es leicht dem Roboter Tracks zuzuweisen, unabhängig auf welchem Gerät
     sie aufgenommen oder bearbeitet wurden.
-. Löschen eines GPS-Tracks +
-    Wenn der Nutzer einen GPS-Track, in der GPS-Trackauswahl, löschen möchte, dann wird ein kleines Pop-up geöffnet, in welchem eine erneute Bestätigung zum löschen angefragt wird. Bei erfolgreicher Bestätigung wird der Track sowohl auf dem
-    Endgerät als auch auf dem Server gelöscht.
 
 
 ////
@@ -143,4 +140,3 @@ image::C4 Model System Container Diagram.png[]
 
 //=== Use cases
 //Eine Liste oder ein Diagramm der Use Cases, die architektur-relevante Anforderungne enthalten.
-////

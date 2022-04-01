@@ -23,19 +23,19 @@ image::wireframes_homescreen.png[align="center", pdfwidth=55%]
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-. Der Use Case beginnt, wenn der Nutzer die Aufnahme der GPS-Daten auslöst
-. WHILE Aufnahme läuft
-* App ermittelt und speichert Standort
-* App zeigt Routenverlauf Live auf der Karte an (UC03)
-. Nutzer beendet die Aufnahme
-* Bestätigung "Aufnahme wirklich beenden?"
-*** IF "Ja, beenden"
-**** Aufnahme wird gestoppt
-**** Dialogfeld "Bitte geben sie einen Dateinamen an" -> Bestätigung "speichern"
-**** GPS-Track wird zur Synchronisation mit Server freigegeben (UC06)
-**** App bestätigt die erfolgreiche Speicherung 
-*** ELSE -> Aufnahme wird fortgesetzt
-. Der Use Case ist abgeschlossen.
+//. Der Use Case beginnt, wenn der Nutzer die Aufnahme der GPS-Daten auslöst
+//. WHILE Aufnahme läuft
+//* App ermittelt und speichert Standort
+//* App zeigt Routenverlauf Live auf der Karte an (UC03)
+//. Nutzer beendet die Aufnahme
+//* Bestätigung "Aufnahme wirklich beenden?"
+//*** IF "Ja, beenden"
+//**** Aufnahme wird gestoppt
+//**** Dialogfeld "Bitte geben sie einen Dateinamen an" -> Bestätigung "speichern"
+//**** GPS-Track wird zur Synchronisation mit Server freigegeben (UC06)
+//**** App bestätigt die erfolgreiche Speicherung 
+//*** ELSE -> Aufnahme wird fortgesetzt
+//. Der Use Case ist abgeschlossen.
 
 .UC01
 image::Use Case 01_GPS-Track aufnehmen.jpg[align="center"]
