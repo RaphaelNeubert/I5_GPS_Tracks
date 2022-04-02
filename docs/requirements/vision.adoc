@@ -165,5 +165,7 @@ Eine Aufnahme erfordert ein Android-Smartphone mit GPS-Verbindung. Die bedienend
 |===
 | Anforderung | Priorität | Geplantes Release
 | System muss auf allen aktuellen mobilen Android Geräten lauffähig sein | hoch |
+|Die Genauigkeits des GPS-Signals soll auf 8 Meter Durchmesser um den mobilen Roboter genau sein| hoch |
+|Im Falle eines Absturzes des Systems wird der derzeit aufgenommene GPS-Track gespeichert | hoch |
 | System muss mehrere Sprachen anbieten | niedrig |
 |===
