@@ -34,6 +34,11 @@ Der Use Case beginnt, wenn Nutzer die App öffnet
 
 //. wird Use Case 01 gestartet
 //. Die bisher aufgezeichnete Route wird auf der Karte abgebildet
+
+==== Optionale Fortsetzung
+Wenn der Nutzer keine Internetverbindung mehr hat, kann er keine neuen Abschnitte der Karte mehr laden und dies
+wird dem Nutzer mit einem Pop-up mitgeteilt.
+
 ==== Optionale Fortsetzung 
 Wenn der Nutzer nach Abschluss des Standardablaufes den "Aufnehemen" Button betätigt, so wird (UC01) gestartet
 und die aufgenommene Route wird in Form eines Pfades auf der Karte angezeigt.
