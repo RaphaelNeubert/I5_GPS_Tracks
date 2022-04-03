@@ -86,6 +86,7 @@ Betriebssystem Android verwendet.
 * Das Betriebssystem des Servers muss auf dem neuesten Stand gehalten werden.
 * Der Betreiber des Systems muss sich über Lizenz-Änderungen des Kartendaten Providers
 informieren und falls notwendig entsprechende Maßnahmen ergreifen.
+* Die App muss über eine REST Standard API verfügen.
 
 === Rechtliche Anforderungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
