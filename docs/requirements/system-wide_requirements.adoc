@@ -80,13 +80,13 @@ Zur Überprüfung wird ein solcher Fehler simuliert und überprüft ob die Entwi
 Betriebssystem Android verwendet.
 * Der Benutzer muss über die benötigten Berechtigungen informiert werden sowie sie akzeptieren.
 * Die GPS-Tracks sollen in einem standardisierten Dateiformat z.B. GEOJson oder GPX gespeichert werden.
+* Die App muss über eine REST Standard API verfügen.
 
 === Organisatorische Randbedingungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
 * Das Betriebssystem des Servers muss auf dem neuesten Stand gehalten werden.
 * Der Betreiber des Systems muss sich über Lizenz-Änderungen des Kartendaten Providers
 informieren und falls notwendig entsprechende Maßnahmen ergreifen.
-* Die App muss über eine REST Standard API verfügen.
 
 === Rechtliche Anforderungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
