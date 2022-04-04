@@ -8,25 +8,25 @@ Die App soll das manuelle Bearbeiten bereits aufgenommener GPS-Tracks ermöglich
 
 === Kurzbeschreibung der Akteure
 
-==== Nutzer 
+==== Benutzer 
 möchte die Bearbeitung vornehmen
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
-* Nutzer verfügt über aufgenommenen GPS-Track.
+* Benutzer verfügt über aufgenommenen GPS-Track.
 * Der App wurde die Dateispeicher-Berechtigung erteilt.
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
-Der Use Case beginnt, wenn der Nutzer auf einen GPS-Track die Option "bearbeiten" (UC02) anwendet.
+Der Use Case beginnt, wenn der Benutzer auf einen GPS-Track die Option "bearbeiten" (UC02) anwendet.
 
 . Der GPS-Track wird auf der Karte angezeigt. Die einzelnen Punkte werden hervorgehoben.
-. Der Nutzer kann die einzelnen Punkte verschieben.
+. Der Benutzer kann die einzelnen Punkte verschieben.
 . Bei Betätigung des Buttons "speichern": Dialog "Soll die Änderung gespeichert werden?"
 ** IF "Ja, speichern"
-*** Änderung wird gespeichert und Nutzer kehrt auf Indexseite zurück.
+*** Änderung wird gespeichert und Benutzer kehrt auf Indexseite zurück.
 ** ELSE IF "Änderungen Verwerfen"
-*** Änderung gelöscht und Nutzer kehrt auf Indexseite zurück.
+*** Änderung gelöscht und Benutzer kehrt auf Indexseite zurück.
 ** ELSE IF "Bearbeitung fortsetzen"
 *** Dialog schließt sich 
 
@@ -52,10 +52,10 @@ Der Use Case beginnt, wenn der Nutzer auf einen GPS-Track die Option "bearbeiten
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
 
-* SC1: Nutzer stellt fest das durch GPS-Ungenauigkeiten der aufgenommene GPS-Track von der gewünschten Route abweicht.
-   Nutzer wendet die Option "bearbeiten" auf den entsprechenden GPS-Track an, verschiebt die fehlerhaften Punkte und
+* SC1: Benutzer stellt fest das durch GPS-Ungenauigkeiten der aufgenommene GPS-Track von der gewünschten Route abweicht.
+   Benutzer wendet die Option "bearbeiten" auf den entsprechenden GPS-Track an, verschiebt die fehlerhaften Punkte und
    Speichert anschließend die Änderungen. +
-* SC2: Nutzer stellt bei Betrachtung einer aufgenommenen Strecke fest das es eine Abkürzung gibt. 
+* SC2: Benutzer stellt bei Betrachtung einer aufgenommenen Strecke fest das es eine Abkürzung gibt. 
     Er wendet die Option "bearbeiten" auf den entsprechenden GPS-Track an, verschiebt die betroffenen Punkte und
     Speichert anschließend die Änderungen.
 

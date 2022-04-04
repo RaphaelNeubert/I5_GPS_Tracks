@@ -8,22 +8,22 @@ Darstellung der aktuellen Position sowie der bisher aufgenommenen Routen auf der
 
 === Kurzbeschreibung der Akteure
 
-==== Nutzer 
-Nutzer möchte seine Position, die bisher aufgenommene Route oder eine bereits abgeschlossenen GPS-Track auf der Karte sehen.
+==== Benutzer 
+Benutzer möchte seine Position, die bisher aufgenommene Route oder eine bereits abgeschlossenen GPS-Track auf der Karte sehen.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
 
-* Nutzer hat die App geöffnet.
+* Benutzer hat die App geöffnet.
 * Der App wurde die GPS- und Dateispeicher-Berechtigung erteilt.
-* Nutzer verfügt über eine funktionierende Internet-, und GPS-Verbindung.
+* Benutzer verfügt über eine funktionierende Internet-, und GPS-Verbindung.
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-Der Use Case beginnt, wenn Nutzer die App öffnet
+Der Use Case beginnt, wenn Benutzer die App öffnet
 
-. Eine Karte wird angezeigt und die aktuelle Position des Nutzers wird erkennbar
+. Eine Karte wird angezeigt und die aktuelle Position des Benutzer wird erkennbar
 . Der Use Case ist abgeschlossen.
 
 === Alternative Abläufe
@@ -36,26 +36,26 @@ Der Use Case beginnt, wenn Nutzer die App öffnet
 //. Die bisher aufgezeichnete Route wird auf der Karte abgebildet
 
 ==== Optionale Fortsetzung
-Wenn der Nutzer keine Internetverbindung mehr hat, kann er keine neuen Abschnitte der Karte mehr laden und dies
-wird dem Nutzer mit einem Pop-up mitgeteilt.
+Wenn der Benutzer keine Internetverbindung mehr hat, kann er keine neuen Abschnitte der Karte mehr laden und dies
+wird dem Benutzer mit einem Pop-up mitgeteilt.
 
 ==== Optionale Fortsetzung 
-Wenn der Nutzer nach Abschluss des Standardablaufes den "Aufnehemen" Button betätigt, so wird (UC01) gestartet
+Wenn der Benutzer nach Abschluss des Standardablaufes den "Aufnehemen" Button betätigt, so wird (UC01) gestartet
 und die aufgenommene Route wird in Form eines Pfades auf der Karte angezeigt.
 
 ==== Optionale Fortsetzung 
-Wenn der Nutzer nach Abschluss des Standardablaufes einen abgeschlossenen GPS-Track auswählt (UC02)
+Wenn der Benutzer nach Abschluss des Standardablaufes einen abgeschlossenen GPS-Track auswählt (UC02)
 und anschließend im Optionsmenu den Punkt "GPS-Track Anzeigen" auswählt, dann wird der ausgewählte GPS-Track angezeigt.
 
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
-* SC1: Der Nutzer will wissen wo er ist oder ob die Messung der App mit der Realität übereinstimmt.
-* SC2: Nutzer will bisher aufgenommene Strecke sehen um festzustellen ob diese seinen Anforderungen entspricht.
-* SC3: Nutzer will bereits beendete Strecke betrachten um festzustellen ob manuelle Bearbeitungen notwendig sind (UC03).
+* SC1: Der Benutzer will wissen wo er ist oder ob die Messung der App mit der Realität übereinstimmt.
+* SC2: Benutzer will bisher aufgenommene Strecke sehen um festzustellen ob diese seinen Anforderungen entspricht.
+* SC3: Benutzer will bereits beendete Strecke betrachten um festzustellen ob manuelle Bearbeitungen notwendig sind (UC03).
 
 === Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
-Der Nutzer sieht die gewünschten Inhalte auf der Karte.
+Der Benutzer sieht die gewünschten Inhalte auf der Karte.
 
 //==== <Nachbedingung 1>
 //
