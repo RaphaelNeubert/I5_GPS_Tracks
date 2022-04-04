@@ -12,14 +12,14 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 [%header]
 |===
 | Begriff | Definition und Erläuterung | Synonyme
-|Nutzer | Anwender des Systems | Akteur, Benutzer
+|Benutzer | Anwender des Systems | Akteur, Nutzer
 | GPS-Track | Abfolge von geographischen Punkten welche eine Strecke bilden | Track/Strecke/Route
 | Button | Schaltfläche auf Bildschirm, löst durch Antippen Aktion aus| Knopf
 | Wireframe | Bildliche Darstellung der Funktionalität und des Aussehens (grob) der Appoberflächen | -
 | Use Case | Szenario, das eintreten könnte, wenn ein Akteur versucht, mit Hilfe des betrachteten Systems ein
 bestimmtes fachliches Ziel zu erreichen.| Anwendungsfall
-| Source Code | Der für den Nutzer lesbare, in einer Programmiersprache geschriebene Text eines Programms | Quellcode, Quelltext
-| Dialogfeld | Element der Benutzeroberfläche der Kommunikation und Interaktion zwischen Nutzer und Programm ermöglicht | -
+| Source Code | Der für den Benutzer lesbare, in einer Programmiersprache geschriebene Text eines Programms | Quellcode, Quelltext
+| Dialogfeld | Element der Benutzeroberfläche der Kommunikation und Interaktion zwischen Benutzer und Programm ermöglicht | -
 | Schnittstelle | Verbindung zwischen Funktionseinheiten eines Datenverarbeitungssystems, an der der Austausch von Daten erfolgt | Interface
 | Provider | Stellt etwas bereit, bei uns zB der Kartendatenprovider | -
 | Icons | grafisches Symbol (kleines Bild/Piktogramm) für Anwendungsprogramme | Symbole

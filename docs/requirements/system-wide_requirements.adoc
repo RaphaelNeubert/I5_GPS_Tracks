@@ -12,7 +12,7 @@ In diesem Dokument werden die systemweiten Anforderungen für das Projekt {proje
 * Qualitätsanforderungen für Benutzbarkeit, Zuverlässigkeit, Effizienz und Wartbarkeit (URPS) sowie
 * zusätzliche Anforderungen (+) für technische, rechtliche, organisatorische Randbedingungen
 
-NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern mit dem System ergeben, sind als Use Cases in einem separaten Dokument festgehalten. [hier ggf. Verweis einfügen]
+NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Benutzern mit dem System ergeben, sind als Use Cases in einem separaten Dokument festgehalten. [hier ggf. Verweis einfügen]
 
 
 == Systemweite funktionale Anforderungen
@@ -37,7 +37,7 @@ Zur Überprüfung laden sich die Teammitglieder App herunter und bewerten die Ü
 *NFAU-3: Die Hauptfunktionen befinden sich auf der Startseite* +
 Zur Überprüfung werden die Funktionalitäten der Relevanz nach sortiert und geschaut ob die Wichtigsten auf der
 Startseite zu finden sind. +
-*NFAU-4: Der Nutzer sollte maximal 4 Klicks brauchen um entweder einen Track aufzunehmen oder sich die Details zu einem beliebigen Track anzeigen zu lassen.* +
+*NFAU-4: Der Benutzer sollte maximal 4 Klicks brauchen um entweder einen Track aufzunehmen oder sich die Details zu einem beliebigen Track anzeigen zu lassen.* +
 Zur Überprüfung wird die App geöffnet und sich zum jeweiligen Szenario durchgeklickt. Liegt die Anzahl der Interaktionen bei maximal 4, ist alles in Ordnung. +
 
 
@@ -78,7 +78,7 @@ Zur Überprüfung wird ein solcher Fehler simuliert und überprüft ob die Entwi
 * Der Server muss mit der Programmiersprache Java oder Python entwickelt werden.
 * Die App soll nur ein handelsübliches Smartphone benötigen welches als
 Betriebssystem Android verwendet.
-* Der Nutzer muss über die benötigten Berechtigungen informiert werden sowie sie akzeptieren.
+* Der Benutzer muss über die benötigten Berechtigungen informiert werden sowie sie akzeptieren.
 * Die GPS-Tracks sollen in einem standardisierten Dateiformat z.B. GEOJson oder GPX gespeichert werden.
 
 === Organisatorische Randbedingungen
@@ -91,4 +91,4 @@ informieren und falls notwendig entsprechende Maßnahmen ergreifen.
 === Rechtliche Anforderungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
 * Die Anwendung steht unter der "Creative Commons Attribution 4.0 International" Lizenz.
-* Der Datenschutz der Nutzer muss gewährleistet sein. Die App darf nur notwendige Daten an den Server senden.
+* Der Datenschutz der Benutzer muss gewährleistet sein. Die App darf nur notwendige Daten an den Server senden.
