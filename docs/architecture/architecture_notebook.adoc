@@ -38,11 +38,11 @@ Robotern Kommunizieren zu können.
 //[List the assumptions and dependencies that drive architectural decisions. This could include sensitive or critical areas, dependencies on legacy interfaces, the skill and experience of the team, the availability of important resources, and so forth]
 *Annahmen* +
 
-* Auf dem Smartphone des Nutzers ist mindestens Android 5.0 oder neuer installiert.
-* Jeder Nutzer besitzt ein stabile GPS-Verbindung.
-* Jeder Nutzer besitzt eine meist vorhandene Internetverbindung. 
-* Der Nutzer hat die Möglichkeit sich mit dem selben Netzwerk mit dem der Server verbunden ist, zu verbinden.
-* Der Nutzer hat der App alle benötigten Berechtigungen erteilt.
+* Auf dem Smartphone des Benutzers ist mindestens Android 5.0 oder neuer installiert.
+* Jeder Benutzer besitzt ein stabile GPS-Verbindung.
+* Jeder Benutzer besitzt eine meist vorhandene Internetverbindung. 
+* Der Benutzer hat die Möglichkeit sich mit dem selben Netzwerk mit dem der Server verbunden ist, zu verbinden.
+* Der Benutzer hat der App alle benötigten Berechtigungen erteilt.
 * Die verwendeten Frameworks und APIs funktionieren nahezu fehlerfrei und werden in Zukunft gepflegt.
 
 *Abhängigkeiten* +

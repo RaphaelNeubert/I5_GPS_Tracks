@@ -6,7 +6,7 @@ Der Use Case beschreibt die Auflistung aller gespeicherten GPS-Tracks innerhalb 
 
 === Kurzbeschreibung der Akteure
 
-==== Nutzer
+==== Benutzer
 * Möchte eine Auflistung aller gespeicherten GPS-Tracks sehen
 
 .GPS-Track auflistung
@@ -15,19 +15,19 @@ image::wireframes_menu.png[pdfwidth=55%, align="center"]
 image::wireframes_optionen.png[pdfwidth=55%, align="center"]
 
 === Vorbedingungen
-* Nutzer hat die App gestartet
-* Nutzer hat der die App Dateispeicher-Berechtigung erteilt
+* Benutzer hat die App gestartet
+* Benutzer hat der die App Dateispeicher-Berechtigung erteilt
 * Es ist mindestens ein GPS-Track zum Anzeigen vorhanden
 
 === Standardablauf (Basic Flow)
-. Der Use Case beginnt, wenn der Nutzer auf den Button "+" auf dem Homescreen drückt.
+. Der Use Case beginnt, wenn der Benutzer auf den Button "+" auf dem Homescreen drückt.
 . Es werden nun alle gespeicherten GPS-Tracks angezeigt.
 . Der Use Case ist abgeschlossen.
 
 === Beispiel Szenario
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
 
-Der Nutzer möchte überprüfen ob er sich bei der Benennung eines GPS-Tracks beim Speichern
+Der Benutzer möchte überprüfen ob er sich bei der Benennung eines GPS-Tracks beim Speichern
 verschrieben hat. Er betätigt das "+" Symbol auf dem Homescreen und kann daraufhin
 die Namen aller gespeicherten GPS-Tracks einsehen.
 
@@ -48,5 +48,5 @@ Falls der User "Löschen" auswählt:
 ** "Nein" -> der GPS-Track wird nicht gelöscht
 
 === Nachbedingungen
-* Dem Nutzer wurden alle verfügbaren gespeicherten GPS-Tracks angezeigt
+* Dem Benutzer wurden alle verfügbaren gespeicherten GPS-Tracks angezeigt
 
