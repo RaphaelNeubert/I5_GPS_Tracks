@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity{
     private MapView map = null;
     private MyLocationNewOverlay locationOverlay;
     private ImageButton toPosButton;
+    private GPSTrack gpsTrack;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,17 +71,6 @@ public class MainActivity extends AppCompatActivity{
         IMapController mapController = map.getController();
         mapController.setZoom(15.5);
         mapController.setCenter(new GeoPoint(51.0374,13.7638));
-
-        GpsMyLocationProvider gpsMyLocationProvider = new GpsMyLocationProvider(getApplicationContext());
-        gpsMyLocationProvider.setLocationUpdateMinDistance(5.0f);
-        gpsMyLocationProvider.startLocationProvider(new IMyLocationConsumer() {
-            @Override
-            public void onLocationChanged(Location location, IMyLocationProvider source) {
-                String position = "Location changed to: " + new GeoPoint(location).toDoubleString();
-                Log.i("onLocationChanged: ", position);
-            }
-        });
-
 
         locationOverlay = new MyLocationNewOverlay(map);
         locationOverlay.enableFollowLocation();
@@ -175,7 +165,18 @@ public class MainActivity extends AppCompatActivity{
         startActivity(intent);
     }
     public void startRecording(View view) {
+        if (gpsTrack == null || gpsTrack.getState() == GPSTrack.State.EMPTY) {
+            gpsTrack = new GPSTrack(getApplicationContext());
+            gpsTrack.startRecording();
+            gpsTrack.setState(GPSTrack.State.RECORDING);
+            //TODO change Icon
+        }
+        else {
+            gpsTrack.endRecording();
+            gpsTrack.setState(GPSTrack.State.READY);
+        }
     }
+
 
 
 }
