@@ -15,6 +15,8 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 
+import java.io.File;
+
 public class ListingTracks extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
 
@@ -68,7 +70,7 @@ public class ListingTracks extends AppCompatActivity {
                 String selectedItem = (String) parent.getItemAtPosition(position);
                 callingItem = view;
                 Log.i("button:", selectedItem);
-                popupMenuExample();
+                popupMenuExample(selectedItem);
             }
         });
     }
@@ -77,12 +79,29 @@ public class ListingTracks extends AppCompatActivity {
         Intent intent = new Intent(ListingTracks.this, MainActivity.class);
         startActivity(intent);
     }
-    private void popupMenuExample() {
+    private void popupMenuExample(String selectedItem) {
         PopupMenu p = new PopupMenu(this, callingItem);
         p.getMenuInflater().inflate(R.menu.popup_menu_example, p .getMenu());
         p.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             public boolean onMenuItemClick(MenuItem item) {
-                Log.i("menu:", "test" );
+
+                File dir = getFilesDir();
+                File file = new File(dir, selectedItem);
+                switch (String.valueOf(item)) {
+                    case "Track löschen":
+                        file.delete();
+                        finish();
+                        overridePendingTransition(10, 10);
+                        startActivity(getIntent());
+                        overridePendingTransition(10, 10);
+                        break;
+                    case "Track bearbeiten":
+                       File newName=new File(dir,"UPDATED_FILE_"+selectedItem);
+                       file.renameTo(newName);
+                        recreate();
+                       break;
+                }
+                Log.i("menu:", String.valueOf(item));
                 return true;
             }
         });
