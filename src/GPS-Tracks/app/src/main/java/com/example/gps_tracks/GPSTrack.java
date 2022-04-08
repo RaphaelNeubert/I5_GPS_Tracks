@@ -9,6 +9,8 @@ import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.IMyLocationConsumer;
 import org.osmdroid.views.overlay.mylocation.IMyLocationProvider;
 
+import io.ticofab.androidgpxparser.parser.GPXParser;
+
 public class GPSTrack {
     public enum State {READY, RECORDING, EDITING, EMPTY}
     Context context;
