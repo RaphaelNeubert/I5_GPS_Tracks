@@ -77,7 +77,8 @@ public class ListingTracks extends AppCompatActivity {
 
     public void goBackHome() {
         Intent intent = new Intent(ListingTracks.this, MainActivity.class);
-        startActivity(intent);
+        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivityIfNeeded(intent, 0);
     }
     private void popupMenuExample(String selectedItem) {
         PopupMenu p = new PopupMenu(this, callingItem);
