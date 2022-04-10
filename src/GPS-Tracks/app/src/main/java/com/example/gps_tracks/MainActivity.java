@@ -4,11 +4,8 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Location;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
@@ -26,12 +23,8 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.CustomZoomButtonsController;
 import org.osmdroid.views.MapView;
-import org.osmdroid.views.overlay.mylocation.IMyLocationConsumer;
-import org.osmdroid.views.overlay.mylocation.IMyLocationProvider;
-import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
-import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.Marker;
-
+import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 import java.util.ArrayList;
 
@@ -39,7 +32,7 @@ public class MainActivity extends AppCompatActivity{
     private final int REQUEST_PERMISSIONS_REQUEST_CODE = 1;
     private MapView map = null;
     private MyLocationNewOverlay locationOverlay;
-    private ImageButton toPosButton;
+    private ImageButton toPosButton, recstart, whilerec;
     private GPSTrack gpsTrack;
 
     @Override
@@ -85,6 +78,25 @@ public class MainActivity extends AppCompatActivity{
                 toPosButton.setVisibility(View.INVISIBLE);
             }
         });
+
+        /*recstart = (ImageButton) findViewById(R.id.record);
+        recstart.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                whilerec.setBackgroundResource(R.drawable.recording_change);
+            }
+        });
+
+        whilerec = (ImageButton) findViewById(R.id.record);
+        whilerec.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                recstart.setBackgroundResource(R.drawable.recording_change);
+            }
+        });*/
+
 
         MapListener mapListener = new MapListener() {
             @Override
@@ -164,12 +176,14 @@ public class MainActivity extends AppCompatActivity{
         Intent intent = new Intent(MainActivity.this, ListingTracks.class);
         startActivity(intent);
     }
+
     public void startRecording(View view) {
         if (gpsTrack == null || gpsTrack.getState() == GPSTrack.State.EMPTY) {
             gpsTrack = new GPSTrack(getApplicationContext());
             gpsTrack.startRecording();
             gpsTrack.setState(GPSTrack.State.RECORDING);
             //TODO change Icon
+
         }
         else {
             gpsTrack.endRecording();
