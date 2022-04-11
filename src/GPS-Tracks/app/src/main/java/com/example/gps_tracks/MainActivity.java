@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity{
     public void startRecording(View view) {
         if (gpsTrack == null || gpsTrack.getState() == GPSTrack.State.EMPTY) {
             gpsTrack = new GPSTrack(getApplicationContext());
-            gpsTrack.startRecording();
+            gpsTrack.startRecording(map);
             gpsTrack.setState(GPSTrack.State.RECORDING);
             //TODO change Icon
 
