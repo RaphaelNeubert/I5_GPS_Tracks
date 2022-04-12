@@ -14,8 +14,6 @@ import org.osmdroid.views.MapView;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.ticofab.androidgpxparser.parser.GPXParser;
-
 public class GPSTrack {
     public enum State {READY, RECORDING, EDITING, EMPTY}
     private Context context;
