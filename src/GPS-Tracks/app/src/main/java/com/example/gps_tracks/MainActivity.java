@@ -32,11 +32,12 @@ public class MainActivity extends AppCompatActivity{
     private final int REQUEST_PERMISSIONS_REQUEST_CODE = 1;
     private MapView map = null;
     private MyLocationNewOverlay locationOverlay;
-    private ImageButton toPosButton, recstart, whilerec;
+    private ImageButton toPosButton, recstart;
+    boolean press = false;
     private GPSTrack gpsTrack;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+        public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //handle permissions
@@ -79,23 +80,21 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-        /*recstart = (ImageButton) findViewById(R.id.record);
-        recstart.setOnClickListener(new View.OnClickListener() {
 
+        //Switch between defaultrecord and startrecord Button
+        recstart = (ImageButton) findViewById(R.id.record);
+        recstart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                whilerec.setBackgroundResource(R.drawable.recording_change);
+
+                if(press){
+                    recstart.setImageResource(R.drawable.button_63x63);
+                } else{
+                    recstart.setImageResource(R.drawable.button_rec);
+                }
+                press = !press; // reverse
             }
         });
-
-        whilerec = (ImageButton) findViewById(R.id.record);
-        whilerec.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                recstart.setBackgroundResource(R.drawable.recording_change);
-            }
-        });*/
 
 
         MapListener mapListener = new MapListener() {
