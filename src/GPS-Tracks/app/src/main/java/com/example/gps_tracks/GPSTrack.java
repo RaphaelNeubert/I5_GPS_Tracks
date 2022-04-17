@@ -4,6 +4,8 @@ import android.content.Context;
 import android.location.Location;
 import android.util.Log;
 
+import org.alternativevision.gpx.GPXParser;
+import org.alternativevision.gpx.beans.*;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.overlay.Polyline;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
@@ -14,12 +16,12 @@ import org.osmdroid.views.MapView;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class GPSTrack {
     public enum State {READY, RECORDING, EDITING, EMPTY}
     private Context context;
     private GpsMyLocationProvider gpsMyLocationProvider;
     private State state = State.EMPTY;
-
 
     GPSTrack(Context context) {
         this.context= context;

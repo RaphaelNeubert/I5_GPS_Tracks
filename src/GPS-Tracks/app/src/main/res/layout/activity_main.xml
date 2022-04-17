@@ -14,8 +14,7 @@
     <org.osmdroid.views.MapView
         android:id="@+id/map"
         android:layout_width="421dp"
-        android:layout_height="wrap_content">
-    </org.osmdroid.views.MapView>
+        android:layout_height="wrap_content"></org.osmdroid.views.MapView>
 
     <ImageButton
         android:id="@+id/posButton"
@@ -31,7 +30,7 @@
         android:id="@+id/record"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/button_63x63"
+        app:srcCompat="@drawable/recording_change"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:background="@null"
