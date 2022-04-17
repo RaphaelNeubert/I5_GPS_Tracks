@@ -5,8 +5,14 @@ from werkzeug.utils import secure_filename
 from flask import send_from_directory, send_file
 from os.path import join, dirname, realpath
 
+dirname = '/'
+files = os.listdir(dirname)
+temp = map(lambda name: os.path.join(dirname, name), files)
+print(list(temp))
+
+
 # folder for saving downloaded files
-UPLOAD_FOLDER = join(dirname(realpath(__file__)), 'static\\upload\\')
+#UPLOAD_FOLDER = join(dirname(realpath(__file__)))
 # file extensions that are allowed to be uploaded
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
@@ -14,7 +20,7 @@ ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 app = Flask(__name__)
 
 # upload folder 
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+#app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 @app.route('/post',methods=["POST"])

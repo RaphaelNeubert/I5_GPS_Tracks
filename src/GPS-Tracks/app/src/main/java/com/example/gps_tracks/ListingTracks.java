@@ -43,7 +43,7 @@ public class ListingTracks extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        /*
+/*
         // new File
         String filename = "myfile.txt";
         String string = "Hello world!";
@@ -55,17 +55,21 @@ public class ListingTracks extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        */
+*/
 
         File dir = getFilesDir();
         File file = new File(dir, "myfile.txt");
 
-        uploadFile("http://192.168.178.46:5000/upload",file);
+        // deploy http://aleksandrpronin.pythonanywhere.com
+        //uploadFile("http://aleksandrpronin.pythonanywhere.com/upload",file);
+
         try {
-            downloadFile();
+            downloadFile("myfile.txt");
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
 
         //will hide the title
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -186,13 +190,13 @@ public class ListingTracks extends AppCompatActivity {
         return false;
     }
 
-    public void downloadFile() throws IOException {
-
+    public void downloadFile(String filename) throws IOException {
         OkHttpClient client = new OkHttpClient();
 
 
         Request request = new Request.Builder()
-                .url("http://192.168.178.46:5000/download/myfile.txt")
+                //.url("http://192.168.178.46:5000/download/"+filename)
+                .url("http://aleksandrpronin.pythonanywhere.com/download/"+filename)
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -209,7 +213,7 @@ public class ListingTracks extends AppCompatActivity {
                 }
                 FileOutputStream outputStream;
                 try {
-                    outputStream = openFileOutput("tmp.txt", Context.MODE_PRIVATE);
+                    outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
                     outputStream.write(response.body().bytes());
                     outputStream.close();
                 } catch (Exception e) {
