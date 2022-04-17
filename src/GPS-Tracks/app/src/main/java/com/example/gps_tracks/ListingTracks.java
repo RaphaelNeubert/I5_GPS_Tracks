@@ -60,7 +60,7 @@ public class ListingTracks extends AppCompatActivity {
         File dir = getFilesDir();
         File file = new File(dir, "myfile.txt");
 
-        // deploy http://aleksandrpronin.pythonanywhere.com
+        // deploy on http://pythonanywhere.com
         //uploadFile("http://aleksandrpronin.pythonanywhere.com/upload",file);
 
         try {
@@ -195,7 +195,7 @@ public class ListingTracks extends AppCompatActivity {
 
 
         Request request = new Request.Builder()
-                //.url("http://192.168.178.46:5000/download/"+filename)
+                //.url("http://ip:5000/download/"+filename)
                 .url("http://aleksandrpronin.pythonanywhere.com/download/"+filename)
                 .build();
 
