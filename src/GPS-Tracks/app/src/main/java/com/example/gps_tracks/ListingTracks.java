@@ -3,6 +3,7 @@ package com.example.gps_tracks;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,11 +12,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 
-import java.io.File;
+import java.io;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import okhttp3;
 
 public class ListingTracks extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
@@ -32,7 +39,31 @@ public class ListingTracks extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
+        /*
+        // new File
+        String filename = "myfile.txt";
+        String string = "Hello world!";
+        FileOutputStream outputStream;
+        try {
+            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+            outputStream.write(string.getBytes());
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        */
+
+        File dir = getFilesDir();
+        File file = new File(dir, "myfile.txt");
+
+        uploadFile("http://192.168.178.46:5000/upload",file);
+        try {
+            downloadFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         //will hide the title
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
@@ -99,7 +130,11 @@ public class ListingTracks extends AppCompatActivity {
                     case "Track bearbeiten":
                        File newName=new File(dir,"UPDATED_FILE_"+selectedItem);
                        file.renameTo(newName);
-                        recreate();
+                       //  recreate();
+                       finish();
+                       overridePendingTransition(10, 10);
+                       startActivity(getIntent());
+                       overridePendingTransition(10, 10);
                        break;
                 }
                 Log.i("menu:", String.valueOf(item));
@@ -107,5 +142,77 @@ public class ListingTracks extends AppCompatActivity {
             }
         });
         p.show();
+    }
+
+    public static Boolean uploadFile(String serverURL, File file) {
+        OkHttpClient okHttpClient = new OkHttpClient();
+
+        try {
+            RequestBody requestBody = new MultipartBody.Builder().setType(MultipartBody.FORM)
+                    .addFormDataPart("file", file.getName(),
+                            RequestBody.create(MediaType.parse("text/csv"), file))
+                    .build();
+
+            Request request = new Request.Builder()
+                    .url(serverURL)
+                    .post(requestBody)
+                    .build();
+
+            okHttpClient.newCall(request).enqueue(new Callback() {
+
+                @Override
+                public void onFailure(final Call call, final IOException e) {
+                    // Handle the error
+                    System.out.println("Error => " + e);
+
+                }
+
+                @Override
+                public void onResponse(final Call call, final Response response) throws IOException {
+                    if (!response.isSuccessful()) {
+                        // Handle the error
+                    }
+                    // Upload successful
+                }
+            });
+
+            return true;
+        } catch (Exception ex) {
+            // Handle the error
+        }
+        return false;
+    }
+
+    public void downloadFile() throws IOException {
+
+        OkHttpClient client = new OkHttpClient();
+
+
+        Request request = new Request.Builder()
+                .url("http://192.168.178.46:5000/download/myfile.txt")
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                call.cancel();
+            }
+
+            @Override
+            public void onResponse(final Call call, Response response) throws IOException {
+                Log.d("TAG",response.body().string());
+                if (!response.isSuccessful()) {
+                    throw new IOException("Failed to download file: " + response);
+                }
+                FileOutputStream outputStream;
+                try {
+                    outputStream = openFileOutput("tmp.txt", Context.MODE_PRIVATE);
+                    outputStream.write(response.body().bytes());
+                    outputStream.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }
