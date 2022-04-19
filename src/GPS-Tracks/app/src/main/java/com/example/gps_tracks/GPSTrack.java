@@ -4,24 +4,35 @@ import android.content.Context;
 import android.location.Location;
 import android.util.Log;
 
+import org.alternativevision.gpx.GPXParser;
+import org.alternativevision.gpx.beans.*;
 import org.osmdroid.util.GeoPoint;
+import org.osmdroid.views.overlay.Polyline;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.IMyLocationConsumer;
 import org.osmdroid.views.overlay.mylocation.IMyLocationProvider;
+import org.osmdroid.views.MapView;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class GPSTrack {
     public enum State {READY, RECORDING, EDITING, EMPTY}
-    Context context;
+    private Context context;
     private GpsMyLocationProvider gpsMyLocationProvider;
     private State state = State.EMPTY;
-
 
     GPSTrack(Context context) {
         this.context= context;
     }
-    boolean startRecording() {
+    boolean startRecording(MapView map) {
         Log.i("GPSTrack","Recording has been started.");
         state = State.RECORDING;
+        int i = 0;
+        Polyline path = new Polyline();
+        map.getOverlayManager().add(path);
+
         gpsMyLocationProvider = new GpsMyLocationProvider(context);
         gpsMyLocationProvider.setLocationUpdateMinDistance(5.0f);
         gpsMyLocationProvider.startLocationProvider(new IMyLocationConsumer() {
@@ -29,6 +40,12 @@ public class GPSTrack {
             public void onLocationChanged(Location location, IMyLocationProvider source) {
                 String position = "Location changed to: " + new GeoPoint(location).toDoubleString();
                 Log.i("onLocationChanged: ", position);
+                path.addPoint(new GeoPoint(location));
+                //save current path on disk
+                if (i%10 == 0) {
+                    List<GeoPoint> points = path.getActualPoints();
+                    //TODO save List on disk as GPX
+                }
             }
         });
         return true;

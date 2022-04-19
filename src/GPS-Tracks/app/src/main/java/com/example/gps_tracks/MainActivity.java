@@ -80,23 +80,6 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-
-        //Switch between defaultrecord and startrecord Button
-        recstart = (ImageButton) findViewById(R.id.record);
-        recstart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(press){
-                    recstart.setImageResource(R.drawable.button_63x63);
-                } else{
-                    recstart.setImageResource(R.drawable.button_rec);
-                }
-                press = !press; // reverse
-            }
-        });
-
-
         MapListener mapListener = new MapListener() {
             @Override
             public boolean onScroll(ScrollEvent event) {
@@ -179,14 +162,19 @@ public class MainActivity extends AppCompatActivity{
     public void startRecording(View view) {
         if (gpsTrack == null || gpsTrack.getState() == GPSTrack.State.EMPTY) {
             gpsTrack = new GPSTrack(getApplicationContext());
-            gpsTrack.startRecording();
+            gpsTrack.startRecording(map);
             gpsTrack.setState(GPSTrack.State.RECORDING);
-            //TODO change Icon
+            //change icon
+            ImageButton recButton = (ImageButton) findViewById(R.id.record);
+            recButton.setImageResource(R.drawable.button_rec);
 
         }
         else {
             gpsTrack.endRecording();
             gpsTrack.setState(GPSTrack.State.READY);
+            //change back icon
+            ImageButton recButton = (ImageButton) findViewById(R.id.record);
+            recButton.setImageResource(R.drawable.button_63x63);
         }
     }
 
