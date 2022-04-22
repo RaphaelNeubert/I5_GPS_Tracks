@@ -14,6 +14,7 @@ import org.osmdroid.views.overlay.mylocation.IMyLocationProvider;
 import org.osmdroid.views.MapView;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
@@ -32,7 +33,7 @@ public class GPSTrack {
     String fileName;
 
     GPSTrack(Context context) {
-        this.context= context;
+        this.context = context;
     }
     boolean startRecording(MapView map) {
         Log.i("GPSTrack","Recording has been started.");
@@ -86,7 +87,7 @@ public class GPSTrack {
         GPXParser p = new GPXParser();
         try {
             File file;
-            String path = context.getFilesDir().toString() ;
+            String path = context.getFilesDir().toString();
             if (this.fileName != null) {
                 file = new File(path+'/'+this.fileName+".gpx");
                 //out = new FileOutputStream(this.fileName);
@@ -104,6 +105,38 @@ public class GPSTrack {
         } catch (Exception e) {
             //TODO display warning popup
             Log.e("GPSTrack", "Failed to save File", e);
+        }
+    }
+    void loadGPX() {
+        if(fileName == null) {
+            //TODO display warning popup
+            return;
+        }
+        try {
+            String path = context.getFilesDir().toString();
+            File file = new File(path+'/'+fileName+".gpx");
+            FileInputStream fis = new FileInputStream(file);
+            GPXParser parser = new GPXParser();
+            GPX gpx = parser.parseGPX(fis);
+            HashSet<Route> routes = gpx.getRoutes();
+            Iterator routeIterator = routes.iterator();
+
+            while(routeIterator.hasNext()) {
+                Route route = (Route) routeIterator.next();
+                List<WayPoints> listWaypoints = route.getRoutePoints();
+                ListIterator listIterator = listWaypoints.listIterator();
+
+                while(listIterator.hasNext()) {
+                    Waypoint wp = listIterator.next();
+                    GeoPoint geo = new GeoPoint(wp.getLatitude(), wp.getLongitude());
+                    path.addPoint(geo);
+                }
+            }
+
+            fis.close();
+        } catch (Exception e) {
+            //TODO display warning popup
+            Log.e("GPSTrack", "Failed to load File", e);
         }
     }
     State getState() {
