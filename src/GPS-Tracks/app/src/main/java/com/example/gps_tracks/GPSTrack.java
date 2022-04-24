@@ -20,6 +20,8 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -113,8 +115,8 @@ public class GPSTrack {
             return;
         }
         try {
-            String path = context.getFilesDir().toString();
-            File file = new File(path+'/'+fileName+".gpx");
+            String dir = context.getFilesDir().toString();
+            File file = new File(dir+'/'+fileName+".gpx");
             FileInputStream fis = new FileInputStream(file);
             GPXParser parser = new GPXParser();
             GPX gpx = parser.parseGPX(fis);
@@ -123,11 +125,11 @@ public class GPSTrack {
 
             while(routeIterator.hasNext()) {
                 Route route = (Route) routeIterator.next();
-                List<WayPoints> listWaypoints = route.getRoutePoints();
+                List<Waypoint> listWaypoints = route.getRoutePoints();
                 ListIterator listIterator = listWaypoints.listIterator();
 
                 while(listIterator.hasNext()) {
-                    Waypoint wp = listIterator.next();
+                    Waypoint wp = (Waypoint) listIterator.next();
                     GeoPoint geo = new GeoPoint(wp.getLatitude(), wp.getLongitude());
                     path.addPoint(geo);
                 }
