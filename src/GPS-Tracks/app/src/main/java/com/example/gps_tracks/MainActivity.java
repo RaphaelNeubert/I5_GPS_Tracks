@@ -162,8 +162,9 @@ public class MainActivity extends AppCompatActivity{
     public void startRecording(View view) {
         if (gpsTrack == null || gpsTrack.getState() == GPSTrack.State.EMPTY) {
             gpsTrack = new GPSTrack(getApplicationContext());
-            gpsTrack.startRecording(map);
+            gpsTrack.startRecording();
             gpsTrack.setState(GPSTrack.State.RECORDING);
+            gpsTrack.display(map);
             //change icon
             ImageButton recButton = (ImageButton) findViewById(R.id.record);
             recButton.setImageResource(R.drawable.button_rec);
@@ -172,12 +173,14 @@ public class MainActivity extends AppCompatActivity{
         else {
             gpsTrack.endRecording();
             gpsTrack.setState(GPSTrack.State.READY);
+            gpsTrack.hide(map);
             //change back icon
             ImageButton recButton = (ImageButton) findViewById(R.id.record);
             recButton.setImageResource(R.drawable.button_63x63);
         }
     }
 
-
-
+    public void setGpsTrack(GPSTrack gpsTrack) {
+        this.gpsTrack = gpsTrack;
+    }
 }

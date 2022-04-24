@@ -34,15 +34,25 @@ public class GPSTrack {
     Polyline path;
     String fileName;
 
+    void display(MapView map) {
+        if (path != null) {
+            map.getOverlayManager().add(path);
+        }
+    }
+    void hide(MapView map) {
+        if (path != null) {
+            map.getOverlayManager().remove(path);
+        }
+    }
+
     GPSTrack(Context context) {
         this.context = context;
     }
-    boolean startRecording(MapView map) {
+    boolean startRecording() {
         Log.i("GPSTrack","Recording has been started.");
         state = State.RECORDING;
         int i = 0;
         path = new Polyline();
-        map.getOverlayManager().add(path);
 
         gpsMyLocationProvider = new GpsMyLocationProvider(context);
         gpsMyLocationProvider.setLocationUpdateMinDistance(5.0f);
@@ -52,13 +62,6 @@ public class GPSTrack {
                 String position = "Location changed to: " + new GeoPoint(location).toDoubleString();
                 Log.i("onLocationChanged: ", position);
                 path.addPoint(new GeoPoint(location));
-                //save current path on disk
-                /*
-                if (i%10 == 0) {
-                    List<GeoPoint> points = path.getActualPoints();
-                    //TODO save List on disk as GPX
-                }
-                */
             }
         });
         return true;
@@ -141,13 +144,13 @@ public class GPSTrack {
             Log.e("GPSTrack", "Failed to load File", e);
         }
     }
-    State getState() {
+    public State getState() {
         return state;
     }
-    void setState(State state) {
+    public void setState(State state) {
         this.state = state;
     }
-    String getFileName() {
+    public String getFileName() {
         return fileName;
     }
 }

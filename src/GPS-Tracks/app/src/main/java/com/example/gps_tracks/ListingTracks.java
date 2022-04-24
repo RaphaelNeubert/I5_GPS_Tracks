@@ -101,6 +101,10 @@ public class ListingTracks extends AppCompatActivity {
                        file.renameTo(newName);
                         recreate();
                        break;
+                    case "Track auf Karte anzeigen":
+
+                        goBackHome();
+                        break;
                 }
                 Log.i("menu:", String.valueOf(item));
                 return true;
