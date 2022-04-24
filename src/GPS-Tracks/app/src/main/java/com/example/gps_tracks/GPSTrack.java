@@ -34,6 +34,10 @@ public class GPSTrack {
     Polyline path;
     String fileName;
 
+
+    GPSTrack(Context context) {
+        this.context = context;
+    }
     void display(MapView map) {
         if (path != null) {
             map.getOverlayManager().add(path);
@@ -43,10 +47,6 @@ public class GPSTrack {
         if (path != null) {
             map.getOverlayManager().remove(path);
         }
-    }
-
-    GPSTrack(Context context) {
-        this.context = context;
     }
     boolean startRecording() {
         Log.i("GPSTrack","Recording has been started.");
@@ -112,14 +112,12 @@ public class GPSTrack {
             Log.e("GPSTrack", "Failed to save File", e);
         }
     }
-    void loadGPX() {
-        if(fileName == null) {
-            //TODO display warning popup
-            return;
-        }
+    void loadGPX(String fileName) {
+        this.fileName = fileName;
+        path = new Polyline();
         try {
             String dir = context.getFilesDir().toString();
-            File file = new File(dir+'/'+fileName+".gpx");
+            File file = new File(context.getFilesDir(),fileName);
             FileInputStream fis = new FileInputStream(file);
             GPXParser parser = new GPXParser();
             GPX gpx = parser.parseGPX(fis);
