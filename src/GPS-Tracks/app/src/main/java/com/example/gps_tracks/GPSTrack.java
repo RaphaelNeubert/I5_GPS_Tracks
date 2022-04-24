@@ -7,19 +7,19 @@ import android.util.Log;
 import org.alternativevision.gpx.GPXParser;
 import org.alternativevision.gpx.beans.*;
 import org.osmdroid.util.GeoPoint;
+import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Polyline;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.IMyLocationConsumer;
 import org.osmdroid.views.overlay.mylocation.IMyLocationProvider;
-import org.osmdroid.views.MapView;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -123,13 +123,13 @@ public class GPSTrack {
 
             while(routeIterator.hasNext()) {
                 Route route = (Route) routeIterator.next();
-                List<WayPoints> listWaypoints = route.getRoutePoints();
+                List<Waypoint> listWaypoints = route.getRoutePoints();
                 ListIterator listIterator = listWaypoints.listIterator();
 
                 while(listIterator.hasNext()) {
-                    Waypoint wp = listIterator.next();
+                    Waypoint wp = (Waypoint) listIterator.next();
                     GeoPoint geo = new GeoPoint(wp.getLatitude(), wp.getLongitude());
-                    path.addPoint(geo);
+                    this.path.addPoint(geo);
                 }
             }
 
