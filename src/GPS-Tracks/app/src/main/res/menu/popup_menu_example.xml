@@ -2,17 +2,17 @@
 <menu xmlns:android = "http://schemas.android.com/apk/res/android">
     <item
         android:id = "@+id/details"
-        android:title = "Details anzeigen" />
+        android:title = "@string/details"/>
     <item
         android:id = "@+id/showTrack"
-        android:title = "Track auf Karte anzeigen"/>
+        android:title = "@string/showTrack"/>
     <item
         android:id = "@+id/edit"
-        android:title = "Track bearbeiten"/>
+        android:title = "@string/edit"/>
     <item
         android:id = "@+id/contRec"
-        android:title = "Aufnahme fortsetzen"/>
+        android:title = "@string/contRec"/>
     <item
         android:id = "@+id/delete"
-        android:title = "Track löschen"/>
+        android:title = "@string/delete"/>
 </menu>
