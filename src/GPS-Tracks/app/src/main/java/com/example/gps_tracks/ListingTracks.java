@@ -1,7 +1,9 @@
 package com.example.gps_tracks;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -143,6 +145,14 @@ public class ListingTracks extends AppCompatActivity {
                        startActivity(getIntent());
                        overridePendingTransition(10, 10);
                        break;
+                    case "Track auf Karte anzeigen":
+                        Intent intent = new Intent();
+                        intent.putExtra("optionClicked", String.valueOf(item));
+                        intent.putExtra("fileName", selectedItem);
+
+                        setResult(Activity.RESULT_OK, intent);
+                        finish();
+                        break;
                 }
                 Log.i("menu:", String.valueOf(item));
                 return true;

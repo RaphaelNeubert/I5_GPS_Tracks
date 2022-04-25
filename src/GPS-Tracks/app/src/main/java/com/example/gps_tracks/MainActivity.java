@@ -1,15 +1,22 @@
 package com.example.gps_tracks;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -35,6 +42,7 @@ public class MainActivity extends AppCompatActivity{
     private ImageButton toPosButton, recstart;
     boolean press = false;
     private GPSTrack gpsTrack;
+    ActivityResultLauncher<Intent> listingTracksResultLauncher;
 
     @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -100,6 +108,28 @@ public class MainActivity extends AppCompatActivity{
         m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER);
         map.getOverlays().add(m);
 
+        // implements communication to ListingTracks activity
+        listingTracksResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() == Activity.RESULT_OK) {
+                            Intent data = result.getData();
+                            String option = data.getStringExtra("optionClicked");
+
+                            switch(option) {
+                                case "Track auf Karte anzeigen":
+                                    gpsTrack = new GPSTrack(getApplicationContext());
+                                    gpsTrack.loadGPX(data.getStringExtra("fileName"));
+                                    gpsTrack.display(map);
+                                    break;
+                            }
+                        }
+                    }
+                });
+
+
     }
 
     @Override
@@ -156,14 +186,21 @@ public class MainActivity extends AppCompatActivity{
 
     public void openListTracks(View view) {
         Intent intent = new Intent(MainActivity.this, ListingTracks.class);
-        startActivity(intent);
+        listingTracksResultLauncher.launch(intent);
     }
+//
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        Log.i("test","itWorks");
+//    }
 
     public void startRecording(View view) {
         if (gpsTrack == null || gpsTrack.getState() == GPSTrack.State.EMPTY) {
             gpsTrack = new GPSTrack(getApplicationContext());
-            gpsTrack.startRecording(map);
+            gpsTrack.startRecording();
             gpsTrack.setState(GPSTrack.State.RECORDING);
+            gpsTrack.display(map);
             //change icon
             ImageButton recButton = (ImageButton) findViewById(R.id.record);
             recButton.setImageResource(R.drawable.button_rec);
@@ -172,12 +209,14 @@ public class MainActivity extends AppCompatActivity{
         else {
             gpsTrack.endRecording();
             gpsTrack.setState(GPSTrack.State.READY);
+            gpsTrack.hide(map);
             //change back icon
             ImageButton recButton = (ImageButton) findViewById(R.id.record);
             recButton.setImageResource(R.drawable.button_63x63);
         }
     }
 
-
-
+    public void setGpsTrack(GPSTrack gpsTrack) {
+        this.gpsTrack = gpsTrack;
+    }
 }
