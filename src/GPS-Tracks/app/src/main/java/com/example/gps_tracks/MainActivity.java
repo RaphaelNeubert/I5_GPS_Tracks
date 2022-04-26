@@ -219,4 +219,8 @@ public class MainActivity extends AppCompatActivity{
     public void setGpsTrack(GPSTrack gpsTrack) {
         this.gpsTrack = gpsTrack;
     }
+
+    public void deselect(View view) {
+        gpsTrack.hide(map);
+    }
 }
