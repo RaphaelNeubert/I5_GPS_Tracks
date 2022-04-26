@@ -13,6 +13,9 @@
         android:id = "@+id/contRec"
         android:title = "Aufnahme fortsetzen"/>
     <item
+        android:id = "@+id/rename"
+        android:title = "Track umbenennen"/>
+    <item
         android:id = "@+id/delete"
         android:title = "Track löschen"/>
 </menu>

@@ -79,6 +79,7 @@ public class ListingTracks extends AppCompatActivity {
         Intent intent = new Intent(ListingTracks.this, MainActivity.class);
         startActivity(intent);
     }
+
     private void popupMenuExample(String selectedItem) {
         PopupMenu p = new PopupMenu(this, callingItem);
         p.getMenuInflater().inflate(R.menu.popup_menu_example, p .getMenu());
@@ -95,7 +96,7 @@ public class ListingTracks extends AppCompatActivity {
                         startActivity(getIntent());
                         overridePendingTransition(10, 10);
                         break;
-                    case "Track bearbeiten":
+                    case "Track umbenennen":
                        File newName=new File(dir,"UPDATED_FILE_"+selectedItem);
                        file.renameTo(newName);
                         recreate();
