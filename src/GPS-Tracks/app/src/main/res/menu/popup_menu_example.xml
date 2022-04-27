@@ -8,7 +8,7 @@
         android:title = "Track auf Karte anzeigen"/>
     <item
         android:id = "@+id/edit"
-        android:title = "Track bearbeiten"/>
+        android:title = "Track umbenennen"/>
     <item
         android:id = "@+id/contRec"
         android:title = "Aufnahme fortsetzen"/>
