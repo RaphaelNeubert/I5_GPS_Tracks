@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity{
     private final int REQUEST_PERMISSIONS_REQUEST_CODE = 1;
     private MapView map = null;
     private MyLocationNewOverlay locationOverlay;
-    private ImageButton toPosButton, recstart;
+    private ImageButton toPosButton;
     boolean press = false;
     private GPSTrack gpsTrack;
     ActivityResultLauncher<Intent> listingTracksResultLauncher;
@@ -123,13 +123,13 @@ public class MainActivity extends AppCompatActivity{
                                     gpsTrack = new GPSTrack(getApplicationContext());
                                     gpsTrack.loadGPX(data.getStringExtra("fileName"));
                                     gpsTrack.display(map);
+                                    ImageButton deselectButton = findViewById(R.id.deselect);
+                                    deselectButton.setVisibility(View.VISIBLE);
                                     break;
                             }
                         }
                     }
                 });
-
-
     }
 
     @Override
@@ -188,14 +188,8 @@ public class MainActivity extends AppCompatActivity{
         Intent intent = new Intent(MainActivity.this, ListingTracks.class);
         listingTracksResultLauncher.launch(intent);
     }
-//
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        Log.i("test","itWorks");
-//    }
 
-    public void startRecording(View view) {
+    public void toggleRecording(View view) {
         if (gpsTrack == null || gpsTrack.getState() == GPSTrack.State.EMPTY) {
             gpsTrack = new GPSTrack(getApplicationContext());
             gpsTrack.startRecording();
@@ -210,13 +204,18 @@ public class MainActivity extends AppCompatActivity{
             gpsTrack.endRecording();
             gpsTrack.setState(GPSTrack.State.READY);
             gpsTrack.hide(map);
+            gpsTrack = null;
             //change back icon
             ImageButton recButton = (ImageButton) findViewById(R.id.record);
             recButton.setImageResource(R.drawable.button_63x63);
         }
     }
 
-    public void setGpsTrack(GPSTrack gpsTrack) {
-        this.gpsTrack = gpsTrack;
+    public void deselect(View view) {
+        gpsTrack.hide(map);
+        gpsTrack = null;
+        //hide button
+        ImageButton deselectButton = findViewById(R.id.deselect);
+        deselectButton.setVisibility(View.INVISIBLE);
     }
 }

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">GPS-Tracks</string>
+    <string name="details">Details anzeigen</string>
+    <string name="showTrack">Track auf Karte anzeigen</string>
+    <string name="edit">Track bearbeiten</string>
+    <string name="contRec">Aufnahme fortsetzen</string>
+    <string name="delete">Track löschen</string>
 </resources>
