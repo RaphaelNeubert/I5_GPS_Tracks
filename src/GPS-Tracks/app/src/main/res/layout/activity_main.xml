@@ -36,7 +36,7 @@
         android:layout_marginEnd="20px"
         android:layout_marginBottom="20px"
         android:background="@null"
-        android:onClick="startRecording"
+        android:onClick="toggleRecording"
         android:visibility="visible"
         app:srcCompat="@drawable/recording_change" />
 
@@ -52,7 +52,7 @@
         android:layout_marginBottom="20px"
         android:background="@null"
         android:onClick="deselect"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:srcCompat="@drawable/deselect" />
 
     <ImageButton
