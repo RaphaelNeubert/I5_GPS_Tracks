@@ -238,11 +238,10 @@ public class ListingTracks extends AppCompatActivity {
             @Override
             public void onResponse(final Call call, Response response) throws IOException {
                 String responseData = response.body().string();
-                String listFormated=responseData.replace("'", "").replace(" ","").replace("[","").replace("]","");
+                String listFormated=responseData.replace("'", "").replace(", ",",").replace("[","").replace("]","");
                 String[] arrayFromFlask = listFormated.split(",");
 
                 // сdownload
-                int count=1;
                 Context context = getApplicationContext();
                 String[] fileList = context.fileList();
 
@@ -253,14 +252,10 @@ public class ListingTracks extends AppCompatActivity {
                     filesListFromFlask.remove(fileList[i]);
                     //listFormated=filesListFromFlask[i]
                     if (i ==(fileList.length -1 )){
-                        finish();
-                        overridePendingTransition(10, 10);
                         startActivity(getIntent());
                         overridePendingTransition(10, 10);
                     }
                     if (filesListFromFlask.size() == 0){
-                        finish();
-                        overridePendingTransition(10, 10);
                         startActivity(getIntent());
                         overridePendingTransition(10, 10);
                     }
