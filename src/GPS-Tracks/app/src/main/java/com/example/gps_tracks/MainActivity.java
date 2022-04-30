@@ -102,11 +102,6 @@ public class MainActivity extends AppCompatActivity{
             }
         };
         map.addMapListener(mapListener);
-        Marker m = new Marker(map);
-        m.setPosition(new GeoPoint(51.051899,13.768021));
-        m.setIcon(getResources().getDrawable(R.drawable.ic_location_map_marker));
-        m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER);
-        map.getOverlays().add(m);
 
         // implements communication to ListingTracks activity
         listingTracksResultLauncher = registerForActivityResult(
@@ -125,6 +120,9 @@ public class MainActivity extends AppCompatActivity{
                                     gpsTrack.display(map);
                                     ImageButton deselectButton = findViewById(R.id.deselect);
                                     deselectButton.setVisibility(View.VISIBLE);
+                                    //move camera to track
+                                    locationOverlay.disableFollowLocation();
+                                    mapController.setCenter(gpsTrack.getStartPoint());
                                     break;
                             }
                         }
