@@ -29,8 +29,10 @@ public class GPSTrack {
     private Context context;
     private GpsMyLocationProvider gpsMyLocationProvider;
     private State state = State.EMPTY;
-    Polyline path;
-    String fileName;
+    private GeoPoint startPoint;
+    private Polyline path;
+    private String fileName;
+
 
 
     GPSTrack(Context context) {
@@ -60,6 +62,7 @@ public class GPSTrack {
                 String position = "Location changed to: " + new GeoPoint(location).toDoubleString();
                 Log.i("onLocationChanged: ", position);
                 path.addPoint(new GeoPoint(location));
+                if (startPoint == null) startPoint = new GeoPoint(location);
             }
         });
         return true;
@@ -131,6 +134,8 @@ public class GPSTrack {
                     Waypoint wp = (Waypoint) listIterator.next();
                     GeoPoint geo = new GeoPoint(wp.getLatitude(), wp.getLongitude());
                     this.path.addPoint(geo);
+                    //set startPoint if not set
+                    if (startPoint == null) startPoint = geo;
                 }
             }
 
@@ -148,5 +153,8 @@ public class GPSTrack {
     }
     public String getFileName() {
         return fileName;
+    }
+    public GeoPoint getStartPoint(){
+        return startPoint;
     }
 }
