@@ -30,7 +30,6 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.CustomZoomButtonsController;
 import org.osmdroid.views.MapView;
-import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 import java.util.ArrayList;
@@ -39,6 +38,7 @@ public class MainActivity extends AppCompatActivity{
     private final int REQUEST_PERMISSIONS_REQUEST_CODE = 1;
     private MapView map = null;
     private MyLocationNewOverlay locationOverlay;
+    IMapController mapController;
     private ImageButton toPosButton;
     boolean press = false;
     private GPSTrack gpsTrack;
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity{
         map.setMultiTouchControls(true);
         map.getZoomController().setVisibility(CustomZoomButtonsController.Visibility.NEVER);
 
-        IMapController mapController = map.getController();
+        mapController = map.getController();
         mapController.setZoom(15.5);
         mapController.setCenter(new GeoPoint(51.0374,13.7638));
 
@@ -115,15 +115,11 @@ public class MainActivity extends AppCompatActivity{
 
                             switch(option) {
                                 case "Track auf Karte anzeigen":
-                                    gpsTrack = new GPSTrack(getApplicationContext());
-                                    gpsTrack.loadGPX(data.getStringExtra("fileName"));
-                                    gpsTrack.display(map);
-                                    ImageButton deselectButton = findViewById(R.id.deselect);
-                                    deselectButton.setVisibility(View.VISIBLE);
-                                    //move camera to track
-                                    locationOverlay.disableFollowLocation();
-                                    mapController.setCenter(gpsTrack.getStartPoint());
+                                    loadTrack(data.getStringExtra("fileName"));
                                     break;
+                                case "Track bearbeiten":
+                                    loadTrack(data.getStringExtra("fileName"));
+                                    gpsTrack.startEditing(map);
                             }
                         }
                     }
@@ -208,7 +204,16 @@ public class MainActivity extends AppCompatActivity{
             recButton.setImageResource(R.drawable.button_63x63);
         }
     }
-
+    public void loadTrack(String fileName) {
+        gpsTrack = new GPSTrack(getApplicationContext());
+        gpsTrack.loadGPX(fileName);
+        gpsTrack.display(map);
+        ImageButton deselectButton = findViewById(R.id.deselect);
+        deselectButton.setVisibility(View.VISIBLE);
+        //move camera to track
+        locationOverlay.disableFollowLocation();
+        mapController.setCenter(gpsTrack.getStartPoint());
+    }
     public void deselect(View view) {
         gpsTrack.hide(map);
         gpsTrack = null;

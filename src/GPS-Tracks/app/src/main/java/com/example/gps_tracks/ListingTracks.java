@@ -127,16 +127,16 @@ public class ListingTracks extends AppCompatActivity {
                         startActivity(getIntent());
                         overridePendingTransition(10, 10);
                         break;
-                    case "Track bearbeiten":
-                       File newName=new File(dir,"UPDATED_FILE_"+selectedItem);
-                       file.renameTo(newName);
-                       //  recreate();
-                       finish();
-                       overridePendingTransition(10, 10);
-                       startActivity(getIntent());
-                       overridePendingTransition(10, 10);
-                       break;
+                    case "Track umbenennen":
+                        File newName=new File(dir,"UPDATED_FILE_"+selectedItem);
+                        file.renameTo(newName);
+                        //  recreate();
+                        finish();
+                        overridePendingTransition(10, 10);
+                        startActivity(getIntent());
+                        overridePendingTransition(10, 10);
                     case "Track auf Karte anzeigen":
+                    case "Track bearbeiten":
                         Intent intent = new Intent();
                         intent.putExtra("optionClicked", String.valueOf(item));
                         intent.putExtra("fileName", selectedItem);
