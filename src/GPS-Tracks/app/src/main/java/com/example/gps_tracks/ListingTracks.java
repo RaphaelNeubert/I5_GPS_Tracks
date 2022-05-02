@@ -254,11 +254,11 @@ public class ListingTracks extends AppCompatActivity {
                     if (i ==(fileList.length -1 )){
                         startActivity(getIntent());
                         overridePendingTransition(10, 10);
-                    }
+                    }/*
                     if (filesListFromFlask.size() == 0){
                         startActivity(getIntent());
                         overridePendingTransition(10, 10);
-                    }
+                    }*/
                 }
 
                 for(String el:filesListFromFlask){
