@@ -1,0 +1,71 @@
+//Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
+== Test Case 00: Prototyp-version 1.0
+
+=== Einführung
+In diesem Test-Case wird ein Teil in der Systemweite funktionale Anforderungen und Qualitätsanforderungen von Prototyp-version 1.0 getestet. 
+
+=== Kurzbeschreibung der Testbedingungen
+Der Testumfang des Test-Cases 01 ist in UC01 und UC02.
+
+Testgerat: Handy mit Android 11
+
+Ziel
+
+* Systemweite funktionale Anforderungen
+** App installieren
+** Berechtingungen erteilen
+** Karte anzeigen
+** GPS-Track auflisten
+
+* Qualitätsanforderungen
+** Lesbarkeit
+** Performance
+
+=== Test
+==== App installieren
+Die App kann von Drive als eine APK Datei heruntergeladen werden. Nach ein paar Warnungnachricht wird die App unter Name GPS-Track installiert.
+
+.APK Datei
+image::apk.jpg[align="center"]
+
+.Warnung
+image::warnung.jpg[align="center"]
+
+==== Berechtingungen erteilen
+Nach der Installation und die App Offnung mussen die Benutzer GPS- und Speicher-Berechtigung erlauben, um die App zu funktionieren.
+
+.GPS-Berechtigung
+image::berechtigung_1.jpg[align="center"]
+
+.Speicher-Berechtigung
+image::berechtigung_2.jpg[align="center"]
+
+==== Karten anzeigen
+Am Start liegt die Karte direkt im Bildschirm
+
+.Karten anzeigen
+image::karten.jpg[align="center"]
+
+.Karten mit aktuellem Standort anzeigen
+image::karten_mit_Standort.jpg[align="center"]
+
+
+==== GPS-Auflisten
+Wenn die Benutzer an Icon "+" im links oben des Bildschirm klickt, wird gespeicherte GPS-Tracks aufgelistet.
+
+.Auflisten
+image::track_auflisten.jpg[align="center"]
+
+==== Lesbarkeit
+Im Test ist die Inhalt der App, z.B: Text und Icon auf volle Armlänge lesbar. Aber die Icons liegt zu nah zum Rand des Bildschirms, sodass es schwierig zu erkennen.
+
+==== Performance
+Alle Funktionen der App sind unter 2 Sekunden gelaufen
+
+=== Problem
+Wenn Benutzer erst mal nach der Installation die App eroeffnet, muessen sie das Icon "+" klicken um die GPS-Signal zu erzeugen.
+
+
+
+
+
