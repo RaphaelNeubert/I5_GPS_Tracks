@@ -115,6 +115,9 @@ public class MainActivity extends AppCompatActivity{
 
                             switch(option) {
                                 case "Track auf Karte anzeigen":
+                                    if(gpsTrack != null)
+                                        gpsTrack.hide(map);
+
                                     gpsTrack = new GPSTrack(getApplicationContext());
                                     gpsTrack.loadGPX(data.getStringExtra("fileName"));
                                     gpsTrack.display(map);
