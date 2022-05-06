@@ -113,6 +113,12 @@ public class GPSTrack {
             Log.e("GPSTrack", "Failed to save File", e);
         }
     }
+    /**
+    * Loads the GPSTrack of a given file into the Polyline path of the calling instance
+    * The String filename should have the extension .gpx
+    * @param fileName name of the gpx-file to load
+    * @return void
+    */
     void loadGPX(String fileName) {
         this.fileName = fileName;
         path = new Polyline();

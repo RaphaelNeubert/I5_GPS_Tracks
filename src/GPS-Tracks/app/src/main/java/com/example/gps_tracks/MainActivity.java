@@ -212,6 +212,12 @@ public class MainActivity extends AppCompatActivity{
         }
     }
 
+    /**
+    * This function will hide a GPSTrack that is shown on the map
+    * If you call it from a Button in xml, you don't have to care about view
+    * @param view android.view.View
+    * @return void
+    */
     public void deselect(View view) {
         gpsTrack.hide(map);
         gpsTrack = null;
