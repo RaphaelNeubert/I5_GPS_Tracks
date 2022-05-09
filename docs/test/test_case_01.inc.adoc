@@ -1,72 +1,74 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
+:imagesdir: ./images/Test-Case 01
 
-== Test Case 01: Prototyp-version 1.0
+== Test Case 01: Test des UC01: Track aufnehmen
 
 === Einführung
-In diesem Test-Case wird ein Teil in der Systemweite funktionale Anforderungen und Qualitätsanforderungen von Prototyp-version 1.0 getestet. 
+In diesem Test-Case 01 wird die Funktion in dem UC 01: Track aufnehmen getestet. Die App muss die GPS-Signale als Strecke aufnehmen und in eine Textdatei mit dem Format GPX speichern. Außerdem soll der Nutzer den Track auf der Karte anzeigen und löschen können.
 
 === Kurzbeschreibung der Testbedingungen
-Der Testumfang des Test-Cases 01 ist in UC01 und UC02.
+Der Testumfang des Test-Cases 01 ist in UC01.
 
-Testgerat: Oneplus 7 mit Android 11
+Testgerat: Handy mit Android 11
 
 Ziel
 
 * Systemweite funktionale Anforderungen
-** App installieren
-** Berechtingungen erteilen
-** Karte anzeigen
-** GPS-Track auflisten
-
-* Qualitätsanforderungen
-** Lesbarkeit
-** Performance
+** Track aufnehmen
+** Aufnahme stoppen
+** Als GPX-Datei speichern
+** Gespeicherter Track auf Karte anzeigen
+** Gespeicherter Track loeschen
 
 === Test
-==== App installieren
-Die App kann von Drive als eine APK Datei heruntergeladen werden. Nach ein paar Warnungnachricht wird die App unter Name GPS-Track installiert.
+==== Track aufnehmen
+* Beim Klicken des roten Buttons wird die Aufnahme des Tracks gestartet.
 
-.APK Datei
-image::apk.jpg[align="center"]
+.Record starten
+image::01-Record_Start.jpg[align="center"]
 
-.Warnung
-image::warnung.jpg[align="center"]
+.Record UI
+image::02-Recording_1.jpg[align="center"]
 
-==== Berechtingungen erteilen
-Nach der Installation und die App Offnung mussen die Benutzer GPS- und Speicher-Berechtigung erlauben, um die App zu funktionieren.
+* Waehrend der Aufnahme wird die Richtung der Nutzer Handys als schwarzen Pfeil und die Aenderung des Standort als schwarze Linie auf der Karte gezeigt.
 
-.GPS-Berechtigung
-image::berechtigung_1.jpg[align="center"]
+.In Record
+image::03-Recording_2.jpg[align="center"]
 
-.Speicher-Berechtigung
-image::berechtigung_2.jpg[align="center"]
+==== Aufnahme des Tracks stoppen
+* Beim erneuten Klicken des roten Buttons die Aufnahme des Tracks gestoppt.
 
-==== Karten anzeigen
-Am Start liegt die Karte direkt im Bildschirm
+==== Als GPX-Datei speichern
+* Nach der Aufnahme wird der Track automatisch gespeichert und Trackname mit aktuellem Zeitpunkt benannt.
 
-.Karten anzeigen
-image::karten.jpg[align="center"]
+.Track auflisten
+image::04-Datei.jpg[align="center"]
 
-.Karten mit aktuellem Standort anzeigen
-image::karten_mit_Standort.jpg[align="center"]
+==== Auf Karte anzeigen
+* Beim Klicken eines Tracks können Nutzer ein Dropdown-Menu sehen und die auf den ausgewählten Track anwendbare Funktionen finden.
 
+.Menues
+image::05-Anzeigen.jpg[align="center"]
 
-==== GPS-Auflisten
-Wenn die Benutzer an Icon "+" im links oben des Bildschirm klickt, wird gespeicherte GPS-Tracks aufgelistet.
+* Bei Betätigung der Funktion "Track auf Karte anzeigen" klicken, wird die Karte mit gespeichertem Track angezeigt.
 
-.Warnung
-image::GPS.jpg[align="center"]
+.Karte anzeigen
+image::06-Auf_Karte.jpg[align="center"]
 
-==== Lesbarkeit
-Im Test ist die Inhalt der App, z.B: Text und Icon auf volle Armlänge lesbar. Aber die Icons liegt zu nah zum Rand des Bildschirms, sodass es schwierig zu erkennen.
+* Beim Klicken an "X" Button wird der Track wieder von der Karte entfernt.
 
-==== Performance
-Alle Funktionen der App sind unter 2 Sekunden gelaufen
+.Karte zumachen
+image::07-Karte_zumachen.jpg[align="center"]
+
+==== Track loeschen
+* Im Menu können Nutzer den gespeicherten Track löschen.
+
+.Track loeschen
+image::08-Track_loeschen.jpg[align="center"]
+
 
 === Problem
-Wenn Benutzer erst mal nach der Installation die App eroeffnet, muessen sie das Icon "+" klicken um die GPS-Signal zu erzeugen.
-
-
-
-
-
+* Noch nicht vollständig implementierte Funktionen können die GPX-Dateien Zerstören.
+* Wenn die App währen einer Aufnahme in den Standby versetzt wird, was durch versetzen des Gerätes in den Standby oder
+durch durch das Verschieben der App in den Hintergrund passiert, werden während des Zustandes "Standby" keine neuen
+Punkte aufgezeichnet. Es wird der letzte Punkt vor dem in den Standby setzen, mit dem ersten Punkt nach dem Standby verbunden.
