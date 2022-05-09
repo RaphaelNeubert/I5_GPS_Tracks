@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -40,9 +41,9 @@ public class MainActivity extends AppCompatActivity{
     private MapView map = null;
     private MyLocationNewOverlay locationOverlay;
     private ImageButton toPosButton;
-    boolean press = false;
     private GPSTrack gpsTrack;
     ActivityResultLauncher<Intent> listingTracksResultLauncher;
+    private boolean cameraToTrack = false;
 
     @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity{
         MapListener mapListener = new MapListener() {
             @Override
             public boolean onScroll(ScrollEvent event) {
-                if (locationOverlay.isFollowLocationEnabled() == false && map.isAnimating() == false) {
+                if (locationOverlay.isFollowLocationEnabled() == false) {
                     toPosButton.setVisibility(View.VISIBLE);
                 }
                 return false;
@@ -123,9 +124,7 @@ public class MainActivity extends AppCompatActivity{
                                     gpsTrack.display(map);
                                     ImageButton deselectButton = findViewById(R.id.deselect);
                                     deselectButton.setVisibility(View.VISIBLE);
-                                    //move camera to track
-                                    locationOverlay.disableFollowLocation();
-                                    mapController.setCenter(gpsTrack.getStartPoint());
+                                    cameraToTrack=true;
                                     break;
                             }
                         }
@@ -141,6 +140,13 @@ public class MainActivity extends AppCompatActivity{
         //SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         //Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this));
         map.onResume(); //needed for compass, my location overlays, v6.0.0 and up
+        if (cameraToTrack) {
+            //move camera to track
+            locationOverlay.disableFollowLocation();
+            map.getController().animateTo(gpsTrack.getStartPoint());
+            cameraToTrack = false;
+        }
+
     }
 
     @Override
