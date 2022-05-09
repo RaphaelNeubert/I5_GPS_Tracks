@@ -10,27 +10,35 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 
 == Begriffe
 [%header]
+
+.Domainspeziefische Begriffe
 |===
 | Begriff | Definition und Erläuterung | Synonyme
-|Benutzer | Anwender des Systems | Akteur, Nutzer
 | GPS-Track | Abfolge von geographischen Punkten welche eine Strecke bilden | Track/Strecke/Route
 | Button | Schaltfläche auf Bildschirm, löst durch Antippen Aktion aus| Knopf
-| Wireframe | Bildliche Darstellung der Funktionalität und des Aussehens (grob) der Appoberflächen | -
-| Use Case | Szenario, das eintreten könnte, wenn ein Akteur versucht, mit Hilfe des betrachteten Systems ein
-bestimmtes fachliches Ziel zu erreichen.| Anwendungsfall
-| Source Code | Der für den Benutzer lesbare, in einer Programmiersprache geschriebene Text eines Programms | Quellcode, Quelltext
+| Homescreen | Anzeige direkt nach dem Startvorgang eines Systems | Startbildschirm, Indexseite
+| Pop-up | ein kleines Anzeigefenster | -
 | Dialogfeld | Element der Benutzeroberfläche der Kommunikation und Interaktion zwischen Benutzer und Programm ermöglicht | -
 | Schnittstelle | Verbindung zwischen Funktionseinheiten eines Datenverarbeitungssystems, an der der Austausch von Daten erfolgt | Interface
 | Provider | Stellt etwas bereit, bei uns zB der Kartendatenprovider | -
 | Icons | grafisches Symbol (kleines Bild/Piktogramm) für Anwendungsprogramme | Symbole
+| Tile server | Server der das Laden von Geodaten in Form von vielen klein Bildern ermöglicht | Mapserver, Kartendatenprovider
 | osmdroid | Android Bibliothek die Werkzeuge zur Interaktion mit Kartendaten bereitstellt | -
+
+|===
+
+.Domainunspeziefische Begriffe
+|===
+| Begriff | Definition und Erläuterung | Synonyme
+|Benutzer | Anwender des Systems | Akteur, Nutzer
+| Wireframe | Bildliche Darstellung der Funktionalität und des Aussehens (grob) der Appoberflächen | -
+| Use Case | Szenario, das eintreten könnte, wenn ein Akteur versucht, mit Hilfe des betrachteten Systems ein
+bestimmtes fachliches Ziel zu erreichen.| Anwendungsfall
+| Source Code | Der für den Benutzer lesbare, in einer Programmiersprache geschriebene Text eines Programms | Quellcode, Quelltext
 | Flask | Webframework für Python | -
 | Java | Java ist eine objektorientierte Programmiersprache des Unternehmens Sun Microsystems/Oracle | -
 | Python | Python ist eine universelle, üblicherweise interpretierte, höhere Programmiersprache | -
 | Android | Von Google entwickeltes Betriebssystem für mobile Geräte | -
-| Tile server | Server der das Laden von Geodaten in Form von vielen klein Bildern ermöglicht | Mapserver, Kartendatenprovider
-| Homescreen | Anzeige direkt nach dem Startvorgang eines Systems | Startbildschirm, Indexseite
-| Pop-up | ein kleines Anzeigefenster | -
 | Issues | Verbesserungen, Aufgaben, Probleme, Fragen oder ähnliches die in Verbindung mit einem Github repository
 stehen. | -
 | Icebox | Zustand in dem sich Issues die niemanden zugewiesen sind befinden| -

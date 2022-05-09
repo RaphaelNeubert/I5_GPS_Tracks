@@ -127,7 +127,7 @@ public class ListingTracks extends AppCompatActivity {
                         startActivity(getIntent());
                         overridePendingTransition(10, 10);
                         break;
-                    case "Track bearbeiten":
+                    case "Track umbenennen":
                        File newName=new File(dir,"UPDATED_FILE_"+selectedItem);
                        file.renameTo(newName);
                        //  recreate();
