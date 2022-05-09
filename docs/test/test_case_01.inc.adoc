@@ -4,7 +4,7 @@
 == Test Case 01: Test des UC01: Track aufnehmen
 
 === Einführung
-In diesem Test-Case 01 wird die Funktion in dem UC 01: Track aufnehmen getestet. Die App muss die GPS-Signale als Punkte und Loop aufgenommen und in die Textdatei als GPX gespeichert werden. Ausserdem kann Nutzer den Track auf Karte anzeigen und loeschen.
+In diesem Test-Case 01 wird die Funktion in dem UC 01: Track aufnehmen getestet. Die App muss die GPS-Signale als Strecke aufnehmen und in eine Textdatei mit dem Format GPX speichern. Außerdem soll der Nutzer den Track auf der Karte anzeigen und löschen können.
 
 === Kurzbeschreibung der Testbedingungen
 Der Testumfang des Test-Cases 01 ist in UC01.
@@ -22,7 +22,7 @@ Ziel
 
 === Test
 ==== Track aufnehmen
-* Beim Klicken an dem roten Button wird die Aufnahme des Tracks gestartet.
+* Beim Klicken des roten Buttons wird die Aufnahme des Tracks gestartet.
 
 .Record starten
 image::01-Record_Start.jpg[align="center"]
@@ -36,7 +36,7 @@ image::02-Recording_1.jpg[align="center"]
 image::03-Recording_2.jpg[align="center"]
 
 ==== Aufnahme des Tracks stoppen
-* Beim Klicken an dem roten Button noch mal wird die Aufnahme des Tracks gestoppt.
+* Beim erneuten Klicken des roten Buttons die Aufnahme des Tracks gestoppt.
 
 ==== Als GPX-Datei speichern
 * Nach der Aufnahme wird der Track automatisch gespeichert und Trackname mit aktuellem Zeitpunkt benannt.
@@ -45,28 +45,30 @@ image::03-Recording_2.jpg[align="center"]
 image::04-Datei.jpg[align="center"]
 
 ==== Auf Karte anzeigen
-* Beim Klicken an einem Track koennen Nutzer ein Dropbox sehen und Funktionen ueber den Track finden.
+* Beim Klicken eines Tracks können Nutzer ein Dropdown-Menu sehen und die auf den ausgewählten Track anwendbare Funktionen finden.
 
 .Menues
 image::05-Anzeigen.jpg[align="center"]
 
-* Falls Nutzer an "Track auf Karte anzeigen" klicken, wird die Karte mit gespeichertem Track angezeigt.
+* Bei Betätigung der Funktion "Track auf Karte anzeigen" klicken, wird die Karte mit gespeichertem Track angezeigt.
 
 .Karte anzeigen
 image::06-Auf_Karte.jpg[align="center"]
 
-* Beim Klicken an "X" Button wird die Karte zugemacht.
+* Beim Klicken an "X" Button wird der Track wieder von der Karte entfernt.
 
 .Karte zumachen
 image::07-Karte_zumachen.jpg[align="center"]
 
 ==== Track loeschen
-* In Menue koennen Nutzer den gespeicherten Track geloescht.
+* Im Menu können Nutzer den gespeicherten Track löschen.
 
 .Track loeschen
 image::08-Track_loeschen.jpg[align="center"]
 
 
 === Problem
-* Nach dem Klicken an anderen Funktionen in Menue wird GPX-Datei kaputt gemacht und die Datei nun nur leeren Standort gespeichert.
-* Aufnahme wird pausiert, wenn standby.
+* Noch nicht vollständig implementierte Funktionen können die GPX-Dateien Zerstören.
+* Wenn die App währen einer Aufnahme in den Standby versetzt wird, was durch versetzen des Gerätes in den Standby oder
+durch durch das Verschieben der App in den Hintergrund passiert, werden während des Zustandes "Standby" keine neuen
+Punkte aufgezeichnet. Es wird der letzte Punkt vor dem in den Standby setzen, mit dem ersten Punkt nach dem Standby verbunden.
