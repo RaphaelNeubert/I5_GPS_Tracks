@@ -1,12 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-  <EditText
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:hint="Track umbenennen"
-      android:id="@+id/et_ren"></EditText>
+    android:padding="5dp">
+
+  <TextView
+      android:id="@+id/rendialog"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:textSize="30sp"
+      android:text="@string/track_umbenennen" />
+
+  <EditText
+      android:id="@+id/reninput"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:ems="10"
+      android:hint="@string/newname"
+      android:inputType="textPersonName"
+      android:text="" />
+
+  <Button
+      android:id="@+id/ab"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:text="Abbrechen" />
+
+  <Button
+      android:id="@+id/ok"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:text="Ok" />
 
 </LinearLayout>
