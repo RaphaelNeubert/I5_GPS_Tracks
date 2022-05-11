@@ -2,6 +2,7 @@ package com.example.gps_tracks;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -161,18 +162,23 @@ public class ListingTracks extends AppCompatActivity {
     }
 
     private void renameFile(File file) {
+        final Dialog dia = new Dialog(ListingTracks.this);
+        dia.setContentView(R.layout.rename_track);
+
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(ListingTracks.this);
         View mView = getLayoutInflater().inflate(R.layout.rename_track, null);
         final EditText rn = (EditText) mView.findViewById(R.id.reninput);
         Button mok = (Button) mView.findViewById(R.id.ok);
         Button mab = (Button) mView.findViewById(R.id.ab);
-        back = (Button) findViewById(R.id.abb);
-        /*back.setOnClickListener(new View.OnClickListener() {
+
+        mab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                goBackHome();
+                overridePendingTransition(10, 10);
+                startActivity(getIntent());
+                overridePendingTransition(10, 10);
             }
-        });*/
+        });
 
         mok.setOnClickListener(new View.OnClickListener() {
             @Override

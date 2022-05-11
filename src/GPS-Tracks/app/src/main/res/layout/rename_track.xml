@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="5dp">
 
   <TextView
@@ -10,8 +10,8 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
-      android:textSize="30sp"
-      android:text="@string/track_umbenennen" />
+      android:text="@string/track_umbenennen"
+      android:textSize="30sp" />
 
   <EditText
       android:id="@+id/reninput"
@@ -19,22 +19,24 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="10dp"
       android:ems="10"
-      android:hint="@string/newname"
+      android:hint="Name"
       android:inputType="textPersonName"
       android:text="" />
-
-  <Button
-      android:id="@+id/ab"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="10dp"
-      android:text="Abbrechen" />
 
   <Button
       android:id="@+id/ok"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="10dp"
-      android:text="Ok" />
+      android:text="Ok"
+      android:backgroundTint="@color/black"/>
+
+  <Button
+      android:id="@+id/ab"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:backgroundTint="@color/black"
+      android:text="Abbrechen" />
 
 </LinearLayout>
