@@ -7,12 +7,11 @@ In diesem Test-Case wird ein Teil in der Systemweite funktionale Anforderungen u
 === Kurzbeschreibung der Testbedingungen
 Der Testumfang des Test-Cases 01 ist in UC01 und UC02.
 
-Testgerat: Handy mit Android 11
+Testgerät: Handy mit Android 11
 
 Ziel
 
 * Systemweite funktionale Anforderungen
-** App installieren
 ** Berechtingungen erteilen
 ** Karte anzeigen
 ** GPS-Track auflisten
@@ -23,7 +22,7 @@ Ziel
 
 === Test
 ==== App installieren
-Die App kann von Drive als eine APK Datei heruntergeladen werden. Nach ein paar Warnungnachricht wird die App unter Name GPS-Track installiert.
+Die App kann von Drive als APK-Datei heruntergeladen werden. Nach ein paar Warnungen wird die App installiert.
 
 .APK Datei
 image::apk.jpg[align="center"]
@@ -32,7 +31,7 @@ image::apk.jpg[align="center"]
 image::warnung.jpg[align="center"]
 
 ==== Berechtingungen erteilen
-Nach der Installation und die App Offnung mussen die Benutzer GPS- und Speicher-Berechtigung erlauben, um die App zu funktionieren.
+Beim Öffnen der App müssen GPS- und Speicher-Berechtigung erteilt werden,.
 
 .GPS-Berechtigung
 image::berechtigung_1.jpg[align="center"]
@@ -41,7 +40,7 @@ image::berechtigung_1.jpg[align="center"]
 image::berechtigung_2.jpg[align="center"]
 
 ==== Karten anzeigen
-Am Start liegt die Karte direkt im Bildschirm
+Zu Beginn wird die Karte angezeigt.
 
 .Karten anzeigen
 image::karten.jpg[align="center"]
@@ -50,20 +49,20 @@ image::karten.jpg[align="center"]
 image::karten_mit_Standort.jpg[align="center"]
 
 
-==== GPS-Auflisten
-Wenn die Benutzer an Icon "+" im links oben des Bildschirm klickt, wird gespeicherte GPS-Tracks aufgelistet.
+==== GPS-Tracks auflisten
+Wenn die Benutzer auf das Icon "+" links oben auf dem Bildschirm klickt, werden gespeicherte GPS-Tracks aufgelistet.
 
 .Auflisten
 image::track_auflisten.jpg[align="center"]
 
 ==== Lesbarkeit
-Im Test ist die Inhalt der App, z.B: Text und Icon auf volle Armlänge lesbar. Aber die Icons liegt zu nah zum Rand des Bildschirms, sodass es schwierig zu erkennen.
+Während des Tests ist der Inhalt der App, z.B: Text und Icon lesbar, aber die Icons liegen zu nah am Rand des Bildschirms, sodass sie schwer zu erkennen sind.
 
 ==== Performance
-Alle Funktionen der App sind unter 2 Sekunden gelaufen
+Alle Funktionen der App liefen in unter zwei Sekunden ab.
 
 === Problem
-Wenn Benutzer erst mal nach der Installation die App eroeffnet, muessen sie das Icon "+" klicken um die GPS-Signal zu erzeugen.
+Wenn ein Benutzer nach der Installation die App erstmalig öffnet, muss das Icon "+" geclickt werden, um das GPS-Signal zu erzeugen.
 
 
 
