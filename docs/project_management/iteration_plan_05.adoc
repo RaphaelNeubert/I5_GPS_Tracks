@@ -1,4 +1,4 @@
-= Iteration Plan 06: {project-name}
+= Iteration Plan 05: {project-name}
 Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
@@ -11,25 +11,21 @@ include::../_includes/default-attributes.inc.adoc[]
 |*Meilenstein*
 |*Datum*
 |Beginn der Iteration
-|04.04.2022
-|Ende der Iteration; LCA Meilenstein erreicht
+|
+|Ende der Iteration
 |-
 |===
 
 
 == Wesentliche Ziele
 
-. Wichtige Infrastruktur anlegen
-. Aufzeichnung von GPS-Tracks implementieren
-. Dateisystem Verwendung implementieren
-. Behebung von Buggs im Prototyp
-. Glossary überarbeiten
-. Die von Iteration 5 übriggebliebenen Issues bearbeiten
+. 
+.
 
 
 
 == Aufgabenzuordnung
-https://github.com/RaphaelNeubert/I5_GPS_Tracks/projects/6
+https://github.com/RaphaelNeubert/I5_GPS_Tracks/projects/5
 ////
 == Bewertungskriterien
 * Das Glossar, das Domainmodell, das Architecture-Notebook und die Risikoliste werden beim Zusammentreffen aller Gruppenmitglieder für gut ausgearbeitet und vollständig erklärt
