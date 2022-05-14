@@ -1,6 +1,8 @@
 package com.example.gps_tracks;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,11 +13,14 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -66,6 +71,7 @@ public class ListingTracks extends AppCompatActivity {
             }
         });
 
+
         sync = (Button)findViewById(R.id.sync);
         sync.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +87,11 @@ public class ListingTracks extends AppCompatActivity {
 
 
         // listing
+
+
+
+        //listing
+
         ArrayAdapter adapter = new ArrayAdapter<String>(this,
                 R.layout.activity_list_view, fileList());
 
@@ -111,6 +122,7 @@ public class ListingTracks extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivityIfNeeded(intent, 0);
     }
+
     private void popupMenuExample(String selectedItem) {
         PopupMenu p = new PopupMenu(this, callingItem);
         p.getMenuInflater().inflate(R.menu.popup_menu_example, p .getMenu());
@@ -128,13 +140,8 @@ public class ListingTracks extends AppCompatActivity {
                         overridePendingTransition(10, 10);
                         break;
                     case "Track umbenennen":
-                        File newName=new File(dir,"UPDATED_FILE_"+selectedItem);
-                        file.renameTo(newName);
-                        //  recreate();
-                        finish();
-                        overridePendingTransition(10, 10);
-                        startActivity(getIntent());
-                        overridePendingTransition(10, 10);
+                        renameFile(file);
+                        break;
                     case "Track auf Karte anzeigen":
                     case "Track bearbeiten":
                         Intent intent = new Intent();
@@ -150,6 +157,54 @@ public class ListingTracks extends AppCompatActivity {
             }
         });
         p.show();
+    }
+
+    private void renameFile(File file) {
+        final Dialog dia = new Dialog(ListingTracks.this);
+        dia.setContentView(R.layout.rename_track);
+
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(ListingTracks.this);
+        View mView = getLayoutInflater().inflate(R.layout.rename_track, null);
+        final EditText rn = (EditText) mView.findViewById(R.id.reninput);
+        Button mok = (Button) mView.findViewById(R.id.ok);
+        Button mab = (Button) mView.findViewById(R.id.ab);
+
+        mab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                overridePendingTransition(10, 10);
+                startActivity(getIntent());
+                overridePendingTransition(10, 10);
+            }
+        });
+
+        mok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String newFilename = rn.getText().toString();
+                if(!newFilename.isEmpty()){
+                    file.renameTo(new File(getFilesDir(),newFilename));
+                    Toast.makeText(ListingTracks.this,
+                            "Umbennenung erfolgreich",
+                            Toast.LENGTH_SHORT).show();
+                    overridePendingTransition(10, 10);
+                    startActivity(getIntent());
+                    overridePendingTransition(10, 10);
+                } else{
+                    Toast.makeText(ListingTracks.this,
+                            "Bitte füllen Sie das Textfeld aus",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        mBuilder.setView(mView);
+        AlertDialog dialog = mBuilder.create();
+        dialog.show();
+
+       /* File newName=new File(dir,"UPDATED_FILE_"+selectedItem);
+        file.renameTo(newName);*/
+
     }
 
     public static Boolean uploadFile(File file) {
@@ -254,11 +309,11 @@ public class ListingTracks extends AppCompatActivity {
                     if (i ==(fileList.length -1 )){
                         startActivity(getIntent());
                         overridePendingTransition(10, 10);
-                    }
+                    }/*
                     if (filesListFromFlask.size() == 0){
                         startActivity(getIntent());
                         overridePendingTransition(10, 10);
-                    }
+                    }*/
                 }
 
                 for(String el:filesListFromFlask){

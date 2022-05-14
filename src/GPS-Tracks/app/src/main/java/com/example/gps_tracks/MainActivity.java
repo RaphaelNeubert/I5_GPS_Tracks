@@ -4,19 +4,26 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.Nullable;
+
+import androidx.appcompat.app.AlertDialog;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -40,13 +47,15 @@ public class MainActivity extends AppCompatActivity{
     private MyLocationNewOverlay locationOverlay;
     IMapController mapController;
     private ImageButton toPosButton;
-    boolean press = false;
     private GPSTrack gpsTrack;
     ActivityResultLauncher<Intent> listingTracksResultLauncher;
+    private boolean cameraToTrack = false;
+    private boolean press = false;
 
     @Override
         public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
         //handle permissions
         requestPermissionsIfNecessary(new String[]{
@@ -88,10 +97,65 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+
+        //Switch between defaultrecord and startrecord Button
+        ImageButton recstart = (ImageButton) findViewById(R.id.record);
+        recstart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (press) {
+                    recstart.setImageResource(R.drawable.button_63x63);
+
+                    AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+                    View mView = getLayoutInflater().inflate(R.layout.save_track, null);
+                    final EditText sv = (EditText) mView.findViewById(R.id.saveinput);
+                    Button mok = (Button) mView.findViewById(R.id.saving);
+                    Button mab = (Button) mView.findViewById(R.id.abb);
+
+               /* mab.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.cancel();
+                    }
+                });*/
+
+                    mok.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if (!sv.getText().toString().isEmpty()) {
+                                Toast.makeText(MainActivity.this,
+                                        "Speichern erfolgreich",
+                                        Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(MainActivity.this,
+                                        "Bitte füllen Sie das Textfeld aus",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+                    mBuilder.setView(mView);
+                    AlertDialog dialog = mBuilder.create();
+                    dialog.show();
+
+
+            } else
+
+            {
+                recstart.setImageResource(R.drawable.button_rec);
+            }
+
+            press =!press; // reverse
+        }
+        });
+
+
+
         MapListener mapListener = new MapListener() {
             @Override
             public boolean onScroll(ScrollEvent event) {
-                if (locationOverlay.isFollowLocationEnabled() == false && map.isAnimating() == false) {
+                if (locationOverlay.isFollowLocationEnabled() == false) {
                     toPosButton.setVisibility(View.VISIBLE);
                 }
                 return false;
@@ -102,6 +166,7 @@ public class MainActivity extends AppCompatActivity{
             }
         };
         map.addMapListener(mapListener);
+
 
         // implements communication to ListingTracks activity
         listingTracksResultLauncher = registerForActivityResult(
@@ -124,7 +189,9 @@ public class MainActivity extends AppCompatActivity{
                         }
                     }
                 });
+
     }
+
 
     @Override
     public void onResume() {
@@ -134,6 +201,13 @@ public class MainActivity extends AppCompatActivity{
         //SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         //Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this));
         map.onResume(); //needed for compass, my location overlays, v6.0.0 and up
+        if (cameraToTrack) {
+            //move camera to track
+            locationOverlay.disableFollowLocation();
+            map.getController().animateTo(gpsTrack.getStartPoint());
+            cameraToTrack = false;
+        }
+
     }
 
     @Override
@@ -214,6 +288,13 @@ public class MainActivity extends AppCompatActivity{
         locationOverlay.disableFollowLocation();
         mapController.setCenter(gpsTrack.getStartPoint());
     }
+
+    /**
+    * This function will hide a GPSTrack that is shown on the map
+    * If you call it from a Button in xml, you don't have to care about view
+    * @param view android.view.View
+    * @return void
+    */
     public void deselect(View view) {
         gpsTrack.hide(map);
         gpsTrack = null;

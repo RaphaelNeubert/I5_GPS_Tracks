@@ -13,6 +13,9 @@
         android:id = "@+id/contRec"
         android:title = "@string/contRec"/>
     <item
+        android:id = "@+id/rename"
+        android:title = "Track umbenennen"/>
+    <item
         android:id = "@+id/delete"
         android:title = "@string/delete"/>
 </menu>

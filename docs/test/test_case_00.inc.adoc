@@ -1,0 +1,70 @@
+//Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
+== Test Case 00: Prototyp-version 1.0
+
+=== Einführung
+In diesem Test-Case wird ein Teil in der Systemweite funktionale Anforderungen und Qualitätsanforderungen von Prototyp-version 1.0 getestet. 
+
+=== Kurzbeschreibung der Testbedingungen
+Der Testumfang des Test-Cases 01 ist in UC01 und UC02.
+
+Testgerät: Handy mit Android 11
+
+Ziel
+
+* Systemweite funktionale Anforderungen
+** Berechtingungen erteilen
+** Karte anzeigen
+** GPS-Track auflisten
+
+* Qualitätsanforderungen
+** Lesbarkeit
+** Performance
+
+=== Test
+==== App installieren
+Die App kann von Drive als APK-Datei heruntergeladen werden. Nach ein paar Warnungen wird die App installiert.
+
+.APK Datei
+image::apk.jpg[align="center"]
+
+.Warnung
+image::warnung.jpg[align="center"]
+
+==== Berechtingungen erteilen
+Beim Öffnen der App müssen GPS- und Speicher-Berechtigung erteilt werden,.
+
+.GPS-Berechtigung
+image::berechtigung_1.jpg[align="center"]
+
+.Speicher-Berechtigung
+image::berechtigung_2.jpg[align="center"]
+
+==== Karten anzeigen
+Zu Beginn wird die Karte angezeigt.
+
+.Karten anzeigen
+image::karten.jpg[align="center"]
+
+.Karten mit aktuellem Standort anzeigen
+image::karten_mit_Standort.jpg[align="center"]
+
+
+==== GPS-Tracks auflisten
+Wenn die Benutzer auf das Icon "+" links oben auf dem Bildschirm klickt, werden gespeicherte GPS-Tracks aufgelistet.
+
+.Auflisten
+image::track_auflisten.jpg[align="center"]
+
+==== Lesbarkeit
+Während des Tests ist der Inhalt der App, z.B: Text und Icon lesbar, aber die Icons liegen zu nah am Rand des Bildschirms, sodass sie schwer zu erkennen sind.
+
+==== Performance
+Alle Funktionen der App liefen in unter zwei Sekunden ab.
+
+=== Problem
+Wenn ein Benutzer nach der Installation die App erstmalig öffnet, muss das Icon "+" geclickt werden, um das GPS-Signal zu erzeugen.
+
+
+
+
+
