@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity{
     private GPSTrack gpsTrack;
     ActivityResultLauncher<Intent> listingTracksResultLauncher;
     private boolean cameraToTrack = false;
-    private boolean press = false;
+    private boolean recording = false;
 
     @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -103,51 +103,56 @@ public class MainActivity extends AppCompatActivity{
         recstart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (recording) {
+                    //stop recording
 
-                if (press) {
-                    recstart.setImageResource(R.drawable.button_63x63);
-
+                    //save dialog
                     AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
                     View mView = getLayoutInflater().inflate(R.layout.save_track, null);
+                    mBuilder.setView(mView);
+                    AlertDialog dialog = mBuilder.create();
                     final EditText sv = (EditText) mView.findViewById(R.id.saveinput);
                     Button mok = (Button) mView.findViewById(R.id.saving);
                     Button mab = (Button) mView.findViewById(R.id.abb);
 
-               /* mab.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.cancel();
-                    }
-                });*/
+                    mab.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.cancel();
+                        }
+                    });
 
                     mok.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             if (!sv.getText().toString().isEmpty()) {
+                                gpsTrack.setFileName(sv.getText().toString());
+                            }
+                                gpsTrack.endRecording();
+                                gpsTrack.hide(map);
+                                gpsTrack = null;
                                 Toast.makeText(MainActivity.this,
                                         "Speichern erfolgreich",
                                         Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(MainActivity.this,
-                                        "Bitte füllen Sie das Textfeld aus",
-                                        Toast.LENGTH_SHORT).show();
-                            }
+                                //change back icon
+                                recstart.setImageResource(R.drawable.button_63x63);
+                                recording = false;
+                                dialog.dismiss();
                         }
                     });
-
-                    mBuilder.setView(mView);
-                    AlertDialog dialog = mBuilder.create();
                     dialog.show();
 
-
-            } else
-
-            {
-                recstart.setImageResource(R.drawable.button_rec);
+                } else {
+                    //start recording
+                    recording = true;
+                    gpsTrack = new GPSTrack(getApplicationContext(), map);
+                    gpsTrack.startRecording();
+                    gpsTrack.setState(GPSTrack.State.RECORDING);
+                    gpsTrack.display(map);
+                    //change icon
+                    recstart.setImageResource(R.drawable.button_rec);
+                }
             }
-
-            press =!press; // reverse
-        }
         });
 
 
@@ -259,27 +264,6 @@ public class MainActivity extends AppCompatActivity{
         listingTracksResultLauncher.launch(intent);
     }
 
-    public void toggleRecording(View view) {
-        if (gpsTrack == null || gpsTrack.getState() == GPSTrack.State.EMPTY) {
-            gpsTrack = new GPSTrack(getApplicationContext(), map);
-            gpsTrack.startRecording();
-            gpsTrack.setState(GPSTrack.State.RECORDING);
-            gpsTrack.display(map);
-            //change icon
-            ImageButton recButton = (ImageButton) findViewById(R.id.record);
-            recButton.setImageResource(R.drawable.button_rec);
-
-        }
-        else {
-            gpsTrack.endRecording();
-            gpsTrack.setState(GPSTrack.State.READY);
-            gpsTrack.hide(map);
-            gpsTrack = null;
-            //change back icon
-            ImageButton recButton = (ImageButton) findViewById(R.id.record);
-            recButton.setImageResource(R.drawable.button_63x63);
-        }
-    }
     public void loadTrack(String fileName) {
         gpsTrack = new GPSTrack(getApplicationContext(), map);
         gpsTrack.loadGPX(fileName);

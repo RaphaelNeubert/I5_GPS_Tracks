@@ -211,6 +211,9 @@ public class GPSTrack {
     public String getFileName() {
         return fileName;
     }
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
     public GeoPoint getStartPoint(){
         return startPoint;
     }
