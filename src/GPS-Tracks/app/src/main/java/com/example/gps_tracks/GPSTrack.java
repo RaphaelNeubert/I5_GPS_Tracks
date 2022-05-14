@@ -36,11 +36,12 @@ public class GPSTrack {
     private Polyline path;
     private String fileName;
     private ArrayList<Marker> markerList;
-    private List<GeoPoint> geoPointList;
+    private MapView map;
 
 
-    GPSTrack(Context context) {
+    GPSTrack(Context context, MapView map) {
         this.context = context;
+        this.map = map;
     }
     void display(MapView map) {
         if (path != null) {
@@ -167,7 +168,6 @@ public class GPSTrack {
         List<GeoPoint> points = path.getActualPoints();
         ListIterator listIterator = points.listIterator();
 
-        geoPointList = path.getActualPoints();
         while(listIterator.hasNext()) {
             Marker m = new Marker(map);
             m.setPosition((GeoPoint) listIterator.next());
@@ -178,11 +178,14 @@ public class GPSTrack {
             m.setOnMarkerDragListener(new Marker.OnMarkerDragListener() {
                 @Override
                 public void onMarkerDrag(Marker marker) {
-                    Log.i("points size",String.valueOf(geoPointList.size()));
-                    Log.i("onMarkerDrag",marker.getId());
+                    List<GeoPoint> geoPointList = path.getActualPoints();
                     int index = Integer.parseInt(marker.getId());
                     geoPointList.set(index, marker.getPosition());
+
+                    map.getOverlayManager().remove(path);
+                    path = new Polyline();
                     path.setPoints(geoPointList);
+                    map.getOverlayManager().add(path);
                 }
 
                 @Override

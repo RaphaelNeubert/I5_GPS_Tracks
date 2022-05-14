@@ -181,9 +181,11 @@ public class MainActivity extends AppCompatActivity{
                             switch(option) {
                                 case "Track auf Karte anzeigen":
                                     loadTrack(data.getStringExtra("fileName"));
+                                    cameraToTrack = true;
                                     break;
                                 case "Track bearbeiten":
                                     loadTrack(data.getStringExtra("fileName"));
+                                    cameraToTrack = true;
                                     gpsTrack.startEditing(map);
                             }
                         }
@@ -259,7 +261,7 @@ public class MainActivity extends AppCompatActivity{
 
     public void toggleRecording(View view) {
         if (gpsTrack == null || gpsTrack.getState() == GPSTrack.State.EMPTY) {
-            gpsTrack = new GPSTrack(getApplicationContext());
+            gpsTrack = new GPSTrack(getApplicationContext(), map);
             gpsTrack.startRecording();
             gpsTrack.setState(GPSTrack.State.RECORDING);
             gpsTrack.display(map);
@@ -279,7 +281,7 @@ public class MainActivity extends AppCompatActivity{
         }
     }
     public void loadTrack(String fileName) {
-        gpsTrack = new GPSTrack(getApplicationContext());
+        gpsTrack = new GPSTrack(getApplicationContext(), map);
         gpsTrack.loadGPX(fileName);
         gpsTrack.display(map);
         ImageButton deselectButton = findViewById(R.id.deselect);
