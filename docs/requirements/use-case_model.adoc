@@ -19,6 +19,7 @@ include::../_includes/default-attributes.inc.adoc[]
 * *UC06*: GPS-Track über Server verwalten
 * *UC07*: Besondere(n) Punkt(e) in GPS-Track einfügen
 * *UC08*: Verbesserung existierender GPS-Tracks durch erneute Aufnahme
+* *UC0?*: Synchronisation der Dateien mit dem Server
 
 
 
