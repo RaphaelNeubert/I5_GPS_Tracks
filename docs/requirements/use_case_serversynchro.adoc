@@ -4,7 +4,7 @@
 
 === Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>
-Mit dem Start der App oder dem Drücken eines Buttons auf der Benutzeroberfläche werden, falls eine aktive Internetverbindung besteht, die Dateien vom Smartphone mit denen des Servers synchronisiert.
+Mit dem Drücken des Buttons auf der Benutzeroberfläche werden, falls eine aktive Internetverbindung besteht, die Dateien vom Smartphone mit denen des Servers synchronisiert.
 
 === Kurzbeschreibung der Akteure
 
@@ -19,7 +19,12 @@ möchte auf dem aktuellen Stand der GPS-Tracks sein
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
-
+* die App ist geöffnet
+* der Nutzer drückt auf den "Synchronisieren"-Button
+** die Methode "Synchronisation" vergleicht die Dateien auf dem Smartphone mit denen auf dem Server
+** auf dem Smartphone fehlende Dateien werden heruntergeladen
+** auf dem Server fehlende werden hochgeladen
+* die Synchronisation ist abgeschlossen
 
 . Der Use Case ist abgeschlossen.
 
