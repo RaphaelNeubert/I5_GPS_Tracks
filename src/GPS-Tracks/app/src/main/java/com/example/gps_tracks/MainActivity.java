@@ -185,6 +185,9 @@ public class MainActivity extends AppCompatActivity{
 
                             switch(option) {
                                 case "Track auf Karte anzeigen":
+                                    if(gpsTrack != null)
+                                        gpsTrack.hide(map);
+
                                     loadTrack(data.getStringExtra("fileName"));
                                     cameraToTrack = true;
                                     break;
