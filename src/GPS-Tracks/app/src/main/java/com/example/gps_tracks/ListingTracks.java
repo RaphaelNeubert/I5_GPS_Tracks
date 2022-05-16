@@ -43,9 +43,6 @@ public class ListingTracks extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
     private Button back, sync;
     ProgressBar progressBar;
-    String[] testdata = {"Neuer Track 05.11.2022 12:15 Uhr","Neuer Track 22.08.2022 18:25 Uhr",
-                         "Runde durch den Park","Neuer Track 20.04.2022 03:43 Uhr",
-                         "Neuer Track 20.04.2022 10:14 Uhr"};
     String fileList;
     //String[] instrumentFileList = ListingTracks.this.fileList();
     ListView listView;
@@ -85,33 +82,30 @@ public class ListingTracks extends AppCompatActivity {
         });
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
-
-        // listing
-
-
-
         //listing
+        String[] tmpFiles = fileList();
+        List<String> files = new ArrayList<>();
 
+        for (int i=0; i< tmpFiles.length; i++) {
+            if (tmpFiles[i].endsWith(".gpx")) {
+                tmpFiles[i] =tmpFiles [i].substring(0, tmpFiles[i].length()-4); //remove extension
+                files.add(tmpFiles[i]);
+            }
+
+        }
         ArrayAdapter adapter = new ArrayAdapter<String>(this,
-                R.layout.activity_list_view, fileList());
+                R.layout.activity_list_view, files );
 
         listView = (ListView) findViewById(R.id.listTracks);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                // to do: delete if not required
-                Context context = getApplicationContext();
-                String[] files = context.fileList();
-                Log.i(TAG, String.valueOf(files.length));
-                for (int i = 0; i < files.length; i++) {
-                    Log.i(TAG, "file was found!");
-                    Log.i(TAG, files[i]);
-                }
                 String selectedItem = (String) parent.getItemAtPosition(position);
                 callingItem = view;
                 Log.i("button:", selectedItem);
+                //reappend file extension
+                selectedItem += ".gpx";
                 popupMenuExample(selectedItem);
             }
         });
@@ -141,11 +135,9 @@ public class ListingTracks extends AppCompatActivity {
                         break;
                     case "Track umbenennen":
                         renameFile(file);
-                       //finish();
-
-
-                       break;
+                        break;
                     case "Track auf Karte anzeigen":
+                    case "Track bearbeiten":
                         Intent intent = new Intent();
                         intent.putExtra("optionClicked", String.valueOf(item));
                         intent.putExtra("fileName", selectedItem);

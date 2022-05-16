@@ -8,6 +8,8 @@ import org.alternativevision.gpx.GPXParser;
 import org.alternativevision.gpx.beans.*;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.Marker;
+import org.osmdroid.views.overlay.Overlay;
 import org.osmdroid.views.overlay.Polyline;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.IMyLocationConsumer;
@@ -17,6 +19,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -32,11 +35,13 @@ public class GPSTrack {
     private GeoPoint startPoint;
     private Polyline path;
     private String fileName;
+    private ArrayList<Marker> markerList;
+    private MapView map;
 
 
-
-    GPSTrack(Context context) {
+    GPSTrack(Context context, MapView map) {
         this.context = context;
+        this.map = map;
     }
     void display(MapView map) {
         if (path != null) {
@@ -46,6 +51,12 @@ public class GPSTrack {
     void hide(MapView map) {
         if (path != null) {
             map.getOverlayManager().remove(path);
+            if (markerList != null) {
+                ListIterator listIterator = markerList.listIterator();
+                while(listIterator.hasNext()) {
+                    map.getOverlayManager().remove(listIterator.next());
+                }
+            }
         }
     }
     boolean startRecording() {
@@ -151,6 +162,46 @@ public class GPSTrack {
             Log.e("GPSTrack", "Failed to load File", e);
         }
     }
+    public void startEditing(MapView map){
+        state = State.EDITING;
+        markerList = new ArrayList<Marker>();
+        List<GeoPoint> points = path.getActualPoints();
+        ListIterator listIterator = points.listIterator();
+
+        while(listIterator.hasNext()) {
+            Marker m = new Marker(map);
+            m.setPosition((GeoPoint) listIterator.next());
+            m.setId(String.valueOf(listIterator.nextIndex()-1));
+            m.setIcon(context.getResources().getDrawable(R.drawable.edit));
+            m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER);
+            m.setDraggable(true);
+            m.setOnMarkerDragListener(new Marker.OnMarkerDragListener() {
+                @Override
+                public void onMarkerDrag(Marker marker) {
+                    List<GeoPoint> geoPointList = path.getActualPoints();
+                    int index = Integer.parseInt(marker.getId());
+                    geoPointList.set(index, marker.getPosition());
+
+                    map.getOverlayManager().remove(path);
+                    path = new Polyline();
+                    path.setPoints(geoPointList);
+                    map.getOverlayManager().add(path);
+                }
+
+                @Override
+                public void onMarkerDragEnd(Marker marker) {
+
+                }
+
+                @Override
+                public void onMarkerDragStart(Marker marker) {
+
+                }
+            });
+            markerList.add(m);
+            map.getOverlayManager().add(m);
+        }
+    }
     public State getState() {
         return state;
     }
@@ -159,6 +210,9 @@ public class GPSTrack {
     }
     public String getFileName() {
         return fileName;
+    }
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
     public GeoPoint getStartPoint(){
         return startPoint;
