@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -91,7 +92,6 @@ public class ListingTracks extends AppCompatActivity {
                 tmpFiles[i] =tmpFiles [i].substring(0, tmpFiles[i].length()-4); //remove extension
                 files.add(tmpFiles[i]);
             }
-
         }
         ArrayAdapter adapter = new ArrayAdapter<String>(this,
                 R.layout.activity_list_view, files );
@@ -175,7 +175,7 @@ public class ListingTracks extends AppCompatActivity {
         mok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String newFilename = rn.getText().toString();
+                String newFilename = rn.getText().toString()+".gpx";
                 if(!newFilename.isEmpty()){
                     file.renameTo(new File(getFilesDir(),newFilename));
                     Toast.makeText(ListingTracks.this,
