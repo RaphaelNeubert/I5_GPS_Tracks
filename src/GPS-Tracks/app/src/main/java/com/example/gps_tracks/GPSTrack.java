@@ -3,6 +3,7 @@ package com.example.gps_tracks;
 import android.content.Context;
 import android.location.Location;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.alternativevision.gpx.GPXParser;
 import org.alternativevision.gpx.beans.*;
@@ -131,7 +132,7 @@ public class GPSTrack {
             p.writeGPX(gpx, out);
             out.close();
         } catch (Exception e) {
-            //TODO display warning popup
+            warning();
             Log.e("GPSTrack", "Failed to save File", e);
         }
     }
@@ -169,7 +170,7 @@ public class GPSTrack {
 
             fis.close();
         } catch (Exception e) {
-            //TODO display warning popup
+            warning();
             Log.e("GPSTrack", "Failed to load File", e);
         }
     }
@@ -212,6 +213,10 @@ public class GPSTrack {
             markerList.add(m);
             map.getOverlayManager().add(m);
         }
+    }
+    public void warning() {
+        Toast.makeText(context.getApplicationContext(),
+                "Error: Failed to load file", Toast.LENGTH_SHORT).show();
     }
     public State getState() {
         return state;
