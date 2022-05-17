@@ -28,7 +28,7 @@ import java.util.ListIterator;
 
 
 public class GPSTrack {
-    public enum State {READY, RECORDING, EDITING, EMPTY}
+    public enum State {READY, RECORDING, EDITING, EMPTY, CONTREC}
     private Context context;
     private GpsMyLocationProvider gpsMyLocationProvider;
     private State state = State.EMPTY;
@@ -61,11 +61,14 @@ public class GPSTrack {
     }
     boolean startRecording() {
         Log.i("GPSTrack","Recording has been started.");
-        state = State.RECORDING;
         int i = 0;
-        
-        if(path == null)
+
+        if(path == null) {
+            state = State.RECORDING;
             path = new Polyline();
+        }
+        else
+            state = State.CONTREC;
 
         gpsMyLocationProvider = new GpsMyLocationProvider(context);
         gpsMyLocationProvider.setLocationUpdateMinDistance(5.0f);
@@ -81,8 +84,13 @@ public class GPSTrack {
         return true;
     }
     boolean endRecording() {
+        if(state == State.CONTREC) {//prüfen, ob wir einen neuen Track angefangen haben oder einen fortgesetzt haben
+            //kein neues Eingabefeld für den Namen
+        }
+        else {
+            saveAsGPX();
+        }
         state = State.READY;
-        saveAsGPX();
         Log.i("GPSTrack","Recording has been stopped.");
         gpsMyLocationProvider.destroy();
         return true;
