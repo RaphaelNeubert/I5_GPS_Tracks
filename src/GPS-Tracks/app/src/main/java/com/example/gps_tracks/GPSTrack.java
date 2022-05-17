@@ -63,7 +63,9 @@ public class GPSTrack {
         Log.i("GPSTrack","Recording has been started.");
         state = State.RECORDING;
         int i = 0;
-        path = new Polyline();
+        
+        if(path == null)
+            path = new Polyline();
 
         gpsMyLocationProvider = new GpsMyLocationProvider(context);
         gpsMyLocationProvider.setLocationUpdateMinDistance(5.0f);
