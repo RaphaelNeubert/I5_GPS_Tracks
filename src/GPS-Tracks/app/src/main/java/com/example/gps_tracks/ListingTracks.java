@@ -89,7 +89,8 @@ public class ListingTracks extends AppCompatActivity {
 
         for (int i=0; i< tmpFiles.length; i++) {
             if (tmpFiles[i].endsWith(".gpx")) {
-                tmpFiles[i] =tmpFiles [i].substring(0, tmpFiles[i].length()-4); //remove extension
+                                                        /*temporäre lösung, da es noch files ohne id gibt*/
+                tmpFiles[i] =tmpFiles [i].substring(0, (tmpFiles[i].length() <= 4+13)? tmpFiles[i].length()-4:tmpFiles[i].length()-4-13); //remove extension and id
                 files.add(tmpFiles[i]);
             }
         }

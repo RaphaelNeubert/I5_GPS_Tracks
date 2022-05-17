@@ -105,14 +105,15 @@ public class GPSTrack {
         try {
             File file;
             String path = context.getFilesDir().toString();
+            String id = ((Long)System.currentTimeMillis()).toString();
             if (this.fileName != null) {
-                file = new File(path+'/'+this.fileName+".gpx");
+                file = new File(path+'/'+this.fileName+id+".gpx");
                 //out = new FileOutputStream(this.fileName);
             }
             else {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy hh:mm");
                 String fileName = "New Track " + simpleDateFormat.format(new Date());
-                file = new File(path+'/'+fileName+".gpx");
+                file = new File(path+'/'+fileName+id+".gpx");
                 //out = new FileOutputStream(fileName);
             }
             Log.i("GPSTrack",file.getName());
