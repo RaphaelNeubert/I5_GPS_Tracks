@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -161,6 +162,8 @@ public class ListingTracks extends AppCompatActivity {
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(ListingTracks.this);
         View mView = getLayoutInflater().inflate(R.layout.rename_track, null);
         final EditText rn = (EditText) mView.findViewById(R.id.reninput);
+        String OldFileName = rn.getText().toString();
+        rn.setText(OldFileName);
         Button mok = (Button) mView.findViewById(R.id.ok);
         Button mab = (Button) mView.findViewById(R.id.ab);
 

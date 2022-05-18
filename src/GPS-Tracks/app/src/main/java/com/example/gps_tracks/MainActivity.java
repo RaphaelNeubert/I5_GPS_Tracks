@@ -126,7 +126,6 @@ public class MainActivity extends AppCompatActivity{
                     mdel.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            gpsTrack.endRecording();
                             recstart.setImageResource(R.drawable.button_63x63);
                             recording = false;
                             dialog.dismiss();
