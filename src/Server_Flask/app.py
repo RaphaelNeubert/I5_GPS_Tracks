@@ -46,11 +46,6 @@ def liste_get():
     		filelist.append(os.path.join(file))
     return (str(filelist))
 
-@app.route('/post',methods=["POST"])
-def home_post():
-    value=request.form['value']
-    return ("you")
-
 #ipconfig
 
 @app.route('/upload', methods = ['POST'])
