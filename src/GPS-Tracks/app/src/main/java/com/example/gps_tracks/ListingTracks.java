@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -26,7 +27,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -43,15 +48,16 @@ public class ListingTracks extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
     private Button back, sync;
     ProgressBar progressBar;
-    String fileList;
-    //String[] instrumentFileList = ListingTracks.this.fileList();
     ListView listView;
     View callingItem;
+    SharedPreferences.Editor editor;
+    SharedPreferences mSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mSettings = getSharedPreferences("del_files", Context.MODE_MULTI_PROCESS);
+        editor = mSettings.edit();
         super.onCreate(savedInstanceState);
-
         //will hide the title
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
@@ -127,6 +133,7 @@ public class ListingTracks extends AppCompatActivity {
                 File file = new File(dir, selectedItem);
                 switch (String.valueOf(item)) {
                     case "Track löschen":
+                        ondelList(selectedItem);
                         file.delete();
                         finish();
                         overridePendingTransition(10, 10);
@@ -151,6 +158,11 @@ public class ListingTracks extends AppCompatActivity {
             }
         });
         p.show();
+    }
+    
+    private void ondelList(String selectedItem) {
+        editor.putString(selectedItem, selectedItem);
+        editor.commit();
     }
 
     private void renameFile(File file) {
@@ -271,7 +283,55 @@ public class ListingTracks extends AppCompatActivity {
         });
     }
 
+    public static Boolean delFile(String filename) {
+        OkHttpClient okHttpClient = new OkHttpClient();
+        try {
+            Request request = new Request.Builder()
+                    //.url("http://ip:5000/download/"+filename)
+                    .url("http://aleksandrpronin.pythonanywhere.com/delete/"+filename)
+                    .build();
+
+            okHttpClient.newCall(request).enqueue(new Callback() {
+
+                @Override
+                public void onFailure(final Call call, final IOException e) {
+                    // Handle the error
+                    System.out.println("Error => " + e);
+                }
+
+                @Override
+                public void onResponse(final Call call, final Response response) throws IOException {
+                    if (!response.isSuccessful()) {
+                        // Handle the error
+                    }
+                    // Upload successful
+                }
+            });
+            return true;
+        } catch (Exception ex) {
+            // Handle the error
+        }
+        return false;
+    }
+
+
     public void synchronisation() throws IOException {
+
+        // the map containing the items to be deleted
+        Map<String, String> ret = (Map<String, String>) mSettings.getAll();
+        editor.clear();
+        Collection<String> values =ret.values();
+        String filePath = getApplicationContext().getFilesDir().getParent()+"/shared_prefs/del_files.xml";
+        File deletePrefFile = new File(filePath);
+        deletePrefFile.delete();
+        System.out.println("delList: "+values);
+
+        // del
+        for(String el:values){
+            delFile(el);
+            System.out.println("Values "+ el);
+        }
+
         progressBar.setVisibility(ProgressBar.VISIBLE);
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
@@ -303,18 +363,13 @@ public class ListingTracks extends AppCompatActivity {
                     if (i ==(fileList.length -1 )){
                         startActivity(getIntent());
                         overridePendingTransition(10, 10);
-                    }/*
-                    if (filesListFromFlask.size() == 0){
-                        startActivity(getIntent());
-                        overridePendingTransition(10, 10);
-                    }*/
+                    }
                 }
 
                 for(String el:filesListFromFlask){
                     System.out.println("Download from Flask: "+ filesListFromFlask);
                     downloadFile(el);
                 }
-
 
                 // upload
                 File dir = getFilesDir();
