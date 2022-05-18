@@ -114,11 +114,21 @@ public class MainActivity extends AppCompatActivity{
                     final EditText sv = (EditText) mView.findViewById(R.id.saveinput);
                     Button mok = (Button) mView.findViewById(R.id.saving);
                     Button mab = (Button) mView.findViewById(R.id.abb);
+                    Button mdel = (Button) mView.findViewById(R.id.del);
 
                     mab.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             dialog.cancel();
+                        }
+                    });
+
+                    mdel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            recstart.setImageResource(R.drawable.button_63x63);
+                            recording = false;
+                            dialog.dismiss();
                         }
                     });
 
@@ -185,6 +195,9 @@ public class MainActivity extends AppCompatActivity{
 
                             switch(option) {
                                 case "Track auf Karte anzeigen":
+                                    if(gpsTrack != null)
+                                        gpsTrack.hide(map);
+
                                     loadTrack(data.getStringExtra("fileName"));
                                     cameraToTrack = true;
                                     break;

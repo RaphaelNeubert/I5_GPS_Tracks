@@ -3,6 +3,7 @@ package com.example.gps_tracks;
 import android.content.Context;
 import android.location.Location;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.alternativevision.gpx.GPXParser;
 import org.alternativevision.gpx.beans.*;
@@ -28,7 +29,7 @@ import java.util.ListIterator;
 
 
 public class GPSTrack {
-    public enum State {READY, RECORDING, EDITING, EMPTY}
+    public enum State {READY, RECORDING, EDITING, EMPTY, CONTREC}
     private Context context;
     private GpsMyLocationProvider gpsMyLocationProvider;
     private State state = State.EMPTY;
@@ -61,9 +62,14 @@ public class GPSTrack {
     }
     boolean startRecording() {
         Log.i("GPSTrack","Recording has been started.");
-        state = State.RECORDING;
         int i = 0;
-        path = new Polyline();
+
+        if(path == null) {
+            state = State.RECORDING;
+            path = new Polyline();
+        }
+        else
+            state = State.CONTREC;
 
         gpsMyLocationProvider = new GpsMyLocationProvider(context);
         gpsMyLocationProvider.setLocationUpdateMinDistance(5.0f);
@@ -79,8 +85,13 @@ public class GPSTrack {
         return true;
     }
     boolean endRecording() {
+        if(state == State.CONTREC) {//prüfen, ob wir einen neuen Track angefangen haben oder einen fortgesetzt haben
+            //kein neues Eingabefeld für den Namen
+        }
+        else {
+            saveAsGPX();
+        }
         state = State.READY;
-        saveAsGPX();
         Log.i("GPSTrack","Recording has been stopped.");
         gpsMyLocationProvider.destroy();
         return true;
@@ -105,14 +116,15 @@ public class GPSTrack {
         try {
             File file;
             String path = context.getFilesDir().toString();
+            String id = ((Long)System.currentTimeMillis()).toString();
             if (this.fileName != null) {
-                file = new File(path+'/'+this.fileName+".gpx");
+                file = new File(path+'/'+this.fileName+id+".gpx");
                 //out = new FileOutputStream(this.fileName);
             }
             else {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy hh:mm");
                 String fileName = "New Track " + simpleDateFormat.format(new Date());
-                file = new File(path+'/'+fileName+".gpx");
+                file = new File(path+'/'+fileName+id+".gpx");
                 //out = new FileOutputStream(fileName);
             }
             Log.i("GPSTrack",file.getName());
@@ -120,7 +132,7 @@ public class GPSTrack {
             p.writeGPX(gpx, out);
             out.close();
         } catch (Exception e) {
-            //TODO display warning popup
+            warning();
             Log.e("GPSTrack", "Failed to save File", e);
         }
     }
@@ -158,7 +170,7 @@ public class GPSTrack {
 
             fis.close();
         } catch (Exception e) {
-            //TODO display warning popup
+            warning();
             Log.e("GPSTrack", "Failed to load File", e);
         }
     }
@@ -201,6 +213,10 @@ public class GPSTrack {
             markerList.add(m);
             map.getOverlayManager().add(m);
         }
+    }
+    public void warning() {
+        Toast.makeText(context.getApplicationContext(),
+                "Error: Failed to load file", Toast.LENGTH_SHORT).show();
     }
     public State getState() {
         return state;

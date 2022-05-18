@@ -20,23 +20,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Tracknamen eingeben"
         android:inputType="textPersonName"
-        android:text=""
-        android:hint="Tracknamen eingeben" />
+        android:text="" />
 
     <Button
         android:id="@+id/saving"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SPEICHERN"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/black"
+        android:text="SPEICHERN" />
 
     <Button
         android:id="@+id/abb"
+        android:layout_width="144dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/black"
+        android:text="Fortsetzen" />
+
+    <Button
+        android:id="@+id/del"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Abbrechen" />
-
+        android:backgroundTint="@color/black"
+        android:text="Verwerfen" />
 
 </LinearLayout>
+
+

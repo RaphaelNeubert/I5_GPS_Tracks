@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -30,8 +31,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.stream.Collectors;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -94,10 +94,10 @@ public class ListingTracks extends AppCompatActivity {
 
         for (int i=0; i< tmpFiles.length; i++) {
             if (tmpFiles[i].endsWith(".gpx")) {
-                tmpFiles[i] =tmpFiles [i].substring(0, tmpFiles[i].length()-4); //remove extension
+                                                        /*temporäre lösung, da es noch files ohne id gibt*/
+                tmpFiles[i] =tmpFiles [i].substring(0, (tmpFiles[i].length() <= 4+13)? tmpFiles[i].length()-4:tmpFiles[i].length()-4/*-13*/); //remove extension and id
                 files.add(tmpFiles[i]);
             }
-
         }
         ArrayAdapter adapter = new ArrayAdapter<String>(this,
                 R.layout.activity_list_view, files );
@@ -172,6 +172,8 @@ public class ListingTracks extends AppCompatActivity {
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(ListingTracks.this);
         View mView = getLayoutInflater().inflate(R.layout.rename_track, null);
         final EditText rn = (EditText) mView.findViewById(R.id.reninput);
+        String OldFileName = rn.getText().toString();
+        rn.setText(OldFileName);
         Button mok = (Button) mView.findViewById(R.id.ok);
         Button mab = (Button) mView.findViewById(R.id.ab);
 
@@ -187,7 +189,7 @@ public class ListingTracks extends AppCompatActivity {
         mok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String newFilename = rn.getText().toString();
+                String newFilename = rn.getText().toString()+".gpx";
                 if(!newFilename.isEmpty()){
                     file.renameTo(new File(getFilesDir(),newFilename));
                     Toast.makeText(ListingTracks.this,
@@ -207,10 +209,6 @@ public class ListingTracks extends AppCompatActivity {
         mBuilder.setView(mView);
         AlertDialog dialog = mBuilder.create();
         dialog.show();
-
-       /* File newName=new File(dir,"UPDATED_FILE_"+selectedItem);
-        file.renameTo(newName);*/
-
     }
 
     public static Boolean uploadFile(File file) {
