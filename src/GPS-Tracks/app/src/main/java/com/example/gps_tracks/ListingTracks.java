@@ -177,31 +177,7 @@ public class ListingTracks extends AppCompatActivity {
                     overridePendingTransition(10, 10);
                 }
 
-<<<<<<< HEAD
-=======
-                switch (String.valueOf(item)) {
-                    case "Track löschen":
-                        ondelList(selectedItem);
-                        file.delete();
-                        finish();
-                        overridePendingTransition(10, 10);
-                        startActivity(getIntent());
-                        overridePendingTransition(10, 10);
-                        break;
-                    case "Track umbenennen":
-                        renameFile(file);
-                        break;
-                    case "Track auf Karte anzeigen":
-                    case "Track bearbeiten":
-                        Intent intent = new Intent();
-                        intent.putExtra("optionClicked", String.valueOf(item));
-                        intent.putExtra("fileName", selectedItem);
 
-                        setResult(Activity.RESULT_OK, intent);
-                        finish();
-                        break;
-                }
->>>>>>> 262b75407ef3f7eb55508fd696ff2e0d53799830
                 Log.i("menu:", String.valueOf(item));
                 return true;
             }
