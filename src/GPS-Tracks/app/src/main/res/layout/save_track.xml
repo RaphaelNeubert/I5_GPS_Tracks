@@ -12,7 +12,7 @@
         android:id="@+id/savedialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Track Speichern"
+        android:text="@string/trackSave"
         android:textSize="30sp" />
 
     <EditText
@@ -20,9 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Tracknamen eingeben"
-        android:inputType="textPersonName"
-        android:text="" />
+        android:hint="@string/enter"
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/saving"
@@ -30,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:backgroundTint="@color/black"
-        android:text="SPEICHERN" />
+        android:text="@string/save" />
 
     <Button
         android:id="@+id/abb"
@@ -38,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:backgroundTint="@color/black"
-        android:text="Fortsetzen" />
+        android:text="@string/next" />
 
     <Button
         android:id="@+id/del"
@@ -46,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:backgroundTint="@color/black"
-        android:text="Verwerfen" />
+        android:text="@string/discard" />
 
 </LinearLayout>
 

@@ -6,9 +6,20 @@
     <string name="edit">Track bearbeiten</string>
     <string name="contRec">Aufnahme fortsetzen</string>
     <string name="delete">Track löschen</string>
+    <string name="rename">Track umbenennen</string>
 
+    <string name="back">ZURÜCK</string>
+    <string name="sync">SYNC</string>
+
+    <string name="trackSave">Track speichern</string>
+    <string name="enter">Trackname eingeben</string>
+    <string name="save">SPEICHERN</string>
+    <string name="next">FORTSETZEN</string>
+    <string name="discard">VERWERFEN</string>
+
+    <string name="OK">OK</string>
+    <string name="abort">ABBRECHEN</string>
     <string name="newname">newName</string>
-    <string name="track_umbenennen">Track umbenennen</string>
     <string name="trackname">trackname</string>
 
 </resources>

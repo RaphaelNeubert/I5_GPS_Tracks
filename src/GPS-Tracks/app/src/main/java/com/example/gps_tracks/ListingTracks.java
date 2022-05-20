@@ -132,7 +132,52 @@ public class ListingTracks extends AppCompatActivity {
 
                 File dir = getFilesDir();
                 File file = new File(dir, selectedItem);
-                switch (String.valueOf(item)) {
+
+                if(String.valueOf(item).equals(getString(R.string.details)))
+                {
+
+                }
+                else if(String.valueOf(item).equals(getString(R.string.showTrack)))
+                {
+                    Intent intent = new Intent();
+                    intent.putExtra("optionClicked", String.valueOf(item));
+                    intent.putExtra("fileName", selectedItem);
+
+                    setResult(Activity.RESULT_OK, intent);
+                    finish();
+                }
+
+                else if(String.valueOf(item).equals(getString(R.string.edit)))
+                {
+                    Intent intent = new Intent();
+                    intent.putExtra("optionClicked", String.valueOf(item));
+                    intent.putExtra("fileName", selectedItem);
+
+                    setResult(Activity.RESULT_OK, intent);
+                    finish();
+                }
+
+                else if(String.valueOf(item).equals(getString(R.string.contRec)))
+                {
+
+                }
+
+                else if(String.valueOf(item).equals(getString(R.string.rename)))
+                {
+                    renameFile(file);
+                }
+
+                else if(String.valueOf(item).equals(getString(R.string.delete)))
+                {
+                    ondelList(selectedItem);
+                    file.delete();
+                    finish();
+                    overridePendingTransition(10, 10);
+                    startActivity(getIntent());
+                    overridePendingTransition(10, 10);
+                }
+
+                /*switch (String.valueOf(item)) {
                     case "Track löschen":
                         ondelList(selectedItem);
                         file.delete();
@@ -153,7 +198,7 @@ public class ListingTracks extends AppCompatActivity {
                         setResult(Activity.RESULT_OK, intent);
                         finish();
                         break;
-                }
+                }*/
                 Log.i("menu:", String.valueOf(item));
                 return true;
             }
