@@ -237,10 +237,10 @@ public class ListingTracks extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String newFilename = rn.getText().toString()+".gpx";
-                if(!newFilename.isEmpty()){
+                if(newFilename.length()>4){
                     file.renameTo(new File(getFilesDir(),newFilename));
                     Toast.makeText(ListingTracks.this,
-                            "Umbennenung erfolgreich",
+                            getString(R.string.success),
                             Toast.LENGTH_SHORT).show();
                     overridePendingTransition(10, 10);
                     startActivity(getIntent());
@@ -248,7 +248,7 @@ public class ListingTracks extends AppCompatActivity {
                     finish();
                 } else {
                     Toast.makeText(ListingTracks.this,
-                            "Bitte füllen Sie das Textfeld aus",
+                           getString(R.string.warning),
                             Toast.LENGTH_SHORT).show();
                 }
             }

@@ -28,24 +28,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/black"
-        android:text="@string/save" />
+        android:background="@null"
+        android:backgroundTint="@color/cardview_light_background"
+        android:text="@string/save"
+        android:textColor="@color/black" />
 
     <Button
         android:id="@+id/abb"
         android:layout_width="144dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/black"
-        android:text="@string/next" />
+        android:background="@null"
+        android:backgroundTint="@color/cardview_light_background"
+        android:text="@string/next"
+        android:textAlignment="textStart"
+        android:textColor="@color/black" />
 
     <Button
         android:id="@+id/del"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/black"
-        android:text="@string/discard" />
+        android:background="@null"
+        android:backgroundTint="@color/cardview_light_background"
+        android:text="@string/discard"
+        android:textColor="@color/black" />
 
 </LinearLayout>
 

@@ -27,15 +27,17 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="10dp"
-      android:backgroundTint="@color/black"
-      android:text="@string/OK" />
+      android:backgroundTint="@color/white"
+      android:text="@string/OK"
+      android:textColor="@color/black" />
 
   <Button
       android:id="@+id/ab"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="10dp"
-      android:backgroundTint="@color/black"
-      android:text="@string/abort" />
+      android:backgroundTint="@color/white"
+      android:text="@string/abort"
+      android:textColor="@color/black" />
 
 </LinearLayout>
