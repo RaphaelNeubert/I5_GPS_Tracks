@@ -177,7 +177,7 @@ public class ListingTracks extends AppCompatActivity {
                     overridePendingTransition(10, 10);
                 }
 
-                /*switch (String.valueOf(item)) {
+                switch (String.valueOf(item)) {
                     case "Track löschen":
                         ondelList(selectedItem);
                         file.delete();
@@ -198,7 +198,7 @@ public class ListingTracks extends AppCompatActivity {
                         setResult(Activity.RESULT_OK, intent);
                         finish();
                         break;
-                }*/
+                }
                 Log.i("menu:", String.valueOf(item));
                 return true;
             }
@@ -229,6 +229,7 @@ public class ListingTracks extends AppCompatActivity {
                 overridePendingTransition(10, 10);
                 startActivity(getIntent());
                 overridePendingTransition(10, 10);
+                finish();
             }
         });
 
@@ -244,7 +245,8 @@ public class ListingTracks extends AppCompatActivity {
                     overridePendingTransition(10, 10);
                     startActivity(getIntent());
                     overridePendingTransition(10, 10);
-                } else{
+                    finish();
+                } else {
                     Toast.makeText(ListingTracks.this,
                             "Bitte füllen Sie das Textfeld aus",
                             Toast.LENGTH_SHORT).show();
