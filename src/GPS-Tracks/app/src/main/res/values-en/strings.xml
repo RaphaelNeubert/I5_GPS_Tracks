@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GPS-Tracks</string>
+
+    <string name="details">Track information</string>
+    <string name="showTrack">Show saved Track</string>
+    <string name="edit">Track edit</string>
+    <string name="contRec">Record continue</string>
+    <string name="delete">Track delete</string>
+    <string name="rename">Track rename</string>
+
+    <string name="back">BACK</string>
+    <string name="sync">SYNC</string>
+
+    <string name="trackSave">Track save</string>
+    <string name="enter">Enter Track name</string>
+    <string name="save">SAVE</string>
+    <string name="next">NEXT</string>
+    <string name="discard">DISCARD</string>
+
+    <string name="OK">OK</string>
+    <string name="abort">ABORT</string>
+    <string name="newname">newName</string>
+    <string name="trackname">trackname</string>
+    <string name="success">Rename successfully</string>
+    <string name="warning">Please enter new Track name</string>
+</resources>

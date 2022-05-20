@@ -21,5 +21,7 @@
     <string name="abort">ABBRECHEN</string>
     <string name="newname">newName</string>
     <string name="trackname">trackname</string>
+    <string name="success">Umbenennung erfolgreich</string>
+    <string name="warning">Bitte geben Sie neuen Tracknamen ein</string>
 
 </resources>
