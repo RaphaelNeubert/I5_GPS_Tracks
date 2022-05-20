@@ -177,28 +177,6 @@ public class ListingTracks extends AppCompatActivity {
                     overridePendingTransition(10, 10);
                 }
 
-                /*switch (String.valueOf(item)) {
-                    case "Track löschen":
-                        ondelList(selectedItem);
-                        file.delete();
-                        finish();
-                        overridePendingTransition(10, 10);
-                        startActivity(getIntent());
-                        overridePendingTransition(10, 10);
-                        break;
-                    case "Track umbenennen":
-                        renameFile(file);
-                        break;
-                    case "Track auf Karte anzeigen":
-                    case "Track bearbeiten":
-                        Intent intent = new Intent();
-                        intent.putExtra("optionClicked", String.valueOf(item));
-                        intent.putExtra("fileName", selectedItem);
-
-                        setResult(Activity.RESULT_OK, intent);
-                        finish();
-                        break;
-                }*/
                 Log.i("menu:", String.valueOf(item));
                 return true;
             }
@@ -239,14 +217,14 @@ public class ListingTracks extends AppCompatActivity {
                 if(newFilename.length()>4){
                     file.renameTo(new File(getFilesDir(),newFilename));
                     Toast.makeText(ListingTracks.this,
-                            getString(R.string.success),
+                            getString(R.string.renameWarning),
                             Toast.LENGTH_SHORT).show();
                     overridePendingTransition(10, 10);
                     startActivity(getIntent());
                     overridePendingTransition(10, 10);
                 } else{
                     Toast.makeText(ListingTracks.this,
-                           getString(R.string.warning),
+                           getString(R.string.renameWarning),
                             Toast.LENGTH_SHORT).show();
                 }
             }

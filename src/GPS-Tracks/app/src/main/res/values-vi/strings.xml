@@ -17,11 +17,13 @@
     <string name="save">LƯU</string>
     <string name="next">TIẾP TỤC</string>
     <string name="discard">HỦY BỎ</string>
+    <string name="saveSucess">Lưu thành công</string>
+
 
     <string name="OK">THAY ĐỔI</string>
     <string name="abort">HỦY BỎ</string>
     <string name="newname">newName</string>
     <string name="trackname">trackname</string>
-    <string name="success">Đổi tên thành công</string>
-    <string name="warning">Hãy nhập tên chỉ đường mới</string>
+    <string name="renameSuccess">Đổi tên thành công</string>
+    <string name="renameWarning">Hãy nhập tên chỉ đường mới</string>
 </resources>

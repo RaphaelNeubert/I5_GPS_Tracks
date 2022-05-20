@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity{
                                 gpsTrack.hide(map);
                                 gpsTrack = null;
                                 Toast.makeText(MainActivity.this,
-                                        "Speichern erfolgreich",
+                                        getString(R.string.saveSucess),
                                         Toast.LENGTH_SHORT).show();
                                 //change back icon
                                 recstart.setImageResource(R.drawable.button_63x63);

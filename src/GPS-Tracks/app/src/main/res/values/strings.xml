@@ -16,12 +16,14 @@
     <string name="save">SPEICHERN</string>
     <string name="next">FORTSETZEN</string>
     <string name="discard">VERWERFEN</string>
+    <string name="saveSucess">Speichern erfolgreich</string>
+
 
     <string name="OK">OK</string>
     <string name="abort">ABBRECHEN</string>
     <string name="newname">newName</string>
     <string name="trackname">trackname</string>
-    <string name="success">Umbenennung erfolgreich</string>
-    <string name="warning">Bitte geben Sie neuen Tracknamen ein</string>
+    <string name="renameSuccess">Umbenennung erfolgreich</string>
+    <string name="renameWarning">Bitte geben Sie neuen Tracknamen ein</string>
 
 </resources>

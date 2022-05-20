@@ -17,11 +17,14 @@
     <string name="save">SAVE</string>
     <string name="next">NEXT</string>
     <string name="discard">DISCARD</string>
+    <string name="saveSucess">Save successfully</string>
+
 
     <string name="OK">OK</string>
     <string name="abort">ABORT</string>
     <string name="newname">newName</string>
     <string name="trackname">trackname</string>
-    <string name="success">Rename successfully</string>
-    <string name="warning">Please enter new Track name</string>
+    <string name="renameSuccess">Rename successfully</string>
+    <string name="renameWarning">Please enter new Track name</string>
+
 </resources>
