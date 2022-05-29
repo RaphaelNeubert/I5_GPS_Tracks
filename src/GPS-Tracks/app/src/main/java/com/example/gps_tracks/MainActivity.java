@@ -5,10 +5,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -39,6 +39,7 @@ import org.osmdroid.views.CustomZoomButtonsController;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
@@ -62,7 +63,8 @@ public class MainActivity extends AppCompatActivity{
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.ACCESS_BACKGROUND_LOCATION,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.FOREGROUND_SERVICE
         });
 
         //will hide the title
@@ -98,7 +100,6 @@ public class MainActivity extends AppCompatActivity{
                 toPosButton.setVisibility(View.INVISIBLE);
             }
         });
-
 
         //Switch between defaultrecord and startrecord Button
         ImageButton recstart = (ImageButton) findViewById(R.id.record);
@@ -159,7 +160,11 @@ public class MainActivity extends AppCompatActivity{
                     recording = true;
                     gpsTrack = new GPSTrack(getApplicationContext(), map);
                     gpsTrack.startRecording();
-                    gpsTrack.setState(GPSTrack.State.RECORDING);
+                    //gpsTrack.setState(GPSTrack.State.RECORDING);
+
+                    IntentFilter intentFilter = new IntentFilter("Location");
+                    registerReceiver(gpsTrack, intentFilter);
+
                     gpsTrack.display(map);
                     //change icon
                     recstart.setImageResource(R.drawable.button_rec);

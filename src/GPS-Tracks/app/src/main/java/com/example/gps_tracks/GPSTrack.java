@@ -1,6 +1,9 @@
 package com.example.gps_tracks;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.location.Location;
 import android.util.Log;
 import android.widget.Toast;
@@ -19,6 +22,7 @@ import org.osmdroid.views.overlay.mylocation.IMyLocationProvider;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,12 +32,15 @@ import java.util.List;
 import java.util.ListIterator;
 
 
-public class GPSTrack {
+public class GPSTrack extends BroadcastReceiver {
+
     public enum State {READY, RECORDING, EDITING, EMPTY, CONTREC}
     private Context context;
+    private Intent recIntent;
     private GpsMyLocationProvider gpsMyLocationProvider;
     private State state = State.EMPTY;
     private GeoPoint startPoint;
+
     private Polyline path;
     private String fileName;
     private ArrayList<Marker> markerList;
@@ -60,6 +67,18 @@ public class GPSTrack {
             }
         }
     }
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        if (state != State.RECORDING && state != State.CONTREC) {
+            //abort if we don't want to receive Location data
+            return;
+        }
+        Log.i("onReceive", intent.getStringExtra("gpsPos"));
+        GeoPoint point = GeoPoint.fromDoubleString(intent.getStringExtra("gpsPos"),',');
+        path.addPoint(point);
+        if (startPoint == null) startPoint = point;
+
+    }
     boolean startRecording() {
         Log.i("GPSTrack","Recording has been started.");
         int i = 0;
@@ -71,20 +90,14 @@ public class GPSTrack {
         else
             state = State.CONTREC;
 
-        gpsMyLocationProvider = new GpsMyLocationProvider(context);
-        gpsMyLocationProvider.setLocationUpdateMinDistance(5.0f);
-        gpsMyLocationProvider.startLocationProvider(new IMyLocationConsumer() {
-            @Override
-            public void onLocationChanged(Location location, IMyLocationProvider source) {
-                String position = "Location changed to: " + new GeoPoint(location).toDoubleString();
-                Log.i("onLocationChanged: ", position);
-                path.addPoint(new GeoPoint(location));
-                if (startPoint == null) startPoint = new GeoPoint(location);
-            }
-        });
+
+        recIntent = new Intent(context, RecordingService.class);
+        context.startForegroundService(recIntent);
+
         return true;
     }
     boolean endRecording() {
+        context.stopService(recIntent);
         if(state == State.CONTREC) {//prüfen, ob wir einen neuen Track angefangen haben oder einen fortgesetzt haben
             //kein neues Eingabefeld für den Namen
         }
@@ -93,7 +106,6 @@ public class GPSTrack {
         }
         state = State.READY;
         Log.i("GPSTrack","Recording has been stopped.");
-        gpsMyLocationProvider.destroy();
         return true;
     }
     private void saveAsGPX() {
@@ -221,6 +233,12 @@ public class GPSTrack {
     public State getState() {
         return state;
     }
+    public Polyline getPath() {
+        return path;
+    }
+    public void setPath(Polyline path) {
+        this.path = path;
+    }
     public void setState(State state) {
         this.state = state;
     }
@@ -232,5 +250,8 @@ public class GPSTrack {
     }
     public GeoPoint getStartPoint(){
         return startPoint;
+    }
+    public void setStartPoint(GeoPoint point){
+        this.startPoint = point;
     }
 }
