@@ -141,6 +141,7 @@ public class MainActivity extends AppCompatActivity{
                             if (!sv.getText().toString().isEmpty()) {
                                 gpsTrack.setFileName(sv.getText().toString());
                             }
+                                unregisterReceiver(gpsTrack); //stop receiving GPS data
                                 gpsTrack.endRecording();
                                 gpsTrack.hide(map);
                                 gpsTrack = null;
