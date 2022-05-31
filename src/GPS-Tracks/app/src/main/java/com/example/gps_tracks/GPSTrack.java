@@ -128,7 +128,8 @@ public class GPSTrack extends BroadcastReceiver {
         try {
             File file;
             String path = context.getFilesDir().toString();
-            String id = ((Long)System.currentTimeMillis()).toString();
+            String id = '-'+((Long)System.currentTimeMillis()).toString();
+            id = id.substring(0,14); //avoid  changing id length
             if (this.fileName != null) {
                 file = new File(path+'/'+this.fileName+id+".gpx");
                 //out = new FileOutputStream(this.fileName);

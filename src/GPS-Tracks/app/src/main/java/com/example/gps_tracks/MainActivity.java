@@ -9,6 +9,7 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -39,6 +40,7 @@ import org.osmdroid.views.CustomZoomButtonsController;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -201,15 +203,14 @@ public class MainActivity extends AppCompatActivity{
                             Intent data = result.getData();
                             String option = data.getStringExtra("optionClicked");
 
-                            switch(option) {
-                                case "Track auf Karte anzeigen":
-                                    if(gpsTrack != null)
-                                        gpsTrack.hide(map);
+                            if (option.equals(getString(R.string.showTrack))) {
+                                if (gpsTrack != null)
+                                    gpsTrack.hide(map);
 
-                                    loadTrack(data.getStringExtra("fileName"));
-                                    cameraToTrack = true;
-                                    break;
-                                case "Track bearbeiten":
+                                loadTrack(data.getStringExtra("fileName"));
+                                cameraToTrack = true;
+                            }
+                            else if (option.equals(getString(R.string.edit))) {
                                     loadTrack(data.getStringExtra("fileName"));
                                     cameraToTrack = true;
                                     gpsTrack.startEditing(map);

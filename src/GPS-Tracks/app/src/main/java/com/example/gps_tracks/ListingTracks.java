@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.core.util.Pair;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -91,29 +92,32 @@ public class ListingTracks extends AppCompatActivity {
 
         //listing
         String[] tmpFiles = fileList();
-        List<String> files = new ArrayList<>();
-
+        List<Pair<String, Long>> files = new ArrayList<>();
         for (int i=0; i< tmpFiles.length; i++) {
             if (tmpFiles[i].endsWith(".gpx")) {
-                                                        /*temporäre lösung, da es noch files ohne id gibt*/
-                tmpFiles[i] =tmpFiles [i].substring(0, (tmpFiles[i].length() <= 4+13)? tmpFiles[i].length()-4:tmpFiles[i].length()-4/*-13*/); //remove extension and id
-                files.add(tmpFiles[i]);
+                int n = tmpFiles[i].length();
+                                                        /*temporäre lösung, da es noch files ohne id gibt TODO*/
+                String name = tmpFiles[i].substring(0, (n<=4+14)? n-4:n-4-14); //remove extension and id
+                long id = Long.parseLong(tmpFiles[i].substring(n-4-13, n-4));
+                files.add(new Pair<String,Long>(name, id));
             }
         }
-        ArrayAdapter adapter = new ArrayAdapter<String>(this,
-                R.layout.activity_list_view, files );
+        ArrayAdapter adapter = new FileListAdapter(this, files );
 
         listView = (ListView) findViewById(R.id.listTracks);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String selectedItem = (String) parent.getItemAtPosition(position);
+                Pair<String, Long> selectedItem = (Pair) parent.getItemAtPosition(position);
                 callingItem = view;
-                Log.i("button:", selectedItem);
+                Log.i("button:", selectedItem.first);
+                String fileName = selectedItem.first;
+                //reappend id
+                fileName += '-'+String.valueOf(selectedItem.second);
                 //reappend file extension
-                selectedItem += ".gpx";
-                popupMenuExample(selectedItem);
+                fileName+= ".gpx";
+                popupMenuExample(fileName);
             }
         });
     }
@@ -124,14 +128,14 @@ public class ListingTracks extends AppCompatActivity {
         startActivityIfNeeded(intent, 0);
     }
 
-    private void popupMenuExample(String selectedItem) {
+    private void popupMenuExample(String fileName) {
         PopupMenu p = new PopupMenu(this, callingItem);
         p.getMenuInflater().inflate(R.menu.popup_menu_example, p .getMenu());
         p.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             public boolean onMenuItemClick(MenuItem item) {
 
                 File dir = getFilesDir();
-                File file = new File(dir, selectedItem);
+                File file = new File(dir, fileName);
 
                 if(String.valueOf(item).equals(getString(R.string.details)))
                 {
@@ -141,7 +145,7 @@ public class ListingTracks extends AppCompatActivity {
                 {
                     Intent intent = new Intent();
                     intent.putExtra("optionClicked", String.valueOf(item));
-                    intent.putExtra("fileName", selectedItem);
+                    intent.putExtra("fileName", fileName);
 
                     setResult(Activity.RESULT_OK, intent);
                     finish();
@@ -151,7 +155,7 @@ public class ListingTracks extends AppCompatActivity {
                 {
                     Intent intent = new Intent();
                     intent.putExtra("optionClicked", String.valueOf(item));
-                    intent.putExtra("fileName", selectedItem);
+                    intent.putExtra("fileName", fileName);
 
                     setResult(Activity.RESULT_OK, intent);
                     finish();
@@ -169,7 +173,7 @@ public class ListingTracks extends AppCompatActivity {
 
                 else if(String.valueOf(item).equals(getString(R.string.delete)))
                 {
-                    ondelList(selectedItem);
+                    ondelList(fileName);
                     file.delete();
                     finish();
                     overridePendingTransition(10, 10);
@@ -215,16 +219,18 @@ public class ListingTracks extends AppCompatActivity {
         mok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String newFilename = rn.getText().toString()+".gpx";
-                if(newFilename.length()>4){
+                String id = '-'+((Long)System.currentTimeMillis()).toString();
+                id = id.substring(0,14); //avoid  changing id length
+                String newFilename = rn.getText().toString()+id+".gpx";
+                if(newFilename.length()>4+14 && newFilename.length() <= 64){
                     file.renameTo(new File(getFilesDir(),newFilename));
                     Toast.makeText(ListingTracks.this,
-                            getString(R.string.renameWarning),
+                            getString(R.string.renameSuccess),
                             Toast.LENGTH_SHORT).show();
+                    dia.dismiss();
                     overridePendingTransition(10, 10);
                     startActivity(getIntent());
                     overridePendingTransition(10, 10);
-                    finish();
                 } else {
                     Toast.makeText(ListingTracks.this,
                            getString(R.string.renameWarning),
