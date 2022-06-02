@@ -21,7 +21,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/enter"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:visibility="invisible"/>
 
     <Button
         android:id="@+id/saving"

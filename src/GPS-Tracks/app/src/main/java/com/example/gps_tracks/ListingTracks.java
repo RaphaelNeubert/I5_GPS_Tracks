@@ -96,9 +96,9 @@ public class ListingTracks extends AppCompatActivity {
         for (int i=0; i< tmpFiles.length; i++) {
             if (tmpFiles[i].endsWith(".gpx")) {
                 int n = tmpFiles[i].length();
-                                                        /*temporäre lösung, da es noch files ohne id gibt TODO*/
-                String name = tmpFiles[i].substring(0, (n<=4+14)? n-4:n-4-14); //remove extension and id
-                long id = Long.parseLong(tmpFiles[i].substring(n-4-13, n-4));
+
+                String name = tmpFiles[i].substring(0, n-4-21); //remove extension and id
+                long id = Long.parseLong(tmpFiles[i].substring(n-4-20, n-4));
                 files.add(new Pair<String,Long>(name, id));
             }
         }
@@ -114,7 +114,7 @@ public class ListingTracks extends AppCompatActivity {
                 Log.i("button:", selectedItem.first);
                 String fileName = selectedItem.first;
                 //reappend id
-                fileName += '-'+String.valueOf(selectedItem.second);
+                fileName += '-'+String.format("%020d", selectedItem.second);
                 //reappend file extension
                 fileName+= ".gpx";
                 popupMenuExample(fileName);

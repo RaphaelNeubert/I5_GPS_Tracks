@@ -41,11 +41,25 @@
         android:layout_marginEnd="20px"
         android:layout_marginBottom="20px"
         android:background="@null"
-        android:onClick="toggleRecording"
         android:translationX="-15dp"
         android:translationY="-15dp"
         android:visibility="visible"
         app:srcCompat="@drawable/recording_change" />
+    <ImageButton
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20px"
+        android:layout_marginTop="20px"
+        android:layout_marginEnd="20px"
+        android:layout_marginBottom="20px"
+        android:background="@null"
+        android:translationX="-15dp"
+        android:translationY="-15dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/save_icon" />
 
     <ImageButton
         android:id="@+id/deselect"

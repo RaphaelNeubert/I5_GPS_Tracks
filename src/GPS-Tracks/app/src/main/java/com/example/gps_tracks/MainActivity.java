@@ -9,7 +9,6 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -40,8 +39,6 @@ import org.osmdroid.views.CustomZoomButtonsController;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
-import java.io.File;
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
@@ -104,77 +101,8 @@ public class MainActivity extends AppCompatActivity{
         });
 
         //Switch between defaultrecord and startrecord Button
-        ImageButton recstart = (ImageButton) findViewById(R.id.record);
-        recstart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (recording) {
-                    //stop recording
-
-                    //save dialog
-                    AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
-                    View mView = getLayoutInflater().inflate(R.layout.save_track, null);
-                    mBuilder.setView(mView);
-                    AlertDialog dialog = mBuilder.create();
-                    final EditText sv = (EditText) mView.findViewById(R.id.saveinput);
-                    Button mok = (Button) mView.findViewById(R.id.saving);
-                    Button mab = (Button) mView.findViewById(R.id.abb);
-                    Button mdel = (Button) mView.findViewById(R.id.del);
-
-                    mab.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.cancel();
-                        }
-                    });
-
-                    mdel.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            recstart.setImageResource(R.drawable.button_63x63);
-                            recording = false;
-                            dialog.dismiss();
-                        }
-                    });
-
-                    mok.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            if (!sv.getText().toString().isEmpty()) {
-                                gpsTrack.setFileName(sv.getText().toString());
-                            }
-                                unregisterReceiver(gpsTrack); //stop receiving GPS data
-                                gpsTrack.endRecording();
-                                gpsTrack.hide(map);
-                                gpsTrack = null;
-                                Toast.makeText(MainActivity.this,
-                                        getString(R.string.saveSucess),
-                                        Toast.LENGTH_SHORT).show();
-                                //change back icon
-                                recstart.setImageResource(R.drawable.button_63x63);
-                                recording = false;
-                                dialog.dismiss();
-                        }
-                    });
-                    dialog.show();
-
-                } else {
-                    //start recording
-                    recording = true;
-                    gpsTrack = new GPSTrack(getApplicationContext(), map);
-                    gpsTrack.startRecording();
-                    //gpsTrack.setState(GPSTrack.State.RECORDING);
-
-                    IntentFilter intentFilter = new IntentFilter("Location");
-                    registerReceiver(gpsTrack, intentFilter);
-
-                    gpsTrack.display(map);
-                    //change icon
-                    recstart.setImageResource(R.drawable.button_rec);
-                }
-            }
-        });
-
+        setupRecButton();
+        setupSaveButton();
 
 
         MapListener mapListener = new MapListener() {
@@ -208,17 +136,127 @@ public class MainActivity extends AppCompatActivity{
                                     gpsTrack.hide(map);
 
                                 loadTrack(data.getStringExtra("fileName"));
+                                ImageButton deselectButton = findViewById(R.id.deselect);
+                                deselectButton.setVisibility(View.VISIBLE);
                                 cameraToTrack = true;
                             }
                             else if (option.equals(getString(R.string.edit))) {
-                                    loadTrack(data.getStringExtra("fileName"));
-                                    cameraToTrack = true;
-                                    gpsTrack.startEditing(map);
+                                ImageButton saveButton = (ImageButton) findViewById(R.id.save);
+                                ImageButton recstart = (ImageButton) findViewById(R.id.record);
+                                recstart.setVisibility(View.INVISIBLE);
+                                saveButton.setVisibility(View.VISIBLE);
+                                loadTrack(data.getStringExtra("fileName"));
+                                cameraToTrack = true;
+                                gpsTrack.startEditing(map);
                             }
                         }
                     }
                 });
 
+    }
+
+    private void setupSaveButton() {
+        ImageButton saveButton = (ImageButton) findViewById(R.id.save);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showSaveDialog();
+            }
+        });
+    }
+
+    private void setupRecButton() {
+        ImageButton recstart = (ImageButton) findViewById(R.id.record);
+        recstart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (recording) {
+                    //stop recording
+                    showSaveDialog();
+
+                } else {
+                    //start recording
+                    recording = true;
+                    gpsTrack = new GPSTrack(getApplicationContext(), map);
+                    gpsTrack.startRecording();
+                    //gpsTrack.setState(GPSTrack.State.RECORDING);
+
+                    IntentFilter intentFilter = new IntentFilter("Location");
+                    registerReceiver(gpsTrack, intentFilter);
+
+                    gpsTrack.display(map);
+                    //change icon
+                    recstart.setImageResource(R.drawable.button_rec);
+                }
+            }
+        });
+    }
+
+    private void showSaveDialog() {
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+        View mView = getLayoutInflater().inflate(R.layout.save_track, null);
+        mBuilder.setView(mView);
+        AlertDialog dialog = mBuilder.create();
+        final EditText sv = (EditText) mView.findViewById(R.id.saveinput);
+        if (gpsTrack.getState() == GPSTrack.State.RECORDING)
+            sv.setVisibility(View.VISIBLE);
+        Button mok = (Button) mView.findViewById(R.id.saving);
+        Button mab = (Button) mView.findViewById(R.id.abb);
+        Button mdel = (Button) mView.findViewById(R.id.del);
+
+        mab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
+
+        mdel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ImageButton recstart = (ImageButton) findViewById(R.id.record);
+                if (gpsTrack.getState() == GPSTrack.State.EDITING) {
+                    ImageButton saveButton = (ImageButton) findViewById(R.id.save);
+                    saveButton.setVisibility(View.INVISIBLE);
+                    recstart.setVisibility(View.VISIBLE);
+                }
+                recstart.setImageResource(R.drawable.button_63x63);
+                recording = false;
+                gpsTrack.hide(map);
+                gpsTrack = null;
+                dialog.dismiss();
+            }
+        });
+
+        mok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ImageButton recstart = (ImageButton) findViewById(R.id.record);
+                if (gpsTrack.getState() == GPSTrack.State.RECORDING) {
+                    if (!sv.getText().toString().isEmpty()) {
+                        gpsTrack.setTrackName(sv.getText().toString());
+                    }
+                    unregisterReceiver(gpsTrack); //stop receiving GPS data
+                }
+                Toast.makeText(MainActivity.this,
+                        getString(R.string.saveSucess),
+                        Toast.LENGTH_SHORT).show();
+                //swap rec and save buttons visibility
+                if (gpsTrack.getState() == GPSTrack.State.EDITING) {
+                    ImageButton saveButton = (ImageButton) findViewById(R.id.save);
+                    saveButton.setVisibility(View.INVISIBLE);
+                    recstart.setVisibility(View.VISIBLE);
+                }
+                //change back icon
+                recstart.setImageResource(R.drawable.button_63x63);
+                gpsTrack.endRecording();
+                recording = false;
+                gpsTrack.hide(map);
+                gpsTrack = null;
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 
 
@@ -286,8 +324,6 @@ public class MainActivity extends AppCompatActivity{
         gpsTrack = new GPSTrack(getApplicationContext(), map);
         gpsTrack.loadGPX(fileName);
         gpsTrack.display(map);
-        ImageButton deselectButton = findViewById(R.id.deselect);
-        deselectButton.setVisibility(View.VISIBLE);
         //move camera to track
         locationOverlay.disableFollowLocation();
         mapController.setCenter(gpsTrack.getStartPoint());

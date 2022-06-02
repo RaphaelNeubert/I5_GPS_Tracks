@@ -3,8 +3,6 @@ package com.example.gps_tracks;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.location.Location;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -13,16 +11,12 @@ import org.alternativevision.gpx.beans.*;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
-import org.osmdroid.views.overlay.Overlay;
 import org.osmdroid.views.overlay.Polyline;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
-import org.osmdroid.views.overlay.mylocation.IMyLocationConsumer;
-import org.osmdroid.views.overlay.mylocation.IMyLocationProvider;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -42,7 +36,8 @@ public class GPSTrack extends BroadcastReceiver {
     private GeoPoint startPoint;
 
     private Polyline path;
-    private String fileName;
+    private String trackName;
+    private long id;
     private ArrayList<Marker> markerList;
     private MapView map;
 
@@ -97,13 +92,10 @@ public class GPSTrack extends BroadcastReceiver {
         return true;
     }
     boolean endRecording() {
-        context.stopService(recIntent);
-        if(state == State.CONTREC) {//prüfen, ob wir einen neuen Track angefangen haben oder einen fortgesetzt haben
-            //kein neues Eingabefeld für den Namen
+        if(state == State.RECORDING) {
+            context.stopService(recIntent);
         }
-        else {
-            saveAsGPX();
-        }
+        saveAsGPX();
         state = State.READY;
         Log.i("GPSTrack","Recording has been stopped.");
         return true;
@@ -128,16 +120,22 @@ public class GPSTrack extends BroadcastReceiver {
         try {
             File file;
             String path = context.getFilesDir().toString();
-            String id = '-'+((Long)System.currentTimeMillis()).toString();
-            id = id.substring(0,14); //avoid  changing id length
-            if (this.fileName != null) {
-                file = new File(path+'/'+this.fileName+id+".gpx");
+            long newId = (Long)System.currentTimeMillis();
+            if (this.id != 0) { //delete old track
+                String oldIdString = '-'+ String.format("%020d",this.id);
+                file = new File(path+'/'+this.trackName +oldIdString+".gpx");
+                file.delete();
+            }
+
+            String idString = '-'+ String.format("%020d",newId);
+            if (this.trackName != null) {
+                file = new File(path+'/'+this.trackName +idString+".gpx");
                 //out = new FileOutputStream(this.fileName);
             }
             else {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy hh:mm");
                 String fileName = "New Track " + simpleDateFormat.format(new Date());
-                file = new File(path+'/'+fileName+id+".gpx");
+                file = new File(path+'/'+fileName+idString+".gpx");
                 //out = new FileOutputStream(fileName);
             }
             Log.i("GPSTrack",file.getName());
@@ -156,7 +154,9 @@ public class GPSTrack extends BroadcastReceiver {
     * @return void
     */
     void loadGPX(String fileName) {
-        this.fileName = fileName;
+        int n = fileName.length();
+        this.trackName = fileName.substring(0, n-4-21); //remove extension and id
+        this.id = Long.parseLong(fileName.substring(n-4-20, n-4));
         path = new Polyline();
         try {
             String dir = context.getFilesDir().toString();
@@ -243,11 +243,11 @@ public class GPSTrack extends BroadcastReceiver {
     public void setState(State state) {
         this.state = state;
     }
-    public String getFileName() {
-        return fileName;
+    public String getTrackName() {
+        return trackName;
     }
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public void setTrackName(String trackName) {
+        this.trackName = trackName;
     }
     public GeoPoint getStartPoint(){
         return startPoint;
