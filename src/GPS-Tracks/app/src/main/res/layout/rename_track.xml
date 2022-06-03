@@ -22,22 +22,30 @@
       android:inputType="textPersonName"/>
 
 
-  <Button
-      android:id="@+id/ok"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="10dp"
-      android:backgroundTint="@color/white"
-      android:text="@string/OK"
-      android:textColor="@color/black" />
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
 
-  <Button
-      android:id="@+id/ab"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="10dp"
-      android:backgroundTint="@color/white"
-      android:text="@string/abort"
-      android:textColor="@color/black" />
+    <Button
+        android:id="@+id/ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-5dp"
+        android:layout_marginBottom="-5dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/OK"
+        android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/ab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-5dp"
+        android:layout_marginBottom="-5dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/abort"
+        android:textColor="@color/black" />
+  </LinearLayout>
 
 </LinearLayout>
