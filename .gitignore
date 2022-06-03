@@ -49,3 +49,6 @@ output.json
 obj/
 .externalNativeBuild
 #-----------------------------------
+
+# Python
+.venv
