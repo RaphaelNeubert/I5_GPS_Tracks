@@ -219,9 +219,10 @@ public class ListingTracks extends AppCompatActivity {
         mok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String id = '-'+((Long)System.currentTimeMillis()).toString();
-                id = id.substring(0,14); //avoid  changing id length
-                String newFilename = rn.getText().toString()+id+".gpx";
+                long newId = (Long)System.currentTimeMillis();
+                String idString = '-'+ String.format("%020d",newId);
+
+                String newFilename = rn.getText().toString()+idString+".gpx";
                 if(newFilename.length()>4+14 && newFilename.length() <= 64){
                     file.renameTo(new File(getFilesDir(),newFilename));
                     Toast.makeText(ListingTracks.this,
@@ -255,7 +256,7 @@ public class ListingTracks extends AppCompatActivity {
                     .build();
 
             Request request = new Request.Builder()
-                    .url("http://aleksandrpronin.pythonanywhere.com/upload")
+                    .url("http://141.56.137.84:5000/upload")
                     .post(requestBody)
                     .build();
 
@@ -287,7 +288,7 @@ public class ListingTracks extends AppCompatActivity {
 
         Request request = new Request.Builder()
                 //.url("http://ip:5000/download/"+filename)
-                .url("http://aleksandrpronin.pythonanywhere.com/download/"+filename)
+                .url("http://141.56.137.84:5000/download/"+filename)
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -319,7 +320,7 @@ public class ListingTracks extends AppCompatActivity {
         try {
             Request request = new Request.Builder()
                     //.url("http://ip:5000/download/"+filename)
-                    .url("http://aleksandrpronin.pythonanywhere.com/delete/"+filename)
+                    .url("http://141.56.137.84:5000/delete/"+filename)
                     .build();
 
             okHttpClient.newCall(request).enqueue(new Callback() {
@@ -366,7 +367,7 @@ public class ListingTracks extends AppCompatActivity {
         progressBar.setVisibility(ProgressBar.VISIBLE);
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("http://aleksandrpronin.pythonanywhere.com/liste")
+                .url("http://141.56.137.84:5000/liste")
                 .build();
 
          client.newCall(request).enqueue(new Callback() {
