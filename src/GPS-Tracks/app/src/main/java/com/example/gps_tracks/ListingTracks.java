@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -30,9 +29,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -43,7 +40,6 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import java.util.Map;
-import java.util.Set;
 
 
 public class ListingTracks extends AppCompatActivity {
@@ -287,7 +283,7 @@ public class ListingTracks extends AppCompatActivity {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
-                //.url("http://ip:5000/download/"+filename)
+                //.url("http://aleksandrpronin.pythonanywhere.com/download/"+filename)
                 .url("http://141.56.137.84:5000/download/"+filename)
                 .build();
 
@@ -320,7 +316,7 @@ public class ListingTracks extends AppCompatActivity {
         try {
             Request request = new Request.Builder()
                     //.url("http://ip:5000/download/"+filename)
-                    .url("http://141.56.137.84:5000/delete/"+filename)
+                    .url("http://aleksandrpronin.pythonanywhere.com/delete/"+filename)
                     .build();
 
             okHttpClient.newCall(request).enqueue(new Callback() {
@@ -355,7 +351,6 @@ public class ListingTracks extends AppCompatActivity {
         Collection<String> values =ret.values();
         String filePath = getApplicationContext().getFilesDir().getParent()+"/shared_prefs/del_files.xml";
         File deletePrefFile = new File(filePath);
-        deletePrefFile.delete();
         System.out.println("delList: "+values);
 
         // del
@@ -367,7 +362,7 @@ public class ListingTracks extends AppCompatActivity {
         progressBar.setVisibility(ProgressBar.VISIBLE);
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("http://141.56.137.84:5000/liste")
+                .url("http://aleksandrpronin.pythonanywhere.com/liste")
                 .build();
 
          client.newCall(request).enqueue(new Callback() {
@@ -381,6 +376,7 @@ public class ListingTracks extends AppCompatActivity {
                 String responseData = response.body().string();
                 String listFormated=responseData.replace("'", "").replace(", ",",").replace("[","").replace("]","");
                 String[] arrayFromFlask = listFormated.split(",");
+
 
                 // сdownload
                 Context context = getApplicationContext();
@@ -414,6 +410,14 @@ public class ListingTracks extends AppCompatActivity {
                     localeFiles.remove(arrayFromFlask[i]);
                 }
 
+                /* Files deleted from the server will not be re-downloaded to the server.
+                 ** The entire list of deleted files is stored in a list.
+                 */
+                String[] delListFromFlask = downloadDelList();
+                for (int i = 0; i < delListFromFlask.length; i++) {
+                    localeFiles.remove(delListFromFlask[i]);
+                }
+
                 for(String el:localeFiles){
                     file = new File(dir, el);
                     uploadFile(file);
@@ -422,4 +426,19 @@ public class ListingTracks extends AppCompatActivity {
             }
         });
     }
+
+    public String[] downloadDelList() throws IOException {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url("http://aleksandrpronin.pythonanywhere.com/dellist")
+                .build();
+        Response response = client.newCall(request).execute();
+        String responseData = response.body().string();
+        String listFormated=responseData.replace("'", "").replace(", ",",").replace("[","").replace("]","");
+        String[] arrayFromFlask = listFormated.split(",");
+        List<String> filesListFromFlask = new ArrayList<>(Arrays.asList(arrayFromFlask));
+        System.out.println("Alle Dateien, die vom Server gelöscht wurden: "+ filesListFromFlask);
+        return arrayFromFlask;
+    }
 }
+
