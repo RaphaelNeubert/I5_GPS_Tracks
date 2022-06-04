@@ -316,7 +316,8 @@ public class ListingTracks extends AppCompatActivity {
         try {
             Request request = new Request.Builder()
                     //.url("http://ip:5000/download/"+filename)
-                    .url("http://aleksandrpronin.pythonanywhere.com/delete/"+filename)
+                    //.url("http://aleksandrpronin.pythonanywhere.com/delete/"+filename)
+                    .url("http://http://141.56.137.84:5000/delete/"+filename)
                     .build();
 
             okHttpClient.newCall(request).enqueue(new Callback() {
@@ -362,7 +363,7 @@ public class ListingTracks extends AppCompatActivity {
         progressBar.setVisibility(ProgressBar.VISIBLE);
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("http://aleksandrpronin.pythonanywhere.com/liste")
+                .url("http://http://141.56.137.84:5000/liste")
                 .build();
 
          client.newCall(request).enqueue(new Callback() {
@@ -430,7 +431,7 @@ public class ListingTracks extends AppCompatActivity {
     public String[] downloadDelList() throws IOException {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("http://aleksandrpronin.pythonanywhere.com/dellist")
+                .url("http://http://141.56.137.84:5000/dellist")
                 .build();
         Response response = client.newCall(request).execute();
         String responseData = response.body().string();
