@@ -67,8 +67,38 @@ def download(filename):
 @app.route('/delete/<path:filename>', methods=['GET'])
 def delete(filename):
     #path = os.path.join(os.path.abspath(os.path.dirname(__file__)), filename)
+    f = open("./delete.txt", "a")
+    f.write(filename + '\n')
     path = os.path.join(app.config['UPLOAD_FOLDER'],filename)
-    return os.remove(path)      
+    return os.remove(path) 
+
+@app.route('/dellist', methods=['GET'])
+def dellist():
+    f = open("./delete.txt", "r")
+    l = [line.strip() for line in f]
+    print(l)
+    return (str(l))
+
+@app.route("/")
+def index():
+    return '''
+        <!doctype html>
+        <title>Upload new File</title>
+        <h1>GPS TRACK SERVER BEREIT</h1>
+        <p>
+
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█<br>
+▒▒▒▒▒▒▒▒▒▒▒▒▒█░▒▒▒▒▒▒▒▓▒▒▓▒▒▒▒▒▒▒░█<br>
+▒▒▒▒▒▒▒▒▒▒▒▒▒█░▒▒▓▒▒▒▒▒▒▒▒▒▄▄▒▓▒▒░█░▄▄<br>
+▒▒▒▒▒▒▒▒▄▀▀▄▄█░▒▒▒▒▒▒▓▒▒▒▒█░░▀▄▄▄▄▄▀░░█<br>
+▒▒▒▒▒▒▒▒█░░░░█░▒▒▒▒▒▒▒▒▒▒▒█░░░░░░░░░░░█<br>
+▒▒▒▒▒▒▒▒▒▀▀▄▄█░▒▒▒▒▓▒▒▒▓▒█░░░█▒░░░░█▒░░█<br>
+▒▒▒▒▒▒▒▒▒▒▒▒▒█░▒▓▒▒▒▒▓▒▒▒█░░░░░░░▀░░░░░█<br>
+▒▒▒▒▒▒▒▒▒▒▒▄▄█░▒▒▒▓▒▒▒▒▒▒▒█░░█▄▄█▄▄█░░█<br>
+▒▒▒▒▒▒▒▒▒▒█░░░█▄▄▄▄▄▄▄▄▄▄█░█▄▄▄▄▄▄▄▄▄█<br>
+▒▒▒▒▒▒▒▒▒▒█▄▄█░░█▄▄█░░░░░░█▄▄█░░█▄<br>
+        </p>
+        '''     
   
 if __name__=="__main__":
     app.run(host='0.0.0.0')
