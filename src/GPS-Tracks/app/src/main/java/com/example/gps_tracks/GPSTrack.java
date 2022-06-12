@@ -4,7 +4,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import android.util.Pair;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import org.alternativevision.gpx.GPXParser;
 import org.alternativevision.gpx.beans.*;
@@ -21,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -40,11 +44,14 @@ public class GPSTrack extends BroadcastReceiver {
     private long id;
     private ArrayList<Marker> markerList;
     private MapView map;
+    private Hashtable<Integer,String> specialPoints;
 
 
     GPSTrack(Context context, MapView map) {
         this.context = context;
         this.map = map;
+        specialPoints = new Hashtable<>();
+        specialPoints.put(0,"haha");
     }
     void display(MapView map) {
         if (path != null) {
@@ -102,18 +109,7 @@ public class GPSTrack extends BroadcastReceiver {
     }
     private void saveAsGPX() {
         GPX gpx = new GPX();
-        Route route = new Route();
-        List<GeoPoint> pointList = path.getActualPoints();
-        ListIterator listIterator = pointList.listIterator();
-
-        while(listIterator.hasNext()) {
-            Waypoint waypoint = new Waypoint();
-            GeoPoint point = (GeoPoint) listIterator.next();
-            waypoint.setLatitude(point.getLatitude());
-            waypoint.setLongitude(point.getLongitude());
-
-            route.addRoutePoint(waypoint);
-        }
+        Route route = generateRoute();
         gpx.addRoute(route);
 
         GPXParser p = new GPXParser();
@@ -147,6 +143,33 @@ public class GPSTrack extends BroadcastReceiver {
             Log.e("GPSTrack", "Failed to save File", e);
         }
     }
+
+    @NonNull
+    private Route generateRoute() {
+        Route route = new Route();
+        List<GeoPoint> pointList = path.getActualPoints();
+        ListIterator listIterator = pointList.listIterator();
+
+        while(listIterator.hasNext()) {
+            int i = listIterator.nextIndex();
+            Log.i("route i:", String.valueOf(i));
+            Waypoint waypoint = new Waypoint();
+            GeoPoint point = (GeoPoint) listIterator.next();
+            waypoint.setLatitude(point.getLatitude());
+            waypoint.setLongitude(point.getLongitude());
+            if (specialPoints.containsKey(i)) {
+                String type = specialPoints.get(i);
+                waypoint.setType(type);
+            }
+            else {
+                waypoint.setType("default");
+            }
+
+            route.addRoutePoint(waypoint);
+        }
+        return route;
+    }
+
     /**
     * Loads the GPSTrack of a given file into the Polyline path of the calling instance
     * The String filename should have the extension .gpx
@@ -173,9 +196,16 @@ public class GPSTrack extends BroadcastReceiver {
                 ListIterator listIterator = listWaypoints.listIterator();
 
                 while(listIterator.hasNext()) {
+                    int i = listIterator.nextIndex();
                     Waypoint wp = (Waypoint) listIterator.next();
                     GeoPoint geo = new GeoPoint(wp.getLatitude(), wp.getLongitude());
                     this.path.addPoint(geo);
+
+                    //store special points of interests in Hashtable
+                    String type = wp.getType();
+                    if (type != "default") {
+                        specialPoints.put(i, type);
+                    }
                     //set startPoint if not set
                     if (startPoint == null) startPoint = geo;
                 }
@@ -195,8 +225,8 @@ public class GPSTrack extends BroadcastReceiver {
 
         while(listIterator.hasNext()) {
             Marker m = new Marker(map);
+            m.setId(String.valueOf(listIterator.nextIndex()));
             m.setPosition((GeoPoint) listIterator.next());
-            m.setId(String.valueOf(listIterator.nextIndex()-1));
             m.setIcon(context.getResources().getDrawable(R.drawable.edit));
             m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER);
             m.setDraggable(true);
