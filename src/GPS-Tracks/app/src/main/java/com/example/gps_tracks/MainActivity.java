@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity{
                 } else {
                     //start recording
                     recording = true;
-                    gpsTrack = new GPSTrack(getApplicationContext(), map, view,getBaseContext());
+                    gpsTrack = new GPSTrack(MainActivity.this, map, view);
                     gpsTrack.startRecording();
                     //gpsTrack.setState(GPSTrack.State.RECORDING);
 
@@ -324,7 +324,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void loadTrack(String fileName) {
-        gpsTrack = new GPSTrack(getApplicationContext(), map, view,MainActivity.this);
+        gpsTrack = new GPSTrack(MainActivity.this, map, view);
         gpsTrack.loadGPX(fileName);
         gpsTrack.display(map);
         //move camera to track

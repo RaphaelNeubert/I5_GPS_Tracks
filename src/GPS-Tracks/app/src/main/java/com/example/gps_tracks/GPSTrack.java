@@ -59,13 +59,12 @@ public class GPSTrack extends BroadcastReceiver{
     private Hashtable<Integer,String> specialPoints;
     private boolean bubbleOpen = false;
     private View view;
-    private Context test;
 
-    GPSTrack(Context context, MapView map, View view, Context test) {
-        this.test = test;
+    GPSTrack(Context context, MapView map, View view) {
+        this.context = context;
         this.map = map;
         this.view = view;
-        this.test = test;
+        this.context = context;
         specialPoints = new Hashtable<>();
         specialPoints.put(0,"haha");
     }
@@ -86,7 +85,7 @@ public class GPSTrack extends BroadcastReceiver{
         }
     }
     @Override
-    public void onReceive(Context test, Intent intent) {
+    public void onReceive(Context context, Intent intent) {
         if (state != State.RECORDING && state != State.CONTREC) {
             //abort if we don't want to receive Location data
             return;
@@ -109,14 +108,14 @@ public class GPSTrack extends BroadcastReceiver{
             state = State.CONTREC;
 
 
-        recIntent = new Intent(test, RecordingService.class);
-        test.startForegroundService(recIntent);
+        recIntent = new Intent(context, RecordingService.class);
+        context.startForegroundService(recIntent);
 
         return true;
     }
     boolean endRecording() {
         if(state == State.RECORDING) {
-            test.stopService(recIntent);
+            context.stopService(recIntent);
         }
         saveAsGPX();
         state = State.READY;
@@ -131,7 +130,7 @@ public class GPSTrack extends BroadcastReceiver{
         GPXParser p = new GPXParser();
         try {
             File file;
-            String path = test.getFilesDir().toString();
+            String path = context.getFilesDir().toString();
             long newId = (Long)System.currentTimeMillis();
             if (this.id != 0) { //delete old track
                 String oldIdString = '-'+ String.format("%020d",this.id);
@@ -198,8 +197,8 @@ public class GPSTrack extends BroadcastReceiver{
         this.id = Long.parseLong(fileName.substring(n-4-20, n-4));
         path = new Polyline();
         try {
-            String dir = test.getFilesDir().toString();
-            File file = new File(test.getFilesDir(),fileName);
+            String dir = context.getFilesDir().toString();
+            File file = new File(context.getFilesDir(),fileName);
             FileInputStream fis = new FileInputStream(file);
             GPXParser parser = new GPXParser();
             GPX gpx = parser.parseGPX(fis);
@@ -244,7 +243,7 @@ public class GPSTrack extends BroadcastReceiver{
             Marker m = new Marker(map);
             m.setId(String.valueOf(i));
             m.setPosition((GeoPoint) listIterator.next());
-            m.setIcon(test.getResources().getDrawable(R.drawable.edit));
+            m.setIcon(context.getResources().getDrawable(R.drawable.edit));
             m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER);
             m.setDraggable(true);
             m.setOnMarkerDragListener(new Marker.OnMarkerDragListener() {
@@ -283,6 +282,7 @@ public class GPSTrack extends BroadcastReceiver{
                             @Override
                             public void onClick(View v){
                                 showSpecialPointDialog();
+                                //m.closeInfoWindow();
                             }
                         });
                     }
@@ -294,11 +294,11 @@ public class GPSTrack extends BroadcastReceiver{
         }
     }
     private void showSpecialPointDialog() {
-        final Dialog dia = new Dialog(test);
+        final Dialog dia = new Dialog(context);
         dia.setContentView(R.layout.rename_track);
 
-        AlertDialog.Builder mBuilder = new AlertDialog.Builder(test);
-        LayoutInflater inflater = LayoutInflater.from(test);
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(context);
+        LayoutInflater inflater = LayoutInflater.from(context);
         View mView = inflater.inflate(R.layout.edit_special_point, null);
         final EditText rn = (EditText) mView.findViewById(R.id.spi_edit_text);
         String OldFileName = rn.getText().toString();
@@ -322,7 +322,7 @@ public class GPSTrack extends BroadcastReceiver{
         dialog.show();
     }
     public void warning() {
-        Toast.makeText(test.getApplicationContext(),
+        Toast.makeText(context.getApplicationContext(),
                 "Error: Failed to load file", Toast.LENGTH_SHORT).show();
     }
     public State getState() {
