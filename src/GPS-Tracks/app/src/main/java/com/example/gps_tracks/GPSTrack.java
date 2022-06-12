@@ -1,10 +1,19 @@
 package com.example.gps_tracks;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.util.Pair;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,6 +24,8 @@ import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.Polyline;
+import org.osmdroid.views.overlay.infowindow.InfoWindow;
+import org.osmdroid.views.overlay.infowindow.MarkerInfoWindow;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 
 import java.io.File;
@@ -28,9 +39,10 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.zip.Inflater;
 
 
-public class GPSTrack extends BroadcastReceiver {
+public class GPSTrack extends BroadcastReceiver{
 
     public enum State {READY, RECORDING, EDITING, EMPTY, CONTREC}
     private Context context;
@@ -45,11 +57,15 @@ public class GPSTrack extends BroadcastReceiver {
     private ArrayList<Marker> markerList;
     private MapView map;
     private Hashtable<Integer,String> specialPoints;
+    private boolean bubbleOpen = false;
+    private View view;
+    private Context test;
 
-
-    GPSTrack(Context context, MapView map) {
-        this.context = context;
+    GPSTrack(Context context, MapView map, View view, Context test) {
+        this.test = test;
         this.map = map;
+        this.view = view;
+        this.test = test;
         specialPoints = new Hashtable<>();
         specialPoints.put(0,"haha");
     }
@@ -70,7 +86,7 @@ public class GPSTrack extends BroadcastReceiver {
         }
     }
     @Override
-    public void onReceive(Context context, Intent intent) {
+    public void onReceive(Context test, Intent intent) {
         if (state != State.RECORDING && state != State.CONTREC) {
             //abort if we don't want to receive Location data
             return;
@@ -93,14 +109,14 @@ public class GPSTrack extends BroadcastReceiver {
             state = State.CONTREC;
 
 
-        recIntent = new Intent(context, RecordingService.class);
-        context.startForegroundService(recIntent);
+        recIntent = new Intent(test, RecordingService.class);
+        test.startForegroundService(recIntent);
 
         return true;
     }
     boolean endRecording() {
         if(state == State.RECORDING) {
-            context.stopService(recIntent);
+            test.stopService(recIntent);
         }
         saveAsGPX();
         state = State.READY;
@@ -115,7 +131,7 @@ public class GPSTrack extends BroadcastReceiver {
         GPXParser p = new GPXParser();
         try {
             File file;
-            String path = context.getFilesDir().toString();
+            String path = test.getFilesDir().toString();
             long newId = (Long)System.currentTimeMillis();
             if (this.id != 0) { //delete old track
                 String oldIdString = '-'+ String.format("%020d",this.id);
@@ -182,8 +198,8 @@ public class GPSTrack extends BroadcastReceiver {
         this.id = Long.parseLong(fileName.substring(n-4-20, n-4));
         path = new Polyline();
         try {
-            String dir = context.getFilesDir().toString();
-            File file = new File(context.getFilesDir(),fileName);
+            String dir = test.getFilesDir().toString();
+            File file = new File(test.getFilesDir(),fileName);
             FileInputStream fis = new FileInputStream(file);
             GPXParser parser = new GPXParser();
             GPX gpx = parser.parseGPX(fis);
@@ -224,10 +240,11 @@ public class GPSTrack extends BroadcastReceiver {
         ListIterator listIterator = points.listIterator();
 
         while(listIterator.hasNext()) {
+            int i = listIterator.nextIndex();
             Marker m = new Marker(map);
-            m.setId(String.valueOf(listIterator.nextIndex()));
+            m.setId(String.valueOf(i));
             m.setPosition((GeoPoint) listIterator.next());
-            m.setIcon(context.getResources().getDrawable(R.drawable.edit));
+            m.setIcon(test.getResources().getDrawable(R.drawable.edit));
             m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER);
             m.setDraggable(true);
             m.setOnMarkerDragListener(new Marker.OnMarkerDragListener() {
@@ -242,23 +259,70 @@ public class GPSTrack extends BroadcastReceiver {
                     path.setPoints(geoPointList);
                     map.getOverlayManager().add(path);
                 }
-
                 @Override
-                public void onMarkerDragEnd(Marker marker) {
-
-                }
-
+                public void onMarkerDragEnd(Marker marker) {}
                 @Override
-                public void onMarkerDragStart(Marker marker) {
+                public void onMarkerDragStart(Marker marker) {}
+            });
+            MarkerBubble markerBubble = new MarkerBubble(R.layout.waypoint_bubble,map,this,view);
+            if (specialPoints.containsKey(i))
+                markerBubble.setTitle(specialPoints.get(i));
+            else
+                markerBubble.setTitle("default");
 
+            m.setInfoWindow(markerBubble);
+            m.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
+                @Override
+                public boolean onMarkerClick(Marker marker, MapView mapView) {
+                    if (!bubbleOpen) {
+                        bubbleOpen = true;
+                        m.showInfoWindow();
+                        ImageButton editButton = (ImageButton) view.findViewById(R.id.edit_special_point);
+                        editButton.setVisibility(View.VISIBLE);
+                        editButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v){
+                                showSpecialPointDialog();
+                            }
+                        });
+                    }
+                    return true;
                 }
             });
             markerList.add(m);
             map.getOverlayManager().add(m);
         }
     }
+    private void showSpecialPointDialog() {
+        final Dialog dia = new Dialog(test);
+        dia.setContentView(R.layout.rename_track);
+
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(test);
+        LayoutInflater inflater = LayoutInflater.from(test);
+        View mView = inflater.inflate(R.layout.edit_special_point, null);
+        final EditText rn = (EditText) mView.findViewById(R.id.spi_edit_text);
+        String OldFileName = rn.getText().toString();
+        rn.setText(OldFileName);
+        Button mok = (Button) mView.findViewById(R.id.spi_ok);
+        Button mab = (Button) mView.findViewById(R.id.spi_ab);
+
+        mab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+            }
+        });
+        mok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
+
+        mBuilder.setView(mView);
+        AlertDialog dialog = mBuilder.create();
+        dialog.show();
+    }
     public void warning() {
-        Toast.makeText(context.getApplicationContext(),
+        Toast.makeText(test.getApplicationContext(),
                 "Error: Failed to load file", Toast.LENGTH_SHORT).show();
     }
     public State getState() {
@@ -284,5 +348,8 @@ public class GPSTrack extends BroadcastReceiver {
     }
     public void setStartPoint(GeoPoint point){
         this.startPoint = point;
+    }
+    public void setBubbleOpen(boolean bubbleOpen) {
+        this.bubbleOpen = bubbleOpen;
     }
 }

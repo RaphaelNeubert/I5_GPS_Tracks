@@ -9,6 +9,7 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity{
     ActivityResultLauncher<Intent> listingTracksResultLauncher;
     private boolean cameraToTrack = false;
     private boolean recording = false;
+    private View view;
 
     @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -75,7 +77,8 @@ public class MainActivity extends AppCompatActivity{
         Context ctx = getApplicationContext();
         Configuration.getInstance().load(ctx, PreferenceManager.getDefaultSharedPreferences(ctx));
         //inflate and create the map
-        setContentView(R.layout.activity_main);
+        view = getLayoutInflater().inflate(R.layout.activity_main, null);
+        setContentView(view);
 
         map = (MapView) findViewById(R.id.map);
         map.setTileSource(TileSourceFactory.MAPNIK);
@@ -177,7 +180,7 @@ public class MainActivity extends AppCompatActivity{
                 } else {
                     //start recording
                     recording = true;
-                    gpsTrack = new GPSTrack(getApplicationContext(), map);
+                    gpsTrack = new GPSTrack(getApplicationContext(), map, view,getBaseContext());
                     gpsTrack.startRecording();
                     //gpsTrack.setState(GPSTrack.State.RECORDING);
 
@@ -321,7 +324,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void loadTrack(String fileName) {
-        gpsTrack = new GPSTrack(getApplicationContext(), map);
+        gpsTrack = new GPSTrack(getApplicationContext(), map, view,MainActivity.this);
         gpsTrack.loadGPX(fileName);
         gpsTrack.display(map);
         //move camera to track
