@@ -185,7 +185,6 @@ public class GPSTrack extends BroadcastReceiver{
         }
         return route;
     }
-
     /**
     * Loads the GPSTrack of a given file into the Polyline path of the calling instance
     * The String filename should have the extension .gpx
