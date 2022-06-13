@@ -26,4 +26,6 @@
     <string name="renameSuccess">Umbenennung erfolgreich</string>
     <string name="renameWarning">Bitte geben Sie neuen Tracknamen ein</string>
 
+    <string name="specialPointDialog">Wegpunkt-Typ bearbeiten</string>
+    <string name="specialPointWarning">Dieser Typname ist zu kurz</string>
 </resources>

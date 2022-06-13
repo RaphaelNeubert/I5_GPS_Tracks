@@ -26,6 +26,8 @@ public class MarkerBubble extends InfoWindow {
     }
 
     public void onOpen(Object arg0) {
+        ImageButton editButton = (ImageButton) view.findViewById(R.id.edit_special_point);
+        editButton.setVisibility(View.VISIBLE);
         LinearLayout layout = (LinearLayout) mView.findViewById(R.id.bubble_layout);
         layout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

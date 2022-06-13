@@ -79,7 +79,9 @@ public class GPSTrack extends BroadcastReceiver{
             if (markerList != null) {
                 ListIterator listIterator = markerList.listIterator();
                 while(listIterator.hasNext()) {
-                    map.getOverlayManager().remove(listIterator.next());
+                    Marker m = (Marker)listIterator.next();
+                    m.closeInfoWindow();
+                    map.getOverlayManager().remove(m);
                 }
             }
         }
@@ -176,9 +178,6 @@ public class GPSTrack extends BroadcastReceiver{
                 String type = specialPoints.get(i);
                 waypoint.setType(type);
             }
-            else {
-                waypoint.setType("default");
-            }
 
             route.addRoutePoint(waypoint);
         }
@@ -218,7 +217,7 @@ public class GPSTrack extends BroadcastReceiver{
 
                     //store special points of interests in Hashtable
                     String type = wp.getType();
-                    if (type != "default") {
+                    if (type != null) {
                         specialPoints.put(i, type);
                     }
                     //set startPoint if not set
@@ -263,25 +262,28 @@ public class GPSTrack extends BroadcastReceiver{
                 @Override
                 public void onMarkerDragStart(Marker marker) {}
             });
-            MarkerBubble markerBubble = new MarkerBubble(R.layout.waypoint_bubble,map,this,view);
-            if (specialPoints.containsKey(i))
+            MarkerBubble markerBubble = new MarkerBubble(R.layout.waypoint_bubble, map, this, view);
+            if (specialPoints.containsKey(i)) {
                 markerBubble.setTitle(specialPoints.get(i));
-            else
+            }
+            else {
                 markerBubble.setTitle("default");
-
+            }
             m.setInfoWindow(markerBubble);
+
             m.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
                 @Override
                 public boolean onMarkerClick(Marker marker, MapView mapView) {
                     if (!bubbleOpen) {
                         bubbleOpen = true;
-                        m.showInfoWindow();
+                        if (specialPoints.containsKey(i))
+                            m.showInfoWindow();
                         ImageButton editButton = (ImageButton) view.findViewById(R.id.edit_special_point);
                         editButton.setVisibility(View.VISIBLE);
                         editButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v){
-                                showSpecialPointDialog();
+                                showSpecialPointDialog(m);
                                 //m.closeInfoWindow();
                             }
                         });
@@ -293,7 +295,7 @@ public class GPSTrack extends BroadcastReceiver{
             map.getOverlayManager().add(m);
         }
     }
-    private void showSpecialPointDialog() {
+    private void showSpecialPointDialog(Marker marker) {
         final Dialog dia = new Dialog(context);
         dia.setContentView(R.layout.rename_track);
 
@@ -303,22 +305,37 @@ public class GPSTrack extends BroadcastReceiver{
         final EditText rn = (EditText) mView.findViewById(R.id.spi_edit_text);
         String OldFileName = rn.getText().toString();
         rn.setText(OldFileName);
+
+        mBuilder.setView(mView);
+        AlertDialog dialog = mBuilder.create();
         Button mok = (Button) mView.findViewById(R.id.spi_ok);
         Button mab = (Button) mView.findViewById(R.id.spi_ab);
 
         mab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+                Log.i("mab","abort was clicked");
+                dialog.cancel();
             }
         });
         mok.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+                String type = rn.getText().toString();
+                if(type.isEmpty()){
+                    Toast.makeText(context,
+                            context.getString(R.string.specialPointWarning),
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    specialPoints.put(Integer.valueOf(marker.getId()),type);
+                    //update and refresh bubble
+                    ((MarkerBubble)marker.getInfoWindow()).setTitle(type);
+                    marker.showInfoWindow();
+                    dialog.dismiss();
+                }
             }
         });
 
-        mBuilder.setView(mView);
-        AlertDialog dialog = mBuilder.create();
         dialog.show();
     }
     public void warning() {

@@ -27,4 +27,6 @@
     <string name="renameSuccess">Rename successfully</string>
     <string name="renameWarning">Please enter new Track name</string>
 
+    <string name="specialPointDialog">Edit Waypoint-Type</string>
+    <string name="specialPointWarning">This Typename is to short</string>
 </resources>

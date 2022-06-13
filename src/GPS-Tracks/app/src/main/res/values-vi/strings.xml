@@ -26,4 +26,7 @@
     <string name="trackname">trackname</string>
     <string name="renameSuccess">Đổi tên thành công</string>
     <string name="renameWarning">Hãy nhập tên chỉ đường mới</string>
+
+    <string name="specialPointDialog">edit Waypoint-Type</string>
+    <string name="specialPointWarning">This Typename is to short</string>
 </resources>

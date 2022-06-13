@@ -241,9 +241,6 @@ public class MainActivity extends AppCompatActivity{
                     }
                     unregisterReceiver(gpsTrack); //stop receiving GPS data
                 }
-                Toast.makeText(MainActivity.this,
-                        getString(R.string.saveSucess),
-                        Toast.LENGTH_SHORT).show();
                 //swap rec and save buttons visibility
                 if (gpsTrack.getState() == GPSTrack.State.EDITING) {
                     ImageButton saveButton = (ImageButton) findViewById(R.id.save);
@@ -256,6 +253,10 @@ public class MainActivity extends AppCompatActivity{
                 recording = false;
                 gpsTrack.hide(map);
                 gpsTrack = null;
+
+                Toast.makeText(MainActivity.this,
+                        getString(R.string.saveSucess),
+                        Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });
