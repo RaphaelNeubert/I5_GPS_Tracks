@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +24,7 @@ import org.alternativevision.gpx.beans.*;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
+import org.osmdroid.views.overlay.Overlay;
 import org.osmdroid.views.overlay.Polyline;
 import org.osmdroid.views.overlay.infowindow.InfoWindow;
 import org.osmdroid.views.overlay.infowindow.MarkerInfoWindow;
@@ -291,6 +293,15 @@ public class GPSTrack extends BroadcastReceiver{
                     return true;
                 }
             });
+            map.getOverlayManager().add(new Overlay() {
+                @Override
+                public boolean onSingleTapConfirmed(MotionEvent e, MapView mapView) {
+                    m.closeInfoWindow();
+
+                    return super.onSingleTapConfirmed(e, mapView);
+                }
+            });
+
             markerList.add(m);
             map.getOverlayManager().add(m);
         }
