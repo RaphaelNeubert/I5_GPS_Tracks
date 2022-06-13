@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:background="@null"
             android:backgroundTint="@color/cardview_light_background"
-            android:text="Back"
+            android:text="@string/back"
             android:textColor="@color/black"
             tools:layout_editor_absoluteX="14dp"
             tools:layout_editor_absoluteY="21dp" />
@@ -28,10 +28,10 @@
             style="@style/Widget.AppCompat.Button.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#00E91E63"
-            android:text="Sync"
-            android:textColor="#000000"
-            app:icon="@color/white" />
+            android:background="@null"
+            android:backgroundTint="@color/cardview_light_background"
+            android:text="@string/sync"
+            android:textColor="@color/black" />
 
         <ProgressBar
             android:id="@+id/progressBar"

@@ -17,14 +17,12 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 //Hinweise: Beschreiben Sie die Philosophie der Architektur, d.h. den zentralen Ansatz für ihre Architektur. Identifizieren Sie alle Aspekte, die die Philosophie beeinflussen, z.B. komplexe Auslieferung Aspekte, Anpassung von Altsystemen oder besondere Geschwindigkeitsanforderungen. Muss es besonders robust sein, um eine langfristige Wartung und Pflege zu ermöglichen?
 
 //Formulieren Sie eine Reihe von Zielen, die die Architektur in ihrer Struktur und ihrem Verhalten erfüllen muss. Identifizieren Sie kritische Fragen, die von der Architektur adressiert werden müssen, z.B. besondere Hardware-Abhängigkeiten, die vom Rest des Systems isoliert werden sollten oder Sicherstellung der Funktionsfähigkeit unter besonderen Bedingungen (z.B. Offline-Nutzung).
-Das System besteht aus einer Android App für das erstellen und bearbeiten von GPS-Tracks und einem Server der die GPS-Tracks
+Das System besteht aus einer Android App für das Erstellen und Bearbeiten von GPS-Tracks und einem Server der die GPS-Tracks
 GPS-Tracks mit verschiedenen Geräten synchronisiert. Die Synchronisation soll dabei (zunächst) nur bei Geräten im
 selben Netzwerk wie der Server funktionieren. Die App soll nicht im PlayStore veröffentlicht werden und nur von wenigen
-Personen (<10) parallel genutzt werden,
-aber nahezu rund um die Uhr verfügbar sein. Über die verwendeten Endgeräte ist nur bekannt es sich um Android Smartphones
-handelt die über ein Touchscreen bedient werden sollen. 
+Personen (<10) parallel genutzt werden, aber nahezu rund um die Uhr verfügbar sein. Bei den verwendeten Endgeräten handelt es sich um Android Smartphones, die über einen Touchscreen bedient werden. 
 Die technische Ausstattung (Bildschirmgröße, RAM, CPU, Bandbreite) sowie die genaue Android Version
-ist unbekannt. +
+sind unbekannt. +
 
 Die App soll ein möglichst intuitive Benutzeroberfläche haben in der Aktionen durch bekannte Icons oder Begriffe
 beschrieben werden. +

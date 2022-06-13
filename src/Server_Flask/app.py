@@ -11,6 +11,7 @@ temp = map(lambda name: os.path.join(dirname, name), files)
 print(list(temp))
 
 path ='/home/AleksandrPronin/mysite/files'
+
 #we shall store all the file names in this list
 filelist = []
 for root, dirs, files in os.walk(path):
@@ -26,7 +27,7 @@ for name in filelist:
 # folder for saving downloaded files
 UPLOAD_FOLDER = '/home/AleksandrPronin/mysite/files'
 # file extensions that are allowed to be uploaded
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+ALLOWED_EXTENSIONS = {'gpx'}
 
 
 app = Flask(__name__)
@@ -45,11 +46,6 @@ def liste_get():
     		filelist.append(os.path.join(file))
     return (str(filelist))
 
-@app.route('/post',methods=["POsST"])
-def home_post():
-    value=request.form['value']
-    return ("you")
-
 #ipconfig
 
 @app.route('/upload', methods = ['POST'])
@@ -66,6 +62,43 @@ def download(filename):
     return send_file(path, as_attachment=True)
     #uploads = os.path.join(current_app.root_path, app.config['UPLOAD_FOLDER'])
     #return send_from_directory(directory=uploads, filename)
+
+
+@app.route('/delete/<path:filename>', methods=['GET'])
+def delete(filename):
+    #path = os.path.join(os.path.abspath(os.path.dirname(__file__)), filename)
+    f = open("./delete.txt", "a")
+    f.write(filename + '\n')
+    path = os.path.join(app.config['UPLOAD_FOLDER'],filename)
+    return os.remove(path) 
+
+@app.route('/dellist', methods=['GET'])
+def dellist():
+    f = open("./delete.txt", "r")
+    l = [line.strip() for line in f]
+    print(l)
+    return (str(l))
+
+@app.route("/")
+def index():
+    return '''
+        <!doctype html>
+        <title>Upload new File</title>
+        <h1>GPS TRACK SERVER BEREIT</h1>
+        <p>
+
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█<br>
+▒▒▒▒▒▒▒▒▒▒▒▒▒█░▒▒▒▒▒▒▒▓▒▒▓▒▒▒▒▒▒▒░█<br>
+▒▒▒▒▒▒▒▒▒▒▒▒▒█░▒▒▓▒▒▒▒▒▒▒▒▒▄▄▒▓▒▒░█░▄▄<br>
+▒▒▒▒▒▒▒▒▄▀▀▄▄█░▒▒▒▒▒▒▓▒▒▒▒█░░▀▄▄▄▄▄▀░░█<br>
+▒▒▒▒▒▒▒▒█░░░░█░▒▒▒▒▒▒▒▒▒▒▒█░░░░░░░░░░░█<br>
+▒▒▒▒▒▒▒▒▒▀▀▄▄█░▒▒▒▒▓▒▒▒▓▒█░░░█▒░░░░█▒░░█<br>
+▒▒▒▒▒▒▒▒▒▒▒▒▒█░▒▓▒▒▒▒▓▒▒▒█░░░░░░░▀░░░░░█<br>
+▒▒▒▒▒▒▒▒▒▒▒▄▄█░▒▒▒▓▒▒▒▒▒▒▒█░░█▄▄█▄▄█░░█<br>
+▒▒▒▒▒▒▒▒▒▒█░░░█▄▄▄▄▄▄▄▄▄▄█░█▄▄▄▄▄▄▄▄▄█<br>
+▒▒▒▒▒▒▒▒▒▒█▄▄█░░█▄▄█░░░░░░█▄▄█░░█▄<br>
+        </p>
+        '''     
   
 if __name__=="__main__":
     app.run(host='0.0.0.0')
