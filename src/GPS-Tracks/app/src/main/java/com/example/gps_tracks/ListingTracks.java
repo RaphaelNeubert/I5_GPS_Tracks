@@ -155,6 +155,7 @@ public class ListingTracks extends AppCompatActivity {
 
                     setResult(Activity.RESULT_OK, intent);
                     finish();
+
                 }
 
                 else if(String.valueOf(item).equals(getString(R.string.contRec)))
@@ -164,6 +165,9 @@ public class ListingTracks extends AppCompatActivity {
 
                 else if(String.valueOf(item).equals(getString(R.string.rename)))
                 {
+                    // delete from server
+                    ondelList(fileName);
+                    delFile(fileName);
                     renameFile(file);
                 }
 
