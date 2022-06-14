@@ -1,4 +1,3 @@
-//Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
 
 == Use-Case 0?: Synchronisation der Dateien mit dem Server
 
