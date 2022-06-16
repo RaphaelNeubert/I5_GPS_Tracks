@@ -29,4 +29,5 @@
 
     <string name="specialPointDialog">edit Waypoint-Type</string>
     <string name="specialPointWarning">This Typename is to short</string>
+    <string name="dist">Distace: </string>
 </resources>

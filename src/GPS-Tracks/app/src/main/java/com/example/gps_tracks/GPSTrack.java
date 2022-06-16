@@ -68,7 +68,6 @@ public class GPSTrack extends BroadcastReceiver{
         this.view = view;
         this.context = context;
         specialPoints = new Hashtable<>();
-        specialPoints.put(0,"haha");
     }
     void display(MapView map) {
         if (path != null) {
@@ -378,5 +377,8 @@ public class GPSTrack extends BroadcastReceiver{
     }
     public void setBubbleOpen(boolean bubbleOpen) {
         this.bubbleOpen = bubbleOpen;
+    }
+    public double getDistance() {
+        return path.getDistance();
     }
 }

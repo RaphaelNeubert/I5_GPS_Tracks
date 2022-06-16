@@ -26,9 +26,12 @@ import androidx.core.util.Pair;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import okhttp3.Call;
@@ -40,6 +43,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import java.util.Map;
+import java.util.TimeZone;
 
 
 public class ListingTracks extends AppCompatActivity {
@@ -140,7 +144,18 @@ public class ListingTracks extends AppCompatActivity {
 
                 if(String.valueOf(item).equals(getString(R.string.details)))
                 {
-
+                    GPSTrack track = new GPSTrack(getApplicationContext(),null,null);
+                    track.loadGPX(fileName);
+                    int distance = (int) Math.round(track.getDistance());
+                    Date date = new Date(selectedItem.second);
+                    DateFormat formatter = new SimpleDateFormat("dd.MM.YYYY, HH:mm:ss");
+                    formatter.setTimeZone(TimeZone.getTimeZone("CET"));
+                    String timeStr = formatter.format(date);
+                    String distStr = getString(R.string.dist) +' '+ String.valueOf(distance) + "m";
+                    String finalStr = timeStr + '\n' + distStr;
+                    Toast.makeText(ListingTracks.this,
+                        finalStr,
+                        Toast.LENGTH_SHORT).show();
                 }
                 else if(String.valueOf(item).equals(getString(R.string.showTrack)))
                 {
