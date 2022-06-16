@@ -1,0 +1,29 @@
+= Iteration Plan 08: {project-name}
+Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+{localdatetime}
+include::../_includes/default-attributes.inc.adoc[]
+// Platzhalter für weitere Dokumenten-Attribute
+
+== Meilensteine
+
+[cols="1,1"]
+|===
+|*Meilenstein*
+|*Datum*
+|Beginn der Iteration
+|...
+|Ende der Iteration; LCA Meilenstein erreicht
+|...
+|===
+
+
+== Wesentliche Ziele
+
+. Fertigstellung aller fehlender Dokumente
+. Reflexionen
+. Abgabe des Projektes
+
+
+
+== Aufgabenzuordnung
+https://github.com/RaphaelNeubert/I5_GPS_Tracks/projects/8

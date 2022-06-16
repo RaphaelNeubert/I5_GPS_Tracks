@@ -13,29 +13,31 @@ include::../_includes/default-attributes.inc.adoc[]
 |Beginn der Iteration
 |
 |Ende der Iteration
-|-
+|18.04.2022
 |===
 
 
 == Wesentliche Ziele
 
-. 
-.
-
+. Behebung angestrichener Punkte in der Dokumentation
+. Nachbearbeitung (teils) fehlender Dokumente und Modelle
+.. Requirements
+.. Anforderungen
+.. Domain & C4 Model
+.. Alphas
+.. Rechtschreibung & Einheitlichkeit
 
 
 == Aufgabenzuordnung
 https://github.com/RaphaelNeubert/I5_GPS_Tracks/projects/5
-////
+
+
 == Bewertungskriterien
-* Das Glossar, das Domainmodell, das Architecture-Notebook und die Risikoliste werden beim Zusammentreffen aller Gruppenmitglieder für gut ausgearbeitet und vollständig erklärt
-* Der Prototyp funktioniert in all seinen bisher vorhandenen Funktionen und ist bereit für die Vorstellung
-* Alle Gruppenmitglieder stufen den Beleg als abgabebereit ein
+* 
 
 
 
 == Assessment
-
 
 [cols="1,1"]
 |===
@@ -49,18 +51,5 @@ https://github.com/RaphaelNeubert/I5_GPS_Tracks/projects/5
 | grün
 |===
 
-
- •	Alle für die Iteration festgelegten Ziele wurden erfüllt.
-•	Alle Aufgabe, welche geplant waren, wurden bis zum Ende der Iteration bearbeitet und fertiggestellt. Es befindet sich kein Issue mehr in der IceBox, Assigned oder In progress, wodurch nichts in die nächste Iteration gemoved werden muss.
-•	Währen der Arbeitsphase wurden noch zusätzlich kleine, vor allem optische, Änderungen am Menü der App vorgenommen, um diese noch etwas anschaulicher für die Vorstellung zu machen.
-•	Aufgrund der Tatsache, dass SE I mit dieser, für uns letzte Iteration, abgeschlossen ist, gibt es noch keine genaue Planung für Iteration fünf und die damit verbundenen Aufgaben.
-•	Der LCA-Meilenstein, mit allen dafür notwenigen Aufgaben, wurde erreicht.
-•	Die Planung der nächsten Iteration wird voraussichtlich erst im nächsten Semester mit dem Start von SE II geschehen.
-•	Die Beurteilung für die Bewertungskriterien fällt sehr positiv aus.
-•	Das Glossar, das Domainmodell, das Architecture-Notebook und die Risikoliste wurden beim Zusammentreffen aller Gruppenmitglieder für gut ausgearbeitet befunden und somit als abgabebereit erklärt. Keine weiteren Ergänzungen waren nötig, wodurch ein Verschieben der Issues in die nächste Iteration nicht von Nöten war.
-•	Der Prototyp wurde allen Gruppenmitgliedern bei der Bewertung der Iteration vorgestellt und funktioniert in all seinen bisher vorhandenen Funktionen. Die Gruppe befindet den Prototypen als bereit für die Vorstellung.
-•	Der fertige Beleg wurde für die Abgabe von allen Gruppenmitgliedern freigegeben und kann nun an Professor Anke geschickt werden.
-   
-
-image::alphas.png[align="center"]
-////
+•	Alle für die Iteration festgelegten Ziele wurden erfüllt.
+•	Alle geplanten Aufgaben wurden bis zum Ende der Iteration bearbeitet und fertiggestellt. Es befinden sich alle Issues in der Box "Done", wodurch nichts in die nächste Iteration gemoved werden muss.
