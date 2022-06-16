@@ -50,6 +50,7 @@ public class ListingTracks extends AppCompatActivity {
     View callingItem;
     SharedPreferences.Editor editor;
     SharedPreferences mSettings;
+    FileListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +80,7 @@ public class ListingTracks extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     synchronisation();
+                    refreshListing();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -86,7 +88,9 @@ public class ListingTracks extends AppCompatActivity {
         });
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
-        //listing
+        refreshListing();
+    }
+    private void refreshListing() {
         String[] tmpFiles = fileList();
         List<Pair<String, Long>> files = new ArrayList<>();
         for (int i=0; i< tmpFiles.length; i++) {
@@ -98,7 +102,7 @@ public class ListingTracks extends AppCompatActivity {
                 files.add(new Pair<String,Long>(name, id));
             }
         }
-        ArrayAdapter adapter = new FileListAdapter(this, files );
+        adapter = new FileListAdapter(this, files );
 
         listView = (ListView) findViewById(R.id.listTracks);
         listView.setAdapter(adapter);
@@ -113,9 +117,10 @@ public class ListingTracks extends AppCompatActivity {
                 fileName += '-'+String.format("%020d", selectedItem.second);
                 //reappend file extension
                 fileName+= ".gpx";
-                popupMenuExample(fileName);
+                popupMenuExample(fileName, selectedItem);
             }
         });
+
     }
 
     public void goBackHome() {
@@ -124,7 +129,7 @@ public class ListingTracks extends AppCompatActivity {
         startActivityIfNeeded(intent, 0);
     }
 
-    private void popupMenuExample(String fileName) {
+    private void popupMenuExample(String fileName, Pair<String, Long> selectedItem) {
         PopupMenu p = new PopupMenu(this, callingItem);
         p.getMenuInflater().inflate(R.menu.popup_menu_example, p .getMenu());
         p.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -164,17 +169,14 @@ public class ListingTracks extends AppCompatActivity {
 
                 else if(String.valueOf(item).equals(getString(R.string.rename)))
                 {
-                    renameFile(file);
+                    renameFile(file, selectedItem);
                 }
 
                 else if(String.valueOf(item).equals(getString(R.string.delete)))
                 {
                     ondelList(fileName);
                     file.delete();
-                    finish();
-                    overridePendingTransition(10, 10);
-                    startActivity(getIntent());
-                    overridePendingTransition(10, 10);
+                    adapter.remove(selectedItem);
                 }
 
 
@@ -190,7 +192,7 @@ public class ListingTracks extends AppCompatActivity {
         editor.commit();
     }
 
-    private void renameFile(File file) {
+    private void renameFile(File file, Pair<String, Long> selectedItem) {
         final Dialog dia = new Dialog(ListingTracks.this);
         dia.setContentView(R.layout.rename_track);
 
@@ -199,16 +201,17 @@ public class ListingTracks extends AppCompatActivity {
         final EditText rn = (EditText) mView.findViewById(R.id.reninput);
         String OldFileName = rn.getText().toString();
         rn.setText(OldFileName);
+
         Button mok = (Button) mView.findViewById(R.id.ok);
         Button mab = (Button) mView.findViewById(R.id.ab);
+
+        mBuilder.setView(mView);
+        AlertDialog dialog = mBuilder.create();
 
         mab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                overridePendingTransition(10, 10);
-                startActivity(getIntent());
-                overridePendingTransition(10, 10);
-                finish();
+                dialog.cancel();
             }
         });
 
@@ -218,16 +221,18 @@ public class ListingTracks extends AppCompatActivity {
                 long newId = (Long)System.currentTimeMillis();
                 String idString = '-'+ String.format("%020d",newId);
 
-                String newFilename = rn.getText().toString()+idString+".gpx";
+                String newName = rn.getText().toString();
+                String newFilename = newName+idString+".gpx";
                 if(newFilename.length()>4+14 && newFilename.length() <= 64){
                     file.renameTo(new File(getFilesDir(),newFilename));
+                    int pos = adapter.getPosition(selectedItem);
+                    //update UI
+                    adapter.remove(selectedItem);
+                    adapter.insert(new Pair<>(newName,newId), pos);
                     Toast.makeText(ListingTracks.this,
                             getString(R.string.renameSuccess),
                             Toast.LENGTH_SHORT).show();
-                    dia.dismiss();
-                    overridePendingTransition(10, 10);
-                    startActivity(getIntent());
-                    overridePendingTransition(10, 10);
+                    dialog.dismiss();
                 } else {
                     Toast.makeText(ListingTracks.this,
                            getString(R.string.renameWarning),
@@ -236,8 +241,6 @@ public class ListingTracks extends AppCompatActivity {
             }
         });
 
-        mBuilder.setView(mView);
-        AlertDialog dialog = mBuilder.create();
         dialog.show();
     }
 
@@ -387,13 +390,15 @@ public class ListingTracks extends AppCompatActivity {
                 System.out.println("Files From Flask: "+ filesListFromFlask);
 
                 for (int i = 0; i < fileList.length; i++) {
+                    Log.i("local", new ArrayList<>(Arrays.asList(fileList)).toString());
+                    Log.i("server", filesListFromFlask.toString());
                     filesListFromFlask.remove(fileList[i]);
                     //listFormated=filesListFromFlask[i]
                     if (i ==(fileList.length -1 )){
-                        startActivity(getIntent());
-                        overridePendingTransition(10, 10);
+                        Log.i("tmp", "3here");
                     }
                 }
+                Log.i("tmp", "here2");
 
                 for(String el:filesListFromFlask){
                     System.out.println("Download from Flask: "+ filesListFromFlask);
@@ -424,6 +429,16 @@ public class ListingTracks extends AppCompatActivity {
                     uploadFile(file);
                     System.out.println("Locale Files zum upload "+ localeFiles);
                 }
+                //okhttp callbacks run in background and can't access the UI. In order to access the UI
+                //we need to run something in the UI Thread.
+                ListingTracks.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        //Handle UI here
+                        progressBar.setVisibility(View.INVISIBLE);
+                        refreshListing();
+                    }
+                });
             }
         });
     }
