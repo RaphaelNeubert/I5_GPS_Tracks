@@ -242,7 +242,10 @@ public class GPSTrack extends BroadcastReceiver{
             Marker m = new Marker(map);
             m.setId(String.valueOf(i));
             m.setPosition((GeoPoint) listIterator.next());
-            m.setIcon(context.getResources().getDrawable(R.drawable.edit));
+            if (specialPoints.containsKey(i))
+                m.setIcon(context.getResources().getDrawable(R.drawable.edit_spi));
+            else
+                m.setIcon(context.getResources().getDrawable(R.drawable.edit));
             m.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_CENTER);
             m.setDraggable(true);
             m.setOnMarkerDragListener(new Marker.OnMarkerDragListener() {
@@ -262,20 +265,19 @@ public class GPSTrack extends BroadcastReceiver{
                 @Override
                 public void onMarkerDragStart(Marker marker) {}
             });
-            MarkerBubble markerBubble = new MarkerBubble(R.layout.waypoint_bubble, map, this, view);
             if (specialPoints.containsKey(i)) {
+                MarkerBubble markerBubble = new MarkerBubble(R.layout.waypoint_bubble, map);
                 markerBubble.setTitle(specialPoints.get(i));
+                m.setInfoWindow(markerBubble);
             }
-            else {
-                markerBubble.setTitle("default");
-            }
-            m.setInfoWindow(markerBubble);
 
             m.setOnMarkerClickListener(new Marker.OnMarkerClickListener() {
                 @Override
                 public boolean onMarkerClick(Marker marker, MapView mapView) {
                     if (!bubbleOpen) {
                         bubbleOpen = true;
+
+                        m.setIcon(context.getResources().getDrawable(R.drawable.edit_dark));
                         if (specialPoints.containsKey(i))
                             m.showInfoWindow();
                         ImageButton editButton = (ImageButton) view.findViewById(R.id.edit_special_point);
@@ -284,21 +286,29 @@ public class GPSTrack extends BroadcastReceiver{
                             @Override
                             public void onClick(View v){
                                 showSpecialPointDialog(m);
-                                //m.closeInfoWindow();
                             }
                         });
                     }
-                    return true;
+                    ImageButton deselectButton = (ImageButton) view.findViewById(R.id.deselect_point);
+                    deselectButton.setVisibility(View.VISIBLE);
+                    deselectButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v){
+                            ImageButton editButton = (ImageButton) view.findViewById(R.id.edit_special_point);
+                            editButton.setVisibility(View.INVISIBLE);
+                            m.closeInfoWindow();
+                            if (specialPoints.containsKey(i))
+                                m.setIcon(context.getResources().getDrawable(R.drawable.edit_spi));
+                            else
+                                m.setIcon(context.getResources().getDrawable(R.drawable.edit));
+                            deselectButton.setVisibility(View.INVISIBLE);
+                            bubbleOpen = false;
+                        }
+                    });
+                    return false;
                 }
             });
-            map.getOverlayManager().add(new Overlay() {
-                @Override
-                public boolean onSingleTapConfirmed(MotionEvent e, MapView mapView) {
-                    m.closeInfoWindow();
 
-                    return super.onSingleTapConfirmed(e, mapView);
-                }
-            });
 
             markerList.add(m);
             map.getOverlayManager().add(m);
@@ -332,19 +342,26 @@ public class GPSTrack extends BroadcastReceiver{
             public void onClick(View v) {
                 String type = rn.getText().toString();
                 if(type.isEmpty()){
-                    Toast.makeText(context,
-                            context.getString(R.string.specialPointWarning),
-                            Toast.LENGTH_SHORT).show();
+                    specialPoints.remove(Integer.valueOf(marker.getId()));
+                    marker.closeInfoWindow();
+                    dialog.dismiss();
                 } else {
+                    MarkerBubble mb;
+                    if (!specialPoints.containsKey(Integer.valueOf(marker.getId())))
+                        mb = new MarkerBubble(R.layout.waypoint_bubble, map);
+                    else
+                        mb = ((MarkerBubble)marker.getInfoWindow());
+
                     specialPoints.put(Integer.valueOf(marker.getId()),type);
                     //update and refresh bubble
-                    ((MarkerBubble)marker.getInfoWindow()).setTitle(type);
+                    mb.setTitle(type);
+                    marker.closeInfoWindow();
+                    marker.setInfoWindow(mb);
                     marker.showInfoWindow();
                     dialog.dismiss();
                 }
             }
         });
-
         dialog.show();
     }
     public void warning() {

@@ -144,6 +144,7 @@ public class ListingTracks extends AppCompatActivity {
 
                 if(String.valueOf(item).equals(getString(R.string.details)))
                 {
+                    // map and view are not needed to get the distance
                     GPSTrack track = new GPSTrack(getApplicationContext(),null,null);
                     track.loadGPX(fileName);
                     int distance = (int) Math.round(track.getDistance());
@@ -154,8 +155,7 @@ public class ListingTracks extends AppCompatActivity {
                     String distStr = getString(R.string.dist) +' '+ String.valueOf(distance) + "m";
                     String finalStr = timeStr + '\n' + distStr;
                     Toast.makeText(ListingTracks.this,
-                        finalStr,
-                        Toast.LENGTH_SHORT).show();
+                        finalStr, Toast.LENGTH_SHORT).show();
                 }
                 else if(String.valueOf(item).equals(getString(R.string.showTrack)))
                 {

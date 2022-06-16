@@ -13,7 +13,7 @@
     <org.osmdroid.views.MapView
         android:id="@+id/map"
         android:layout_width="421dp"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <ImageButton
         android:id="@+id/posButton"
@@ -75,7 +75,25 @@
         android:translationX="-15dp"
         android:translationY="-80dp"
         android:visibility="invisible"
-        app:srcCompat="@drawable/edit_waypoint" />
+        app:srcCompat="@drawable/edit_waypoint"
+        tools:visibility="visible" />
+
+    <ImageButton
+        android:id="@+id/deselect_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20px"
+        android:layout_marginTop="20px"
+        android:layout_marginEnd="20px"
+        android:layout_marginBottom="20px"
+        android:background="@null"
+        android:translationX="-15dp"
+        android:translationY="-135dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/deselect_point"
+        tools:visibility="visible" />
 
     <ImageButton
         android:id="@+id/deselect"
