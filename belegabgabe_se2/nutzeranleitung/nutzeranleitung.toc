@@ -1,0 +1,11 @@
+\babel@toc {ngerman}{}
+\contentsline {section}{\numberline {1}Aufnahme eines GPS-Tracks}{2}{}%
+\contentsline {section}{\numberline {2}Bearbeiten eines GPS-Tracks}{2}{}%
+\contentsline {subsection}{\numberline {2.1}Hinzufügen von Special Points of Interest}{2}{}%
+\contentsline {section}{\numberline {3}GPS-Tracks mit Server synchronisieren}{2}{}%
+\contentsline {section}{\numberline {4}Nebenfunktionalitäten}{2}{}%
+\contentsline {subsection}{\numberline {4.1}GPS-Track auf Karte anzeigen}{2}{}%
+\contentsline {subsection}{\numberline {4.2}Details eines GPS-Tracks anzeigen}{2}{}%
+\contentsline {subsection}{\numberline {4.3}Aufnahme fortsetzen}{2}{}%
+\contentsline {subsection}{\numberline {4.4}GPS-Track umbenennen}{2}{}%
+\contentsline {subsection}{\numberline {4.5}GPS-Track löschen}{2}{}%

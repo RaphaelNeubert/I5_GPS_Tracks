@@ -1,0 +1,57 @@
+\documentclass{article}
+
+\usepackage[margin=3cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{standalone}
+\usepackage{float}
+\usepackage{color}
+\usepackage[shortlabels]{enumitem}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[ngerman]{babel}
+\usepackage{lscape}
+\usepackage{cancel}
+\usepackage{dirtytalk}
+\usepackage{siunitx}
+\usepackage{listings}
+
+\graphicspath{ {./images/} }
+
+\begin{document}
+\begin{titlepage}
+    \centering
+    {\scshape\LARGE Hochschule für Technik und Wirtschaft Dresden \par}
+    \vspace{1cm}
+    {\scshape\Large Softwaresystem \glqq GPS-Track-App\grqq\par}
+    \vspace{1.5cm}
+    {\huge\bfseries Betriebsanleitung\par}
+    \vspace{2cm}
+    {\Large\itshape Raphael Neubert, Alexander Pronin \par}
+    \vfill
+
+    {\large \today\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Server}
+\subsection{Allgemeiner Aufbau}
+Der Server besteht aus einer einzigen Python-Datei.
+Die GPS-Tracks werden in einen Ordner \say{files} gespeichert,
+welcher sich (standartmäßig) im Pfad der Python-Datei befinden muss.
+Der Ort an dem die GPS-Tracks gespeichert werden kann in der Python-Datei
+angepasst werden.
+\subsection{Installation}
+\subsubsection{Debian}
+\subsubsection{andere Betriebssysteme}
+\subsection{Wartung}
+\section{App}
+\subsection{Building}
+\subsection{Installation}
+\subsubsection{per APK}
+\subsubsection{über Android Studio}
+\end{document}

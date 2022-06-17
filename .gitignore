@@ -53,3 +53,13 @@ obj/
 # Python
 .venv
 .vscode
+
+#LaTeX
+*.pdf
+*.aux
+*.fdb_latexmk
+*.log
+*.gz
+*.fls
+*.sh
+*.synctex(busy)
