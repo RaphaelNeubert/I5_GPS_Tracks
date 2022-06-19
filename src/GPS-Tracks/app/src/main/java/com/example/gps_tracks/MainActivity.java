@@ -227,6 +227,12 @@ public class MainActivity extends AppCompatActivity{
                 recording = false;
                 gpsTrack.hide(map);
                 gpsTrack = null;
+
+                // In case spi wasn't deselected before saving
+                ImageButton deselect = findViewById(R.id.deselect_point);
+                ImageButton spi_button = findViewById(R.id.edit_special_point);
+                spi_button.setVisibility(View.INVISIBLE);
+                deselect.setVisibility(View.INVISIBLE);
                 dialog.dismiss();
             }
         });
@@ -257,6 +263,11 @@ public class MainActivity extends AppCompatActivity{
                 Toast.makeText(MainActivity.this,
                         getString(R.string.saveSucess),
                         Toast.LENGTH_SHORT).show();
+                // In case spi wasn't deselected before saving
+                ImageButton deselect = findViewById(R.id.deselect_point);
+                ImageButton spi_button = findViewById(R.id.edit_special_point);
+                spi_button.setVisibility(View.INVISIBLE);
+                deselect.setVisibility(View.INVISIBLE);
                 dialog.dismiss();
             }
         });
