@@ -137,8 +137,10 @@ public class GPSTrack extends BroadcastReceiver{
             long newId = (Long)System.currentTimeMillis();
             if (this.id != 0) { //delete old track
                 String oldIdString = '-'+ String.format("%020d",this.id);
-                file = new File(path+'/'+this.trackName +oldIdString+".gpx");
+                String oldFilename = path+'/'+this.trackName +oldIdString+".gpx";
+                file = new File(oldFilename);
                 file.delete();
+                SyncManager.ondelList(this.trackName+oldIdString+".gpx", context);
             }
 
             String idString = '-'+ String.format("%020d",newId);

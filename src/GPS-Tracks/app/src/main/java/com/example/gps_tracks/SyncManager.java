@@ -62,7 +62,11 @@ public class SyncManager {
 
     }
 
-    public void ondelList(String selectedItem) {
+    public static void ondelList(String selectedItem, Context context) {
+        SharedPreferences.Editor editor;
+        SharedPreferences mSettings;
+        mSettings = context.getSharedPreferences("del_files", Context.MODE_MULTI_PROCESS);
+        editor = mSettings.edit();
         editor.putString(selectedItem, selectedItem);
         editor.commit();
     }

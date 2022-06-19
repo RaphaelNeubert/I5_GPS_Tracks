@@ -187,14 +187,14 @@ public class ListingTracks extends AppCompatActivity {
                 else if(String.valueOf(item).equals(getString(R.string.rename)))
                 {
                     // delete from server
-                    syncManager.ondelList(fileName);
+                    syncManager.ondelList(fileName, getApplicationContext());
                     syncManager.delFile(fileName);
                     renameFile(file, selectedItem);
                 }
 
                 else if(String.valueOf(item).equals(getString(R.string.delete)))
                 {
-                    syncManager.ondelList(fileName);
+                    syncManager.ondelList(fileName, getApplicationContext());
                     file.delete();
                     adapter.remove(selectedItem);
                 }
