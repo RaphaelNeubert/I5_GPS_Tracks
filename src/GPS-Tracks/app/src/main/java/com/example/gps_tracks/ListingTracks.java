@@ -55,6 +55,7 @@ public class ListingTracks extends AppCompatActivity {
     SharedPreferences.Editor editor;
     SharedPreferences mSettings;
     FileListAdapter adapter;
+    SyncManager syncManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,24 +78,25 @@ public class ListingTracks extends AppCompatActivity {
             }
         });
 
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        syncManager = new SyncManager(this, getApplicationContext(),progressBar);
 
         sync = (Button)findViewById(R.id.sync);
         sync.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
-                    synchronisation();
+                    syncManager.synchronisation();
                     refreshListing();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         refreshListing();
     }
-    private void refreshListing() {
+    public void refreshListing() {
         String[] tmpFiles = fileList();
         List<Pair<String, Long>> files = new ArrayList<>();
         for (int i=0; i< tmpFiles.length; i++) {
@@ -124,7 +126,6 @@ public class ListingTracks extends AppCompatActivity {
                 popupMenuExample(fileName, selectedItem);
             }
         });
-
     }
 
     public void goBackHome() {
@@ -186,14 +187,14 @@ public class ListingTracks extends AppCompatActivity {
                 else if(String.valueOf(item).equals(getString(R.string.rename)))
                 {
                     // delete from server
-                    ondelList(fileName);
-                    delFile(fileName);
+                    syncManager.ondelList(fileName);
+                    syncManager.delFile(fileName);
                     renameFile(file, selectedItem);
                 }
 
                 else if(String.valueOf(item).equals(getString(R.string.delete)))
                 {
-                    ondelList(fileName);
+                    syncManager.ondelList(fileName);
                     file.delete();
                     adapter.remove(selectedItem);
                 }
@@ -206,11 +207,6 @@ public class ListingTracks extends AppCompatActivity {
         p.show();
     }
     
-    private void ondelList(String selectedItem) {
-        editor.putString(selectedItem, selectedItem);
-        editor.commit();
-    }
-
     private void renameFile(File file, Pair<String, Long> selectedItem) {
         final Dialog dia = new Dialog(ListingTracks.this);
         dia.setContentView(R.layout.rename_track);
@@ -263,217 +259,5 @@ public class ListingTracks extends AppCompatActivity {
         dialog.show();
     }
 
-    public static Boolean uploadFile(File file) {
-        OkHttpClient okHttpClient = new OkHttpClient();
-        // deploy on http://pythonanywhere.com
-
-        try {
-            RequestBody requestBody = new MultipartBody.Builder().setType(MultipartBody.FORM)
-                    .addFormDataPart("file", file.getName(),
-                            RequestBody.create(MediaType.parse("text/csv"), file))
-                    .build();
-
-            Request request = new Request.Builder()
-                    .url("http://141.56.137.84:5000/upload")
-                    .post(requestBody)
-                    .build();
-
-            okHttpClient.newCall(request).enqueue(new Callback() {
-
-                @Override
-                public void onFailure(final Call call, final IOException e) {
-                    // Handle the error
-                    System.out.println("Error => " + e);
-                }
-
-                @Override
-                public void onResponse(final Call call, final Response response) throws IOException {
-                    if (!response.isSuccessful()) {
-                        // Handle the error
-                    }
-                    // Upload successful
-                }
-            });
-            return true;
-        } catch (Exception ex) {
-            // Handle the error
-        }
-        return false;
-    }
-
-    public void downloadFile(String filename) throws IOException {
-        OkHttpClient client = new OkHttpClient();
-
-        Request request = new Request.Builder()
-                //.url("http://aleksandrpronin.pythonanywhere.com/download/"+filename)
-                .url("http://141.56.137.84:5000/download/"+filename)
-                .build();
-
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                call.cancel();
-            }
-
-            @Override
-            public void onResponse(final Call call, Response response) throws IOException {
-                //Log.d("TAG",response.body().string());
-                if (!response.isSuccessful()) {
-                    throw new IOException("Failed to download file: " + response);
-                }
-                FileOutputStream outputStream;
-                try {
-                    outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
-                    outputStream.write(response.body().bytes());
-                    outputStream.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    public static Boolean delFile(String filename) {
-        OkHttpClient okHttpClient = new OkHttpClient();
-        try {
-            Request request = new Request.Builder()
-                    //.url("http://ip:5000/download/"+filename)
-                    //.url("http://aleksandrpronin.pythonanywhere.com/delete/"+filename)
-                    .url("http://141.56.137.84:5000/delete/"+filename)
-                    .build();
-
-            okHttpClient.newCall(request).enqueue(new Callback() {
-
-                @Override
-                public void onFailure(final Call call, final IOException e) {
-                    // Handle the error
-                    System.out.println("Error => " + e);
-                }
-
-                @Override
-                public void onResponse(final Call call, final Response response) throws IOException {
-                    if (!response.isSuccessful()) {
-                        // Handle the error
-                    }
-                    // Upload successful
-                }
-            });
-            return true;
-        } catch (Exception ex) {
-            // Handle the error
-        }
-        return false;
-    }
-
-
-    public void synchronisation() throws IOException {
-
-        // the map containing the items to be deleted
-        Map<String, String> ret = (Map<String, String>) mSettings.getAll();
-        editor.clear();
-        Collection<String> values =ret.values();
-        String filePath = getApplicationContext().getFilesDir().getParent()+"/shared_prefs/del_files.xml";
-        File deletePrefFile = new File(filePath);
-        System.out.println("delList: "+values);
-
-        // del
-        for(String el:values){
-            delFile(el);
-            System.out.println("Values "+ el);
-        }
-
-        progressBar.setVisibility(ProgressBar.VISIBLE);
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url("http://141.56.137.84:5000/liste")
-                .build();
-
-         client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                call.cancel();
-            }
-
-            @Override
-            public void onResponse(final Call call, Response response) throws IOException {
-                String responseData = response.body().string();
-                String listFormated=responseData.replace("'", "").replace(", ",",").replace("[","").replace("]","");
-                String[] arrayFromFlask = listFormated.split(",");
-
-
-                // сdownload
-                Context context = getApplicationContext();
-                String[] fileList = context.fileList();
-
-                List<String> filesListFromFlask = new ArrayList<>(Arrays.asList(arrayFromFlask));
-                System.out.println("Files From Flask: "+ filesListFromFlask);
-
-                for (int i = 0; i < fileList.length; i++) {
-                    Log.i("local", new ArrayList<>(Arrays.asList(fileList)).toString());
-                    Log.i("server", filesListFromFlask.toString());
-                    filesListFromFlask.remove(fileList[i]);
-                    //listFormated=filesListFromFlask[i]
-                    if (i ==(fileList.length -1 )){
-                        Log.i("tmp", "3here");
-                    }
-                }
-                Log.i("tmp", "here2");
-
-                for(String el:filesListFromFlask){
-                    System.out.println("Download from Flask: "+ filesListFromFlask);
-                    downloadFile(el);
-                }
-
-                // upload
-                File dir = getFilesDir();
-                File file;
-                List<String> localeFiles = new ArrayList<>(Arrays.asList(fileList));
-                localeFiles.remove("osmdroid");
-                System.out.println("Files Local: "+ localeFiles);
-
-                for (int i = 0; i < arrayFromFlask.length; i++) {
-                    localeFiles.remove(arrayFromFlask[i]);
-                }
-
-                /* Files deleted from the server will not be re-downloaded to the server.
-                 ** The entire list of deleted files is stored in a list.
-                 */
-                String[] delListFromFlask = downloadDelList();
-                for (int i = 0; i < delListFromFlask.length; i++) {
-                    localeFiles.remove(delListFromFlask[i]);
-                }
-
-                for(String el:localeFiles){
-                    file = new File(dir, el);
-                    uploadFile(file);
-                    System.out.println("Locale Files zum upload "+ localeFiles);
-                }
-                //okhttp callbacks run in background and can't access the UI. In order to access the UI
-                //we need to run something in the UI Thread.
-                ListingTracks.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        //Handle UI here
-                        progressBar.setVisibility(View.INVISIBLE);
-                        refreshListing();
-                    }
-                });
-            }
-        });
-    }
-
-    public String[] downloadDelList() throws IOException {
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url("http://141.56.137.84:5000/dellist")
-                .build();
-        Response response = client.newCall(request).execute();
-        String responseData = response.body().string();
-        String listFormated=responseData.replace("'", "").replace(", ",",").replace("[","").replace("]","");
-        String[] arrayFromFlask = listFormated.split(",");
-        List<String> filesListFromFlask = new ArrayList<>(Arrays.asList(arrayFromFlask));
-        System.out.println("Alle Dateien, die vom Server gelöscht wurden: "+ filesListFromFlask);
-        return arrayFromFlask;
-    }
 }
 
