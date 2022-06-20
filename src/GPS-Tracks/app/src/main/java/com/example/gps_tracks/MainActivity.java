@@ -137,6 +137,8 @@ public class MainActivity extends AppCompatActivity{
                             if (option.equals(getString(R.string.showTrack))) {
                                 if (gpsTrack != null)
                                     gpsTrack.hide(map);
+                                ImageButton listButton = findViewById(R.id.listButton);
+                                listButton.setVisibility(View.INVISIBLE);
 
                                 loadTrack(data.getStringExtra("fileName"));
                                 ImageButton deselectButton = findViewById(R.id.deselect);
@@ -144,6 +146,12 @@ public class MainActivity extends AppCompatActivity{
                                 cameraToTrack = true;
                             }
                             else if (option.equals(getString(R.string.edit))) {
+                                if (gpsTrack != null)
+                                    gpsTrack.hide(map);
+
+                                ImageButton listButton = findViewById(R.id.listButton);
+                                listButton.setVisibility(View.INVISIBLE);
+
                                 ImageButton saveButton = (ImageButton) findViewById(R.id.save);
                                 ImageButton recstart = (ImageButton) findViewById(R.id.record);
                                 recstart.setVisibility(View.INVISIBLE);
@@ -233,6 +241,9 @@ public class MainActivity extends AppCompatActivity{
                 ImageButton spi_button = findViewById(R.id.edit_special_point);
                 spi_button.setVisibility(View.INVISIBLE);
                 deselect.setVisibility(View.INVISIBLE);
+                //show listButton
+                ImageButton listButton = findViewById(R.id.listButton);
+                listButton.setVisibility(View.VISIBLE);
                 dialog.dismiss();
             }
         });
@@ -268,6 +279,9 @@ public class MainActivity extends AppCompatActivity{
                 ImageButton spi_button = findViewById(R.id.edit_special_point);
                 spi_button.setVisibility(View.INVISIBLE);
                 deselect.setVisibility(View.INVISIBLE);
+                //show listButton
+                ImageButton listButton = findViewById(R.id.listButton);
+                listButton.setVisibility(View.VISIBLE);
                 dialog.dismiss();
             }
         });
@@ -356,5 +370,8 @@ public class MainActivity extends AppCompatActivity{
         //hide button
         ImageButton deselectButton = findViewById(R.id.deselect);
         deselectButton.setVisibility(View.INVISIBLE);
+        //show listButton
+        ImageButton listButton = findViewById(R.id.listButton);
+        listButton.setVisibility(View.VISIBLE);
     }
 }
