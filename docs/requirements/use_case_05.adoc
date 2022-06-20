@@ -20,10 +20,14 @@ möchte auf dem aktuellen Stand der GPS-Tracks sein
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 * die App ist geöffnet
 * der Nutzer drückt auf den "Synchronisieren"-Button
-** die Methode "Synchronisation" vergleicht die Dateien auf dem Smartphone mit denen auf dem Server
-** auf dem Smartphone fehlende Dateien werden heruntergeladen
-** auf dem Server fehlende werden hochgeladen
-* die Synchronisation ist abgeschlossen
+* die Datei mit der Liste aller gelöschten Dateien auf dem Smartphone wird überprüft
+** falls diese nicht leer ist, wird eine Anfrage, diese Dateien auch auf dem Server zu löschen gesendet
+** die Liste wird danach gelöscht
+** die Dateien werden ebenfalls auf dem Server gelöscht und es wird eine Liste der gelöschten Dateien gespeichert
+* der Server sendet eine Liste gelöschter Dateien an das Smartphone
+** wenn neue Dateien auf dem Smartphone vorhanden sind, die sich nicht auf dem Server oder in der Liste gelöschter Dateien befinden, werden sie auf den Server heruntergeladen
+** fehlende Dateien werden auf das Smartphone heruntergeladen
+
 
 . Der Use Case ist abgeschlossen.
 
@@ -44,7 +48,7 @@ möchte auf dem aktuellen Stand der GPS-Tracks sein
 //. …
 //. <Unterablauf 1, Schritt n>
 
-=== Wesentliche Szenarios
+//=== Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
 
 
