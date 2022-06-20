@@ -136,7 +136,9 @@ public class MainActivity extends AppCompatActivity{
 
                             if (option.equals(getString(R.string.showTrack))) {
                                 if (gpsTrack != null)
-                                    gpsTrack.hide(map);
+                                    gpsTrack.hide();
+                                ImageButton recstart = (ImageButton) findViewById(R.id.record);
+                                recstart.setVisibility(View.INVISIBLE);
                                 ImageButton listButton = findViewById(R.id.listButton);
                                 listButton.setVisibility(View.INVISIBLE);
 
@@ -147,7 +149,7 @@ public class MainActivity extends AppCompatActivity{
                             }
                             else if (option.equals(getString(R.string.edit))) {
                                 if (gpsTrack != null)
-                                    gpsTrack.hide(map);
+                                    gpsTrack.hide();
 
                                 ImageButton listButton = findViewById(R.id.listButton);
                                 listButton.setVisibility(View.INVISIBLE);
@@ -159,6 +161,29 @@ public class MainActivity extends AppCompatActivity{
                                 loadTrack(data.getStringExtra("fileName"));
                                 cameraToTrack = true;
                                 gpsTrack.startEditing(map);
+                            }
+                            else if (option.equals(getString(R.string.contRec))) {
+                                if (gpsTrack != null)
+                                    gpsTrack.hide();
+
+                                ImageButton listButton = findViewById(R.id.listButton);
+                                listButton.setVisibility(View.INVISIBLE);
+
+
+                                loadTrack(data.getStringExtra("fileName"));
+                                if (gpsTrack != null) {
+                                    cameraToTrack = true;
+                                    //continue recording
+                                    recording = true;
+                                    gpsTrack.startRecording();
+
+                                    IntentFilter intentFilter = new IntentFilter("Location");
+                                    registerReceiver(gpsTrack, intentFilter);
+
+                                    //change icon
+                                    ImageButton recstart = (ImageButton) findViewById(R.id.record);
+                                    recstart.setImageResource(R.drawable.button_rec);
+                                }
                             }
                         }
                     }
@@ -195,7 +220,7 @@ public class MainActivity extends AppCompatActivity{
                     IntentFilter intentFilter = new IntentFilter("Location");
                     registerReceiver(gpsTrack, intentFilter);
 
-                    gpsTrack.display(map);
+                    gpsTrack.display();
                     //change icon
                     recstart.setImageResource(R.drawable.button_rec);
                 }
@@ -233,7 +258,7 @@ public class MainActivity extends AppCompatActivity{
                 }
                 recstart.setImageResource(R.drawable.button_63x63);
                 recording = false;
-                gpsTrack.hide(map);
+                gpsTrack.hide();
                 gpsTrack = null;
 
                 // In case spi wasn't deselected before saving
@@ -268,7 +293,7 @@ public class MainActivity extends AppCompatActivity{
                 recstart.setImageResource(R.drawable.button_63x63);
                 gpsTrack.endRecording();
                 recording = false;
-                gpsTrack.hide(map);
+                gpsTrack.hide();
                 gpsTrack = null;
 
                 Toast.makeText(MainActivity.this,
@@ -352,7 +377,7 @@ public class MainActivity extends AppCompatActivity{
     public void loadTrack(String fileName) {
         gpsTrack = new GPSTrack(MainActivity.this, map, view);
         gpsTrack.loadGPX(fileName);
-        gpsTrack.display(map);
+        gpsTrack.display();
         //move camera to track
         locationOverlay.disableFollowLocation();
         mapController.setCenter(gpsTrack.getStartPoint());
@@ -365,7 +390,7 @@ public class MainActivity extends AppCompatActivity{
     * @return void
     */
     public void deselect(View view) {
-        gpsTrack.hide(map);
+        gpsTrack.hide();
         gpsTrack = null;
         //hide button
         ImageButton deselectButton = findViewById(R.id.deselect);
