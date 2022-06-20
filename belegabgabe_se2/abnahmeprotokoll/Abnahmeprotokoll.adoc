@@ -1,0 +1,76 @@
+= Abnahmeprotokoll <Kurztitel Thema>
+:icons: font
+:lang: de
+//:sectnums: short
+
+//:source-highlighter: highlightjs
+//:imagesdir: img
+//Platzhalter für weitere Dokumenten-Attribute
+
+//Autor: {author}, Version {revnumber}, {revdate}
+== Projektangaben
+Thema:
+
+Zeitraum:
+
+GitHub Repository:
+
+
+== Abnahmedokumentation 
+=== Abnahme
+Datum:
+
+Zeit:
+
+Abnahmeumgebung:
+
+=== Lieferumfang
+
+* Software in folgender Form:
+* Benutzeranleitung
+* Betriebsanleitung
+* Anforderungsspezifikation
+* Entwicklerdokumentation
+* Testdokumentation
+
+=== Funktionalität
+[cols="4,1,5"]
+|===
+|Use Case / Szenario | erfüllt | Anmerkung
+
+|UC1 / Sc1
+| ja/nein
+|...
+|UC1 / Sc2
+| ja/nein
+|...
+
+|===
+
+===  Systemweite Anforderungen
+[cols="4,1,5"]
+|===
+|Anforderung | erfüllt | Anmerkung
+
+|NFA1 ...
+| ja/nein
+|...
+|NFA2 ...
+| ja/nein
+|...
+
+|===
+
+== Unterschriften
+
+Hiermit wird die Abnahme vollständig / mit Mängeln bestätigt.
+
+Bemerkungen:
+
+[cols="1,1"]
+|===
+|> 
+|>
+|Unterschrift Themensteller*in
+|Unterschrift Projektleiter*in
+|===
