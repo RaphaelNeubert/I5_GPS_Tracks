@@ -275,6 +275,8 @@ public class GPSTrack extends BroadcastReceiver{
                 @Override
                 public boolean onMarkerClick(Marker marker, MapView mapView) {
                     if (!bubbleOpen) {
+                        //potential race-condition, tests showed no problem since callback
+                        //gets called delayed if multiple markers are clicked at once
                         bubbleOpen = true;
 
                         m.setIcon(context.getResources().getDrawable(R.drawable.edit_dark));
@@ -284,27 +286,27 @@ public class GPSTrack extends BroadcastReceiver{
                         editButton.setVisibility(View.VISIBLE);
                         editButton.setOnClickListener(new View.OnClickListener() {
                             @Override
-                            public void onClick(View v){
+                            public void onClick(View v) {
                                 showSpecialPointDialog(m);
                             }
                         });
+                        ImageButton deselectButton = (ImageButton) view.findViewById(R.id.deselect_point);
+                        deselectButton.setVisibility(View.VISIBLE);
+                        deselectButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ImageButton editButton = (ImageButton) view.findViewById(R.id.edit_special_point);
+                                editButton.setVisibility(View.INVISIBLE);
+                                m.closeInfoWindow();
+                                if (specialPoints.containsKey(i))
+                                    m.setIcon(context.getResources().getDrawable(R.drawable.edit_spi));
+                                else
+                                    m.setIcon(context.getResources().getDrawable(R.drawable.edit));
+                                deselectButton.setVisibility(View.INVISIBLE);
+                                bubbleOpen = false;
+                            }
+                        });
                     }
-                    ImageButton deselectButton = (ImageButton) view.findViewById(R.id.deselect_point);
-                    deselectButton.setVisibility(View.VISIBLE);
-                    deselectButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v){
-                            ImageButton editButton = (ImageButton) view.findViewById(R.id.edit_special_point);
-                            editButton.setVisibility(View.INVISIBLE);
-                            m.closeInfoWindow();
-                            if (specialPoints.containsKey(i))
-                                m.setIcon(context.getResources().getDrawable(R.drawable.edit_spi));
-                            else
-                                m.setIcon(context.getResources().getDrawable(R.drawable.edit));
-                            deselectButton.setVisibility(View.INVISIBLE);
-                            bubbleOpen = false;
-                        }
-                    });
                     return false;
                 }
             });
