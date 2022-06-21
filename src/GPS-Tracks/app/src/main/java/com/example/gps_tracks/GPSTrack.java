@@ -66,15 +66,14 @@ public class GPSTrack extends BroadcastReceiver{
         this.context = context;
         this.map = map;
         this.view = view;
-        this.context = context;
         specialPoints = new Hashtable<>();
     }
-    void display(MapView map) {
+    void display() {
         if (path != null) {
             map.getOverlayManager().add(path);
         }
     }
-    void hide(MapView map) {
+    void hide() {
         if (path != null) {
             map.getOverlayManager().remove(path);
             if (markerList != null) {
@@ -117,7 +116,7 @@ public class GPSTrack extends BroadcastReceiver{
         return true;
     }
     boolean endRecording() {
-        if(state == State.RECORDING) {
+        if(state == State.RECORDING || state == State.CONTREC) {
             context.stopService(recIntent);
         }
         saveAsGPX();
@@ -172,7 +171,6 @@ public class GPSTrack extends BroadcastReceiver{
 
         while(listIterator.hasNext()) {
             int i = listIterator.nextIndex();
-            Log.i("route i:", String.valueOf(i));
             Waypoint waypoint = new Waypoint();
             GeoPoint point = (GeoPoint) listIterator.next();
             waypoint.setLatitude(point.getLatitude());

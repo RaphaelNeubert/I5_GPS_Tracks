@@ -21,9 +21,7 @@ import org.osmdroid.views.overlay.mylocation.IMyLocationProvider;
 import java.io.Serializable;
 
 public class RecordingService extends Service {
-    private GPSTrack gpsTrack;
     private GpsMyLocationProvider gpsMyLocationProvider;
-    Polyline path;
 
     public RecordingService() {
         Log.i("MyService", "MyService was created");
@@ -38,8 +36,6 @@ public class RecordingService extends Service {
         PendingIntent pendingIntent =
                 PendingIntent.getActivity(this, 0, notificationIntent,
                         PendingIntent.FLAG_IMMUTABLE);
-
-        gpsTrack = (GPSTrack) intent.getSerializableExtra("gpsTrack");
 
         NotificationManager manager = getSystemService(NotificationManager.class);
         manager.createNotificationChannel(new NotificationChannel("channel1", "test", NotificationManager.IMPORTANCE_DEFAULT));

@@ -160,6 +160,7 @@ public class ListingTracks extends AppCompatActivity {
                 }
                 else if(String.valueOf(item).equals(getString(R.string.showTrack)))
                 {
+                    //will be done in MainActivity
                     Intent intent = new Intent();
                     intent.putExtra("optionClicked", String.valueOf(item));
                     intent.putExtra("fileName", fileName);
@@ -170,6 +171,7 @@ public class ListingTracks extends AppCompatActivity {
 
                 else if(String.valueOf(item).equals(getString(R.string.edit)))
                 {
+                    //will be done in MainActivity
                     Intent intent = new Intent();
                     intent.putExtra("optionClicked", String.valueOf(item));
                     intent.putExtra("fileName", fileName);
@@ -181,6 +183,13 @@ public class ListingTracks extends AppCompatActivity {
 
                 else if(String.valueOf(item).equals(getString(R.string.contRec)))
                 {
+                    //will be done in MainActivity
+                    Intent intent = new Intent();
+                    intent.putExtra("optionClicked", String.valueOf(item));
+                    intent.putExtra("fileName", fileName);
+
+                    setResult(Activity.RESULT_OK, intent);
+                    finish();
 
                 }
 
