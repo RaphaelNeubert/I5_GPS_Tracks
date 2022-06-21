@@ -224,7 +224,7 @@ public class ListingTracks extends AppCompatActivity {
         View mView = getLayoutInflater().inflate(R.layout.rename_track, null);
         final EditText rn = (EditText) mView.findViewById(R.id.reninput);
         String OldFileName = rn.getText().toString();
-        rn.setText(OldFileName);
+        rn.setText(selectedItem.first);
 
         Button mok = (Button) mView.findViewById(R.id.ok);
         Button mab = (Button) mView.findViewById(R.id.ab);
