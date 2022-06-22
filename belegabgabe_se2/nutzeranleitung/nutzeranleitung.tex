@@ -15,7 +15,7 @@
 \usepackage{lscape}
 \usepackage{cancel}
 \usepackage{dirtytalk}
-\usepackage{siunitx}
+\usepackage{	}
 \usepackage{listings}
 
 \graphicspath{ {./images/} }
@@ -29,13 +29,14 @@
     \vspace{1.5cm}
     {\huge\bfseries Nutzeranleitung\par}
     \vspace{2cm}
-    {\Large\itshape Raphael Neubert, Alex Schechtel, Aleksandr Pronin... \par}
+    {\Large\itshape Raphael Neubert, Alex Schechtel, Aleksandr Pronin, Quang Duy Pham, ... \par}
     \vfill
 
     {\large \today\par}
 \end{titlepage}
 
 \tableofcontents
+
 \newpage
 
 \section{Aufnahme eines GPS-Tracks}
@@ -74,11 +75,153 @@
             \caption{Dateien mit demselben Namen (Menüseite)}
         \end{figure}
     \end{enumerate}
+    
+    \newpage
 
 \section{Nebenfunktionalitäten}
-\subsection{GPS-Track auf Karte anzeigen}
+	Neben zwei Hauptfunktionalitäten (Aufnahme eines GPS-Tracks und Bearbeiten eines GPS-Tracks) gibt die App auch fünf Nebenfunktionalitäten, die im Menü gefunden werden: \\
+	\begin{itemize}
+		\item Details eines GPS-Tracks anzeigen
+		\item GPS-Track auf Karte anzeigen
+		\item Aufnahme fortsetzen
+		\item GPS-Track umbenennen
+		\item GPS-Track löschen	
+	\end{itemize}
+	Mit den folgenden Schritten können Sie auf die Nebenfunktionalitäten zugreifen.\\
+	\begin{enumerate}
+		\item Navigieren Sie zu Startseite und tippen Sie auf den Button \glqq Menü".
+		\item Tippen Sie im erscheinenden Menü auf einem Track.
+		\item Dropdown-Menü mit Nebenfunktionalitäten.
+	\end{enumerate}		
+	\begin{figure}[H]
+		\captionsetup{justification=centering}
+		\minipage{0.32\textwidth}
+		  \includegraphics[width=\linewidth]{1_menu.jpg}
+		  \centering
+		  \caption{Menü-Button (Startseite)}
+		\endminipage\hfill
+		\minipage{0.32\textwidth}
+		  \includegraphics[width=\linewidth]{2_menu2.jpg}
+		  \centering
+		  \caption{Track wählen (Menüseite)}
+		\endminipage\hfill
+		\minipage{0.32\textwidth}%
+		  \includegraphics[width=\linewidth]{3_menu3.jpg}
+		  \centering
+		  \caption{Dropdown-Menü (Menüseite)}
+		\endminipage
+	\end{figure}
+	
+	\newpage
 \subsection{Details eines GPS-Tracks anzeigen}
+	Die Nebenfunktionalitaet \glqq Details anzeigen" zeigt Informationen über den aufgenommenen Track an, wie z.B. Datum, Uhrzeit der Aufnahme und die Gesamtlänge des Track.\\ 
+	\begin{enumerate}
+		\item Im Dropdown-Menü tippen Sie auf \glqq Details anzeigen".
+		\item Information des Tracks wird als Popup-Menü angezeigt.
+	\end{enumerate}
+	\begin{figure}[H]
+		\captionsetup{justification=centering}
+		\minipage{0.5\textwidth}
+		  \includegraphics[scale=0.15]{4_details.jpg}
+		  \centering
+		  \caption{Details anzeigen \\(Menüseite)}
+		\endminipage
+		\minipage{0.5\textwidth}
+		  \includegraphics[scale=0.15]{5_details2.jpg}
+  		  \centering
+		  \caption{Information des Tracks \\(Popup-Menü)}
+		\endminipage
+	\end{figure}
+	\newpage
+\subsection{GPS-Track auf Karte anzeigen}
+	Um Track auf Karte anzuzeigen, können Sie die Nebenfunktionalitäten \glqq GPS-Track auf Karte anzeigen" verwenden.\\
+	\begin{enumerate}
+		\item Im Dropdown-Menü tippen Sie auf \glqq Track auf Karte anzeigen".
+		\item Track auf Karte wird angezeigt.
+			\begin{itemize}
+				\item Bei Klicken an \glqq X" wird angezeigte Karte geschlossen und auf die Menüseite zurückgesprungen.
+			\end{itemize}
+	\end{enumerate}
+	\begin{figure}[H]
+		\captionsetup{justification=centering}
+		\minipage{0.5\textwidth}
+		  \includegraphics[scale=0.15]{6_anzeigen.jpg}
+		  \centering
+		  \caption{Track auf Karte \\(Dropdown-Menü)}
+		\endminipage\hfill
+		\minipage{0.5\textwidth}
+		  \includegraphics[scale=0.15]{7_anzeigen2.jpg}
+		  \centering
+		  \caption{Track auf Karte \\(Karteseite)}
+		\endminipage\hfill
+	\end{figure}
+	\newpage
 \subsection{Aufnahme fortsetzen}
+	Wenn Sie die Aufnahme von einem ausgewählten Track fortsetzen wollen,
+	\begin{enumerate}
+		\item Im Dropdown-Menü tippen Sie auf \glqq Aufnahme fortsetzen".
+		\item Aufnahme-UI wird angezeigt und Ihre Bewegung wird aufgenommen.
+		\item Bei Stoppen tippen Sie auf \glqq X \grqq an unten rechten Seite der Karte, dann erscheint ein Popup-Menü mit drei Optionen, um die Aufnahme zu speichern.
+			\begin{itemize}
+				\item Bei \glqq Speichern" wird die Aufnahme gespeichert.
+				\item Bei \glqq Fortsetzen" wird die Aufnahme weiter fortgesetzt.
+				\item Bei \glqq Verwerfen" wird die Änderungen der Aufnahme verworfen.
+			\end{itemize}
+	\end{enumerate}
+	\begin{figure}[H]
+		\captionsetup{justification=centering}
+		\minipage{0.32\textwidth}
+		  \includegraphics[width=\linewidth]{8_fortsetzen.jpg}
+		  \centering
+		  \caption{Aufnahme fortsetzen (Menüseite)}
+		\endminipage\hfill
+		\minipage{0.32\textwidth}
+		  \includegraphics[width=\linewidth]{9_fortsetzen2.jpg}
+		  \centering
+		  \caption{Aufnahme-UI \\(Karteseite)}
+		\endminipage\hfill
+		\minipage{0.32\textwidth}%
+		  \includegraphics[width=\linewidth]{10_fortsetzen3.jpg}
+		  \centering
+		  \caption{Popup-Menü \\zum Speichern}
+		\endminipage
+	\end{figure}
+	\newpage
 \subsection{GPS-Track umbenennen}
+	Falls Sie den Name des Tracks umbenennen wollen,
+	\begin{enumerate}
+		\item Im Dropdown-Menü tippen Sie auf \glqq Track umbenennen".
+		\item Popup-Menü für Ubenennung erscheint.
+		\begin{itemize}
+			\item Im Textfeld steht bisherigen Trackname
+			\item Bei \glqq OK" wird der neue Name gespeichert
+			\item Bei \glqq Abbrechen" wird keine Änderung verwendet	
+		\end{itemize}
+	\end{enumerate}
+	\begin{figure}[H]
+		\captionsetup{justification=centering}
+		\minipage{0.5\textwidth}
+		  \includegraphics[scale=0.15]{11_umbenennen.jpg}
+		  \centering
+		  \caption{Track umbenennen \\	(Dropdown-Menü)}
+		\endminipage\hfill
+		\minipage{0.5\textwidth}
+		  \includegraphics[scale=0.15]{12_umbenennen2.jpg}
+		  \centering
+		  \caption{Popup-Menü \\für Ubenennung}
+		\endminipage\hfill
+	\end{figure}
+	\newpage
 \subsection{GPS-Track löschen}
+	Beim Löschen eines Tracks,
+	\begin{enumerate}
+		\item Im Dropdown-Menü tippen Sie auf \glqq Track löschen"
+		\item Track wird gelöscht
+	\end{enumerate}
+	\begin{figure}[H]
+		\captionsetup{justification=centering}
+		\includegraphics[scale=0.15]{13_loeschen.jpg}
+		\centering
+		\caption{Track löschen \\(Dropdown-Menü)}
+	\end{figure}
 \end{document}
