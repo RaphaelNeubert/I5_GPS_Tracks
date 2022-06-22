@@ -9,20 +9,20 @@
 
 //Autor: {author}, Version {revnumber}, {revdate}
 == Projektangaben
-Thema:
+Thema: I5 GPS-Tracks
 
-Zeitraum:
+Zeitraum: November 21  - Juni 22
 
-GitHub Repository:
+GitHub Repository: https://github.com/RaphaelNeubert/I5_GPS_Tracks.git
 
 
 == Abnahmedokumentation 
 === Abnahme
-Datum:
+Datum: 24.06.2022
 
-Zeit:
+Zeit: 17:30 Uhr
 
-Abnahmeumgebung:
+Abnahmeumgebung: HTW Dresden
 
 === Lieferumfang
 
@@ -38,10 +38,28 @@ Abnahmeumgebung:
 |===
 |Use Case / Szenario | erfüllt | Anmerkung
 
-|UC1 / Sc1
+|UC1: GPS-Tracks aufnehmen
+| ja
+|...
+|UC2: GPS-Track auflisten
+| ja
+|...
+|UC03: GPS-Track auf Karte anzeigen
+| ja
+|...
+|UC04: GPS-Track bearbeiten
+|ja
+| ...
+|UC05: Synchronisation der GPS-Tracks mit dem Server
+|ja
+| ...
+|UC06: Besondere(n) Punkt(e) in GPS-Track einfügen
 | ja/nein
 |...
-|UC1 / Sc2
+|UC07: Wiederaufnahme von GPS-Track
+| ja
+|...
+|UC08: Verbesserung existierender GPS-Tracks durch erneute Aufnahme
 | ja/nein
 |...
 
@@ -52,13 +70,42 @@ Abnahmeumgebung:
 |===
 |Anforderung | erfüllt | Anmerkung
 
-|NFA1 ...
+|SWFA-1: Die GPS-Tracks müssen dauerhaft gespeichert sein.
+| ja
+|...
+|SWFA-2: Der Löschvorgang eines GPS-Tracks muss zwei mal bestätigt werden.
 | ja/nein
 |...
-|NFA2 ...
+|NFAU-1: Text sollte auf Smartphone noch auf volle Armlänge lesbar sein.
+| ja
+|...
+|NFAU-2: Inhalte müssen übersichtlicht dargestellt werden.
+| ja
+|...
+|NFAU-3: Die Hauptfunktionen befinden sich auf der Startseite.
+| ja
+|...
+|NFAU-4: Der Benutzer sollte maximal 4 Klicks brauchen um entweder einen Track aufzunehmen oder sich die Details zu einem beliebigen Track anzeigen zu lassen.
 | ja/nein
 |...
-
+|NFAR-1: GPS-Tracks müssen eindeutig über ihren Namen identifiziert werden können.
+| ja
+|...
+|NFAR-2: Der Server sowie der Kartendatenprovider muss zu 95% verfügbar sein.
+| ja/nein
+|...
+|NFAP-1: Das Softwaresystem soll einen Wechsel von Seite zu Seite und die Benutzung bestimmter Aktionen innerhalb der App in maximal 2 Sekunden ermöglichen.
+| ja
+|...
+|NFAS-1: Das System soll in der Lage sein, neue Sprachen integrieren zu können.
+| ja/nein
+|...
+|NFAS-2: Das System soll in der Lage sein, Kartendaten verschiedener Anbieter zu verwenden.
+| ja/nein
+|...
+|NFAS-3: Die App soll entwicklungsrelevante Systemfehler loggen und an die Entwickler schicken.
+| ja/nein
+|...
 |===
 
 == Unterschriften
