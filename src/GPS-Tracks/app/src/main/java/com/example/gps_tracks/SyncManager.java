@@ -47,10 +47,12 @@ import okhttp3.Response;
 
 public class SyncManager {
     public static final String TAG = MainActivity.class.getSimpleName();
+    private static String serverAddresse  = "http://141.56.137.84:5000/";
     SharedPreferences.Editor editor;
     SharedPreferences mSettings;
     ListingTracks listingTracks;
     Context context;
+
     ProgressBar progressBar;
 
     public SyncManager(ListingTracks listingTracks, Context context, ProgressBar progressBar) {
@@ -82,7 +84,7 @@ public class SyncManager {
                     .build();
 
             Request request = new Request.Builder()
-                    .url("http://141.56.137.84:5000/upload")
+                    .url(serverAddresse+"upload")
                     .post(requestBody)
                     .build();
 
@@ -114,7 +116,7 @@ public class SyncManager {
 
         Request request = new Request.Builder()
                 //.url("http://aleksandrpronin.pythonanywhere.com/download/"+filename)
-                .url("http://141.56.137.84:5000/download/"+filename)
+                .url(serverAddresse+"download/"+filename)
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -147,7 +149,7 @@ public class SyncManager {
             Request request = new Request.Builder()
                     //.url("http://ip:5000/download/"+filename)
                     //.url("http://aleksandrpronin.pythonanywhere.com/delete/"+filename)
-                    .url("http://141.56.137.84:5000/delete/"+filename)
+                    .url(serverAddresse+"delete/"+filename)
                     .build();
 
             okHttpClient.newCall(request).enqueue(new Callback() {
@@ -193,7 +195,7 @@ public class SyncManager {
         progressBar.setVisibility(ProgressBar.VISIBLE);
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("http://141.56.137.84:5000/liste")
+                .url(serverAddresse+"liste")
                 .build();
 
          client.newCall(request).enqueue(new Callback() {
@@ -268,7 +270,7 @@ public class SyncManager {
     public String[] downloadDelList() throws IOException {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("http://141.56.137.84:5000/dellist")
+                .url(serverAddresse+"dellist")
                 .build();
         Response response = client.newCall(request).execute();
         String responseData = response.body().string();
