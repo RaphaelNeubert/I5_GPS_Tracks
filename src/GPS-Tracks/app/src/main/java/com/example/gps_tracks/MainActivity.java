@@ -207,6 +207,9 @@ public class MainActivity extends AppCompatActivity{
                 if (recording) {
                     //stop recording
                     showSaveDialog();
+                    //show listButton
+                    ImageButton listButton = findViewById(R.id.listButton);
+                    listButton.setVisibility(View.VISIBLE);
 
                 } else {
                     //start recording
@@ -221,6 +224,9 @@ public class MainActivity extends AppCompatActivity{
                     gpsTrack.display();
                     //change icon
                     recstart.setImageResource(R.drawable.button_rec);
+                    //hide listButton
+                    ImageButton listButton = findViewById(R.id.listButton);
+                    listButton.setVisibility(View.INVISIBLE);
                 }
             }
         });
@@ -354,7 +360,6 @@ public class MainActivity extends AppCompatActivity{
                 }
         }
     }
-
     private void requestPermissionsIfNecessary(String[] permissions) {
         ArrayList<String> permissionsToRequest = new ArrayList<>();
         for (String permission : permissions) {
@@ -400,6 +405,8 @@ public class MainActivity extends AppCompatActivity{
         deselectButton.setVisibility(View.INVISIBLE);
         //show listButton
         ImageButton listButton = findViewById(R.id.listButton);
+        listButton.setVisibility(View.VISIBLE);
+        ImageButton recButton = findViewById(R.id.record);
         listButton.setVisibility(View.VISIBLE);
     }
 }
