@@ -23,6 +23,7 @@
         android:usesCleartextTraffic="true">
         <service
             android:name=".RecordingService"
+            android:foregroundServiceType="location"
             android:enabled="true"
             android:exported="true"></service>
 
