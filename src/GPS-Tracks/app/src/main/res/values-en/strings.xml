@@ -30,4 +30,6 @@
     <string name="specialPointDialog">Edit Waypoint-Type</string>
     <string name="specialPointWarning">This Typename is to short</string>
     <string name="dist">Distace: </string>
+
+    <string name="permissionWarning">The App needs the requested permissions in order to work properly.</string>
 </resources>

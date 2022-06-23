@@ -63,9 +63,7 @@ public class MainActivity extends AppCompatActivity{
         requestPermissionsIfNecessary(new String[]{
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
-                Manifest.permission.ACCESS_BACKGROUND_LOCATION,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.FOREGROUND_SERVICE
         });
 
         //will hide the title
@@ -337,6 +335,29 @@ public class MainActivity extends AppCompatActivity{
         map.onPause();  //needed for compass, my location overlays, v6.0.0 and up
     }
 
+<<<<<<< HEAD
+=======
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        Log.i("requestCode", String.valueOf(requestCode));
+        switch (requestCode) {
+            case REQUEST_PERMISSIONS_REQUEST_CODE:
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0 &&
+                        grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // Permission is granted. Continue the action or workflow
+                    // in your app.
+                }  else {
+                    //permission was denied
+                    Toast.makeText(MainActivity.this,
+                            getString(R.string.permissionWarning),
+                            Toast.LENGTH_SHORT).show();
+                }
+        }
+    }
+
+>>>>>>> 784c60b6797dc8f73a488056e0fd4f105f737342
     private void requestPermissionsIfNecessary(String[] permissions) {
         ArrayList<String> permissionsToRequest = new ArrayList<>();
         for (String permission : permissions) {
