@@ -10,26 +10,23 @@ import android.location.Location;
 import android.os.IBinder;
 import android.util.Log;
 
-import androidx.core.app.NotificationCompat;
 
 import org.osmdroid.util.GeoPoint;
-import org.osmdroid.views.overlay.Polyline;
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.IMyLocationConsumer;
 import org.osmdroid.views.overlay.mylocation.IMyLocationProvider;
 
-import java.io.Serializable;
 
 public class RecordingService extends Service {
     private GpsMyLocationProvider gpsMyLocationProvider;
 
     public RecordingService() {
-        Log.i("MyService", "MyService was created");
+        Log.i("RecordingService", "RecordingService was created");
 
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.i("MyService", "MyService was started");
+        Log.i("RecordingService", "RecordingService was started");
         // If the notification supports a direct reply action, use
         // PendingIntent.FLAG_MUTABLE instead.
         Intent notificationIntent = new Intent(this, MainActivity.class);
