@@ -26,7 +26,7 @@ Abnahmeumgebung: HTW Dresden
 
 === Lieferumfang
 
-* Software in folgender Form:
+* Software in folgender Form: demo apk, verbunden mit Server
 * Benutzeranleitung
 * Betriebsanleitung
 * Anforderungsspezifikation
@@ -83,25 +83,22 @@ Abnahmeumgebung: HTW Dresden
 | ja
 |...
 |NFAU-4: Der Benutzer sollte maximal 4 Klicks brauchen um entweder einen Track aufzunehmen oder sich die Details zu einem beliebigen Track anzeigen zu lassen.
-| ja/nein
+| ja
 |...
 |NFAR-1: GPS-Tracks müssen eindeutig über ihren Namen identifiziert werden können.
 | ja
-|...
-|NFAR-2: Der Server sowie der Kartendatenprovider muss zu 95% verfügbar sein.
-| ja/nein
 |...
 |NFAP-1: Das Softwaresystem soll einen Wechsel von Seite zu Seite und die Benutzung bestimmter Aktionen innerhalb der App in maximal 2 Sekunden ermöglichen.
 | ja
 |...
 |NFAS-1: Das System soll in der Lage sein, neue Sprachen integrieren zu können.
-| ja/nein
+| ja
 |...
 |NFAS-2: Das System soll in der Lage sein, Kartendaten verschiedener Anbieter zu verwenden.
-| ja/nein
+| nein
 |...
 |NFAS-3: Die App soll entwicklungsrelevante Systemfehler loggen und an die Entwickler schicken.
-| ja/nein
+| nein
 |...
 |===
 
