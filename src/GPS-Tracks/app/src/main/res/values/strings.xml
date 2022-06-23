@@ -29,4 +29,6 @@
     <string name="specialPointDialog">Wegpunkt-Typ bearbeiten</string>
     <string name="specialPointWarning">Dieser Typname ist zu kurz</string>
     <string name="dist">Distanz: </string>
+
+    <string name="permissionWarning">Die App benötigt die geforderten Berechtigungen um zu Funktionieren.</string>
 </resources>
