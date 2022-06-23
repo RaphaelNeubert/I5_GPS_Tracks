@@ -335,8 +335,6 @@ public class MainActivity extends AppCompatActivity{
         map.onPause();  //needed for compass, my location overlays, v6.0.0 and up
     }
 
-<<<<<<< HEAD
-=======
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -356,8 +354,7 @@ public class MainActivity extends AppCompatActivity{
                 }
         }
     }
-
->>>>>>> 784c60b6797dc8f73a488056e0fd4f105f737342
+    
     private void requestPermissionsIfNecessary(String[] permissions) {
         ArrayList<String> permissionsToRequest = new ArrayList<>();
         for (String permission : permissions) {
