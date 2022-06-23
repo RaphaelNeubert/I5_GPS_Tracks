@@ -26,7 +26,7 @@ Abnahmeumgebung: HTW Dresden
 
 === Lieferumfang
 
-* Software in folgender Form:
+* Software in folgender Form: demo apk, verbunden mit Server
 * Benutzeranleitung
 * Betriebsanleitung
 * Anforderungsspezifikation
@@ -54,13 +54,13 @@ Abnahmeumgebung: HTW Dresden
 |ja
 | ...
 |UC06: Besondere(n) Punkt(e) in GPS-Track einfügen
-| ja/nein
+| ja
 |...
 |UC07: Wiederaufnahme von GPS-Track
 | ja
 |...
 |UC08: Verbesserung existierender GPS-Tracks durch erneute Aufnahme
-| ja/nein
+| nein
 |...
 
 |===
@@ -73,9 +73,6 @@ Abnahmeumgebung: HTW Dresden
 |SWFA-1: Die GPS-Tracks müssen dauerhaft gespeichert sein.
 | ja
 |...
-|SWFA-2: Der Löschvorgang eines GPS-Tracks muss zwei mal bestätigt werden.
-| ja/nein
-|...
 |NFAU-1: Text sollte auf Smartphone noch auf volle Armlänge lesbar sein.
 | ja
 |...
@@ -86,25 +83,54 @@ Abnahmeumgebung: HTW Dresden
 | ja
 |...
 |NFAU-4: Der Benutzer sollte maximal 4 Klicks brauchen um entweder einen Track aufzunehmen oder sich die Details zu einem beliebigen Track anzeigen zu lassen.
-| ja/nein
+| ja
 |...
 |NFAR-1: GPS-Tracks müssen eindeutig über ihren Namen identifiziert werden können.
 | ja
-|...
-|NFAR-2: Der Server sowie der Kartendatenprovider muss zu 95% verfügbar sein.
-| ja/nein
 |...
 |NFAP-1: Das Softwaresystem soll einen Wechsel von Seite zu Seite und die Benutzung bestimmter Aktionen innerhalb der App in maximal 2 Sekunden ermöglichen.
 | ja
 |...
 |NFAS-1: Das System soll in der Lage sein, neue Sprachen integrieren zu können.
-| ja/nein
+| ja
 |...
 |NFAS-2: Das System soll in der Lage sein, Kartendaten verschiedener Anbieter zu verwenden.
-| ja/nein
+| nein
 |...
 |NFAS-3: Die App soll entwicklungsrelevante Systemfehler loggen und an die Entwickler schicken.
-| ja/nein
+| nein
+|...
+|===
+
+
+=== Zusätzliche Anforderungen
+[cols="4,1,5"]
+|===
+|Anforderung | erfüllt | Anmerkung
+
+|Die Verwaltung des Sourcecodes und der Dokumentation muss mittels GitHub erfolgen.
+| ja
+|...
+|Die App muss mit der Programmiersprache Java entwickelt werden.
+| ja
+|...
+|Der Server muss mit der Programmiersprache Java oder Python entwickelt werden.
+| ja
+|...
+|Die App soll nur ein handelsübliches Smartphone benötigen welches als Betriebssystem Android verwendet.
+| ja
+|...
+|Der Benutzer muss über die benötigten Berechtigungen informiert werden sowie sie akzeptieren.
+| ja
+|...
+|Die GPS-Tracks sollen in einem standardisierten Dateiformat z.B. GEOJson oder GPX gespeichert werden.
+| ja
+|...
+|Die App muss über eine REST Standard API verfügen.
+| ja
+|...
+|Der Datenschutz der Benutzer muss gewährleistet sein. Die App darf nur notwendige Daten an den Server senden.
+| ja
 |...
 |===
 
