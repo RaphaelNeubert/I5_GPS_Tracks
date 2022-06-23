@@ -360,7 +360,6 @@ public class MainActivity extends AppCompatActivity{
                 }
         }
     }
-
     private void requestPermissionsIfNecessary(String[] permissions) {
         ArrayList<String> permissionsToRequest = new ArrayList<>();
         for (String permission : permissions) {
