@@ -408,6 +408,6 @@ public class MainActivity extends AppCompatActivity{
         ImageButton listButton = findViewById(R.id.listButton);
         listButton.setVisibility(View.VISIBLE);
         ImageButton recButton = findViewById(R.id.record);
-        listButton.setVisibility(View.VISIBLE);
+        recButton.setVisibility(View.VISIBLE);
     }
 }
