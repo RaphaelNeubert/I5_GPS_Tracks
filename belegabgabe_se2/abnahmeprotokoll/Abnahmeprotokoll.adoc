@@ -54,13 +54,13 @@ Abnahmeumgebung: HTW Dresden
 |ja
 | ...
 |UC06: Besondere(n) Punkt(e) in GPS-Track einfügen
-| ja/nein
+| ja
 |...
 |UC07: Wiederaufnahme von GPS-Track
 | ja
 |...
 |UC08: Verbesserung existierender GPS-Tracks durch erneute Aufnahme
-| ja/nein
+| nein
 |...
 
 |===
@@ -72,9 +72,6 @@ Abnahmeumgebung: HTW Dresden
 
 |SWFA-1: Die GPS-Tracks müssen dauerhaft gespeichert sein.
 | ja
-|...
-|SWFA-2: Der Löschvorgang eines GPS-Tracks muss zwei mal bestätigt werden.
-| ja/nein
 |...
 |NFAU-1: Text sollte auf Smartphone noch auf volle Armlänge lesbar sein.
 | ja
@@ -105,6 +102,38 @@ Abnahmeumgebung: HTW Dresden
 |...
 |NFAS-3: Die App soll entwicklungsrelevante Systemfehler loggen und an die Entwickler schicken.
 | ja/nein
+|...
+|===
+
+
+=== Zusätzliche Anforderungen
+[cols="4,1,5"]
+|===
+|Anforderung | erfüllt | Anmerkung
+
+|Die Verwaltung des Sourcecodes und der Dokumentation muss mittels GitHub erfolgen.
+| ja
+|...
+|Die App muss mit der Programmiersprache Java entwickelt werden.
+| ja
+|...
+|Der Server muss mit der Programmiersprache Java oder Python entwickelt werden.
+| ja
+|...
+|Die App soll nur ein handelsübliches Smartphone benötigen welches als Betriebssystem Android verwendet.
+| ja
+|...
+|Der Benutzer muss über die benötigten Berechtigungen informiert werden sowie sie akzeptieren.
+| ja
+|...
+|Die GPS-Tracks sollen in einem standardisierten Dateiformat z.B. GEOJson oder GPX gespeichert werden.
+| ja
+|...
+|Die App muss über eine REST Standard API verfügen.
+| ja
+|...
+|Der Datenschutz der Benutzer muss gewährleistet sein. Die App darf nur notwendige Daten an den Server senden.
+| ja
 |...
 |===
 
