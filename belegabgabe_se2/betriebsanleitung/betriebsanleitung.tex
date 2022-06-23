@@ -39,16 +39,87 @@
 \newpage
 
 \section{Server}
+Der Server stellt eine REST-API zur Verfügung mit der sich GPS-Track auf dem Server 
+speichern und herunterladen lassen.
 \subsection{Allgemeiner Aufbau}
 Der Server besteht aus einer einzigen Python-Datei.
 Die GPS-Tracks werden in einen Ordner \say{files} gespeichert,
 welcher sich (standartmäßig) im Pfad der Python-Datei befinden muss.
 Der Ort an dem die GPS-Tracks gespeichert werden kann in der Python-Datei
-angepasst werden.
+angepasst werden. \\ \par
+\textbf{Endpunkte:}
+\begin{itemize}
+    \item \textit{/} \\ Website zur Überprüfung, ob der Server online ist.
+    \item \textit{/liste} \\ Ermöglicht es mithilfe von GET-Request eine Liste
+        mit den, auf dem Server vorhandenen Dateien, zu erhalten.
+    \item \textit{/dellist/}$<$\textit{path:filename}$>$ \\ Ermöglicht es 
+        mithilfe von GET-Request eine Liste
+        mit den, vom Server gelöschten Dateien, zu erhalten.
+    \item \textit{/upload} \\  Ermöglicht es mithilfe von POST-Requests GPS-Tracks 
+        auf den Server zu laden.
+    \item \textit{/download/}$<$\textit{path:filename}$>$ \\  Ermöglicht es mithilfe
+        von GET-Requests GPS-Tracks vom Server zu laden.
+    \item \textit{/delete/}$<$\textit{path:filename}$>$  \\
+        Ermöglicht es mithilfe von GET-Requests GPS-Tracks 
+        vom Server zu löschen. Falls die Datei \say{./delete.txt} auf dem Server noch
+        nicht existiert, wird diese erzeugt. Der Datei \say{./delete.txt} wird 
+        der Name der durch den Request gelöschte Datei, angehangen.
+\end{itemize}
+\subsection{Anforderungen}
+Der Server ist minimalistisch gehalten. Daher ist ein System mit wenig 
+Leistung z.B. ein Raspberry Pi ausreichend. Es sollte sichergestellt 
+werden, dass auf dem Server genügen Speicherplatz für die gewünschte Anzahl an 
+GPS-Tracks vorhanden ist. Auf dem System muss ein Python3 Interpreter, sowie das 
+Python-Framework Flask installiert sein.
 \subsection{Installation}
 \subsubsection{Debian}
+Die folgenden Schritte gelten nicht nur für Debian selber, sondern auch für andere 
+Linux-Distributionen die den Packetmanager \say{apt} verwenden. (z.B. Ubuntu, Mint)\par
+
+\begin{enumerate}
+    \item Installation der benötigten Programme: 
+        \begin{itemize}
+            \item Updaten des Betriebssytems sowie alle auf dem System 
+                installierten Bibliotheken. \\
+                \textit{sudo apt update} \\
+                \textit{sudo apt upgrade}
+            \item Installation von Python3 sowie den Python3-Packagemanger \say{pip3} \\
+                \textit{sudo apt install python3} \\
+                \textit{sudo apt install python3-pip}\\
+                \textit{sudo apt install cron}
+        \end{itemize}
+    \item Installation der benötigten Python-Frameworks: 
+        \begin{itemize}
+            \item Installation von \say{Flask} mithilfe von \say{pip3} \\
+                \textit{pip3 install flask}
+        \end{itemize}
+    \item Manuelles Starten des Servers: \\
+        \textit{python3 app.py} 
+    \item Automatisches Starten des Python-Programms beim Hochfahren des Servers: \\ 
+        Kann auf verschieden realisiert werden (z.B. SystemD, OpenRC).
+        Hier: mithilfe von \say{Cronjobs}.  \\
+        \textit{crontab -e} \\ 
+        Falls \say{Crontab} zum ersten mal ausgeführt wurde muss nun ein Editor gewählt
+        werden. Anschließend muss folgende Zeile an das ende der nun offenen Datei 
+        angehangen werden. \\
+        \say{@reboot cd $<$path$>$ \&\& python3 app.py}
+\end{enumerate}
 \subsubsection{andere Betriebssysteme}
+\begin{itemize}
+    \item Die Installation auf andern Linux-basierten Betriebssystemen erfolgt
+        fast identisch. Lediglich die Befehle zur Installation
+        der Programme können anders sein.
+    \item Die Installation auf Windows ist möglich und kann am einfachsten 
+        unter Verwendung eines \say{Virtual Environments} realisiert werden. Dies 
+        wird hier aber nicht weiter erläutert.
+\end{itemize}
 \subsection{Wartung}
+Im Normalfall bedarf der Server keinerlei Wartung. 
+Es sollte jedoch sichergestellt werden, dass das Betriebssystem regelmäßig aktualisiert
+wird. Sollte nach langem Betrieb die Synchronisation lange dauern oder eine 
+hohe Netzauslastung verursachen, kann es daran liegen, dass auf dem Server
+die Datei \say{./delete.txt} zu groß geworden ist. Wenn alle Endgeräte auf dem 
+gleichen Synchronisationsstand sind, kann diese Problemlos gelöscht werden.
 \section{App}
 \subsection{Building}
 \subsection{Installation}
