@@ -16,7 +16,10 @@ import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.IMyLocationConsumer;
 import org.osmdroid.views.overlay.mylocation.IMyLocationProvider;
 
-
+/**
+ *  Foreground Service used to continue getting waypoints even if the MainActivity is paused (standby, minimized).
+ *  Uses Broadcast to send Waypoints to {@link GPSTrack} instances.
+ */
 public class RecordingService extends Service {
     private GpsMyLocationProvider gpsMyLocationProvider;
 

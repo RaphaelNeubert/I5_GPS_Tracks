@@ -11,6 +11,9 @@ import androidx.core.util.Pair;
 
 import java.util.List;
 
+/**
+ * Adapter needed to display track names given as {@literal Pair<String, Long>}
+ */
 public class FileListAdapter extends ArrayAdapter<Pair<String, Long>> {
     public FileListAdapter(Context context, List<Pair<String, Long>> objects) {
         super(context, 0, objects);
