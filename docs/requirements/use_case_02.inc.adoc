@@ -37,7 +37,7 @@ die Namen aller gespeicherten GPS-Tracks einsehen.
 * GPS-Track Details anzeigen
 * GPS-Track auf Karte anzeigen -> UC03
 * GPS-Track bearbeiten -> UC04
-* Aufnahme fortsetzen -> UC05
+* Aufnahme fortsetzen -> UC07
 * GPS-Track löschen
 
 Falls der User "Löschen" auswählt:
