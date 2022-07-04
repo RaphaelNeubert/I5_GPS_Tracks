@@ -57,7 +57,7 @@
     Ebenso sollte es die Option geben, die GPS-Tracks nach dem abspeichern noch zu bearbeiten und dabei spezielle Punkte (special points of interests) 
     hinzuzufügen, sowie auch Punkte des aufegnommenen Weges zu verändern/verschieben.
     Bei der Aufnahme eines GPS-Tracks war es außerdem wichtig, die Genauigkeit des GPS-Signals so hoch wie möglich umzusetzen. 
-\subsection{Auftraggeber}
+\subsection{Auftraggeber [AP]}
     Die Rolle des Product Owners und Auftraggebers hat Herr Prof. Mario Neugebauer. Die Lehrgebiete von Prof. Neugebauer
     reichen von Programmier- und Datenbankgrundlagen bis hin zu mobilen Systemen und Kommunikationstechnik in 
     mobilen Netzen. Als Product Owner stand er in regelmäßigem Kontakt mit unserem Team, unterstützte uns und
@@ -69,14 +69,30 @@
 \section{Kommunikation Verfahren}
 \section{Dokumentation}
 \section{Projektdurchführung}
-\section{Ergebnisse}
-Als Produkt unseres Projekts haben wir ein System entwickelt, das aus einer Android-App und einem Server für den Datenaustausch besteht.
-Die Anwendung "GPS Tracks App" ermöglicht Nutzern mit einem Android-Smartphone, einen GPS-Wegpunkt oder eine Reihe von Wegpunkten auszuwählen 
-und einen Roboter anweisen können, sich autonom zwischen den Punkten zu bewegen, wobei er bestimmte Aktionen (oder auch Script) ausführen kann. 
-In der App haben wir Funktionen implementiert, um GPS-Routen zu erstellen, anzupassen, mit anderen Geräten über einen Server auszutauschen
-und Routen zu löschen. Die App unterstützt auch die Funktion, eine bestimmte Aktion an einem GPS-Punkt zuspeichern. Die App kann auch in anderen 
-Projekten eingesetzt werden. So kann man beispielsweise interessante Routen mit Freunden teilen und spezielle Hinweisen zu Wegpunkten anlegen.
-Die App an sich ist gut durchdacht und verständlich, wenn man kurz eingearbeitet wurde.
+\section{Projektergebnisse}
+\subsection{Produktergebnis [AP]}
+    Als Produkt unseres Projekts haben wir ein System entwickelt, das aus einer Android-App und einem Server für den Datenaustausch besteht.
+    Die Anwendung GPS-Tracks ermöglicht Nutzern mit einem Android-Smartphone, eine Route als eine Reihe von Wegpunkten auszuwählen 
+    und einen Roboter anweisen können, sich autonom zwischen den Punkten zu bewegen, wobei er bestimmte Aktionen (oder auch Script) ausführen kann. 
+    In der App haben wir Funktionen implementiert, um GPS-Routen zu erstellen, anzupassen, mit anderen Geräten über einen Server auszutauschen
+    und Routen zu löschen. Die App unterstützt auch die Funktion, eine bestimmte Aktion an einem GPS-Punkt zuspeichern. Die App kann auch in anderen 
+    Projekten eingesetzt werden. So kann man beispielsweise interessante Routen aufnehmen und spezielle Hinweisen zu Wegpunkten anlegen.
+    Die App an sich ist gut durchdacht und verständlich, wenn man kurz eingearbeitet wurde. \\ Der Server ist eine leichtgewichtige Anwendung,
+    so dass unser System mit Docker leicht auf anderen Diensten eingesetzt werden kann. Man können zum Beispiel einen Raspberry Pi verwenden und darauf
+    Docker installieren. Auf diese Weise kann der Server zu geringen Kosten betrieben werden. 
+\subsection{Bewertung [AP]}
+    Da wir kontinuierlich an dem Projekt gearbeitet haben, konnten wir eine Menge erreichen. Alle grundlegenden Funktionen wurden implementiert,
+    nur ein Use Case „Verbesserung  exestierender GPS-Tracks durch erneute Aufnahme“ haben wir nicht zeitig nicht geschaft. Dies wurde jedoch mit unserem 
+    Auftraggeber, Prof. Neugebauer, ausgehandelt und als „Low a Priority Task“ eingestuft.
+    \begin{figure}[H]
+        \includegraphics[scale=0.27]{use_case_comleted.png}
+    \end{figure}
+    Während der Entwicklung wurde auch klar, dass die Verbindung der
+    Anwendung mit dem Server gesichert werden musste. Derzeit kann jeder nicht registrierte Benutzer 
+    REST-Befehle verwenden, um die GPS-Dateien auf dem Server zu ändern, zu löschen oder auch auf den Server
+    herunterzuladen. Das ist eine schwerwiegende Sicherheitslücke, da eine Datei mit Virencode
+    an den Server gesendet werden kann und dann alle Geräte in unserem Netzwerk infiziert. Der nächste logische Entwicklungsschritt
+    sollte daher der Authentifizierungs- und Autorisierungsprozess auf dem Server sein.
 \subsection{Reflexion der Teammitglieder}
 \subsubsection{Tom Nicolai}
     Ich war mit im Bereich der Programmierung der App zuständig. In den Meetings haben wir uns immer neue Features überlegt, 
@@ -98,7 +114,7 @@ Die App an sich ist gut durchdacht und verständlich, wenn man kurz eingearbeite
     Meine Aufgabe war es, den Client-Server-Teil der Anwendung zu entwickeln und die entsprechende Dokumentation zu schreiben. 
     Das Domänenmodell, das zeigt, welche Elemente im initialen MVP vorkommen sind, wurde schon aufgestellt.
     Und ich hatte also eine gute Vorstellung davon, wie meine Arbeit ablaufen sollte.  Im Rahmen agile Vorgehensweisen 
-    sprachen wir ständig mit unserem Stakeholder Prof. Neugebauer, um die Anforderungen an die App zu 
+    sprachen wir ständig mit unserem Auftraggeber Prof. Neugebauer, um die Anforderungen an die App zu 
     konkretisieren und optimale Lösung konzipieren zu können. Mit all diesen Informationen fingen wir an, technische Aspekte 
     und Entwürfe zu User Interfaces zu erarbeiten. \\
     Bei dem Projekt, das meine Kollegen unterstütz und mitentwickelt haben, handelt es sich um eine Android-App zur 
