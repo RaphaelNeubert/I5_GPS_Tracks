@@ -64,8 +64,12 @@
     bewertete die Leistung unseres Teams am Ende der Iteration. Er verfügt über genügend Erfahrung und Wissen,
     um als technischer Ansprechpartner für das Team zu fungieren. Die Zusammenarbeit mit ihm war ein entscheidender Teil 
     unseres Projekts, und sie hat sich als sehr erfolgreich erwiesen.
-\section{Ausgangssituation}
-\section{Projektorganisation}
+\subsection {Ausgangssituation}
+\subsection {Rollenverteilung [AP]}
+    Die Rollen im Team waren nicht streng verteilt. Jeder war in seinem Bereich und entsprechend seinen Kompetenzen an dem Projekt beteiligt.
+    Die Aufgabenverteilung war im Grunde sehr ähnlich wie beim Planning Poker. Jeder bewertete die Schwierigkeit der Aufgabe nach seinen eigenen Stärken und
+    dann wurden die Aufgaben unter Absprache der gesamten Gruppe verteilt. Der Status wurde über Github-Issues verwaltet. 
+\subsection{Projektorganisation}
 \newpage
 \subsection{Kommunikation}
 Durch die Pandemie bedingten Einschränkungen haben wir in \say{Softwareengineering-I} ausschließlich online kommuniziert. Später, in \say{Softwareengineering-II} war dies nicht mehr nötig. Da unser Team aus drei verschiedenen
@@ -135,13 +139,13 @@ Zum Beispiel haben wir manchmal sehr detailliert über die Serversynchronisation
 Entwicklung der Synchronisation nur zwei Personen beteiligt waren. Solche Situationen entstanden unbewusst und 
 wirkte sich, für alle am detaillierten Thema unbeteiligten negativ auf die Qualität des Meetings aus.
 
-\section{Dokumentation}
+\subsection{Dokumentation}
 \section{Projektdurchführung}
 \section{Projektergebnisse}
 \subsection{Produktergebnis [AP]}
     Als Produkt unseres Projekts haben wir ein System entwickelt, das aus einer Android-App und einem Server für den Datenaustausch besteht.
     Die Anwendung GPS-Tracks ermöglicht Nutzern mit einem Android-Smartphone, eine Route als eine Reihe von Wegpunkten auszuwählen 
-    und einen Roboter anweisen können, sich autonom zwischen den Punkten zu bewegen, wobei er bestimmte Aktionen (oder auch Script) ausführen kann. 
+    und dann einen Roboter anweisen, damit der Roboter sich autonom zwischen den Punkten bewegt und wobei er bestimmte Aktionen (oder auch Script) ausführen kann. 
     In der App haben wir Funktionen implementiert, um GPS-Routen zu erstellen, anzupassen, mit anderen Geräten über einen Server auszutauschen
     und Routen zu löschen. Die App unterstützt auch die Funktion, eine bestimmte Aktion an einem GPS-Punkt zuspeichern. Die App kann auch in anderen 
     Projekten eingesetzt werden. So kann man beispielsweise interessante Routen aufnehmen und spezielle Hinweisen zu Wegpunkten anlegen.
@@ -166,7 +170,7 @@ wirkte sich, für alle am detaillierten Thema unbeteiligten negativ auf die Qual
     Ich war mit im Bereich der Programmierung der App zuständig. In den Meetings haben wir uns immer neue Features überlegt, 
     welche dann als GitHub Issues festgehalten wurden. Falls wir uns nicht während des Meetings einigen konnten, wer was macht, 
     hat sich jeder selbst das zugewiesen, worauf er grade Lust hatte. Auch haben wir unseren Zwischenstand immer mal wieder unserem 
-Auftraggeber Prof. Neugebauer gezeigt und uns Feedback dazu abgeholt. Somit konnten wir schnell sehen, ob etwas nicht so passt, 
+    Auftraggeber Prof. Neugebauer gezeigt und uns Feedback dazu abgeholt. Somit konnten wir schnell sehen, ob etwas nicht so passt, 
     wie er es wollte. Die App selber haben wir in Java programmiert, was für mich gut war, da ich schon einige Erfahrung 
     in der Java Programmierung habe. Zwar habe ich noch nie eine Mobile App entwickelt, jedoch gewöhnte ich mich recht schnell 
     an die IDE und die neuen Bibliotheken. Programmiert habe ich immer nur alleine, jedoch habe ich mir auch ab und zu rat meiner 
@@ -178,13 +182,15 @@ Auftraggeber Prof. Neugebauer gezeigt und uns Feedback dazu abgeholt. Somit konn
 \subsubsection{Aleksandr Pronin}
     Ich habe mein Team im Sommersemester kennengelernt. Zu diesem Zeitpunkt war die Android-App bereits teilweise fertig, 
     und wir mussten nur noch einen Plan für den Rest der Arbeit erstellen.
-    Im ersten Schritt der Planung haben wir ein Verständnis geschaffen, wie wir die Rolle in unserem Team verteilen können. 
-    Meine Aufgabe war es, den Client-Server-Teil der Anwendung zu entwickeln und die entsprechende Dokumentation zu schreiben. 
-    Das Domänenmodell, das zeigt, welche Elemente im initialen MVP vorkommen sind, wurde schon aufgestellt.
-    Und ich hatte also eine gute Vorstellung davon, wie meine Arbeit ablaufen sollte.  Im Rahmen agile Vorgehensweisen 
-    sprachen wir ständig mit unserem Auftraggeber Prof. Neugebauer, um die Anforderungen an die App zu 
-    konkretisieren und optimale Lösung konzipieren zu können. Mit all diesen Informationen fingen wir an, technische Aspekte 
-    und Entwürfe zu User Interfaces zu erarbeiten. \\
+    Im ersten Schritt der Planung haben wir ein Verständnis geschaffen, wie wir die Rolle in unserem Team ungefähr verteilen können. 
+    Meine Aufgabe war es, den Client-Server-Teil der Anwendung zu entwickeln und die entsprechende Dokumentation zu schreiben,
+    da ich in diesem Bereich schnell und effektiv arbeiten kann.
+    Das Domänenmodell, das zeigt, welche Elemente im initialen MVP vorkommen sind, wurde mir klar und ich hatte also eine gute Vorstellung
+    davon, wie meine Arbeit ablaufen sollte.  Im Rahmen agile Vorgehensweisen sprachen wir ständig mit unserem Auftraggeber Prof. Neugebauer, 
+    um die Anforderungen an die App zu konkretisieren und optimale Lösung konzipieren zu können. Mit all diesen Informationen konnten wir,
+    technische Aspekte und Entwürfe zu User Interfaces zu erarbeiten. Wir haben außerdem beschlossen, einen wöchentlichen Daily zu führen, 
+    um einen besseren Überblick über den Stand unseres Projekts zu erhalte. Ich denke, dass dies eine gute Technik ist, um im Team Gesamtergebnisse 
+    zu erzielen. \\
     Bei dem Projekt, das meine Kollegen unterstütz und mitentwickelt haben, handelt es sich um eine Android-App zur 
     Speicherung von GPS-Routen und zum Austausch dieser Daten zwischen Geräten über einen Server. Application Server wurde
     in Python unter Verwendung des Flask-Frameworks geschrieben und die clientseitigen Komponenten wurden von mir 
