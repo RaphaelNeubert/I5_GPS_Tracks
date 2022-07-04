@@ -34,7 +34,7 @@
 \end{titlepage}
 \tableofcontents
 \newpage
-\begin{table}[]
+\begin{table}[H]
     \begin{tabular}{lllll}
     \textbf{Vorname} & \textbf{Nachname} & \textbf{Kürzel} &  &  \\
     Aleksandr        & Pronin            & AP              &  &  \\
@@ -44,7 +44,7 @@
 \end{table}
 \section{Projektplanung}
 \subsection{Aufgabenstellung}
-    Im Rahmen unserer Projektarbeit im Modul "Software Engineering" hat Prof. Mario Neugebauer uns die Möglichkeit gegeben,
+    Im Rahmen unserer Projektarbeit im Modul \say{Software Engineering} hat Prof. Mario Neugebauer uns die Möglichkeit gegeben,
     eine Smartphone App zu entwickeln, welche das erstellen von GPS-Tracks für einen mobilen 
     Roboter ermöglicht. Dies hat den Hintergrund, dass die meisten GPS-Tack Apps sehr unflexibel sind und es daher nicht 
     möglich ist, Strecken auf Gegebenheiten des Roboters anzupassen. Das Hauptziel unserer Projektes war es also, eine App zu entwickeln, 
@@ -66,7 +66,75 @@
     unseres Projekts, und sie hat sich als sehr erfolgreich erwiesen.
 \section{Ausgangssituation}
 \section{Projektorganisation}
-\section{Kommunikation Verfahren}
+\newpage
+\subsection{Kommunikation}
+Durch die Pandemie bedingten Einschränkungen haben wir in \say{Softwareengineering-I} ausschließlich online kommuniziert. Später, in \say{Softwareengineering-II} war dies nicht mehr nötig. Da unser Team aus drei verschiedenen
+Studiengängen und verschiedenen Jahrgängen bestand, war es durch die verschiedenen Stundenpläne und Nebenjobs 
+schwer einen Termin zu finden an dem alle an der HTW sind bzw. an die HTW kommen konnten. Da die online Kommunikation 
+schon bei Softwareengineering-I sehr gut funktionierte, entschlossen wir uns bei Softwareengineering-II weiterhin online 
+zu kommunizieren.\par
+\medskip
+Für die online-Kommunikation im Team verwendeten wir die Dienst \say{Element}. Element ähnelt vom Grundaufbau dem 
+Dienst \say{Discord}, unterscheidet sich aber insofern, als das Element Open-Source und dezentralisiert ist.
+In unserem Element-\say{Space} erstellten wir uns zunächst zwei Kanäle. Einen für allgemeine Besprechungen, 
+einen für  Programmierungs- bzw. Implementierungsspezifische Konversationen. Später im Projekt merkten wir, das 
+es oft vorkam, das wichtige Informationen im Chat in unwichtigere Informationen untergingen. Wir erstellten
+daher noch einen dritten Kanal für alle wichtigen links und Termine.
+Für die Meetings verwendeten wir zunächst die von Element bereitgestellte Gruppenanrufs-Funktion.
+Nach einigen Updates von Element gab es allerdings einige Probleme bei den Gruppenanrufen. Wir entschlossen 
+uns daher von nun an für unsere Meetings die Plattform \say{Jitsi} zu verwenden.
+Jitsi ist eine Open-Source Konferenzservice mit dem man im Browser, 
+ohne Anmeldung mit zwei Klicks eine Konferenz starten kann. Unsere Erfahrungen mit Jitsi waren ausschließlich positiv.\par
+\medskip
+Um eine stetige Kommunikation zu gewährleisten und somit die Chance für das Eintreten bzw. die Folgen
+von fehlerhafte Kommunikation zu minimieren, trafen wir uns am Anfang des Projektes wöchentlich. Am Ende 
+des Projektes war unsere Aufgabenverteilung und unser gegenseitiges Vertrauen gut genug, sodass wir, solange
+eine stetige Kommunikation auch asynchron gewährleistet war, zwischen Meetings auch mal zwei Wochen Platz lassen konnten.\par
+\medskip
+Während unsere Meetings zunächst sehr unkoordiniert abliefen, ergab sich mit der Zeit eine immer besser werdende 
+Meetingstruktur. Anfangs haben wir für jedes Meeting sehr aufwändige Protokolle geschrieben. Nach einer Weile stellten 
+wir fest das kaum jemand die Protokolle las und uns daher keinen Mehrwert gab. Um einen Ausgleich zwischen 
+investierter Zeit und Mehrwert zu bekommen, entschieden wir uns, nur noch die Treffen mit dem Themensteller oder dem Coach
+zu protokollieren und in dem Fall, dass jemand an einem Meeting nicht teilnehmen kann, wir uns im Nachhinein mit der 
+Person in Verbindung setzen und ihr kurz das Meeting zusammenfassen. Eine weitere Verbesserung erzielten wir dadurch
+das wir anfingen das jeder am Anfang des Meetings kurz zeigte, was er in der letzten Zeit gemacht hatte.
+Dies wirkte sich auf den allgemeinen Überblick des Teams, aber auch auf die Motivation der einzelnen Personen positiv aus.
+Es gab noch kleine weitere Änderungen, die sich positiv auf die Meetings ausgewirkt haben. Neben den 
+durch Änderungen ausgelösten diskreten Verbesserungen war aber auch eine, durch den Zuwachs an allgemeiner 
+Erfahrung und Kompetenz ausgelöste stetige Verbesserung bemerkbar. Die Früchte der Verbesserungen waren unter anderen 
+ein besseren Überblick den jedes Teammitglied über das Projekt hatte, jeder wusste nach dem Meeting genau, was er 
+zu erledigen hatte, die Meeting Zeit wurde effizienter genutzt so das in weniger Zeit
+mehr Informationen ausgetauscht werden konnten.
+\par
+\medskip
+
+Am Ende unterteilten sich die Meetings meistens in vier Teile. Als Erstes haben wir immer über die in Ergebnisse
+seit dem letzten Meeting gesprochen. Wie bereits erwähnt geschah dies oft so, das die einzelnen Teilnehmer 
+kurz ihre fortschritte erklärten bzw. vorführten.  Danach besprachen wir die grobe weitere Planung. Dazu zählte die 
+Überprüfung ob wir uns im Zeitplan befinden, die Priorisierung bzw. das Umpriorisieren von Funktionalitäten und die 
+Planung von Meetings mit dem Themensteller oder Coach. Als Drittes setzten wir die Planung der aktuellen Funktionalitäten 
+fort und erstellten Issues für die Weiterentwicklung. Im letzten Teil des Meetings teilten wir dann die Issues 
+den Teammitgliedern zu. Dabei konnte es auch vorkommen, dass wir niedrig priorisierte Issues niemanden zuteilten, sondern 
+diese, falls jemand schon schneller als erwartet mit seinen Issues fertig war, dieser Person zugewiesen wurde.\par
+\medskip
+Um Zeitverschwendung zu vermeiden planten wir die Meetings mit dem Themensteller oder dem Coach nur nach Bedarf.
+Wir schrieben uns unsere fragen immer auf und sobald genug zusammengekommen waren bzw. eine Frage sehr 
+wichtig war, planten wir ein Meeting. Für die Besprechung von kleinen, wichtigen Entscheidungen,
+die schnell getroffen werden mussten war oft auch eine kurze Mail an den Themensteller ausreichend.
+Während wir bei Softwareengineering-I häufig Meetings mit unserem Coach hatten, reduzierte sich die Anzahl
+bei Softwareengineering-II stark. Dies war vor allem der Tatsache geschuldet das wir uns mehr auf die Entwicklung
+der eigentlichen Software konzentrierten aber auch der Tatsache das wir
+in unserem arbeiten viel sicherer geworden sind und dadurch weniger Fragen auftraten.
+Die Meetings sowohl mit dem Themensteller als auch mit dem Coach empfanden wir immer als sehr sinnvoll. Meist 
+trafen wir uns direkt nach dem Meeting, um die vorgeschlagenen dinge in Issues zu überführen die wir dann später 
+umsetzten.\par 
+\medskip 
+Perfekt waren unsere Meetings am Ende aber noch lange nicht. Ein Problem was wir zum Beispiel nur vermindern aber 
+noch nicht komplett lösen konnten war das, sich im Meeting beschränken auf Konversationen, die möglichst alle betreffen.
+Zum Beispiel haben wir manchmal sehr detailliert über die Serversynchronisation gesprochen und das, obwohl an der 
+Entwicklung der Synchronisation nur zwei Personen beteiligt waren. Solche Situationen entstanden unbewusst und 
+wirkte sich, für alle am detaillierten Thema unbeteiligten negativ auf die Qualität des Meetings aus.
+
 \section{Dokumentation}
 \section{Projektdurchführung}
 \section{Projektergebnisse}
@@ -98,7 +166,7 @@
     Ich war mit im Bereich der Programmierung der App zuständig. In den Meetings haben wir uns immer neue Features überlegt, 
     welche dann als GitHub Issues festgehalten wurden. Falls wir uns nicht während des Meetings einigen konnten, wer was macht, 
     hat sich jeder selbst das zugewiesen, worauf er grade Lust hatte. Auch haben wir unseren Zwischenstand immer mal wieder unserem 
-    Auftraggeber Prof. Neugebauer gezeigt und uns Feedback dazu abgeholt. Somit konnten wir schnell sehen, ob etwas nicht so passt, 
+Auftraggeber Prof. Neugebauer gezeigt und uns Feedback dazu abgeholt. Somit konnten wir schnell sehen, ob etwas nicht so passt, 
     wie er es wollte. Die App selber haben wir in Java programmiert, was für mich gut war, da ich schon einige Erfahrung 
     in der Java Programmierung habe. Zwar habe ich noch nie eine Mobile App entwickelt, jedoch gewöhnte ich mich recht schnell 
     an die IDE und die neuen Bibliotheken. Programmiert habe ich immer nur alleine, jedoch habe ich mir auch ab und zu rat meiner 
