@@ -43,7 +43,6 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.zip.Inflater;
 
-
 public class GPSTrack extends BroadcastReceiver{
 
     public enum State {READY, RECORDING, EDITING, EMPTY, CONTREC}
@@ -98,7 +97,12 @@ public class GPSTrack extends BroadcastReceiver{
         if (startPoint == null) startPoint = point;
 
     }
-    boolean startRecording() {
+
+    /**
+     *  Starts {@link RecordingService} to receive Location Data.
+     *  Appends Location Data to current path ({@link Polyline})
+     */
+    public void startRecording() {
         Log.i("GPSTrack","Recording has been started.");
         int i = 0;
 
@@ -113,16 +117,17 @@ public class GPSTrack extends BroadcastReceiver{
         recIntent = new Intent(context, RecordingService.class);
         context.startForegroundService(recIntent);
 
-        return true;
     }
-    boolean endRecording() {
+    /**
+     *  Stops {@link RecordingService} and saves Track as gpx file
+     */
+    public void endRecording() {
         if(state == State.RECORDING || state == State.CONTREC) {
             context.stopService(recIntent);
         }
         saveAsGPX();
         state = State.READY;
         Log.i("GPSTrack","Recording has been stopped.");
-        return true;
     }
     private void saveAsGPX() {
         GPX gpx = new GPX();
@@ -231,6 +236,12 @@ public class GPSTrack extends BroadcastReceiver{
             Log.e("GPSTrack", "Failed to load File", e);
         }
     }
+
+    /**
+     * Initializes all Editing states. Generates Marker Paths and
+     * changes Visibility of Buttons.
+     * @param map used to manipulate the elements shown on the map
+     */
     public void startEditing(MapView map){
         state = State.EDITING;
         markerList = new ArrayList<Marker>();
@@ -316,6 +327,12 @@ public class GPSTrack extends BroadcastReceiver{
             map.getOverlayManager().add(m);
         }
     }
+
+    /**
+     * Displays dialog to change Waypoint type.
+     * Updates or creates MarkerBubble if type was changed.
+     * @param marker
+     */
     private void showSpecialPointDialog(Marker marker) {
         final Dialog dia = new Dialog(context);
         dia.setContentView(R.layout.rename_track);
@@ -366,7 +383,8 @@ public class GPSTrack extends BroadcastReceiver{
         });
         dialog.show();
     }
-    public void warning() {
+
+    private void warning() {
         Toast.makeText(context.getApplicationContext(),
                 "Error: Failed to load file", Toast.LENGTH_SHORT).show();
     }
