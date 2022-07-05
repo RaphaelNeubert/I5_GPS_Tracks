@@ -1,0 +1,55 @@
+= Iteration Plan 05: {project-name}
+Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+{localdatetime}
+include::../_includes/default-attributes.inc.adoc[]
+// Platzhalter für weitere Dokumenten-Attribute
+
+== Meilensteine
+
+[cols="1,1"]
+|===
+|*Meilenstein*
+|*Datum*
+|Beginn der Iteration
+|
+|Ende der Iteration
+|18.04.2022
+|===
+
+
+== Wesentliche Ziele
+
+. Behebung angestrichener Punkte in der Dokumentation
+. Nachbearbeitung (teils) fehlender Dokumente und Modelle
+.. Requirements
+.. Anforderungen
+.. Domain & C4 Model
+.. Alphas
+.. Rechtschreibung & Einheitlichkeit
+
+
+== Aufgabenzuordnung
+https://github.com/RaphaelNeubert/I5_GPS_Tracks/projects/5
+
+
+== Bewertungskriterien
+* 
+
+
+
+== Assessment
+
+[cols="1,1"]
+|===
+| Assessment Ziel
+| Ganze Iteration
+| Assessment Datum
+| 30.01.2022
+| Teilnehmer
+| Alle Gruppenmitglieder 
+| Projektstatus
+| grün
+|===
+
+•	Alle für die Iteration festgelegten Ziele wurden erfüllt.
+•	Alle geplanten Aufgaben wurden bis zum Ende der Iteration bearbeitet und fertiggestellt. Es befinden sich alle Issues in der Box "Done", wodurch nichts in die nächste Iteration gemoved werden muss.

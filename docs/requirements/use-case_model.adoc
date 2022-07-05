@@ -15,12 +15,10 @@ include::../_includes/default-attributes.inc.adoc[]
 * *UC02*: GPS-Track auflisten
 * *UC03*: GPS-Track auf Karte anzeigen 
 * *UC04*: GPS-Track bearbeiten
-* *UC05*: Wiederaufnahme von GPS-Track
-* *UC06*: GPS-Track über Server verwalten
-* *UC07*: Besondere(n) Punkt(e) in GPS-Track einfügen
+* *UC05*: Synchronisation der GPS-Tracks mit dem Server
+* *UC06*: Besondere(n) Punkt(e) in GPS-Track einfügen
+* *UC07*: Wiederaufnahme von GPS-Track
 * *UC08*: Verbesserung existierender GPS-Tracks durch erneute Aufnahme
-
-
 
 == Use Case Diagramm
 

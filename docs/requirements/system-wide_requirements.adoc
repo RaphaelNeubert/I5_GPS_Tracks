@@ -19,10 +19,7 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Benutzern
 //Angabe von system-weiten funktionalen Anforderungen, die nicht als Use Cases ausgedrückt werden können. Beispiele sind Drucken, Berichte, Authentifizierung, Änderungsverfolgung (Auditing), zeitgesteuerte Aktivitäten (Scheduling), Sicherheit / Maßnahmen zum Datenschutz
 
 *SWFA-1: Die GPS-Tracks müssen dauerhaft gespeichert sein* +
-Wenn man einen aufgenommenen GPS-Track hochlädt, ist dieser dann dauerhaft verfügbar. +
-*SWFA-2: Der Löschvorgang eines GPS-Tracks muss zwei mal bestätigt werden.* +
-Um Datensicherheit zu gewährleisten muss der User nachdem er auf "Löschen" drückt noch einmal gefragt werden, ob
-er sich sicher ist.
+Wenn man einen aufgenommenen GPS-Track hochlädt, ist dieser dann dauerhaft verfügbar. 
 
 == Qualitätsanforderungen für das Gesamtsystem
 //Qualitätsanforderungen repräsentieren das "URPS" im FURPS+ zu Klassifikation von Anforderungen
@@ -47,9 +44,6 @@ Zur Überprüfung wird die App geöffnet und sich zum jeweiligen Szenario durchg
 *NFAR-1: GPS-Tracks müssen eindeutig über ihren Namen identifiziert werden können* +
 Zur Überprüfung wird getestet, ob falls ein neuer Track den Namen eines bereits existierenden Tracks
 bekommt, der Name automatisch verändert wird. +
-*NFAR-2: Der Server sowie der Kartendatenprovider muss zu 95% verfügbar sein* +
-Zur Überprüfung wird getestet, ob in einem Langzeittest der Server sowie der Kartendatenprovider
-zu 95% der Zeit erreichbar ist.
 
 === Effizienz (Performance)
 // Die Performanz Charakteristiken des Systems sollten in diesem Bereich ausgeführt werden. Beispiele sind Antwortzeit, Durchsatz, Kapazität und Zeiten zum Starten oder Beenden.

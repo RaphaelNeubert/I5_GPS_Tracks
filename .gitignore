@@ -49,3 +49,18 @@ output.json
 obj/
 .externalNativeBuild
 #-----------------------------------
+
+# Python
+.venv
+.vscode
+
+#LaTeX
+*.pdf
+*.aux
+*.fdb_latexmk
+*.log
+*.gz
+*.fls
+*.sh
+*.toc
+*.synctex(busy)

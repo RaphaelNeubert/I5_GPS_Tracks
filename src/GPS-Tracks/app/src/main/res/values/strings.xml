@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">GPS-Tracks</string>
+
+    <string name="details">Details anzeigen</string>
+    <string name="showTrack">Track auf Karte anzeigen</string>
+    <string name="edit">Track bearbeiten</string>
+    <string name="contRec">Aufnahme fortsetzen</string>
+    <string name="delete">Track löschen</string>
+    <string name="rename">Track umbenennen</string>
+
+    <string name="back">ZURÜCK</string>
+    <string name="sync">SYNC</string>
+
+    <string name="trackSave">Track speichern</string>
+    <string name="enter">Trackname eingeben</string>
+    <string name="save">SPEICHERN</string>
+    <string name="next">FORTSETZEN</string>
+    <string name="discard">VERWERFEN</string>
+    <string name="saveSucess">Speichern erfolgreich</string>
+
+
+    <string name="OK">OK</string>
+    <string name="abort">ABBRECHEN</string>
+    <string name="newname">newName</string>
+    <string name="trackname">trackname</string>
+    <string name="renameSuccess">Umbenennung erfolgreich</string>
+    <string name="renameWarning">Bitte geben Sie neuen Tracknamen ein</string>
+
+    <string name="specialPointDialog">Wegpunkt-Typ bearbeiten</string>
+    <string name="specialPointWarning">Dieser Typname ist zu kurz</string>
+    <string name="dist">Distanz: </string>
+
+    <string name="permissionWarning">Die App benötigt die geforderten Berechtigungen um zu Funktionieren.</string>
 </resources>

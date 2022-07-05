@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GPS-Tracks</string>
+
+    <string name="details">Track information</string>
+    <string name="showTrack">Show saved Track</string>
+    <string name="edit">Track edit</string>
+    <string name="contRec">Record continue</string>
+    <string name="delete">Track delete</string>
+    <string name="rename">Track rename</string>
+
+    <string name="back">BACK</string>
+    <string name="sync">SYNC</string>
+
+    <string name="trackSave">Track save</string>
+    <string name="enter">Enter Track name</string>
+    <string name="save">SAVE</string>
+    <string name="next">CONTINUE</string>
+    <string name="discard">DISCARD</string>
+    <string name="saveSucess">Save successfully</string>
+
+
+    <string name="OK">OK</string>
+    <string name="abort">ABORT</string>
+    <string name="newname">newName</string>
+    <string name="trackname">trackname</string>
+    <string name="renameSuccess">Rename successfully</string>
+    <string name="renameWarning">Please enter new Track name</string>
+
+    <string name="specialPointDialog">Edit Waypoint-Type</string>
+    <string name="specialPointWarning">This Typename is to short</string>
+    <string name="dist">Distace: </string>
+
+    <string name="permissionWarning">The App needs the requested permissions in order to work properly.</string>
+</resources>

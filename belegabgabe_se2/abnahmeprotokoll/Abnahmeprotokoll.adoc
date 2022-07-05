@@ -1,0 +1,149 @@
+= Abnahmeprotokoll <Kurztitel Thema>
+:icons: font
+:lang: de
+//:sectnums: short
+
+//:source-highlighter: highlightjs
+//:imagesdir: img
+//Platzhalter für weitere Dokumenten-Attribute
+
+//Autor: {author}, Version {revnumber}, {revdate}
+== Projektangaben
+Thema: I5 GPS-Tracks
+
+Zeitraum: November 21  - Juni 22
+
+GitHub Repository: https://github.com/RaphaelNeubert/I5_GPS_Tracks.git
+
+
+== Abnahmedokumentation 
+=== Abnahme
+Datum: 24.06.2022
+
+Zeit: 17:30 Uhr
+
+Abnahmeumgebung: HTW Dresden
+
+=== Lieferumfang
+
+* Software in folgender Form: demo apk, verbunden mit Server
+* Benutzeranleitung
+* Betriebsanleitung
+* Anforderungsspezifikation
+* Entwicklerdokumentation
+* Testdokumentation
+
+=== Funktionalität
+[cols="4,1,5"]
+|===
+|Use Case / Szenario | erfüllt | Anmerkung
+
+|UC1: GPS-Tracks aufnehmen
+| ja
+|...
+|UC2: GPS-Track auflisten
+| ja
+|...
+|UC03: GPS-Track auf Karte anzeigen
+| ja
+|...
+|UC04: GPS-Track bearbeiten
+|ja
+| ...
+|UC05: Synchronisation der GPS-Tracks mit dem Server
+|ja
+| ...
+|UC06: Besondere(n) Punkt(e) in GPS-Track einfügen
+| ja
+|...
+|UC07: Wiederaufnahme von GPS-Track
+| ja
+|...
+|UC08: Verbesserung existierender GPS-Tracks durch erneute Aufnahme
+| nein
+|...
+
+|===
+
+===  Systemweite Anforderungen
+[cols="4,1,5"]
+|===
+|Anforderung | erfüllt | Anmerkung
+
+|SWFA-1: Die GPS-Tracks müssen dauerhaft gespeichert sein.
+| ja
+|...
+|NFAU-1: Text sollte auf Smartphone noch auf volle Armlänge lesbar sein.
+| ja
+|...
+|NFAU-2: Inhalte müssen übersichtlicht dargestellt werden.
+| ja
+|...
+|NFAU-3: Die Hauptfunktionen befinden sich auf der Startseite.
+| ja
+|...
+|NFAU-4: Der Benutzer sollte maximal 4 Klicks brauchen um entweder einen Track aufzunehmen oder sich die Details zu einem beliebigen Track anzeigen zu lassen.
+| ja
+|...
+|NFAR-1: GPS-Tracks müssen eindeutig über ihren Namen identifiziert werden können.
+| ja
+|...
+|NFAP-1: Das Softwaresystem soll einen Wechsel von Seite zu Seite und die Benutzung bestimmter Aktionen innerhalb der App in maximal 2 Sekunden ermöglichen.
+| ja
+|...
+|NFAS-1: Das System soll in der Lage sein, neue Sprachen integrieren zu können.
+| ja
+|...
+|NFAS-2: Das System soll in der Lage sein, Kartendaten verschiedener Anbieter zu verwenden.
+| nein
+|...
+|NFAS-3: Die App soll entwicklungsrelevante Systemfehler loggen und an die Entwickler schicken.
+| nein
+|...
+|===
+
+
+=== Zusätzliche Anforderungen
+[cols="4,1,5"]
+|===
+|Anforderung | erfüllt | Anmerkung
+
+|Die Verwaltung des Sourcecodes und der Dokumentation muss mittels GitHub erfolgen.
+| ja
+|...
+|Die App muss mit der Programmiersprache Java entwickelt werden.
+| ja
+|...
+|Der Server muss mit der Programmiersprache Java oder Python entwickelt werden.
+| ja
+|...
+|Die App soll nur ein handelsübliches Smartphone benötigen welches als Betriebssystem Android verwendet.
+| ja
+|...
+|Der Benutzer muss über die benötigten Berechtigungen informiert werden sowie sie akzeptieren.
+| ja
+|...
+|Die GPS-Tracks sollen in einem standardisierten Dateiformat z.B. GEOJson oder GPX gespeichert werden.
+| ja
+|...
+|Die App muss über eine REST Standard API verfügen.
+| ja
+|...
+|Der Datenschutz der Benutzer muss gewährleistet sein. Die App darf nur notwendige Daten an den Server senden.
+| ja
+|...
+|===
+
+== Unterschriften
+
+Hiermit wird die Abnahme vollständig / mit Mängeln bestätigt.
+
+Bemerkungen:
+
+[cols="1,1"]
+|===
+|> 
+|>
+|Unterschrift Themensteller*in
+|Unterschrift Projektleiter*in
+|===

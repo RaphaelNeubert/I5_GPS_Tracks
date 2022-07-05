@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GPS-Tracks</string>
+
+    <string name="details">Thông tin chỉ đường</string>
+    <string name="showTrack">Hiển thị chỉ đường</string>
+    <string name="edit">Chỉnh sửa chỉ đường</string>
+    <string name="contRec">Tiếp tục đánh dấu</string>
+    <string name="delete">Xóa chỉ đường</string>
+    <string name="rename">Đổi tên chỉ đường</string>
+
+    <string name="back">QUAY LẠI</string>
+    <string name="sync">ĐỒNG BỘ</string>
+
+    <string name="trackSave">Lưu chỉ đường</string>
+    <string name="enter">Nhập tên chỉ đường</string>
+    <string name="save">LƯU</string>
+    <string name="next">TIẾP TỤC</string>
+    <string name="discard">HỦY BỎ</string>
+    <string name="saveSucess">Lưu thành công</string>
+
+
+    <string name="OK">THAY ĐỔI</string>
+    <string name="abort">HỦY BỎ</string>
+    <string name="newname">newName</string>
+    <string name="trackname">trackname</string>
+    <string name="renameSuccess">Đổi tên thành công</string>
+    <string name="renameWarning">Hãy nhập tên chỉ đường mới</string>
+
+    <string name="specialPointDialog">edit Waypoint-Type</string>
+    <string name="specialPointWarning">This Typename is to short</string>
+    <string name="dist">Distace: </string>
+
+    <string name="permissionWarning">The App needs the requested permissions in order to work properly.</string>
+</resources>
