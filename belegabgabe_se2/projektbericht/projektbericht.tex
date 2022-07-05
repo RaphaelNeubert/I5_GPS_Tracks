@@ -291,10 +291,9 @@ die Möglichkeit, die Betriebs- und Nutzeranleitung später abzugeben um unseren
         \includegraphics[scale=0.27]{use_case_comleted.png}
     \end{figure}
     Während der Entwicklung wurde auch klar, dass die Verbindung der
-    Anwendung mit dem Server gesichert werden musste. Derzeit kann jeder nicht registrierte Benutzer 
-    REST-Befehle verwenden, um die GPS-Dateien auf dem Server zu ändern, zu löschen oder auch auf den Server
-    herunterzuladen. Das ist eine schwerwiegende Sicherheitslücke, da eine Datei mit Virencode
-    an den Server gesendet werden kann und dann alle Geräte in unserem Netzwerk infiziert sein können.
+    Anwendung mit dem Server gesichert werden musste. Derzeit kann jeder Benutzer einfach REST-Befehle verwenden, 
+    um die GPS-Dateien auf dem Server zu ändern, zu löschen oder auch auf den Server
+    herunterzuladen. Das ist eine schwerwiegende Sicherheitslücke, die bei missbräuchlicher Verwendung des APIs zu zahlreichen Problemen führen kann.
     \begin{figure}[H]
         \includegraphics[scale=0.27]{virus.png}
     \end{figure}
