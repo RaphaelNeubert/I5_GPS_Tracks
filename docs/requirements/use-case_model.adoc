@@ -22,7 +22,7 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Use Case Diagramm
 
-image::use_case_diagram.PNG[align=center, title="Use-Case Model", pdfwidth=50%]
+image::uc_diagram2.PNG[align=center, title="Use-Case Model", pdfwidth=50%]
 // ...
 
 //Fügen Sie nachfolgend alle detailierten Use-Cases per Include ein.
@@ -36,8 +36,8 @@ include::use_case_03.inc.adoc[]
 <<<
 include::use_case_04.inc.adoc[]
 <<<
-//include::use_case_05.inc.adoc[]
-//<<<
+include::use_case_05.inc.adoc[]
+<<<
 //include::use_case_06.inc.adoc[]
 //<<<
 //include::use_case_07.inc.adoc[]
