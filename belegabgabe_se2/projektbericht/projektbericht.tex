@@ -272,14 +272,14 @@ die Möglichkeit, die Betriebs- und Nutzeranleitung später abzugeben um unseren
 
 \section{Projektergebnisse}
 \subsection{Produktergebnis [AP]}
-    Als Produkt unseres Projekts haben wir ein System entwickelt, das aus einer Android-App und einem Server für den Datenaustausch besteht.
-    Die Anwendung GPS-Tracks ermöglicht Nutzern mit einem Android-Smartphone, eine Route als eine Reihe von Wegpunkten auszuwählen 
-    und dann einen Roboter anweisen, damit der Roboter sich autonom zwischen den Punkten bewegt und wobei er bestimmte Aktionen (oder auch Script) ausführen kann. 
-    In der App haben wir Funktionen implementiert, um GPS-Routen zu erstellen, anzupassen, mit anderen Geräten über einen Server auszutauschen
-    und Routen zu löschen. Die App unterstützt auch die Funktion, eine bestimmte Aktion an einem GPS-Punkt zuspeichern. Die App kann auch in anderen 
-    Projekten eingesetzt werden. So kann man beispielsweise interessante Routen aufnehmen und spezielle Hinweisen zu Wegpunkten anlegen.
-    Die App an sich ist gut durchdacht und verständlich, wenn man kurz eingearbeitet wurde. \\ Die Dateien auf dem Server werden ohne die Verwendung einer Datenbank
-    und im Dateisystem des Servers gespeichert, so dass unser Sereranwendung mit Docker leicht auf anderen Diensten eingesetzt werden kann. Man können zum Beispiel einen Raspberry Pi verwenden und darauf
+    Als Produkt unseres Projekts haben wir ein System entwickelt, das aus einer Android-App und einem Server besteht.
+    Die Anwendung GPS-Tracks ermöglicht Nutzern mit einem Android-Smartphone, eine Route als eine Reihe von Wegpunkten zu erzeugen 
+    und dann sie einen Roboter anweisen, damit der Roboter sich autonom zwischen den Punkten bewegen und wobei er bestimmte Aktionen (oder Scripts) ausführen kann. 
+    Mit unserer App kann man GPS-Routen erstellen, anpassen, löschen oder mit anderen Geräten über den Server austauschen. Die App unterstützt auch die Funktion, eine bestimmte Aktion für Roboter
+    an einem konkreten GPS-Punkt zuspeichern. Aüßerdem kann unser System in anderen Projekten eingesetzt werden. So kann man beispielsweise interessante Routen aufnehmen und gewisse Hinweisen zu GPS-Wegpunkten anlegen.
+    Die App an sich ist gut durchdacht und hat eine Intuitives User Interface. \\ 
+    Der Server dient dem Datenaustausch und der Datenverwaltung, so dass man an Routen zusammenarbeiten kann. Die Dateien auf dem Server werden ohne die Verwendung einer Datenbank
+    und im Dateisystem des Servers gespeichert, deswegen unser Server-App mit Docker leicht auf anderen Diensten eingesetzt werden kann. Man können zum Beispiel einen Raspberry Pi verwenden und darauf
     Docker installieren. Auf diese Weise kann der Server zu geringen Kosten betrieben werden. 
 \subsection{Bewertung [AP]}
     Da wir kontinuierlich und effizient an dem Projekt gearbeitet haben, ist es uns gelungen, fast komplette Funktionalität der App zu implementieren.
