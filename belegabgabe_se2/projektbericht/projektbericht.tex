@@ -211,47 +211,64 @@ Entwicklung der Synchronisation nur zwei Personen beteiligt waren. Solche Situat
 wirkte sich, für alle am detaillierten Thema unbeteiligten negativ auf die Qualität des Meetings aus.
 
 \subsection{Techniken/Praktiken [RN]}
-%hier kann unsere Github nutzung hin. Also projektboard, branches und so weiter.
-% vielleicht auch wie wir iterationen planen und wann wir einen neue starten.
 \subsubsection{Git/GitHub}
 Zur Entwicklung verwendeten wir Git und als Host GitHub. In unserem Team kannten sich anfangs nur zwei von acht Personen
-mit Git aus. Wir passten daher die Komplexität unseres GitHub-Workflows dem stand der Praktika an. Zum Beispiel 
+mit Git aus. Wir passten daher die Komplexität unseres GitHub-Workflows dem Stand der Praktika an. Zum Beispiel
 verwendeten wir erst mehrere Branches nachdem Branching im Praktikum behandelt wurden. Unsere GitHub-Workflows haben
 wir im Verlauf des Projektes sehr häufig angepasst und verbessert.\par
 \medskip
-Von Anfang an verwendeten wir Issues zur Planung kleiner Aufgaben. Nach einer weile merkten wir das es sinnvoll
-ist diese mittels eines Projektboards zu organisieren. Wir erstellten daraufhin ein Projektboard mit vier Spalten.
-Die Spalte \say{Icebox} für Issues die noch niemanden Zugewiesen wurden, die Spalte \say{Assigned} für Issues die 
-zwar zugewiesen, aber noch nicht in Bearbeitung waren, die Spalte \say{In Progress} für Issues die sowohl zugewiesen 
+Von Anfang an verwendeten wir Issues zur Planung kleiner Aufgaben. Nach einer Weile merkten wir, dass es sinnvoll
+ist, diese mittels eines Projektboards zu organisieren. Wir erstellten daraufhin ein Projektboard mit vier Spalten.
+Die Spalte \say{Icebox} für Issues die noch niemanden zugewiesen wurden, die Spalte \say{Assigned} für Issues die
+zwar zugewiesen, aber noch nicht in Bearbeitung waren, die Spalte \say{In Progress} für Issues die sowohl zugewiesen
 als auch in Bearbeitung sind, und die Spalte \say{Done} für Issues deren Bearbeitung abgeschlossen ist.
-Wir verwendeten dieses Projektboard für mehrere Iterationen. Nachdem es aber immer voller wurde, entschlossen wir uns 
-von nun an für jede Iteration ein Projektboard zu erstellen. Im Verlaufe des Projektes versuchten wir uns auch mal 
-an der Verwendung eines komplizierteren Projektboards mit Pull-Requests und Reviews, merkten aber schnell, dass 
+Wir verwendeten dieses Projektboard für mehrere Iterationen. Als das Projektboard aber immer voller wurde, entschlossen wir uns
+von nun an für jede Iteration ein Projektboard zu erstellen. Im Verlaufe des Projektes versuchten wir uns auch mal
+an der Verwendung eines komplizierteren Projektboards mit Pull-Requests und Reviews, merkten aber schnell, dass
 für den Umfang unseres Projektes, mit dieser Methode, Zeit und Nutzen in keinem guten Verhältnis standen.
-Wir können uns allerdings vorstellen das die Verwendung eines solchen Projektboards für Umfangreichere Projekte 
-sinnvoll ist. Am ende verwendeten wir primitive 3 Spalten Projektboards mit den Spalten \say{To do}, \say{Assigned} und
-\say{Done}, da wir feststellten das wir von der Spalte \say{In Progress} keinen Mehrwert erhielten und es aufwendig 
-war, jedesmal bevor man mit der Arbeit anfangen konnte eine Änderung am Board vornehmen zu müssen. Die Projektboards 
-automatisierten wir so, dass beim schließen eines Issues, sei es manuell oder durch Referenzierung des Issues in 
-der Commit-message, dieser Automatisch in die Spalte \say{Done} verschoben wurde.\par 
+Wir können uns allerdings vorstellen, dass die Verwendung eines solchen Projektboards für umfangreichere Projekte
+sinnvoll ist. Am Ende verwendeten wir primitive 3 Spalten Projektboards mit den Spalten \say{To do}, \say{Assigned} und
+\say{Done}, da wir feststellten, dass wir von der Spalte \say{In Progress} keinen Mehrwert erhielten und es aufwendig
+war, jedesmal bevor man mit der Arbeit anfangen konnte eine Änderung am Board vornehmen zu müssen. Die Projektboards
+automatisierten wir so, dass beim Schließen eines Issues, sei es manuell oder durch Referenzierung des Issues in
+der Commit-message, dieser Automatisch in die Spalte \say{Done} verschoben wurde.\par
 \medskip
-Wie bereits erwähnt verwendeten wir zunächst nur einen Branch. Für alles was nur mit Dokumentation und Anforderungsanalyse 
-zu tun hatte, funktionierte dies Problemlos. Bei der Entwicklung hingegen, gab es ab und zu kleine Probleme.
-Zum Beispiel ist es mal vorgekommen das wir festellen mussten, dass kurz vor einem Meeting mit dem Themensteller 
-die App nicht mehr Kompilierte. Gelöst haben wir das Problem in dem wir einen \say{checkout} zu einer älteren Version 
+Wie bereits erwähnt verwendeten wir zunächst nur einen Branch. Für alles was nur mit Dokumentation und Anforderungsanalyse
+zu tun hatte, funktionierte dies problemlos. Bei der Entwicklung hingegen gab es ab und zu kleine Probleme.
+Zum Beispiel ist es mal vorgekommen, dass wir kurz vor einem Meeting mit dem Themensteller feststellen mussten, dass
+die App nicht mehr kompilierte. Gelöst haben wir das Problem in dem wir einen \say{checkout} zu einer älteren Version
 gemacht haben und nach dem Meeting den Fehler gesucht und gelöst haben, aber dies brachte uns auf eine Idee.
 Wir wollten von nun an mehrere Branches verwenden und für diese, sowie deren Interaktion verschiedene Regeln aufstellen.
 Eine Regel war zum Beispiel, dass die sich auf dem Hauptbranch befindende Version immer erfolgreich kompilieren
-und keine größeren Bugs beinhalten muss. Wir erstellten den Branch \say{dev} auf dem wir von nun an entwickelten.
-Immer wenn eine Funktionalität fertig entwickelt und ausreichen gut getestet war, haben wir den \say{dev}-Branch in 
-unseren Hauptbranch gemerged und somit den Hauptbranch aktualisiert. Später versuchten wir für jedes Feature einen 
-eigenen Branch zu erstellen und nach fertigstellung diesen in den \say{dev}-Branch zu mergen. Wir mussten aber feststellen 
+und keine größeren Bugs beinhalten muss. Wir erstellten den Branch \say{dev} auf dem wir von jetzt an entwickelten.
+Immer wenn eine Funktionalität fertig entwickelt und ausreichen gut getestet war, haben wir den \say{dev}-Branch in
+unseren Hauptbranch gemerged und somit den Hauptbranch aktualisiert. Später versuchten wir für jedes Feature einen
+eigenen Branch zu erstellen und nach Fertigstellung diesen in den \say{dev}-Branch zu mergen. Wir mussten aber feststellen
 das dies zum einen sehr aufwendig war, oft aber auch kaum möglich, da es Abhängigkeiten zwischen den Features gab,
-die erst bei der Entwicklung auffielen. Wir entschlossen uns daher nur für große, ganz klar unabhängige Features 
+die erst bei der Entwicklung auffielen. Wir entschlossen uns daher nur für große, ganz klar unabhängige Features
 weitere Branches zu erstellen und behielten dieses Branching-Modell bis zum Ende des Projektes bei.
 
 \subsubsection{Iterationen}
-
+Ein weiterer Faktor, der sich im Verlauf des Projektes stark geändert hat, ist die Planung der Iterationen.
+Anfangs arbeiteten wir noch nicht nach Iterationen. Erst nach Gesprächen mit unserem Coach merkten wir aber
+wie wichtig Iterationen sind. Wir begannen also in Iterationen zu arbeiten. Die ersten Iterationen lang
+betrachteten wir Iterationen als ein ausschließlich zeitlichen Rahmen und starteten jede Woche eine neue Iteration.
+Vor allem als die eigentliche Entwicklung begann, merkten wir, dass dies nicht sinnvoll ist, vor allem
+da wir alle unerledigten Issues einfach nur in die nächste Iteration schoben. Zu diesem Zeitpunkt schrieben wir
+die Iterationspläne oft erst nach der Beendigung der Iteration und füllten den Punkt \say{Wesentliche Ziele} aus in dem
+wir schauten, was wir fertig bekommen hatten und nicht so wie es eigentlich gedacht ist, vorher.
+Als wir zu der Erkenntnis kamen, dass dies nicht viel Sinn ergibt, entschlossen wir uns von da an
+die Iterationen nach konkreten Zielen, meist Funktionalitäten zu planen. Dies funktionierte zunächst ziemlich gut.
+Es kam dadurch allerdings vor, dass die Iterationen sehr lang wurden.\par
+\medskip
+Durch den Fachaustausch zum Thema Projektmanagement wurde uns klar, dass wir unsere Iterationen noch nicht optimal planten.
+Wir überarbeiteten unser Iterationsplanmodell ein letztes Mal. Wir kombinierten unser erstes und unser zweites Modell.
+Unsere Iterationen bekamen wieder einen festen Zeitrahmen. Zusätzlich legten wir aber noch eine Funktionalität, oft
+aber auch nur eine Teil-Funktionalität fest, die auf jeden Fall in dem Zeitrahmen erledigt werden konnte und dann auch wurde.
+Wir hatten somit ein sehr gutes Iterationsplanmodell gefunden. Leider waren wir am Ende so auf die
+Entwicklung fokussiert, dass wir unser eigentliches Iterationsplanmodell und die Iterationen selber etwas vergessen
+haben. Wir sind uns aber sicher, dass wenn wir uns diszipliniert an unser Iterationsplanmodell gehalten hätten,
+wir organisierter und effizienter unsere Ziele erreicht hätten.
 
 \section{Projektdurchführung}
 \subsection{Iterationsphasen}
