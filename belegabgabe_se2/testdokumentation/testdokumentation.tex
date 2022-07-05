@@ -37,36 +37,125 @@
 
 \section{Testkonzept}
 \subsection{Testobjekte}
-
-\subsubsection{Komponente 1}
-\subsubsection{Komponente 2}
-\subsubsection{Komponente 3}
+	In unserem Projekt müssen vier Hauptobjekte getestet werden:
+	\begin{itemize}
+		\item Hauptfunktionalität: Aufnahme eines Tracks
+		\item Hauptfunktionalität: Bearbeiten eines Tracks
+		\item Hauptfunktionalität: Synchronistation
+		\item Nebenfunktionalitäten
+	\end{itemize}
 
 \subsection{Testmethod}
+	In unserem Projekt haben wir aus zwei Hauptgründen entschieden, dass die Verwendung von Black-Box-Tests die beste Testmethode für das Projekt ist. Erstens untersucht das Black-Box-Testen die Funktionalität einer Anwendung, ohne in ihre internen Strukturen oder Funktionsweisen hineinzuschauen. Zweitens kann diese Methode auf allen Testebenen angewendet werden. Der automatische Test ist nicht notwendig für unsere App, sodass wir manueller Test verwenden.\par
 
 \subsection{Testdurchführungsplanung}
+	Für den Testplan beginnen wir mit dem kleinen Unit-Test wie für eine Funktionalität. Dann machen Integrationstest, um alle Funktionalitäten zu prüfen, ob alles gut integriert ist. Zuletzt führen wir einen Test für alle Testkomponenten als Gesamtsystem (die App) durch.\par
 
 \section{Testfallbeschreibung}
-\subsection{Komponente 1}
+\subsection{Hauptfunktionalität: Aufnahme eines Tracks}
 \subsubsection{Vorbedigungen}
+	Aufnahme eines Tracks wird von einigen Faktoren entschiedet:
+	\begin{itemize}
+		\item Aufnahme wird reibunglos nicht nur im Vorgrund sondern auch im Hintergrund gelaufen.
+		\item Das aufgenomme Track wird richtig mit Name oder automatisch generiertem Name gespeichert.
+		\item Nach dem Druck auf Button \glqq Fortsetzen\grqq wird die Aufnahme normalweise weiter aufgenommen.
+		\item Mit dem Button \glqq Verwerfen\grqq wird die Aufnahme gestoppt.
+	\end{itemize}
 \subsubsection{Testdaten}
+	Testdaten sind GPS-Signal des Handys, das als verbundene Punkte auf die Karte angezeigt wird. Außerdem ist der Name des Tracks auch eine Testdatei.
 \subsubsection{Ablaufbeschreibung}
+	Um die Funktionalität \glqq Aufnahme eines Tracks\grqq zu testen, läuft der Test wie:
+	\begin{enumerate}
+		\item Eine Aufnahme wird im Vorgrund und auch im Hintergrund gemacht und gecheckt, ob das Track generiert wird.
+		\item Alle Buttons werden gedruckt,
+			\begin{itemize}
+				\item das aufgenomme Track richtig auf Handy gespeichert wird.
+				\item die Aufnahme weiter aufgenommen wird.
+				\item die Aufnahme verworfen wird.
+			\end{itemize}
+	\end{enumerate}
 \subsubsection{Erwartetes Ergebnis}
+	Die Aufnahme sollte normalerweise Track generiert werden und alle Buttons sollte richtig gelaufen werden.
 
-\subsection{Komponente 2}
+\subsection{Hauptfunktionalität: Bearbeiten eines Tracks}
 \subsubsection{Vorbedigungen}
+	Vorbedigungen des Bearbeiten eines Tracks sind:
+	\begin{itemize}
+		\item GPS-Punkte können auf anderne Standort verschoben werden.
+		\item Punkte können einen spezielle Marker (für weitere Entwicklung mit dem Roboter) markiert werden
+		\item Das bearbeitete Track wird mit bisherigem Name automatisch gespeichert.
+		\item Nach dem Druck auf Button \glqq Fortsetzen\grqq wird das Bearbeiten weiter machen.
+		\item Mit dem Button \glqq Verwerfen\grqq wird das Bearbeiten gestoppt und die Änderungen werden verworfen.		
+	\end{itemize}
 \subsubsection{Testdaten}
+	Testdaten für diesen Testobjekt sind neue Koordinaten der GPS-Punkte und Information des speziellen Markers
 \subsubsection{Ablaufbeschreibung}
+	Der Ablauf des Test für die Funktionalität \glqq Bearbeiten eines Tracks\grqq ist:
+	\begin{enumerate}
+		\item Ein Punkt wird gedruckt und verschoben.
+		\item Ein Punkt wird gewählt und gedruckt. Dann wird der Typ des Punktes kommentiert.
+		\item Alle Buttons werden gedruckt, ob
+			\begin{itemize}
+				\item das bearbeite Track richtig auf Handy gespeichert wird.
+				\item das Bearbeit weiter aufgenommen wird.
+				\item die Änderungen verworfen wird.
+			\end{itemize}
+	\end{enumerate}
 \subsubsection{Erwartetes Ergebnis}
+	Der Punkt sollte an anderen Standort verschoben und mit anderen Punkten als ein Track verbunden werden. Außerdem werden alle Button als genannte Bedingungen gelaufen.
 
-\subsection{Komponente 3}
+\subsection{Hauptfunktionalität: Synchronisation}
 \subsubsection{Vorbedigungen}
+	Die Synchronisation muss diese Bedigungen eingereicht werden:
+	\begin{itemize}
+		\item Tracks, die auf Server gespeichert sind, müssen auf Handy heruntergeladen werden.
+	\end{itemize}
 \subsubsection{Testdaten}
+	Für Synchronisation sind die Testdaten als Tracks auf Server.
 \subsubsection{Ablaufbeschreibung}
+	\begin{enumerate}
+		\item Handy wird mit Internet und VPN verbunden
+		\item Das Button \glqq Sync\grqq wird gedruckt
+		\item Checken, ob Tracks auf Server im Handy heruntergeladen werden
+	\end{enumerate}
 \subsubsection{Erwartetes Ergebnis}
+	Alle Tracks, die auf Server, sollte auf Handy synchronisiert und gespeichert
+
+\subsection{Nebenfunktionalitäten}
+\subsubsection{Vorbedigungen}
+	In der App gibt es fünf Nebenfunktionalitäten, die mit folgenden Bedingungen eingereicht werden müssen:
+	\begin{itemize}
+		\item Details eines GPS-Tracks anzeigen
+		\item GPS-Track auf Karte anzeigen	
+		\item Aufnahme fortsetzen
+		\item GPS-Track umbenennen
+		\item GPS-Track löschen	
+	\end{itemize}
+\subsubsection{Testdaten}
+	Alle gelistete und gespeicherte Tracks sind Testdaten.
+\subsubsection{Ablaufbeschreibung}
+	\begin{enumerate}
+		\item Nebenfunktionalitäten werden gewählt und gecheckt, ob
+			\begin{itemize}
+				\item Information des GPS-Tracks angezeigt wird. z.B.: Zeit der Aufnahme und Länge des Tracks
+				\item gespeichertes Track als verbundene Punkte auf Karte angezeigt.
+				\item gespeichertes Track normalerweise weiter aufgenommen wird.
+				\item gespeichertes Track seinen Name umbenannt wird.
+				\item gespeichertes Track komplett gelöscht wird.
+			\end{itemize}
+	\end{enumerate}
+\subsubsection{Erwartetes Ergebnis}
+	Alle Nebenfunktionalität sollte erfolgreich gelaufen und mit anderen Funktionalität gut integiert werden
 
 \section{Ergebnisse}
 \subsection{Ergebnisse der Testdurchführung}
+	Nach die Durchführung aller Testen werden alle Anforderungen der Funktionalitäten erfüllt und in der App gut integiert. Die App besteht jedoch noch ein paar Fehler und Bugs, z.B.:
+	\begin{itemize}
+		\item Wenn Benutzer \glqq GPS-Track umbenennen\grqq oder \glqq SYNC\grqq gedruckt hat, werden andere Buttons mit gleiche Funktionalität als vorher gedrucktes Butten und falsch Funktionalität gelaufen.
+		\item Bei Installation der App wird kein Berechtigungen gefragt
+		\item Bei Nutzung der Funktionalität \glqq Aufnahme fortsetzen\grqq wird die App selten abgestürzt.
+	\end{itemize}
+	Alle Fehler und Bug sind bei Abnahme behoben und noch mal gecheckt
 \subsection{Konsequenzen der erkannten Abweichungen}
-
+	Die Abweichung kann zu einer schlechten Benutzererfahrung führen. Darüber hinaus können andere Funktionen der App falsch ausgeführt werden und das gesamte System kann zum Absturz gebracht werden. Im schlimmsten Fall können Benutzer ihre Daten der App nicht wiederherstellen. \par
 \end{document}

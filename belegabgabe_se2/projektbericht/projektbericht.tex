@@ -107,7 +107,7 @@ auf die Mitglieder auf. Somit hatten wir alle Voraussetzungen für einen guten S
 \subsection{Rollenverteilung [AP], [RN]}
     Die Rollen im Team waren nicht streng verteilt. Jeder war in seinem Bereich und entsprechend seinen Kompetenzen an 
     dem Projekt beteiligt. Im Verlaufe des Projektes entstand von alleine eine Art Zuordnung von Fachgebiet und Person.
-    Zum Beispiel war am Ende Alexandr Pronin für die Entwicklung und technischen Lösungen für den Client-Server-Teil verantwortlich 
+    Zum Beispiel war am Ende Aleksandr Pronin für die Entwicklung und technischen Lösungen für den Client-Server-Teil verantwortlich 
     und Alex Schechtel für UI-relevante Dinge zuständig. Die folgenden Tabellen zeigen die, zu Beginn der jeweiligen Semester,
     ursprünglichen Rollenverteilungen.
 \begin{table}[H]
@@ -289,21 +289,21 @@ die Möglichkeit, die Betriebs- und Nutzeranleitung später abzugeben um unseren
 
 \section{Projektergebnisse}
 \subsection{Produktergebnis [AP]}
-    Als Produkt unseres Projekts haben wir ein System entwickelt, das aus einer Android-App und einem Server für den Datenaustausch besteht.
-    Die Anwendung GPS-Tracks ermöglicht Nutzern mit einem Android-Smartphone, eine Route als eine Reihe von Wegpunkten auszuwählen 
-    und dann einen Roboter anweisen, damit der Roboter sich autonom zwischen den Punkten bewegt und wobei er bestimmte Aktionen (oder auch Script) ausführen kann. 
-    In der App haben wir Funktionen implementiert, um GPS-Routen zu erstellen, anzupassen, mit anderen Geräten über einen Server auszutauschen
-    und Routen zu löschen. Die App unterstützt auch die Funktion, eine bestimmte Aktion an einem GPS-Punkt zuspeichern. Die App kann auch in anderen 
-    Projekten eingesetzt werden. So kann man beispielsweise interessante Routen aufnehmen und spezielle Hinweisen zu Wegpunkten anlegen.
-    Die App an sich ist gut durchdacht und verständlich, wenn man kurz eingearbeitet wurde. \\ Die Dateien auf dem Server werden ohne die Verwendung einer Datenbank
-    und im Dateisystem des Servers gespeichert, so dass unser Sereranwendung mit Docker leicht auf anderen Diensten eingesetzt werden kann. Man können zum Beispiel einen Raspberry Pi verwenden und darauf
+    Als Produkt unseres Projekts haben wir ein System entwickelt, das aus einer Android-App und einem Server besteht.
+    Die Anwendung GPS-Tracks ermöglicht Nutzern mit einem Android-Smartphone, eine Route als eine Reihe von Wegpunkten zu erzeugen 
+    und dann sie einen Roboter anweisen, damit der Roboter sich autonom zwischen den Punkten bewegen und wobei er bestimmte Aktionen (oder Scripts) ausführen kann. 
+    Mit unserer App kann man GPS-Routen erstellen, anpassen, löschen oder mit anderen Geräten über den Server austauschen. Die App unterstützt auch, wie schon oben gesagt, bestimmte Befehle für Roboter
+    an einem konkreten GPS-Punkt zuspeichern. Aüßerdem kann unser System in anderen Projekten eingesetzt werden. So kann man beispielsweise interessante Routen aufnehmen und gewisse Hinweisen zu GPS-Wegpunkten anlegen.
+    Die App an sich ist gut durchdacht und hat eine Intuitives User Interface. \\ 
+    Der Server dient dem Datenaustausch und der Datenverwaltung, so dass man an Routen zusammenarbeiten kann. Die Dateien auf dem Server werden ohne die Verwendung einer Datenbank
+    und einfach im Dateisystem gespeichert. Aus diesem Grung kann Server-App mit Docker leicht auf anderen Diensten eingesetzt werden. Man kann zum Beispiel einen Raspberry Pi verwenden und darauf
     Docker installieren. Auf diese Weise kann der Server zu geringen Kosten betrieben werden. 
 \subsection{Bewertung [AP]}
     Da wir kontinuierlich und effizient an dem Projekt gearbeitet haben, ist es uns gelungen, fast komplette Funktionalität der App zu implementieren.
-    7 Use Cases und 8 Nicht Funktionale Anforderungen wurden erfüllt. Einen Anwendungsfall US08 "Verbesserung bestehender GPS-Tracks durch Überschreiben", sowie für  
+    Sieben Use Cases und  acht Nicht-Funktionale-Anforderungen wurden erfüllt. Einen Anwendungsfall US08 "Verbesserung bestehender GPS-Tracks durch Überschreiben", sowie  
     zwei Nicht Funktionale Anforderungen NFAS 2 und NFAS 3 (siehe Abnahmeprotokoll) haben wir zeitig nicht geschaft. Das wurde jedoch mit unserem Auftraggeber, Prof. Neugebauer, 
     abgestimmt und als Aufgaben mit Low-Priorität eingestuft.
-    Es kann aber gute Gründe dafür geben, die Projektlaufzeit zu verlängern, was führt natürlich zu höheren Projektkosten für den Kunden in realen Projekten.
+    Jedoch kann es Gründe dafür geben, die Projektlaufzeit zu verlängern, was im Endeffekt zu höheren Projektkosten für den Kunden in realen Projekten führt.
     \begin{center}
         \includegraphics[scale=0.4]{use_case_comleted.png}
     \end{center}
@@ -345,10 +345,9 @@ die Möglichkeit, die Betriebs- und Nutzeranleitung später abzugeben um unseren
     Bei dem Projekt, das meine Kollegen unterstütz und mitentwickelt haben, handelt es sich um eine Android-App zur 
     Speicherung von GPS-Routen und zum Austausch dieser Daten zwischen Geräten über einen Server. Application Server wurde
     in Python unter Verwendung des Flask-Frameworks geschrieben und die clientseitigen Komponenten wurden von mir 
-    in Java weiterentwickelt. Rückblickend kann ich sagen, dass wir im Rahmen der Gruppenarbeit  gute Verständnis von agile 
-    Entwickeln der App  und insbesondere ein kompetentes Management von dem Team besser erfassen konnten. Ich kann auch bestätigen,
-    dass wir Fähigkeiten sowohl bei der Ermittlung von Anforderungen als auch bei deren Spezifizierung erworben haben und alle
-    Besonderheiten der Entwicklung komplexer Softwaresysteme erkannt haben. Aus meiner Erfahrung als Werkstudent kann ich mit Zuversicht sagen,
+    in Java weiterentwickelt. Rückblickend kann ich sagen, dass wir im Rahmen der Gruppenarbeit sowie  gute Verständnis von agile 
+    Entwickeln der App und insbesondere ein kompetentes Management besser erfassen konnten, als auch Fähigkeiten bei der Ermittlung von Anforderungen 
+    und alle Besonderheiten der Entwicklung komplexer Softwaresysteme erkannt haben. Aus meiner Erfahrung als Werkstudent kann ich mit Zuversicht sagen,
     dass wir gemeinsam hervorragende Ergebnisse erzielt haben. Es hat Spaß gemacht, erfolgreich mit dem Team zusammenzuarbeiten und das Projekt zu 
     unterstützen. Dank meiner Kollegen(oder auch Kommilitonen) und unseres Projekts konnte ich jede Menge lernen.
 \subsubsection{Alex Schechtel}
