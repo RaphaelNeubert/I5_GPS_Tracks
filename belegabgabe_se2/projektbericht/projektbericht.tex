@@ -107,8 +107,9 @@ auf die Mitglieder auf. Somit hatten wir alle Voraussetzungen für einen guten S
 \subsection{Rollenverteilung [AP], [RN]}
     Die Rollen im Team waren nicht streng verteilt. Jeder war in seinem Bereich und entsprechend seinen Kompetenzen an 
     dem Projekt beteiligt. Im Verlaufe des Projektes entstand von alleine eine Art Zuordnung von Fachgebiet und Person.
-    Zum Beispiel war am Ende Alexandr Pronin für den Server zuständig und Alex Schechtel für UI-relevante Dinge.
-    Die folgenden Tabellen zeigen die, zu Beginn der jeweiligen Semester, ursprünglichen Rollenverteilungen.
+    Zum Beispiel war am Ende Alexandr Pronin für die Entwicklung und technischen Lösungen für den Client-Server-Teil verantwortlich 
+    und Alex Schechtel für UI-relevante Dinge zuständig. Die folgenden Tabellen zeigen die, zu Beginn der jeweiligen Semester,
+    ursprünglichen Rollenverteilungen.
 \begin{table}[H]
     \begin{tabular}{|l|l|}
     \hline
@@ -239,9 +240,11 @@ Iteration 8
     und im Dateisystem des Servers gespeichert, so dass unser Sereranwendung mit Docker leicht auf anderen Diensten eingesetzt werden kann. Man können zum Beispiel einen Raspberry Pi verwenden und darauf
     Docker installieren. Auf diese Weise kann der Server zu geringen Kosten betrieben werden. 
 \subsection{Bewertung [AP]}
-    Da wir kontinuierlich an dem Projekt gearbeitet haben, konnten wir eine Menge erreichen. Alle grundlegenden Funktionen wurden implementiert,
-    nur ein Use Case „Verbesserung  exestierender GPS-Tracks durch erneute Aufnahme“ haben wir nicht zeitig nicht geschaft. Dies wurde jedoch mit unserem 
-    Auftraggeber, Prof. Neugebauer, ausgehandelt und als „Low a Priority Task“ eingestuft.
+    Da wir kontinuierlich und effizient an dem Projekt gearbeitet haben, ist es uns gelungen, fast komplette Funktionalität der App zu implementieren.
+    7 Use Cases und 8 Nicht Funktionale Anforderungen wurden erfüllt. Einen Anwendungsfall US08 "Verbesserung bestehender GPS-Tracks durch Überschreiben", sowie für  
+    zwei Nicht Funktionale Anforderungen NFAS 2 und NFAS 3 (siehe Abnahmeprotokoll) haben wir zeitig nicht geschaft. Das wurde jedoch mit unserem Auftraggeber, Prof. Neugebauer, 
+    abgestimmt und als Aufgaben mit Low-Priorität eingestuft.
+    Es kann aber gute Gründe dafür geben, die Projektlaufzeit zu verlängern, was führt natürlich zu höheren Projektkosten für den Kunden in realen Projekten.
     \begin{figure}[H]
         \includegraphics[scale=0.27]{use_case_comleted.png}
     \end{figure}
@@ -249,7 +252,11 @@ Iteration 8
     Anwendung mit dem Server gesichert werden musste. Derzeit kann jeder nicht registrierte Benutzer 
     REST-Befehle verwenden, um die GPS-Dateien auf dem Server zu ändern, zu löschen oder auch auf den Server
     herunterzuladen. Das ist eine schwerwiegende Sicherheitslücke, da eine Datei mit Virencode
-    an den Server gesendet werden kann und dann alle Geräte in unserem Netzwerk infiziert sein können. Aus diesem Grund sollte nächste logische Entwicklungsschritt
+    an den Server gesendet werden kann und dann alle Geräte in unserem Netzwerk infiziert sein können.
+    \begin{figure}[H]
+        \includegraphics[scale=0.27]{virus.png}
+    \end{figure}
+    Aus diesem Grund sollte nächste logische Entwicklungsschritt
     daher der Authentifizierungs- und Autorisierungsprozess auf dem Server sein.
 \subsection{Reflexion der Teammitglieder}
 \subsubsection{Tom Nicolai}
