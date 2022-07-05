@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[10pt]{article}
 
 \usepackage[margin=3cm]{geometry}
 \usepackage{amsmath}
@@ -107,8 +107,9 @@ auf die Mitglieder auf. Somit hatten wir alle Voraussetzungen für einen guten S
 \subsection{Rollenverteilung [AP], [RN]}
     Die Rollen im Team waren nicht streng verteilt. Jeder war in seinem Bereich und entsprechend seinen Kompetenzen an 
     dem Projekt beteiligt. Im Verlaufe des Projektes entstand von alleine eine Art Zuordnung von Fachgebiet und Person.
-    Zum Beispiel war am Ende Alexandr Pronin für den Server zuständig und Alex Schechtel für UI-relevante Dinge.
-    Die folgenden Tabellen zeigen die, zu Beginn der jeweiligen Semester, ursprünglichen Rollenverteilungen.
+    Zum Beispiel war am Ende Alexandr Pronin für die Entwicklung und technischen Lösungen für den Client-Server-Teil verantwortlich 
+    und Alex Schechtel für UI-relevante Dinge zuständig. Die folgenden Tabellen zeigen die, zu Beginn der jeweiligen Semester,
+    ursprünglichen Rollenverteilungen.
 \begin{table}[H]
     \begin{tabular}{|l|l|}
     \hline
@@ -209,9 +210,48 @@ Zum Beispiel haben wir manchmal sehr detailliert über die Serversynchronisation
 Entwicklung der Synchronisation nur zwei Personen beteiligt waren. Solche Situationen entstanden unbewusst und 
 wirkte sich, für alle am detaillierten Thema unbeteiligten negativ auf die Qualität des Meetings aus.
 
-\subsection{Techniken/Praktiken}
+\subsection{Techniken/Praktiken [RN]}
 %hier kann unsere Github nutzung hin. Also projektboard, branches und so weiter.
 % vielleicht auch wie wir iterationen planen und wann wir einen neue starten.
+\subsubsection{Git/GitHub}
+Zur Entwicklung verwendeten wir Git und als Host GitHub. In unserem Team kannten sich anfangs nur zwei von acht Personen
+mit Git aus. Wir passten daher die Komplexität unseres GitHub-Workflows dem stand der Praktika an. Zum Beispiel 
+verwendeten wir erst mehrere Branches nachdem Branching im Praktikum behandelt wurden. Unsere GitHub-Workflows haben
+wir im Verlauf des Projektes sehr häufig angepasst und verbessert.\par
+\medskip
+Von Anfang an verwendeten wir Issues zur Planung kleiner Aufgaben. Nach einer weile merkten wir das es sinnvoll
+ist diese mittels eines Projektboards zu organisieren. Wir erstellten daraufhin ein Projektboard mit vier Spalten.
+Die Spalte \say{Icebox} für Issues die noch niemanden Zugewiesen wurden, die Spalte \say{Assigned} für Issues die 
+zwar zugewiesen, aber noch nicht in Bearbeitung waren, die Spalte \say{In Progress} für Issues die sowohl zugewiesen 
+als auch in Bearbeitung sind, und die Spalte \say{Done} für Issues deren Bearbeitung abgeschlossen ist.
+Wir verwendeten dieses Projektboard für mehrere Iterationen. Nachdem es aber immer voller wurde, entschlossen wir uns 
+von nun an für jede Iteration ein Projektboard zu erstellen. Im Verlaufe des Projektes versuchten wir uns auch mal 
+an der Verwendung eines komplizierteren Projektboards mit Pull-Requests und Reviews, merkten aber schnell, dass 
+für den Umfang unseres Projektes, mit dieser Methode, Zeit und Nutzen in keinem guten Verhältnis standen.
+Wir können uns allerdings vorstellen das die Verwendung eines solchen Projektboards für Umfangreichere Projekte 
+sinnvoll ist. Am ende verwendeten wir primitive 3 Spalten Projektboards mit den Spalten \say{To do}, \say{Assigned} und
+\say{Done}, da wir feststellten das wir von der Spalte \say{In Progress} keinen Mehrwert erhielten und es aufwendig 
+war, jedesmal bevor man mit der Arbeit anfangen konnte eine Änderung am Board vornehmen zu müssen. Die Projektboards 
+automatisierten wir so, dass beim schließen eines Issues, sei es manuell oder durch Referenzierung des Issues in 
+der Commit-message, dieser Automatisch in die Spalte \say{Done} verschoben wurde.\par 
+\medskip
+Wie bereits erwähnt verwendeten wir zunächst nur einen Branch. Für alles was nur mit Dokumentation und Anforderungsanalyse 
+zu tun hatte, funktionierte dies Problemlos. Bei der Entwicklung hingegen, gab es ab und zu kleine Probleme.
+Zum Beispiel ist es mal vorgekommen das wir festellen mussten, dass kurz vor einem Meeting mit dem Themensteller 
+die App nicht mehr Kompilierte. Gelöst haben wir das Problem in dem wir einen \say{checkout} zu einer älteren Version 
+gemacht haben und nach dem Meeting den Fehler gesucht und gelöst haben, aber dies brachte uns auf eine Idee.
+Wir wollten von nun an mehrere Branches verwenden und für diese, sowie deren Interaktion verschiedene Regeln aufstellen.
+Eine Regel war zum Beispiel, dass die sich auf dem Hauptbranch befindende Version immer erfolgreich kompilieren
+und keine größeren Bugs beinhalten muss. Wir erstellten den Branch \say{dev} auf dem wir von nun an entwickelten.
+Immer wenn eine Funktionalität fertig entwickelt und ausreichen gut getestet war, haben wir den \say{dev}-Branch in 
+unseren Hauptbranch gemerged und somit den Hauptbranch aktualisiert. Später versuchten wir für jedes Feature einen 
+eigenen Branch zu erstellen und nach fertigstellung diesen in den \say{dev}-Branch zu mergen. Wir mussten aber feststellen 
+das dies zum einen sehr aufwendig war, oft aber auch kaum möglich, da es Abhängigkeiten zwischen den Features gab,
+die erst bei der Entwicklung auffielen. Wir entschlossen uns daher nur für große, ganz klar unabhängige Features 
+weitere Branches zu erstellen und behielten dieses Branching-Modell bis zum Ende des Projektes bei.
+
+\subsubsection{Iterationen}
+
 
 \section{Projektdurchführung}
 \subsection{Iterationsphasen}
@@ -244,9 +284,11 @@ Iteration 8
     und im Dateisystem des Servers gespeichert, so dass unser Sereranwendung mit Docker leicht auf anderen Diensten eingesetzt werden kann. Man können zum Beispiel einen Raspberry Pi verwenden und darauf
     Docker installieren. Auf diese Weise kann der Server zu geringen Kosten betrieben werden. 
 \subsection{Bewertung [AP]}
-    Da wir kontinuierlich an dem Projekt gearbeitet haben, konnten wir eine Menge erreichen. Alle grundlegenden Funktionen wurden implementiert,
-    nur ein Use Case „Verbesserung  exestierender GPS-Tracks durch erneute Aufnahme“ haben wir nicht zeitig nicht geschaft. Dies wurde jedoch mit unserem 
-    Auftraggeber, Prof. Neugebauer, ausgehandelt und als „Low a Priority Task“ eingestuft.
+    Da wir kontinuierlich und effizient an dem Projekt gearbeitet haben, ist es uns gelungen, fast komplette Funktionalität der App zu implementieren.
+    7 Use Cases und 8 Nicht Funktionale Anforderungen wurden erfüllt. Einen Anwendungsfall US08 "Verbesserung bestehender GPS-Tracks durch Überschreiben", sowie für  
+    zwei Nicht Funktionale Anforderungen NFAS 2 und NFAS 3 (siehe Abnahmeprotokoll) haben wir zeitig nicht geschaft. Das wurde jedoch mit unserem Auftraggeber, Prof. Neugebauer, 
+    abgestimmt und als Aufgaben mit Low-Priorität eingestuft.
+    Es kann aber gute Gründe dafür geben, die Projektlaufzeit zu verlängern, was führt natürlich zu höheren Projektkosten für den Kunden in realen Projekten.
     \begin{figure}[H]
         \includegraphics[scale=0.27]{use_case_comleted.png}
     \end{figure}
@@ -254,7 +296,11 @@ Iteration 8
     Anwendung mit dem Server gesichert werden musste. Derzeit kann jeder nicht registrierte Benutzer 
     REST-Befehle verwenden, um die GPS-Dateien auf dem Server zu ändern, zu löschen oder auch auf den Server
     herunterzuladen. Das ist eine schwerwiegende Sicherheitslücke, da eine Datei mit Virencode
-    an den Server gesendet werden kann und dann alle Geräte in unserem Netzwerk infiziert sein können. Aus diesem Grund sollte nächste logische Entwicklungsschritt
+    an den Server gesendet werden kann und dann alle Geräte in unserem Netzwerk infiziert sein können.
+    \begin{figure}[H]
+        \includegraphics[scale=0.27]{virus.png}
+    \end{figure}
+    Aus diesem Grund sollte nächste logische Entwicklungsschritt
     daher der Authentifizierungs- und Autorisierungsprozess auf dem Server sein.
 \subsection{Reflexion der Teammitglieder}
 \subsubsection{Tom Nicolai}
