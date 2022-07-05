@@ -24,7 +24,9 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-
+/**
+ * Client-Server component. Allows you to exchange data with the server and compile lists of files.
+ */
 public class SyncManager {
     public static final String TAG = MainActivity.class.getSimpleName();
     private static String serverAddresse  = "http://141.56.137.84:5000/";
@@ -35,6 +37,9 @@ public class SyncManager {
 
     ProgressBar progressBar;
 
+    /**
+     *  Initialise the objects required for operation.
+     */
     public SyncManager(ListingTracks listingTracks, Context context, ProgressBar progressBar) {
         this.context = context;
         mSettings = context.getSharedPreferences("del_files", Context.MODE_MULTI_PROCESS);
@@ -44,6 +49,9 @@ public class SyncManager {
 
     }
 
+    /**
+     * Creates a list of deleted files. After sending a request to the server to delete files, this list is cleared.
+     */
     public static void ondelList(String selectedItem, Context context) {
         SharedPreferences.Editor editor;
         SharedPreferences mSettings;
@@ -53,6 +61,9 @@ public class SyncManager {
         editor.commit();
     }
 
+    /**
+     * Allows GPS tracks to be uploaded to the server using POST requests.
+     */
     public static Boolean uploadFile(File file) {
         OkHttpClient okHttpClient = new OkHttpClient();
         // deploy on http://pythonanywhere.com
@@ -91,6 +102,9 @@ public class SyncManager {
         return false;
     }
 
+    /**
+     * Enables GPS tracks to be downloaded from the server using GET requests.
+     */
     public void downloadFile(String filename) throws IOException {
         OkHttpClient client = new OkHttpClient();
 
@@ -123,6 +137,9 @@ public class SyncManager {
         });
     }
 
+    /**
+     * Allows GPS tracks to be deleted from the server using GET requests. 
+     */
     public static Boolean delFile(String filename) {
         OkHttpClient okHttpClient = new OkHttpClient();
         try {
@@ -156,6 +173,9 @@ public class SyncManager {
     }
 
 
+    /**
+     * reads files-lists and runs REST methods.
+     */
     public void synchronisation() throws IOException {
 
         // the map containing the items to be deleted
@@ -166,7 +186,7 @@ public class SyncManager {
         File deletePrefFile = new File(filePath);
         System.out.println("delList: "+toDelete);
 
-        // del
+        // delete
         for(String el:toDelete){
             delFile(el);
             System.out.println("Values "+ el);
@@ -191,7 +211,7 @@ public class SyncManager {
                 String[] arrayFromFlask = listFormated.split(",");
 
 
-                // сdownload
+                // download
                 String[] fileList = context.fileList();
 
                 List<String> filesListFromFlask = new ArrayList<>(Arrays.asList(arrayFromFlask));
@@ -247,6 +267,9 @@ public class SyncManager {
         });
     }
 
+    /**
+     * Enables GPS tracks to be loaded from the GET requests to download GPS tracks from the server.
+     */
     public String[] downloadDelList() throws IOException {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()

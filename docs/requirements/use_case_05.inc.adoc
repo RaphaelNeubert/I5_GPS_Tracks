@@ -1,5 +1,5 @@
 
-== Use-Case 0?: Synchronisation der Dateien mit dem Server
+== Use-Case 05: Synchronisation der Dateien mit dem Server
 
 === Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>

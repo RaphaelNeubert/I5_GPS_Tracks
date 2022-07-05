@@ -35,10 +35,10 @@ Die Risiken sind in der folgenden Tabelle dargestellt. Das Datum des Dokuments o
 //|===
 //include::risks.csv[]
 //|===
-image::risks1.png[title="Risikotabelle", align="center"]
-image::risks2.png[title="Risikotabelle", align="center"]
-image::risks3.png[title="Risikotabelle", align="center"]
-image::risks4.png[title="Risikotabelle", align="center"]
+image::risks_geschaeftlich.png[title="Risikotabelle, geschäftlich", align="center"]
+image::risks_ressourcen.png[title="Risikotabelle, Ressourcen", align="center"]
+image::risks_technisch.png[title="Risikotabelle, technisch", align="center"]
+image::risks_zeitlich.png[title="Risikotabelle, zeitlich", align="center"]
 
 // PDF-Export: Seite zurück zum Hochformat
 [.portrait]
