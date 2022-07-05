@@ -11,9 +11,9 @@ include::../_includes/default-attributes.inc.adoc[]
 |*Meilenstein*
 |*Datum*
 |Beginn der Iteration
-|...
+|17.06.2022
 |Ende der Iteration; LCA Meilenstein erreicht
-|...
+|08.07.2022
 |===
 
 
