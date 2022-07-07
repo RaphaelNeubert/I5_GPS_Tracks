@@ -316,53 +316,106 @@ klar) und es ist technisch möglich und es ist ökonomisch sinnvoll} hatten wir 
 auszuarbeiten nicht leider vollständig erfüllt bevor wir in die Elaboration Phase gestartet sind.
 
 \newpage
-\subsubsection{Phase: Elaboration}
-(Iteration 2, 3)
-Nach dem Abschluss der Inception-Phase begann die Elaboration Phase. Das wir die Inception-Phase nicht optimal 
+\subsubsection{Phase: Elaboration [RN]}
+(Iteration 2, 3)\\
+Nach dem Abschluss der Inception-Phase begann die Elaboration Phase. Dass wir die Inception-Phase nicht optimal
 beendet hatten, wussten wir zu diesem Zeitpunkt noch nicht, doch dies sollte sich bald ändern.\par
 \medskip
-Wir begannen mit der detaillierten Ausarbeitung der drei höchstpriorisieren Use-Cases. Die Ausarbeitung übernahmen 
-dabei einzelne Personen, wir besprachen die Ergebnisse aber in einem Projektmeeting. Dabei mussten wir leider feststellen, 
-dass es im Team immer noch Unklarheiten über den Umfang des Projektes gab. Diese Unklarheiten schienen unserem Coach 
-in einem Meeting aufgefallen zu sein, denn wir wurden explizit nach der Vision gefragt. Erst jetzt bemerkten wir, 
-dass diese noch fehlte. Wir pausierten also die Arbeit an den Use-Cases und erstellten die Vision. Nachdem wir die 
-Vision im Team besprochen hatten, war allen der Umfang des Projektes, sowie das eigentliche Ziel klar. Die Vision 
-ist uns ebenfalls am Anfang von Softwareengineering-II nützlich geworden, als Aleksandr Pronin unserm Team 
-beigetreten ist, und wir ihn auf die Vision verweisen konnten die ihm Kontext zu unserer Arbeit gab.\par 
-\medskip 
-Nachdem wir nun endlich die Vision erstellt hatten, setzten wir die Arbeit an den Use-Cases fort. 
-Zunächst beschrieben wir alle Textuell, merkten aber, dass es für einen der Use-Cases Sinn machte ein UML-Aktivitätsdiagramm 
-zu verwenden.\par 
+Wir begannen mit der detaillierten Ausarbeitung der drei höchstpriorisieren Use-Cases. Die Ausarbeitung übernahmen
+dabei einzelne Personen, wir besprachen die Ergebnisse aber in einem Projektmeeting. Dabei mussten wir leider feststellen,
+dass es im Team immer noch Unklarheiten über den Umfang des Projektes gab. Diese Unklarheiten schienen unserem Coach
+in einem Meeting aufgefallen zu sein, denn wir wurden explizit nach der Vision gefragt. Erst jetzt bemerkten wir,
+dass diese noch fehlte. Wir pausierten also die Arbeit an den Use-Cases und erstellten die Vision. Nachdem wir die
+Vision im Team besprochen hatten, war allen der Umfang des Projektes, sowie das eigentliche Ziel klar. Die Vision
+ist uns ebenfalls am Anfang von Softwareengineering-II nützlich geworden, als Aleksandr Pronin unserm Team
+beigetreten ist, und wir ihn auf die Vision verweisen konnten, die ihm Kontext zu unserer Arbeit gab.\par
 \medskip
-Parallel zur Arbeit an den funktionalen Anforderungen arbeiten wir auch an den 
+Nachdem wir nun endlich die Vision erstellt hatten, setzten wir die Arbeit an den Use-Cases fort.
+Zunächst beschrieben wir alle textuell, merkten aber, dass es für einen der Use-Cases als sinnvoll erschien, ein UML-Aktivitätsdiagramm
+zu verwenden.\par
+\medskip
+Parallel zur Arbeit an den funktionalen Anforderungen arbeiten wir auch an den
 systemweiten Anforderungen im Sinne des FURPS+ Modells und an den zusätzlichen Anforderungen des Projektes.
-Dabei standen wir im engen Kontakt mit unserem Themensteller. Wir machten leider auch hier einige Fehler. 
-Zum Beispiel stellten wir Anforderungen deren Erfüllung nicht eindeutig überprüft werden konnte, oder wir 
-stellten Anforderungen die uns einschränkten, aber nicht vom Themensteller oder vom Projekt zwingen gefordert waren.\par 
+Dabei standen wir im engen Kontakt mit unserem Themensteller. Wir machten leider auch hier einige Fehler.
+Zum Beispiel stellten wir Anforderungen, deren Erfüllung nicht eindeutig überprüft werden konnte, oder wir
+stellten Anforderungen, die uns einschränkten, aber nicht vom Themensteller oder vom Projekt zwingen gefordert waren.\par
 \medskip
-Um unser Vorhaben noch besser mit unserem Themensteller kommunizieren zu können, erstellten wir drei Wireframes 
-die verschiedene Teile unserer geplanten App darstellten. Das Resultat war ein sehr ertragreiches Meeting bei dem 
-wir von unserem Themensteller sehr viele gute Ideen und Umsetzungsvorschläge erhielten. Die Verwendung von Wireframes 
-hat uns daher sehr überzeugt und wir nehmen uns vor, diese auch in zukünftigen Projekten zu verwenden.
+Um unser Vorhaben noch besser mit unserem Themensteller kommunizieren zu können, erstellten wir drei Wireframes
+die verschiedene Teile unserer geplanten App darstellten. Das Resultat war ein sehr ertragreiches Meeting, bei dem
+wir von unserem Themensteller sehr viele gute Ideen und Umsetzungsvorschläge erhielten. Die Verwendung von Wireframes
+hat uns daher sehr überzeugt und wir nehmen uns vor, diese auch in zukünftigen Projekten zu verwenden.\par
+\medskip
+Neben der Anforderungsanalyse, beschäftigten wir uns auch intensiv mit der Wahl der Technologien.
+Durch unsere Recherche während der Inception-Phase, kannten wir die verschiedenen Technologie-Kombinationen,
+die für unsere Aufgabenstellung geeignet zu sein schienen. Jetzt galt es herauszufinden, welche davon die beste für uns
+ist und ob mit dieser alle gewünschten Funktionalitäten implementierbar waren. Die Wahl der Programmiersprache,
+sowie dem Framework für den Server war für uns leicht, den ein Teammitglied hatte bereits mit der Programmiersprache
+Python sowie dem Framework Flask gearbeitet und war sich sicher, dass es für unsere Zwecke gut geeignet ist.
+Bei der Programmiersprache für die App, mussten wir zwischen Java und Kotlin wählen, denn nur diese beiden Sprachen
+erlauben eine naive Android-Entwicklung, die zwingend notwendig war, um komplexere Kartenmanipulation betreiben zu können.
+Während Kotlin einige tolle Features hat, die Java nicht hat, hatte Java einen entscheidenden Vorteil.
+Java, sowie die Verwendung der Android-SDK mit Java, ist viel besser dokumentiert als Kotlin.
+Wir entschlossen uns aus diesem Grund für die Verwendung von Java, jedoch war diese Entscheidung keine kritische,
+denn es ist möglich eine App in Java und Kotlin zu schreiben. Wir hätten also trotz unserer Entscheidung,
+einzelne Klassen auch in Kotlin schreiben können, was wir aber nicht taten.
 
+Jetzt blieb nur noch die Wahl der Bibliothek zur Arbeit mit Karten und Kartendaten. Dies stellte sich als die
+schwerste Entscheidung heraus. Es gab bei dieser Wahl zwei Konkurrenten. Zum einen die offizielle
+Maps-SDK von Google, zum anderen Osmdroid, eine Open-Source Ersetzung der Maps-SDK. Wir verbrachten viel Zeit
+mit der Analyse beider und trafen dann (vorerst) eine Entscheidung. Wir entschlossen uns Osmdroid zu verwenden, weil es fast alle Funktionalitäten wie die Maps-SDK hatte, aber viel besser dokumentiert war. Des Weiteren
+waren wir mit Osmdroid unabhängig von Google oder irgendeinen anderen Kartendatenanbieter, denn
+Osmdroid ermöglicht die Verwendung von verschiedenen Kartendatenanbietern. Wir brauchten daher
+keinerlei API-Schlüssel, weil wir uns die Kartendaten von einem freien Anbieter holten.
+Der Hauptgrund war jedoch, dass Osmdroid Open-Source war. Im Nachhinein waren wir sehr froh über diese Entscheidung.
+Wir haben oft in den Quellcode der Bibliothek geschaut, um herauszufinden, wie verschiedene Dinge funktionieren.
+Außerdem standen uns auf der GitHub-Seite von Osmdroid 1206 Issues zur Verfügung von Personen, die ähnliche
+Probleme wie wir hatten. Wir glauben, dass wir, falls wir die Maps-SDK verwendet hätten, im Projekt nicht so weit
+gekommen wären und merken uns für die Zukunft uns immer die Open-Source Alternativen zu den offiziellen APIs
+anzuschauen.\par
+\medskip
+Zu diesem Zeitpunkt wussten wir aber noch nicht, dass Osmdroid eine gute Wahl sein wird. Wie auch?
+Osmdroid bot über 500 verschiedene Klassen an. Es war uns zu Beginn also nicht möglich einschätzen zu können,
+ob alle Use-Cases, vor allem der Use-Case \say{GPS-Track bearbeiten} mit der Bibliothek implementierbar ist.
+Wir entschlossen uns, genau dies durch die Entwicklung des Prototyps herauszufinden.\par
+\medskip
+Unser Prototyp erfüllte daher keinen einzigen Use-Case komplett, aber enthielt Elemente, die wir für die
+Implementierung der wichtigsten Use-Cases brauchen sollten. Im Folgenden sind die im Prototyp implementierten Elemente
+der wichtigsten Use-Cases, sowie die daraus gewonnenen Erkenntnisse beschrieben.
+\begin{itemize}
+\item \textbf{GPS-Track aufnehmen}\\
+Wir implementierten das Anzeigen einer Karte, sowie des aktuellen Standorts.
+Außerdem fügten wir erste UI-Elemente, z. B. einen Button zum Starten einer Aufnahme und einen Button
+zum Zentrieren der Karte auf den aktuellen Standort hinzu. Um dies zu bewältigen, beschäftigten
+wir uns intensiv mit der Erstellung des \say{Boilerplate}-Codes, der nötig war, um eine Karte anzeigen
+zu können. Zudem beschäftigten wir uns mit dem Managen von Berechtigungen,
+die nötig waren, um Zugriff auf den Speicher (für Karten-Cache) und
+den GPS-Sensoren (Standort) zu erlangen, sowie den verschiedenen Möglichkeiten auf Positionsdaten zuzugreifen.
+Wir erlangten auch Kenntnisse über die Interaktion von UI-Elementen und Code, denn wir implementierten den
+Zentrieren-Button so, dass er ausgeblendet wurde, solange die Karte auf den Standort zentriert war.
+\item \textbf{GPS-Track auflisten}\\
+Wir implementierten eine zweite Aktivität (Seite), die dem Auflisten der gespeicherten GPS-Tracks dienen
+sollte. Dort beschäftigten wir uns mit der iterativen Erzeugung von Listenelementen sowie der Erzeugung
+eines Untermenüs beim Klick eines Listenelements. Die Interaktion mit dem Dateisystem hatten wir nur mithilfe
+von Konsolen-Outputs getestet. Wir erlangten hier weitere UI-Kenntnisse sowie die von der Android-SDK gegebenen
+Möglichkeiten, mit dem Dateisystem zu interagieren.
+\item \textbf{GPS-Track auf Karte anzeigen}\\
+Wir versuchten Pfade auf der Karte anzuzeigen. Dies gelang uns unter der Verwendung von Polylines.
+Unsere Tests löschten bzw. kommentierten wir vor der Vorstellung des Prototyps aus, damit dieser möglichst
+sauber und nicht so überladen erschien. Das Wissen bzw. die Erfahrung über/mit Polylines blieb aber.
+\item \textbf{GPS-Track bearbeiten}\\
+Hier beschäftigten wir uns vor allem mit Marken, welche wir auf der Karte platzierten.
+Die wichtigste Erkenntnis aus unseren Tests mit Markern war, dass man für Marker die
+Callback-Funktionen \say{onMarkerClick()} und noch viel wichtiger \say{onMarkerDrag()} implementieren konnte.
+Diese wurden später für die Implementierung des Use-Cases sehr wichtig.
+\end{itemize}
+Nachdem wir die Implementierung des Prototyps beendet hatten, waren wir uns sicher, dass
+wir die Implementierung aller Use-Cases mit Osmdroid umsetzen konnten. Wir hatten somit eines der größten Risiken eliminiert.
+Jetzt schrieben wir noch einen Testcase für den Prototyp und fertigten das Domainmodell an. Der Code des Prototyps war
+sehr chaotisch und unstrukturiert. Die Anfertigung des Domainmodell gab uns Ideen, wie wir Dinge strukturieren könnten.
+Diese setzten wir dann in Softwareengineering-II auch um.
+Die restliche Zeit verbrachten wir mit der Verbesserung,
+der für die Softwareengineering-I Abgabe notwendigen Dokumente.
 
-% Vision nachholen 
-% use cases ausarbeiten 
-% besprechung wireframes mit ts 
-% FURPS
-% technologien
-% domänenmodell
-% prototyp
-% testfälle
-\newpage
-%Diese Phase diente vor allem der Ausarbeitung von systemweiten Anforderungen und wie diese umzusetzen waren sowie der Implementierung des Grundgerüstes unserer Applikation.
-%Wir haben unsere Use Cases überarbeitet sowie neue hinzugefügt. Außerdem wurden die systemweiten Anforderungen im Sinne des FURPS+ Modells ausgearbeitet
-%Weiterhin entwarf man Wireframes und besprach diese mit dem Themensteller um sicherzugehen, dass das Aussehen
-%der App den Vorstellungen entsprach. Wir stellten in dieser Phase sicher, dass alle Mitglieder des Teams unsere IDE Android Studio auf ihrem
-%Rechner installierten und wir begannen mit dem Bauen des Grundgerüstes der App. Zuerst mussten wir eine leere App in unser GitHub Repository pushen. Es wurden daraufhin
-%Funktionalitäten wie das Anzeigen einer Karte auf dem Homescreen der App und auch die Ermittlung und Anzeige des aktuellen Standorts des Smartphones per GPS programmiert. Auch
-%Elemente wie Buttons wurden hinzugefügt. Da das erste Semester des Moduls Software Engineering sich dem Ende neigte, wurde der Fokus im Anschluss auf die Abgabe unseres SEI Belegarbeitszeit
-%gesetzt.
 \subsubsection{Phase: Construction}
 (Iteration 4, 5, 6)
 Das Ziel der Construction Phase war die Entwicklung einer voll funktionstüchtigen App, in der alle Grundfunktionen vorhanden sind.
