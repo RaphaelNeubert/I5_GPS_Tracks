@@ -38,7 +38,7 @@ image::wireframes_homescreen.png[align="center", pdfwidth=55%]
 //. Der Use Case ist abgeschlossen.
 
 .UC01
-image::Use_Case_01_GPS-Track aufnehmen.png[align="center"]
+image::Use_Case_01_GPS-Track_aufnehmen.png[align="center"]
 
 === Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
