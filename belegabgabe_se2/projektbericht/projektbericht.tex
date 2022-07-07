@@ -25,7 +25,7 @@
     \vspace{1cm}
     {\scshape\Large Softwaresystem \glqq GPS-Track-App\grqq\par}
     \vspace{1.5cm}
-    {\huge\bfseries Prjektbericht\par}
+    {\huge\bfseries Projektbericht\par}
     \vspace{2cm}
     {\Large\itshape Raphael Neubert, Alex Schechtel, Aleksandr Pronin, Quang Duy Pham, Tom Nicolai, Ludwig Schönthier\par}
     \vfill
@@ -211,8 +211,8 @@ Zum Beispiel haben wir manchmal sehr detailliert über die Serversynchronisation
 Entwicklung der Synchronisation nur zwei Personen beteiligt waren. Solche Situationen entstanden unbewusst und 
 wirkte sich, für alle am detaillierten Thema unbeteiligten negativ auf die Qualität des Meetings aus.
 
-\subsection{Techniken/Praktiken [RN]}
-\subsubsection{Git/GitHub}
+\subsection{Techniken/Praktiken}
+\subsubsection{Git/GitHub [RN]}
 Zur Entwicklung verwendeten wir Git und als Host GitHub. In unserem Team kannten sich anfangs nur zwei von acht Personen
 mit Git aus. Wir passten daher die Komplexität unseres GitHub-Workflows dem Stand der Praktika an. Zum Beispiel
 verwendeten wir erst mehrere Branches nachdem Branching im Praktikum behandelt wurden. Unsere GitHub-Workflows haben
@@ -249,7 +249,7 @@ das dies zum einen sehr aufwendig war, oft aber auch kaum möglich, da es Abhän
 die erst bei der Entwicklung auffielen. Wir entschlossen uns daher nur für große, ganz klar unabhängige Features
 weitere Branches zu erstellen und behielten dieses Branching-Modell bis zum Ende des Projektes bei.
 
-\subsubsection{Iterationen}
+\subsubsection{Iterationen [RN]}
 Ein weiterer Faktor, der sich im Verlauf des Projektes stark geändert hat, ist die Planung der Iterationen.
 Anfangs arbeiteten wir noch nicht nach Iterationen. Erst nach Gesprächen mit unserem Coach merkten wir aber
 wie wichtig Iterationen sind. Wir begannen also in Iterationen zu arbeiten. Die ersten Iterationen lang
@@ -271,16 +271,40 @@ Entwicklung fokussiert, dass wir unser eigentliches Iterationsplanmodell und die
 haben. Wir sind uns aber sicher, dass wenn wir uns diszipliniert an unser Iterationsplanmodell gehalten hätten,
 wir organisierter und effizienter unsere Ziele erreicht hätten.
 
-\subsubsection{Alphas}
+\subsubsection{Alphas [LS]}
 Da wir die Nutzung der Alpha States oft vergessen und allgemein unregelmäßig genutzt haben, hatte das Team das Gefühl, diese seien 
 keine große Bereicherung. Der Fortschritt unseres Projekt wurde anhand unserer Iterationen innerhalb des GitHub Repositorys gut deutlich und die
 Ausarbeitung spezieller Checklisten und Ziele erschien uns oft als zu viel Aufwand, der nicht dem Projektumfang entsprach. Innerhalb unseres Projektes
 waren die Ziele und Meilensteine relativ klar erkenntlich und benötigten in unseren Augen keinerlei zusätzliche Dokumentation.
 
+\subsubsection{\dq Compression based Programming\dq\,\,[RN]}
+Mit \say{Compression based Programming} meinen wir einen Programmierstiel, der sich für uns als besonders gut 
+herausgestellt hat. Dabei schrieben wir bei der Implementierung von Funktionalitäten, zunächst alles in eine einzige 
+Methode. Erst dann fingen wir an uns Gedanken über die Strukturierung zu machen. Weil man zu diesem Zeitpunk bereits 
+eine fertige Implementierung hatte, war eindeutig zu erkennen ob es Sinn machte Inhalte in eine 
+eigene Klasse zu kapseln. Nach dieser Entscheidung galt es allen, in der Methode mehrfach verwendeten Code zu 
+finden und in Methoden zu kapseln. Die ursprüngliche Methode wird dabei immer kleiner also kompressiert. 
+Als nächstes lagerten wir alle Zustands-unabhängigen Zeilen Code in viele kleine Methoden aus, so dass jede Methode 
+genau eine Aufgabe erfüllte. Dadurch wurde die ausgangs-Methode noch kleiner. Ziel dieses Programmierstieles ist 
+es, Code möglichst gut wiederzuverwenden und eine Trennung zwischen Zustands verändernden und rein logischen Methoden
+zu schaffen.\par 
+\medskip 
+Der Nachteil dieses Stiels war, dass es sehr viel Nacharbeit bedarf. Oft waren wir zu faul um diese Nacharbeit direkt 
+nach der Implementierung einer Funktionalität durchzuführen.  Irgendwann fiel uns das meistens auf die Finger. 
+Wir mussten dann durch mühseliges Refactoring dann im Nachhinein eine Struktur schaffen. Hätten wir immer direkt nach 
+der Implementierung das Refactoring betrieben, dann hätten wir uns Zeit gespart und das Ergebnis währe besser gewesen.
+Wir sind dennoch von unserer Strategie überzeugt, denn es ist fast ausgeschlossen ohne die Lösung zu kennen auf Anhieb 
+perfekten Code zu schreiben. Außerdem beeinflusst das Trennen von Zustands verändernden und rein logischen Methoden, 
+die Nachvollziehbarkeit positiv. 
+\subsubsection{Risikoanalyse}
+Wie wir die Risikoanalyse durchgeführt haben wird im Kapitel \say{Projektdurchführung} in der Inception-Phase beschrieben.
+\subsubsection{Testing}
+Unsere Umsetzung des Testens wird im Kapitel \say{Projektdurchführung} in der Elaboration, Construction
+und Transition-Phase sowie in der Testdokumentation beschrieben.
+
 \newpage
 \section{Projektdurchführung}
-\subsection{Iterationsphasen}
-\subsubsection{Phase: Inception [AS], [RN]}
+\subsection{Phase: Inception [AS], [RN]}
 (Iteration 1) \\
 Die Inception Phase war die erste Phase des Projekts. Nachdem wir uns kennengelernt hatten, sprachen wir über
 unsere verschiedenen Erfahrungsstände in der Softwareentwicklung und verteilten die Rollen entsprechend.
@@ -309,7 +333,8 @@ Themensteller war mit unserem Entwurf zufrieden, lediglich die Priorisierung pas
 Die Identifikation der Risiken erfolgte in einer kleinen Gruppe. Anschließend wurden die identifizierten Risiken aber
 mit dem gesamten Team besprochen, eingeschätzt und ihnen entsprechende Gegenmaßnahmen zugeordnet.
 Wir sind der Meinung, dass diese gemeinsame Risikobewertung allen
-ein verbessertes Bewusstsein über möglich auftretende Probleme gab und dadurch auch den Workflow positiv beeinflusste.\par
+ein verbessertes Bewusstsein über möglich auftretende Probleme gab und dadurch auch den Workflow positiv beeinflusste.
+Wir entschlossen daher die Risikobewertung vor jeder Iteration, weiterhin im Team durchzuführen. \par
 \medskip
 Wir machten uns in der Inception Phase auch schon erste Gedanken zur Architektur und den zu verwendenden Technologien.
 Durch die Risikoanalyse war uns aber klar, dass eine falsche Wahl, fatale Folgen für das Projekt haben könnte.
@@ -322,7 +347,7 @@ klar) und es ist technisch möglich und es ist ökonomisch sinnvoll} hatten wir 
 auszuarbeiten nicht leider vollständig erfüllt bevor wir in die Elaboration Phase gestartet sind.
 
 \newpage
-\subsubsection{Phase: Elaboration [RN]}
+\subsection{Phase: Elaboration [RN]}
 (Iteration 2, 3, 4)\\
 Nach dem Abschluss der Inception-Phase begann die Elaboration Phase. Dass wir die Inception-Phase nicht optimal
 beendet hatten, wussten wir zu diesem Zeitpunkt noch nicht, doch dies sollte sich bald ändern.\par
@@ -414,6 +439,8 @@ Die wichtigste Erkenntnis aus unseren Tests mit Markern war, dass man für Marke
 Callback-Funktionen \say{onMarkerClick()} und noch viel wichtiger \say{onMarkerDrag()} implementieren konnte.
 Diese wurden später für die Implementierung des Use-Cases sehr wichtig.
 \end{itemize}
+
+\newpage
 Nachdem wir die Implementierung des Prototyps beendet hatten, waren wir uns sicher, dass
 wir die Implementierung aller Use-Cases mit Osmdroid umsetzen konnten. Wir hatten somit eines der größten Risiken eliminiert.
 Jetzt schrieben wir noch einen Testcase für den Prototyp und fertigten das Domainmodell an. Der Code des Prototyps war
@@ -422,7 +449,7 @@ Diese setzten wir dann in Softwareengineering-II auch um.
 Die restliche Zeit verbrachten wir mit der Verbesserung,
 der für die Softwareengineering-I Abgabe notwendigen Dokumente.
 
-\subsubsection{Phase: Construction [RN]}
+\subsection{Phase: Construction [RN]}
 (Iteration 5, 6, 7) \\
 In der Construction Phase, welche am Anfang von Softwareengineering-II begann, galt es,
 alle Hochpriorisieren Use-Cases vollständig zu implementieren und falls noch Zeit ist, auch
@@ -562,7 +589,7 @@ vollständig implementiert.\par
 Wir hatten nun alle wichtigen Funktionalitäten implementiert. Und waren damit erfolgreich am Ende der Construction-Phase 
 angekommen.
 
-\subsubsection{Phase: Transition [LS]}
+\subsection{Phase: Transition [LS]}
 (Iteration 8) \\
 In der Phase "Transition" war es das Ziel, die App abgabebereit zu machen, um sie unserem Themensteller,
 Prof. Dr. Mario Neugebauer im Abnahmegespräch am 24.06.2022 vorzustellen
@@ -583,6 +610,7 @@ Zum Beispiel ein Login zur Verwendung der REST-Schnittstelle oder dem hinzufüge
 Herr Prof. Dr. Neugebauer war mit unserem Ergebnis sehr zufrieden, worüber wir uns sehr freuten.
 Die Phase endete am 24.06.2022 mit dem Nachreichen der Betriebs- und Benutzeranleitung. 
 
+\newpage
 \section{Projektergebnisse}
 \subsection{Produktergebnis [AP]}
     Als Produkt unseres Projekts haben wir ein System entwickelt, das aus einer Android-App und einem Server besteht.
