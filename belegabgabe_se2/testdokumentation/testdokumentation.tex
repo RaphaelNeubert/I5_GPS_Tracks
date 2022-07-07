@@ -39,17 +39,24 @@
 \subsection{Testobjekte}
 	In unserem Projekt müssen vier Hauptobjekte getestet werden:
 	\begin{itemize}
-		\item Hauptfunktionalität: Aufnahme eines Tracks
-		\item Hauptfunktionalität: Bearbeiten eines Tracks
-		\item Hauptfunktionalität: Synchronistation
-		\item Nebenfunktionalitäten
+		\item Hauptfunktionalität: Aufnahme eines Tracks.
+		\item Hauptfunktionalität: Bearbeiten eines Tracks.
+		\item Hauptfunktionalität: Synchronistation.
+		\item Manuelle Tests für das Backend - Server.
+		\item Nebenfunktionalitäten.
 	\end{itemize}
 
 \subsection{Testmethod}
-	In unserem Projekt haben wir aus zwei Hauptgründen entschieden, dass die Verwendung von Black-Box-Tests die beste Testmethode für das Projekt ist. Erstens untersucht das Black-Box-Testen die Funktionalität einer Anwendung, ohne in ihre internen Strukturen oder Funktionsweisen hineinzuschauen. Zweitens kann diese Methode auf allen Testebenen angewendet werden. Der automatische Test ist nicht notwendig für unsere App, sodass wir manueller Test verwenden.\par
-
+	In unserem Projekt haben wir aus zwei Hauptgründen entschieden, dass die Verwendung von Black-Box-Tests die beste Testmethode für das Projekt ist. Zunächst wird beim Black-Box-Testen die Funktionalität einer Anwendung untersucht, ohne auf ihre interne Struktur oder Funktionsweise zu achten. Zweitens kann dieser Ansatz auf alle Teststufen angewendet werden. Unsere App benötigt keine automatisierten Tests, daher verwenden wir manuelle Tests. \par
 \subsection{Testdurchführungsplanung}
-	Für den Testplan beginnen wir mit dem kleinen Unit-Test wie für eine Funktionalität. Dann machen Integrationstest, um alle Funktionalitäten zu prüfen, ob alles gut integriert ist. Zuletzt führen wir einen Test für alle Testkomponenten als Gesamtsystem (die App) durch.\par
+	Wir bevorzugen es, unsere Tests als End-to-End-Test zu planen, bekannt als Software-Testansatz, bei dem der Workflow einer Anwendung von Anfang bis Ende getestet wird. Das Verfahren soll reale Benutzerszenarien simulieren, um die Integration und Datenintegrität des Systems zu überprüfen. Der Testplan folgt diesen Schritten: \par
+	\begin{enumerate}
+		\item Anforderungen analysieren.
+		\item Testumgebung einrichten.
+		\item Auflisten, wie jedes System reagieren muss.
+		\item Testfälle entwerfen.
+		\item Tests durchfuehren.
+	\end{enumerate}
 
 \section{Testfallbeschreibung}
 \subsection{Hauptfunktionalität: Aufnahme eines Tracks}
@@ -114,13 +121,28 @@
 	Für Synchronisation sind die Testdaten als Tracks auf Server.
 \subsubsection{Ablaufbeschreibung}
 	\begin{enumerate}
-		\item Handy wird mit Internet und VPN verbunden
-		\item Das Button \glqq Sync\grqq wird gedruckt
-		\item Checken, ob Tracks auf Server im Handy heruntergeladen werden
+		\item Handy wird mit Internet und VPN verbunden.
+		\item Das Button \glqq Sync\grqq wird gedruckt.
+		\item Checken, ob Tracks auf Server im Handy heruntergeladen werden.
 	\end{enumerate}
 \subsubsection{Erwartetes Ergebnis}
-	Alle Tracks, die auf Server, sollte auf Handy synchronisiert und gespeichert
+	Alle Tracks, die auf Server, sollte auf Handy synchronisiert und gespeichert.
 
+\subsection{Manuelle Tests für das Backend - Server}
+\subsection{Vorbedingungen}
+	Als Server sollte diese Anforderungen erfuellen:
+		\begin{itemize}
+			\item Ist der Server Online.
+			\item Der Server sollte immer verfuegbar sein und die Clients überhaupt antworten (~ 95\% der Laufzeit)
+		\end{itemize}
+\subsubsection{Testdaten}
+	Es gibt keine Testdaten in diesem Tes-Case, weil wir nur die Funktionalitaet des Servers testen
+\subsubsection{Ablaufbeschreibung}
+	Das erste, was zu tun war, war Kommandozeilenprogramm "ping" zu verwenden, um zu prüfen, ob der Server überhaupt antwortet.\par
+	Ebenso kann man über das Terminal das Programm "curl" verwenden curl -i http://141.56.137.84:5000/ \par
+\subsection{Erwartetes Ergebnis}
+	Aus dieser Antwort lässt sich schließen, dass das Backend online und ansprechbar ist, weil der Server mit "OK" und dem "Code 200" antwortet. Dieser Test war also ein positiver Test und alle Netznutzer mit ihm kommunizieren können.
+	
 \subsection{Nebenfunktionalitäten}
 \subsubsection{Vorbedigungen}
 	In der App gibt es fünf Nebenfunktionalitäten, die mit folgenden Bedingungen eingereicht werden müssen:
@@ -149,13 +171,13 @@
 
 \section{Ergebnisse}
 \subsection{Ergebnisse der Testdurchführung}
-	Nach die Durchführung aller Testen werden alle Anforderungen der Funktionalitäten erfüllt und in der App gut integiert. Die App besteht jedoch noch ein paar Fehler und Bugs, z.B.:
+	Nachdem alle Tests abgeschlossen sind, sind alle funktionalen Anforderungen erfüllt und gut in die Anwendung integriert. Die App hat jedoch immer noch einige Fehler und Bugs wie:
 	\begin{itemize}
-		\item Wenn Benutzer \glqq GPS-Track umbenennen\grqq oder \glqq SYNC\grqq gedruckt hat, werden andere Buttons mit gleiche Funktionalität als vorher gedrucktes Butten und falsch Funktionalität gelaufen.
-		\item Bei Installation der App wird kein Berechtigungen gefragt
+		\item Wenn der Benutzer \glqq GPS-Track umbenennen\grqq oder \glqq SYNC\grqq drückt, funktionieren andere Buttons mit der gleichen Funktion wie die zuvor gedruckte Button, aber mit der falschen Funktion.
+		\item Bei Installation der App wird keine Berechtigungen gefragt
 		\item Bei Nutzung der Funktionalität \glqq Aufnahme fortsetzen\grqq wird die App selten abgestürzt.
 	\end{itemize}
-	Alle Fehler und Bug sind bei Abnahme behoben und noch mal gecheckt
+	Alle Fehler und Bug sind bei Abnahme behoben und erneut geprueft.
 \subsection{Konsequenzen der erkannten Abweichungen}
 	Die Abweichung kann zu einer schlechten Benutzererfahrung führen. Darüber hinaus können andere Funktionen der App falsch ausgeführt werden und das gesamte System kann zum Absturz gebracht werden. Im schlimmsten Fall können Benutzer ihre Daten der App nicht wiederherstellen. \par
 \end{document}
