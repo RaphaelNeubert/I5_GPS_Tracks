@@ -35,6 +35,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+/**
+ * Stores the waypoints of a track and has methods to interact with them.
+ */
 public class GPSTrack extends BroadcastReceiver{
 
     public enum State {READY, RECORDING, EDITING, EMPTY, CONTREC}
@@ -59,12 +62,19 @@ public class GPSTrack extends BroadcastReceiver{
         this.view = view;
         specialPoints = new Hashtable<>();
     }
-    void display() {
+    /**
+     * Displays Path.
+     */
+    public void display() {
         if (path != null) {
             map.getOverlayManager().add(path);
         }
     }
-    void hide() {
+
+    /**
+     * removes Path and if existing, Markers from Map.
+     */
+    public void hide() {
         if (path != null) {
             map.getOverlayManager().remove(path);
             if (markerList != null) {
@@ -77,6 +87,12 @@ public class GPSTrack extends BroadcastReceiver{
             }
         }
     }
+
+    /**
+     * Used to receive position data via Broadcast.
+     * @param context
+     * @param intent position data is inside Intent
+     */
     @Override
     public void onReceive(Context context, Intent intent) {
         if (state != State.RECORDING && state != State.CONTREC) {
@@ -121,6 +137,10 @@ public class GPSTrack extends BroadcastReceiver{
         state = State.READY;
         Log.i("GPSTrack","Recording has been stopped.");
     }
+
+    /**
+     * Saves this Track as a GPX-File.
+     */
     private void saveAsGPX() {
         GPX gpx = new GPX();
         Route route = generateRoute();
@@ -160,6 +180,11 @@ public class GPSTrack extends BroadcastReceiver{
         }
     }
 
+    /**
+     * Converts the path member which is a {@link Polyline} into a {@link Route}
+     * which is needed by the GPX-Parser.
+     * @return Route
+     */
     @NonNull
     private Route generateRoute() {
         Route route = new Route();
@@ -389,6 +414,11 @@ public class GPSTrack extends BroadcastReceiver{
     public void setPath(Polyline path) {
         this.path = path;
     }
+
+    /**
+     * WARNING, states should only be changed from outside this Class, if you really know what your doing.
+     * @param state
+     */
     public void setState(State state) {
         this.state = state;
     }
@@ -404,9 +434,19 @@ public class GPSTrack extends BroadcastReceiver{
     public void setStartPoint(GeoPoint point){
         this.startPoint = point;
     }
+
+    /**
+     * Used to lock/unlock the possibility to select Points. (Used to prevent multiple points being selected at once)
+     * @param bubbleOpen
+     */
     public void setBubbleOpen(boolean bubbleOpen) {
         this.bubbleOpen = bubbleOpen;
     }
+
+    /**
+     *
+     * @return distance of track in meters.
+     */
     public double getDistance() {
         return path.getDistance();
     }

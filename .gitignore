@@ -64,3 +64,6 @@ obj/
 *.sh
 *.toc
 *.synctex(busy)
+
+#javadoc
+javadoc

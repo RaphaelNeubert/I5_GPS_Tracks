@@ -31,7 +31,10 @@ import java.util.List;
 
 import java.util.TimeZone;
 
-
+/**
+ * Lists all local Tracks and gives the possibility to start actions for them.
+ * Also used to start a Serversync.
+ */
 public class ListingTracks extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
     private Button back, sync;
@@ -43,6 +46,10 @@ public class ListingTracks extends AppCompatActivity {
     FileListAdapter adapter;
     SyncManager syncManager;
 
+    /**
+     * Called after activity gets created which happens inside the {@link MainActivity}.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mSettings = getSharedPreferences("del_files", Context.MODE_MULTI_PROCESS);
@@ -82,6 +89,11 @@ public class ListingTracks extends AppCompatActivity {
 
         refreshListing();
     }
+
+    /**
+     * Querrys the filesytem and recreates the listing.
+     * Used to refresh Listing after files have changed for example after a file was renamed.
+     */
     public void refreshListing() {
         String[] tmpFiles = fileList();
         List<Pair<String, Long>> files = new ArrayList<>();
@@ -114,12 +126,20 @@ public class ListingTracks extends AppCompatActivity {
         });
     }
 
+    /**
+     * Used to return to the {@link MainActivity} without a result.
+     */
     public void goBackHome() {
         Intent intent = new Intent(ListingTracks.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivityIfNeeded(intent, 0);
     }
 
+    /**
+     * Displays the options (after a Listelement was clicked)
+     * @param fileName
+     * @param selectedItem Element that was clicked
+     */
     private void popupMenuExample(String fileName, Pair<String, Long> selectedItem) {
         PopupMenu p = new PopupMenu(this, callingItem);
         p.getMenuInflater().inflate(R.menu.popup_menu_example, p .getMenu());
@@ -201,7 +221,12 @@ public class ListingTracks extends AppCompatActivity {
         });
         p.show();
     }
-    
+
+    /**
+     * Gets called after the option "rename file" was selected
+     * @param file
+     * @param selectedItem
+     */
     private void renameFile(File file, Pair<String, Long> selectedItem) {
         final Dialog dia = new Dialog(ListingTracks.this);
         dia.setContentView(R.layout.rename_track);

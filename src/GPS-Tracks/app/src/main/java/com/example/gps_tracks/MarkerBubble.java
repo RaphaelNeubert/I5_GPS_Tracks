@@ -7,7 +7,7 @@ import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.infowindow.InfoWindow;
 
 /**
- * MarkerBubbles are InfoWindows that can be assigned to a {@link org.osmdroid.views.overlay.Marker}
+ * MarkerBubbles are InfoWindows that can be assigned to a {@link org.osmdroid.views.overlay.Marker}.
  * Once assigned, they can be opened by clicking the {@link org.osmdroid.views.overlay.Marker}
  */
 public class MarkerBubble extends InfoWindow {

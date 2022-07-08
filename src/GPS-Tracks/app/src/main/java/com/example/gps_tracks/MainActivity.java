@@ -42,6 +42,9 @@ import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 import java.util.ArrayList;
 
+/**
+ * Homescreen and controlling instance for most actions.
+ */
 public class MainActivity extends AppCompatActivity{
     private final int REQUEST_PERMISSIONS_REQUEST_CODE = 1;
     private MapView map = null;
@@ -54,6 +57,10 @@ public class MainActivity extends AppCompatActivity{
     private boolean recording = false;
     private View view;
 
+    /**
+     * Will be called when the App is started.
+     * @param savedInstanceState
+     */
     @Override
         public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -318,6 +325,9 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
+    /**
+     * Will be called by the Android-System when the App gets maximized after being minimized.
+     */
     @Override
     public void onResume() {
         super.onResume();
@@ -335,12 +345,21 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
+    /**
+     * Will be called by the Android-System when the App gets minimized.
+     */
     @Override
     public void onPause() {
         super.onPause();
         map.onPause();  //needed for compass, my location overlays, v6.0.0 and up
     }
 
+    /**
+     * Will be called after Permissions have been granted or denied.
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -360,6 +379,11 @@ public class MainActivity extends AppCompatActivity{
                 }
         }
     }
+
+    /**
+     * Used to ask the user for permissions.
+     * @param permissions
+     */
     private void requestPermissionsIfNecessary(String[] permissions) {
         ArrayList<String> permissionsToRequest = new ArrayList<>();
         for (String permission : permissions) {
@@ -377,11 +401,19 @@ public class MainActivity extends AppCompatActivity{
         }
     }
 
+    /**
+     * starts ListingTrack activity.
+     * @param view
+     */
     public void openListTracks(View view) {
         Intent intent = new Intent(MainActivity.this, ListingTracks.class);
         listingTracksResultLauncher.launch(intent);
     }
 
+    /**
+     * Will load and display a Track. Will also move camera to start point of Track.
+     * @param fileName name of gpx-File
+     */
     public void loadTrack(String fileName) {
         gpsTrack = new GPSTrack(MainActivity.this, map, view);
         gpsTrack.loadGPX(fileName);
@@ -392,8 +424,8 @@ public class MainActivity extends AppCompatActivity{
     }
 
     /**
-    * This function will hide a GPSTrack that is shown on the map
-    * If you call it from a Button in xml, you don't have to care about view
+    * This function will hide an active GPSTrack that is shown on the map.
+    * Will also change Visibility of UI-Elements
     * @param view android.view.View
     */
     public void deselect(View view) {
