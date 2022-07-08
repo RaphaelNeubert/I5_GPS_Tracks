@@ -25,15 +25,24 @@
     \vspace{1cm}
     {\scshape\Large Softwaresystem \glqq GPS-Track-App\grqq\par}
     \vspace{1.5cm}
-    {\huge\bfseries Prjektbericht\par}
+    {\huge\bfseries Projektbericht\par}
     \vspace{2cm}
     {\Large\itshape Raphael Neubert, Alex Schechtel, Aleksandr Pronin, Quang Duy Pham, Tom Nicolai, Ludwig Schönthier\par}
     \vfill
-
-    {\large \today\par}
-\end{titlepage}
-\tableofcontents
-\newpage
+    \vfill
+    \begin{minipage}{0.3\textwidth}
+        Themensteller:\\
+        Coach:\\
+        Verantwortlicher HSL:\\
+        Projektzeitraum:
+    \end{minipage}
+    \begin{minipage}{0.4\textwidth}
+        Prof. Dr.-Ing. Mario Neugebauer\\
+        Dipl.-Inf. (FH) Christoph Zirkelbach\\
+        Prof. Dr.-Ing. Jürgen Anke\\
+        11.2021 - 07.2022
+    \end{minipage}
+    \vfill
 \begin{table}[H]
     \begin{tabular}{lllll}
     \textbf{Vorname} & \textbf{Nachname} & \textbf{Kürzel} &  &  \\
@@ -43,19 +52,32 @@
     Raphael          & Neubert           & RN              &  &  \\
     Ludwig           & Schönthier        & LS              &  &
     \end{tabular}
+    \centering
 \end{table}
+\vfill
+
+    {\large \today\par}
+\end{titlepage}
+\tableofcontents
+\newpage
+\abstract{
+    Im Folgenden wollen wir unsere Arbeit am Projekt \say{GPS-Track-App} erläutern.
+    Wir wollen dabei unsere Vorgehensweise beschreiben und über technische sowie projektorganisatorische Entscheidungen
+    reflektieren. Dabei gehen wir nicht nur auf die Inhalte ein, die gut liefen, sondern beschreiben auch die 
+    aufgetretenen Probleme.
+}
+
 \section{Projektplanung}
 \subsection{Aufgabenstellung [AS]}
     Im Rahmen unserer Projektarbeit im Modul \say{Software Engineering} hat Prof. Mario Neugebauer uns die Möglichkeit gegeben,
     eine Smartphone App zu entwickeln, welche das erstellen von GPS-Tracks für einen mobilen 
-    Roboter ermöglicht. Dies hat den Hintergrund, dass die meisten GPS-Tack Apps sehr unflexibel sind und es daher nicht 
+    Roboter ermöglicht. Dies hat den Hintergrund, dass die meisten GPS-Track Apps sehr unflexibel sind und es daher nicht 
     möglich ist, Strecken auf Gegebenheiten des Roboters anzupassen. Das Hauptziel unserer Projektes war es also, eine App zu entwickeln, 
     welche Strecken des Roboters aufnimmt, die er optimal verarbeiten und umsetzen kann.
     Dabei mussten wir für jede implementierte Funktionalität,
     eine angenehme und einfach zu verstehende Darstellungsform für die App finden.
     Es sollte möglich sein die aufgenommenen GPS-Tracks abzuspeichern und in der App aufzulisten.
-    Außerdem sollte man auf einem bereitgestellten Server die GPS-Tracks hochladen oder auch herunterladen können.
-    Auf den Server sollte jeder Nutzer zugreifen können, welcher eine VPN-Verbindung zu der HTW-Dresden hat.
+    Außerdem sollte man auf einen Server die GPS-Tracks hochladen oder auch herunterladen können.
     Ebenso sollte es die Option geben, die GPS-Tracks nach dem abspeichern noch zu bearbeiten und dabei spezielle Punkte (special points of interests) 
     hinzuzufügen, sowie auch Punkte des aufegnommenen Weges zu verändern/verschieben.
     Bei der Aufnahme eines GPS-Tracks war es außerdem wichtig, die Genauigkeit des GPS-Signals so hoch wie möglich zu halten. 
@@ -79,11 +101,11 @@ feststellen zu können, ob mit den, von uns ausgewählten Technologien die Funkt
 \medskip
 Am Anfang des Projektes fehlte uns vor allem eines, Erfahrung. Erfahrung sowohl in der Verwendung der Technologien
 aber viel mehr noch, Erfahrung in der Teamarbeit und der Organisation eines solchen Softwareprojektes.
-Dies wurde uns vor allem am Ende von Softwareengineering-I klar, als wir das nochmal Abgabedokument durchschauten
+Dies wurde uns vor allem am Ende von Softwareengineering-I klar, als wir nochmal das Abgabedokument durchschauten
 und feststellten, wie ineffizient unsere Arbeit am Anfang war.
 
 \subsubsection{Softwareengineering-II}
-Am Ende des Moduls SE1 hatten wir einen guten umfassenden
+Am Ende des Moduls SE1 hatten wir einen umfassenden
 Überblick in das System und den funktionalen Anforderungen gewonnen. 
 Wir hatten jetzt auch schon den Code vom Prototyp. Viel wichtiger aber, wir hatten die Erfahrung und das Wissen, was
 wir beides bei der Erstellung des Prototyps erlangt hatten. Somit war der Start in Softwareengineering-II wesentlich
@@ -211,8 +233,8 @@ Zum Beispiel haben wir manchmal sehr detailliert über die Serversynchronisation
 Entwicklung der Synchronisation nur zwei Personen beteiligt waren. Solche Situationen entstanden unbewusst und 
 wirkte sich, für alle am detaillierten Thema unbeteiligten negativ auf die Qualität des Meetings aus.
 
-\subsection{Techniken/Praktiken [RN]}
-\subsubsection{Git/GitHub}
+\subsection{Techniken/Praktiken}
+\subsubsection{Git/GitHub [RN]}
 Zur Entwicklung verwendeten wir Git und als Host GitHub. In unserem Team kannten sich anfangs nur zwei von acht Personen
 mit Git aus. Wir passten daher die Komplexität unseres GitHub-Workflows dem Stand der Praktika an. Zum Beispiel
 verwendeten wir erst mehrere Branches nachdem Branching im Praktikum behandelt wurden. Unsere GitHub-Workflows haben
@@ -249,7 +271,7 @@ das dies zum einen sehr aufwendig war, oft aber auch kaum möglich, da es Abhän
 die erst bei der Entwicklung auffielen. Wir entschlossen uns daher nur für große, ganz klar unabhängige Features
 weitere Branches zu erstellen und behielten dieses Branching-Modell bis zum Ende des Projektes bei.
 
-\subsubsection{Iterationen}
+\subsubsection{Iterationen [RN]}
 Ein weiterer Faktor, der sich im Verlauf des Projektes stark geändert hat, ist die Planung der Iterationen.
 Anfangs arbeiteten wir noch nicht nach Iterationen. Erst nach Gesprächen mit unserem Coach merkten wir aber
 wie wichtig Iterationen sind. Wir begannen also in Iterationen zu arbeiten. Die ersten Iterationen lang
@@ -271,10 +293,40 @@ Entwicklung fokussiert, dass wir unser eigentliches Iterationsplanmodell und die
 haben. Wir sind uns aber sicher, dass wenn wir uns diszipliniert an unser Iterationsplanmodell gehalten hätten,
 wir organisierter und effizienter unsere Ziele erreicht hätten.
 
+\subsubsection{Alphas [LS]}
+Da wir die Nutzung der Alpha States oft vergessen und allgemein unregelmäßig genutzt haben, hatte das Team das Gefühl, diese seien 
+keine große Bereicherung. Der Fortschritt unseres Projekt wurde anhand unserer Iterationen innerhalb des GitHub Repositorys gut deutlich und die
+Ausarbeitung spezieller Checklisten und Ziele erschien uns oft als zu viel Aufwand, der nicht dem Projektumfang entsprach. Innerhalb unseres Projektes
+waren die Ziele und Meilensteine relativ klar erkenntlich und benötigten in unseren Augen keinerlei zusätzliche Dokumentation.
+
+\subsubsection{\dq Compression based Programming\dq\,\,[RN]}
+Mit \say{Compression based Programming} meinen wir einen Programmierstiel, der sich für uns als besonders gut 
+herausgestellt hat. Dabei schrieben wir bei der Implementierung von Funktionalitäten, zunächst alles in eine einzige 
+Methode. Erst dann fingen wir an uns Gedanken über die Strukturierung zu machen. Weil man zu diesem Zeitpunk bereits 
+eine fertige Implementierung hatte, war eindeutig zu erkennen ob es Sinn machte Inhalte in eine 
+eigene Klasse zu kapseln. Nach dieser Entscheidung galt es allen, in der Methode mehrfach verwendeten Code zu 
+finden und in Methoden zu kapseln. Die ursprüngliche Methode wird dabei immer kleiner also kompressiert. 
+Als nächstes lagerten wir alle Zustands-unabhängigen Zeilen Code in viele kleine Methoden aus, so dass jede Methode 
+genau eine Aufgabe erfüllte. Dadurch wurde die ausgangs-Methode noch kleiner. Ziel dieses Programmierstieles ist 
+es, Code möglichst gut wiederzuverwenden und eine Trennung zwischen Zustands verändernden und rein logischen Methoden
+zu schaffen.\par 
+\medskip 
+Der Nachteil dieses Stiels war, dass es sehr viel Nacharbeit bedarf. Oft waren wir zu faul um diese Nacharbeit direkt 
+nach der Implementierung einer Funktionalität durchzuführen.  Irgendwann fiel uns das meistens auf die Finger. 
+Wir mussten dann durch mühseliges Refactoring dann im Nachhinein eine Struktur schaffen. Hätten wir immer direkt nach 
+der Implementierung das Refactoring betrieben, dann hätten wir uns Zeit gespart und das Ergebnis währe besser gewesen.
+Wir sind dennoch von unserer Strategie überzeugt, denn es ist fast ausgeschlossen ohne die Lösung zu kennen auf Anhieb 
+perfekten Code zu schreiben. Außerdem beeinflusst das Trennen von Zustands verändernden und rein logischen Methoden, 
+die Nachvollziehbarkeit positiv. 
+\subsubsection{Risikoanalyse}
+Wie wir die Risikoanalyse durchgeführt haben wird im Kapitel \say{Projektdurchführung} in der Inception-Phase beschrieben.
+\subsubsection{Testing}
+Unsere Umsetzung des Testens wird im Kapitel \say{Projektdurchführung} in der Elaboration, Construction
+und Transition-Phase sowie in der Testdokumentation beschrieben.
+
 \newpage
 \section{Projektdurchführung}
-\subsection{Iterationsphasen}
-\subsubsection{Phase: Inception [AS], [RN]}
+\subsection{Phase: Inception [AS], [RN]}
 (Iteration 1) \\
 Die Inception Phase war die erste Phase des Projekts. Nachdem wir uns kennengelernt hatten, sprachen wir über
 unsere verschiedenen Erfahrungsstände in der Softwareentwicklung und verteilten die Rollen entsprechend.
@@ -303,7 +355,8 @@ Themensteller war mit unserem Entwurf zufrieden, lediglich die Priorisierung pas
 Die Identifikation der Risiken erfolgte in einer kleinen Gruppe. Anschließend wurden die identifizierten Risiken aber
 mit dem gesamten Team besprochen, eingeschätzt und ihnen entsprechende Gegenmaßnahmen zugeordnet.
 Wir sind der Meinung, dass diese gemeinsame Risikobewertung allen
-ein verbessertes Bewusstsein über möglich auftretende Probleme gab und dadurch auch den Workflow positiv beeinflusste.\par
+ein verbessertes Bewusstsein über möglich auftretende Probleme gab und dadurch auch den Workflow positiv beeinflusste.
+Wir entschlossen daher die Risikobewertung vor jeder Iteration, weiterhin im Team durchzuführen. \par
 \medskip
 Wir machten uns in der Inception Phase auch schon erste Gedanken zur Architektur und den zu verwendenden Technologien.
 Durch die Risikoanalyse war uns aber klar, dass eine falsche Wahl, fatale Folgen für das Projekt haben könnte.
@@ -316,8 +369,8 @@ klar) und es ist technisch möglich und es ist ökonomisch sinnvoll} hatten wir 
 auszuarbeiten nicht leider vollständig erfüllt bevor wir in die Elaboration Phase gestartet sind.
 
 \newpage
-\subsubsection{Phase: Elaboration [RN]}
-(Iteration 2, 3)\\
+\subsection{Phase: Elaboration [RN]}
+(Iteration 2, 3, 4)\\
 Nach dem Abschluss der Inception-Phase begann die Elaboration Phase. Dass wir die Inception-Phase nicht optimal
 beendet hatten, wussten wir zu diesem Zeitpunkt noch nicht, doch dies sollte sich bald ändern.\par
 \medskip
@@ -408,6 +461,8 @@ Die wichtigste Erkenntnis aus unseren Tests mit Markern war, dass man für Marke
 Callback-Funktionen \say{onMarkerClick()} und noch viel wichtiger \say{onMarkerDrag()} implementieren konnte.
 Diese wurden später für die Implementierung des Use-Cases sehr wichtig.
 \end{itemize}
+
+\newpage
 Nachdem wir die Implementierung des Prototyps beendet hatten, waren wir uns sicher, dass
 wir die Implementierung aller Use-Cases mit Osmdroid umsetzen konnten. Wir hatten somit eines der größten Risiken eliminiert.
 Jetzt schrieben wir noch einen Testcase für den Prototyp und fertigten das Domainmodell an. Der Code des Prototyps war
@@ -416,11 +471,148 @@ Diese setzten wir dann in Softwareengineering-II auch um.
 Die restliche Zeit verbrachten wir mit der Verbesserung,
 der für die Softwareengineering-I Abgabe notwendigen Dokumente.
 
-\subsubsection{Phase: Construction}
-(Iteration 4, 5, 6)
-Das Ziel der Construction Phase war die Entwicklung einer voll funktionstüchtigen App, in der alle Grundfunktionen vorhanden sind.
-\subsubsection{Phase: Transition [LS]}
-(Iteration 7) \\
+\subsection{Phase: Construction [RN]}
+(Iteration 5, 6, 7) \\
+In der Construction Phase, welche am Anfang von Softwareengineering-II begann, galt es,
+alle Hochpriorisieren Use-Cases vollständig zu implementieren und falls noch Zeit ist, auch
+die niedriger priorisierten Use-Cases umzusetzen. Wir begannen mit einer Überarbeitung des Prototyps. Im Prototyp hatten 
+wir bis dahin nur zwei Klassen mit sehr langen Methoden die viele verschiedene Dinge taten. Wir verwendeten 
+die, durch das Domainmodell gewonnene Inspiration um Dinge in neue Klassen auszulagern. Auch die Methoden 
+vereinfachten wir stark, mit dem Ziel, dass die meisten Methoden nur eine einzige Aufgabe besaßen.
+Bis zu diesem Zeitpunkt waren nur zwei Teammitglieder am Prototyp involviert. Uns war aber klar, dass wir um möglichst 
+viele Use-Cases erfüllen zu können, das Entwicklungsteam vergrößern müssen. Wir erklärten daher, allen bisher am Code 
+unbeteiligten, unsere bisherigen Implementierungen und ließen genügend Zeit für die Einarbeitung.\par 
+\medskip
+Beim Erstellen der Issues mussten wir feststellen, dass es nicht möglich ist die Aufgaben so zu verteilen, dass 
+alle gleichzeitig am gleichen Use-Cases arbeiten. 
+Wir begannen also, uns entsprechend unserer Stärken in kleinere Gruppen zu unterteilen, wobei
+es möglich war, dass eine Person zwei Gruppen angehörte. Dadurch ermöglichten 
+wir eine parallele Bearbeitung der Funktionalitäten. Sobald ein Use-Case fertig implementiert war, informierten 
+wir den Tester darüber. Dieser unternahm dann ein umfangreiches Testing und meldete uns alle gefundenen Fehler.
+Falls wir zu diesem Zeitpunkt schon mit der Bearbeitung eines weiteren Use-Cases begonnen hatten, pausierten wir diese 
+und behoben erstmal die Fehler des abgeschlossenen Use-Cases.
+Im Folgenden wollen wir unser Vorgehen für die Implementierung der einzelnen 
+Use-Cases beschreiben und auf entstandene Probleme, sowie deren Lösungen eingehen.
+
+\paragraph{GPS-Track aufnehmen} \quad\\
+An diesem Use-Cases waren 3 Teammitglieder beteiligt. Zunächst machten wir uns Gedanken über die Speicherung 
+der GPS-Tracks. Wir recherchierten daher bezüglich der verschiedenen Dateiformate. Nach einiger Zeit merkten wir, 
+dass es in einem Osmdroid Bonuspaket, Möglichkeiten gab, GPS-Tracks als KML-Datei zu exportieren. 
+Dies gefiel uns, uns war aber auch die Wichtigkeit dieser Entscheidung bewusst. Deshalb nahmen wir Kontakt zu unserem 
+Themensteller auf. Durch das Gespräch wurde uns klar, dass wenn auch komfortabel, KML nicht die richtige Entscheidung 
+für Speichern von GPS-Tracks war, da es für die Verwaltung von wesentlich mehr Informationen, als die von uns benötigten,
+gedacht ist. Zum Glück hatten wir uns vor dem Meeting schon über alternative Dateiformate informiert und so besprachen 
+wir die anderen Dateiformate und trafen gemeinsam mit dem Themensteller die Entscheidung, das Format \say{GPX} zu verwenden,
+weil es genau für Zwecke, wie die unseren gedacht war.\par 
+\medskip
+Weil es in Osmdroid leider keine Möglichkeit gab, GPS-Track-Daten als GPX zu exportieren und das Schreiben eines eigenen
+GPX-Parsers zu aufwendig gewesen wäre, suchten wir im Internet nach einem passenden GPX-Parser. Die Suche 
+stellte sich als schwerer als erwartet raus. Die erste Bibliothek, die wir versuchten war inkompatibel mit der 
+für die App verwendeten Java Version. Die Zweite konnte GPX Dateien zwar parsen, jedoch gab es keine Möglichkeit unsere GPS-Track-Daten, als GPX zu exportieren. Die Dritte bestand all unsere Tests, wir waren uns aber mit der 
+Lizenzierung unsicher und nahmen daher nochmal Kontakt zum Themensteller auf. Es stellte sich heraus die Lizenzen 
+kompatibel sein sollten, somit hatten wir eine passende Bibliothek gefunden.\par 
+\medskip 
+Jetzt konnte die Arbeit beginnen. Wir teilten uns dabei so auf, dass einer sich mit dem Holen der Positionsdaten, 
+einer mit dem Export und Import der GPX-Dateien, und einer mit den UI-relevanten Dingen beschäftigte. Bei der Entwicklung 
+testeten wir die Funktionalität nur grob im Emulator und stellten fest, dass alles funktionierte.\par 
+\medskip
+Wir erklärten somit die Entwicklung des Use-Cases für abgeschlossen und informierten unseren Tester. 
+Dieser erstellte einen Testfall und begann mit dem Testen, jedoch nicht nur im Emulator, sondern auch auf einem 
+echten Gerät. Der Tester stellte fest, dass im Großen und Ganzen die Funktionalität zwar erfüllt ist, es aber ein 
+großes Problem gibt, was uns durch die Verwendung des Emulators nicht aufgefallen war. 
+Immer wenn die App pausiert wurde, was immer dann geschah, wenn die App minimiert oder das Gerät in den Standby 
+versetzt wurde, wurde auch die Aufnahme eines GPS-Tracks pausiert. In der Praxis zeigte sich dies so, dass wenn man 
+eine Aufnahme startete, dann das Gerät in den Standby versetzte (zum Beispiel um es in die Hosentasche zu stecken) 
+und nun seine Position veränderte, beim Wiedereinschalten des Gerätes der letzte Punkt die aktuelle Position war, der 
+vorletzte Punkt, unabhängig der zurückgelegten Distanz, die Position des in den Standby versetzen des Gerätes war.
+Das Resultat waren also durch die Pausierung induzierte Sprünge im GPS-Track.\par 
+\medskip
+Die Behebung dieses Fehlers war die schwerste des gesamten Projektes. Das Problem war, dass sich im Android System
+die Regeln für Hinter- bzw. Vordergrundprozesse sehr stark geändert hatten und deshalb viel Dokumentation 
+falsch oder widersprüchlich war. Ein weiteres Problem war, dass wir versuchten einen Hintergrundprozess zu erzeugen und 
+uns entsprechend Dokumentation zu diesem Thema durchlasen, anstatt uns mit Vordergrundprozesse zu beschäftigen, die 
+für unser Vorhaben viel geeigneter waren. Bevor wir überhaupt mit dem Testen verschiedener Lösungsansätze beginnen konnten,
+studierten wir stundenlang die Dokumentation. Nachdem wir es dann endlich geschafft hatten die richtigen Berechtigungen
+anzufragen und einen Vordergrundservice 
+zu implementieren, zu registrieren und zu starten, stellten wir fest das dieser tatsächlich auch während das Gerät
+im Standby war fortgesetzt wurde. Damit war der Fehler aber noch nicht behoben denn es galt ein weiteres Problem zu lösen.
+Die Übermittlung der im Vordergrundservice aufgenommenen Positionsdaten an die GPS-Track-Instanz. Auch das war
+sehr schwer zu realisieren, denn die Übermittlung von nicht-Primitiven Objekten zwischen zwei Services ist durch sehr 
+viel Abstraktion in der API enorm kompliziert. Nach einer Weile schafften wir es dann doch. Unsere Lösung war an 
+dieser Stelle wahrscheinlich nicht die Eleganteste, aber sie funktionierte problemlos. Am Ende blieb nur der Stolz, 
+dass wir zu diesem komplizierten Problem eine Lösung gefunden haben.\\
+\\
+Nach der diesmal problemlose Wiederholung des Testfalles durch den Tester war dieser Use-Cases endgültig abgeschlossen.
+
+\paragraph{GPS-Tracks auflisten} \quad\\
+Dieser Use-Case wurde von zwei Teammitgliedern implementiert. Einer implementierte dabei den eigentlichen 
+Use-Case und der andere, die für die optionale Fortsetzung notwendige Infrastruktur. 
+Die erstmalige Implementierung verlief, durch die beim Prototyp gesammelten Erfahrungen, sehr gut. 
+Wir machten aber ein Fehler, den sowohl die Entwickler als auch der Tester zu dem Zeitpunkt nicht bemerken konnte, 
+weil dieser sich erst im Zusammenhang mit den, zu diesem Zeitpunkt noch nicht vollständig implementierten, optionalen 
+Fortsetzungen auftrat. Dieser Fehler wurde daher erst bei einem späteren Test bemerkt und dann behoben.\par 
+\medskip
+Durch Änderungen bei der Implementierung von anderen Use-Cases war es oft notwendig, noch im späteren Verlauf,
+den Code für das Auflisten von GPS-Tracks zu verändern. Zum Beispiel veränderten wir die Benennung der GPS-Tracks
+wodurch wir das Anzeigeformat verändern mussten und dazu sogar, der Auflistung noch eine neue Klasse hinzufügen mussten.
+Durch die starke Interaktion dieses Use-Cases mit den anderen, war dies aber leider nicht zu vermeiden.
+
+\paragraph{GPS-Tracks auf Karte anzeigen} \quad\\
+Diese Funktionalität wurde nur von einer Person implementiert. Durch die Tests beim Prototyp und mit der GPX-Bibliothek,
+sowie der, durch die Auflistung schon bereitgestellten Infrastruktur, war es leicht diesen Use-Case zu realisieren.
+Er bestand auch alle Tests problemlos.
+
+\paragraph{GPS-Tracks bearbeiten} \quad\\
+An der Implementierung dieses Use-Cases waren zwei Personen beteiligt. 
+Bei der Entwicklung machten wir schnelle fortschritte. 
+Wir kamen allerdings an einer Stelle, mit der wir unzufrieden waren. Während man ein Marker auf der Karte verschob, musste
+der zum GPS-Track gehörende Pfad mehrmals pro Sekunde von der Karte gelöscht und vollständig neu gezeichnet werden. 
+Wir schätzten dies als sehr ineffizient ein. Die von uns verwendeten Datenstrukturen, die auch von 
+Osmdroid für unsere Zwecke vorgesehenen waren, boten keinerlei Möglichkeit das Ganze effizienter zu gestalten.
+Die einfachste Lösung war es, dass sich der Pfad erst nach dem Loslassen des Markers, der Marker-Veränderung anpasste.
+Da dies aber optisch nicht so schön war, konsultierten wir unseren Themensteller um gemeinsam eine Entscheidung zu treffen.
+Nachdem wir im Meeting einige Effizienztests demonstrierten, sowie die Zeitkomplexität approximierten, war klar, dass 
+diese Ineffizienz sich nicht negativ auf die Benutzung auswirken wird, sondern lediglich für kleine Veränderungen 
+z.B. im Stromverbrauch der App sorgen wird. Unser Themensteller entschloss sich daher, diese kleine Ineffizienz in kauf zu 
+nehmen. Auch dieser Use-Case bestand seine Tests problemlos.
+
+\paragraph{Wiederaufnahme von GPS-Tracks} \quad\\
+Da wir bei der Implementierung des Use-Cases \say{GPS-Track aufnehmen}, diesen Use-Case im Hinterkopf behalten hatten,
+war die Umsetzung nur eine Kleinigkeit, die von einem Teammitglied erledigt wurde.
+
+\paragraph{GPS-Track über Server verwalten} \quad\\
+Sowohl die Implementierung der REST-API, sowie die Anbindung an die App, war die Hauptaufgabe eines Teammitgliedes. 
+Dieser erhielt aber beim Entwurf und beim Deployment von einer weiteren Person Unterstützung. 
+Der Serververantwortliche machte sich zunächst, mit den zu verwenden Technologien vertraut.
+Anschließend implementierte er eine naive Synchronisation. Zum Testen verwendete er zunächst einen privaten Server. 
+Nachteil der naiven Synchronisation war zum Beispiel, dass es unmöglich war GPS-Tracks vollständig vom Server zu löschen, 
+solange sie noch auf einem anderen Gerät vorhanden waren, da diese bei der Synchronisation eines anderen Gerätes 
+wieder hochgeladen wurden. Auch Fälle wie das Umbenennen oder Bearbeiten wurden vom Server nicht gesondert behandelt.
+Um zu definieren, wie wir diese Fälle behandeln wollen, besprachen wir dies mit dem Themensteller. Anschließend 
+überlegten wir uns, wie wir das geforderte Synchronisationsverhalten implementieren können. Danach machte sich der 
+Serververantwortliche an die Arbeit. Damit alle die Möglichkeit hatten den Server zu Testen und wir das Deployment 
+ausprobieren konnten, forderten wir eine VM vom Rechenzentrum an. Bei der anschließenden Installation des Servers 
+machten wir uns Notizen, die uns später die Verfassung der Betriebsanleitung vereinfachte. 
+Neben der REST-API richtete der Serververantwortliche noch eine Statusseite ein, über die leicht geprüft werden, konnte 
+ob der Server am Laufen ist. Das Testen übernahm ebenfalls der Serververantwortliche, denn er kannte die REST-API am besten.
+Das Testen der Synchronisation aus Benutzersicht übernahm wieder der Tester.
+\paragraph{Besondere(n) Punkt(e) in GPS-Track} \quad\\
+Dieser Use-Cases war Ziel einer Iteration mit festem Zeitrahmen und wurde von einem Teammitglied implementiert.
+Durch die bereits existierenden Strukturen sowie den, durch den Prototyp bekannten Callback-Funktionen,
+gab es zunächst schnelle fortschritte. Leider wurde sich auf diesen Teilerfolg etwas ausgeruht. 
+Kurz vor dem Ende der Iteration, wurde bei der Fertigstellung ein zunächst nicht-reproduzierbarer, fataler Bug entdeckt.
+Es ist uns leider nicht gelungen diesen, bis zum Ende der Iteration zu beheben. Wir entschlossen daher
+unser eigentliches Iterationsplanmodell zu missachten und die Iteration zu verlängern. Im Nachhinein sind wir 
+der Meinung, dass dies ein Fehler war. Wir hätten trotzdem eine neue Iteration anfangen sollen und den Bug als 
+Nebenaufgabe beheben sollen. Als Resultat war der Verlängerungszeitraum nicht ausreichend geplant und wurde dementsprechend
+nicht optimal genutzt. Nach der dann doch unerwartet einfachen Behebung des Fehlers war auch dieser Use-Case 
+vollständig implementiert.\par 
+\bigskip
+Wir hatten nun alle wichtigen Funktionalitäten implementiert. Und waren damit erfolgreich am Ende der Construction-Phase 
+angekommen.
+
+\subsection{Phase: Transition [LS]}
+(Iteration 8) \\
 In der Phase "Transition" war es das Ziel, die App abgabebereit zu machen, um sie unserem Themensteller,
 Prof. Dr. Mario Neugebauer im Abnahmegespräch am 24.06.2022 vorzustellen
 und zu übergeben. Da die Funktionalitäten der App nach Abschluss der Phase "Construction" vollständig implementiert waren,
@@ -440,6 +632,7 @@ Zum Beispiel ein Login zur Verwendung der REST-Schnittstelle oder dem hinzufüge
 Herr Prof. Dr. Neugebauer war mit unserem Ergebnis sehr zufrieden, worüber wir uns sehr freuten.
 Die Phase endete am 24.06.2022 mit dem Nachreichen der Betriebs- und Benutzeranleitung. 
 
+\newpage
 \section{Projektergebnisse}
 \subsection{Produktergebnis [AP]}
     Als Produkt unseres Projekts haben wir ein System entwickelt, das aus einer Android-App und einem Server besteht.
