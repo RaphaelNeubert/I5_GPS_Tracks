@@ -1,6 +1,5 @@
 = Iteration Plan 06: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
-{localdatetime}
+
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
@@ -20,7 +19,8 @@ include::../_includes/default-attributes.inc.adoc[]
 == Wesentliche Ziele
 
 . Wichtige Infrastruktur anlegen
-. Aufzeichnung von GPS-Tracks implementieren
+. Aufnahme und Anzeige von GPS-Tracks implementieren
+. Umbennennung von Tracks implementieren
 . Dateisystem Verwendung implementieren
 . Behebung von Bugs im Prototyp
 . Glossary überarbeiten
@@ -39,7 +39,7 @@ https://github.com/RaphaelNeubert/I5_GPS_Tracks/projects/6
 | Assessment Ziel
 | Ganze Iteration
 | Assessment Datum
-| 30.01.2022
+| 09.05.2022
 | Teilnehmer
 | Alle Gruppenmitglieder 
 | Projektstatus

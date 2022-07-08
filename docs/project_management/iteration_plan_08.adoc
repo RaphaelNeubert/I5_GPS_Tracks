@@ -22,8 +22,26 @@ include::../_includes/default-attributes.inc.adoc[]
 . Fertigstellung aller fehlender Dokumente
 . Reflexionen
 . Abgabe des Projektes
+. Aktualisierung von Diagrammen
 
 
 
 == Aufgabenzuordnung
 https://github.com/RaphaelNeubert/I5_GPS_Tracks/projects/8
+
+== Assessment
+
+[cols="1,1"]
+|===
+| Assessment Ziel
+| Ganze Iteration
+| Assessment Datum
+| 08.07.2022
+| Teilnehmer
+| Alle Gruppenmitglieder - Ludwig Schönthier
+| Projektstatus
+| grün
+|===
+
+• Die Bearbeitung des Projektberichtes, der Betriebsanleitung, der Nutzeranleitung und der Testdokumentation sind abgeschlossen
+• Abgabe des Belegprojektes im OPAL

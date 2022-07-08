@@ -1,6 +1,4 @@
-= Iteration Plan 04: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
-{localdatetime}
+= Iteration Plan 04:  {project-name}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
@@ -24,8 +22,8 @@ include::../_includes/default-attributes.inc.adoc[]
 . Architecture Notebook fertigstellen
 . Risikoliste vollenden
 . Funktionalitäten der App/Software weiter programmieren 
-. Alle Dateien für Belegabgabe zusammenführen und Korrektur lesen
-. Prototyp für Vorstellung bereit machen
+. Alle Dateien für Belegabgabe nachbearbeiten, zusammenführen und Korrekturlesen
+. Prototyp zur Vorstellung bereit machen
 
 
 == Aufgabenzuordnung
