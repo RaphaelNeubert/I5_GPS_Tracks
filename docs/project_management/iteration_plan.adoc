@@ -1,0 +1,9 @@
+
+include::../_includes/default-attributes.inc.adoc[]
+
+include::iteration_plan_03.adoc[lines=1..1;4..-1,leveloffset=+1]
+include::iteration_plan_04.adoc[lines=1..1;4..-1,leveloffset=+1]
+include::iteration_plan_05.adoc[lines=1..1;4..-1,leveloffset=+1]
+include::iteration_plan_06.adoc[lines=1..1;4..-1,leveloffset=+1]
+include::iteration_plan_07.adoc[lines=1..1;4..-1,leveloffset=+1]
+include::iteration_plan_08.adoc[lines=1..1;4..-1,leveloffset=+1]

@@ -15,6 +15,7 @@
 \usepackage{lscape}
 \usepackage{cancel}
 \usepackage{dirtytalk}
+\usepackage{pdfpages}
 
 \graphicspath{ {./images/} }
 
@@ -49,8 +50,8 @@
     Aleksandr        & Pronin            & 48405                & AP              &  &  \\
     Alex             & Schechtel         & 49662                & AS              &  &  \\
     Quang Duy        & Pham              &                      & QDP             &  &  \\
-    Raphael          & Neubert           &                      & RN              &  &  \\
-    Ludwig           & Schönthier        &                      & LS              &  &
+    Raphael          & Neubert           & 49916                & RN              &  &  \\
+    Ludwig           & Schönthier        & 50446                & LS              &  &
     \end{tabular}
     \centering
 \end{table}
@@ -797,9 +798,10 @@ Offenheit meines Teams gegenüber meinen verrückten Ideen z. B. die Verwendung 
 das Schreiben des Projektberichts sowie der Anleitungen in LaTeX.\par 
 \medskip 
 Insgesamt bin ich mit dem Projekt sehr zufrieden und möchte mich bei Ihnen und bei meinem Team bedanken.
+\newpage
+
+\appendix
+\section{Iterationspläne}
+\includepdf[pages={1-9}]{iteration_plan.pdf}
 \end{document}
 
-\subcection{Anhänge}
-Iterationspläne:
-\usepackage{pdfpages}
-\includepdf[pages=-]{iteration_plans.pdf}
