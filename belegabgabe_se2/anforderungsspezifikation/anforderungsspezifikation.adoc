@@ -1,0 +1,28 @@
+
+:docs: ../../docs
+include::{docs}/_includes/default-attributes.inc.adoc[]
+
+:imagesdir: {docs-requirements}/images
+
+// Folders
+:imagesdir-reset: {imagesdir}
+:docs-requirements: {docs}/requirements
+
+:imagesdir: {docs-requirements}/images
+
+// Vision
+include::{docs-requirements}/vision.adoc[lines=1..1;4..-1,leveloffset=+1]
+<<<
+// Use Case Model (inkludiert selbst die einzelnen usecase_spec_x.adoc Dateien)
+include::{docs-requirements}/use-case_model.adoc[lines=1..1;4..-1,leveloffset=+1]
+<<<
+// System-wide Requirements
+include::{docs-requirements}/system-wide_requirements.adoc[lines=1..1;4..-1,leveloffset=+1]
+<<<
+// Glossar
+[#glossary]
+include::{docs-requirements}/glossary.adoc[lines=1..1;4..-1,leveloffset=+1]
+<<<
+// Domänenmodell
+include::{docs-requirements}/domain_model.adoc[lines=1..1;4..-1,leveloffset=+1]
+<<<

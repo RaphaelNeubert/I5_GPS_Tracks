@@ -1,0 +1,61 @@
+//Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
+
+== Use-Case 06: : Besondere(n) Punkt(e) in GPS-Track einfügen
+
+=== Kurzbeschreibung
+//<Kurze Beschreibung des Use Case>
+Der Benutzer kann einen GPS-Track so manipulieren, dass GPS-Punkte erhält 
+spezielle Tags erhalten können, die später einmal der Robotor lesen und interpretieren kann.
+
+=== Kurzbeschreibung der Akteure
+
+==== Benutzer 
+Benutzer möchte den GPS-Track mit zusatzinformationen ausstatten die der Robotor interpretieren soll.
+
+=== Vorbedingungen
+//Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
+
+* Benutzer hat die App geöffnet.
+* Der Benutzer befindet sich im Bearbeitungsmodus eines GPS-Tracks.
+
+=== Standardablauf (Basic Flow)
+//Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
+
+Der Use Case beginnt, wenn Benutzer für einen Track den Bearbeitungsmodus gestartet hat. 
+
+. Der Benutzer kann einen Wegpunkt anklicken.
+. Falls vorhanden erscheint nun der bisherige TAG des Wegpunktes.
+. Der Nutzer kann nun den TAG-bearbeiten Button auswählen.
+. Im darauffolgendem Dialog kann er den TAG verändern.
+. Durch einen Klick auf "Speichern" wird die Veränderung am Track gespeichert.
+
+=== Alternative Abläufe
+//Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
+
+//==== Optionale Fortsetzung 
+//Wenn der Nutzer nach Abschluss des  Standartablaufes den Button "aufnehmen" betätigt, dann
+
+//. wird Use Case 01 gestartet
+//. Die bisher aufgezeichnete Route wird auf der Karte abgebildet
+
+==== Optionale Fortsetzung
+Wenn der Benutzer weitere Wegpunkt-TAGs bearbeiten will, kann er den aktuellen Wegpunkt deselectieren und dann 
+die Schritte des Standardablaufes wiederholen.
+
+=== Wesentliches Szenario
+//Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
+Der Benutzer hat einen Robotor der so programmiert ist, dass wenn ein Wegpunkt des GPS-Tracks den TAG "camera" besitzt, 
+der Robotor ein Foto macht. Er möchte nun einen bereits aufgenommenen Track so bearbeiten, dass der Robotor an jeder 
+Kreuzung ein Foto macht. Er realsiert dies indem er im Bearbeitungsmodus die Punkte der Kreuzungen nacheinander 
+anklickt und ihnen einzeln den Wegpunkt-TAG "camera" gibt.
+
+=== Nachbedingungen
+//Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
+Der GPS-Track enthält die gewünschten Zusatzinformationen.
+
+//==== <Nachbedingung 1>
+//
+//=== Besondere Anforderungen
+//Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
+//
+//==== <Besondere Anforderung 1>
