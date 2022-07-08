@@ -5,5 +5,21 @@ include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
 
-== Allgemeine Informationen
-//
+== Klassendiagramm 
+.Klassendiagramm
+image::klassendiagramm.png[]
+Das obenstehende Klassendiagramm beschreibt die Implementierung ganz gut.
+
+*Wichtige Zusatzinfos:* +
+
+* Das Auslösen von Funktionalitäten in der MainActivity durch die ListingTracks-Activity erfolgt dadurch, dass 
+die ListingTracks-Activity per "startActivityForResult" durch die MainActivity 
+gestartet wird und somit bei der Beendigung einen Intent an die MainActivity returned in dem die gewünschte 
+Funktionalität steht.
+
+* Die Kommunikation zwischen einer GPSTrack instanz und dem RecordingService erfolgt per Broadcast. 
+Damit Daten empfangen werden können, muss also der RecordingService gestartet und der BroadcastReceiver 
+registriert sein.
+
+* Die Synchronisation ist asyncron und läuft daher in einem anderen Thread. Damit nach der Beendigung der Synchronisation 
+aber die Auflistung synchronisiert werden kann, muss die refresh Funktion im Hauptthread ausgeführt werden. (siehe Implementierung)
