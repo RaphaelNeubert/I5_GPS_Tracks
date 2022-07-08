@@ -4,13 +4,14 @@ Alex Schechtel <email@domain.org>; Raphael Neubert <email2@domain.org>; Felix Re
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
-
-== Klassendiagramm 
+== App
+=== Klassendiagramm 
 .Klassendiagramm
 image::klassendiagramm.png[]
-Das obenstehende Klassendiagramm beschreibt die Implementierung ganz gut.
+Das obenstehende Klassendiagramm befindet sich im Entwicklerdokumenation-Ordner und kann dort auch in voller größe 
+betrachtet werden.
 
-*Wichtige Zusatzinfos:* +
+=== Wichtige Zusatzinfos
 
 * Das Auslösen von Funktionalitäten in der MainActivity durch die ListingTracks-Activity erfolgt dadurch, dass 
 die ListingTracks-Activity per "startActivityForResult" durch die MainActivity 
@@ -23,3 +24,8 @@ registriert sein.
 
 * Die Synchronisation ist asyncron und läuft daher in einem anderen Thread. Damit nach der Beendigung der Synchronisation 
 aber die Auflistung synchronisiert werden kann, muss die refresh Funktion im Hauptthread ausgeführt werden. (siehe Implementierung)
+
+== Server
+Der Server ist so simple wie möglich gehalten und besteht aus weniger als 100 LOC. 
+Diese wenigen Zeilen beinhalten ausführliche Kommentare. Eine externe Dokumentation war daher nicht notwendig.
+Die Endpunkte der REST-API sind in der Betriebsanleitung beschrieben.
