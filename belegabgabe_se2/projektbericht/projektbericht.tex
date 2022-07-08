@@ -29,11 +29,20 @@
     \vspace{2cm}
     {\Large\itshape Raphael Neubert, Alex Schechtel, Aleksandr Pronin, Quang Duy Pham, Tom Nicolai, Ludwig Schönthier\par}
     \vfill
-
-    {\large \today\par}
-\end{titlepage}
-\tableofcontents
-\newpage
+    \vfill
+    \begin{minipage}{0.3\textwidth}
+        Themensteller:\\
+        Coach:\\
+        Verantwortlicher HSL:\\
+        Projektzeitraum:
+    \end{minipage}
+    \begin{minipage}{0.4\textwidth}
+        Prof. Dr.-Ing. Mario Neugebauer\\
+        Dipl.-Inf. (FH) Christoph Zirkelbach\\
+        Prof. Dr.-Ing. Jürgen Anke\\
+        11.2021 - 07.2022
+    \end{minipage}
+    \vfill
 \begin{table}[H]
     \begin{tabular}{lllll}
     \textbf{Vorname} & \textbf{Nachname} & \textbf{Kürzel} &  &  \\
@@ -43,7 +52,21 @@
     Raphael          & Neubert           & RN              &  &  \\
     Ludwig           & Schönthier        & LS              &  &
     \end{tabular}
+    \centering
 \end{table}
+\vfill
+
+    {\large \today\par}
+\end{titlepage}
+\tableofcontents
+\newpage
+\abstract{
+    Im Folgenden wollen wir unsere Arbeit am Projekt \say{GPS-Track-App} erläutern.
+    Wir wollen dabei unsere Vorgehensweise beschreiben und über technische sowie projektorganisatorische Entscheidungen
+    reflektieren. Dabei gehen wir nicht nur auf die Inhalte ein, die gut liefen, sondern beschreiben auch die 
+    aufgetretenen Probleme.
+}
+
 \section{Projektplanung}
 \subsection{Aufgabenstellung [AS]}
     Im Rahmen unserer Projektarbeit im Modul \say{Software Engineering} hat Prof. Mario Neugebauer uns die Möglichkeit gegeben,
@@ -54,8 +77,7 @@
     Dabei mussten wir für jede implementierte Funktionalität,
     eine angenehme und einfach zu verstehende Darstellungsform für die App finden.
     Es sollte möglich sein die aufgenommenen GPS-Tracks abzuspeichern und in der App aufzulisten.
-    Außerdem sollte man auf einem bereitgestellten Server die GPS-Tracks hochladen oder auch herunterladen können.
-    Auf den Server sollte jeder Nutzer zugreifen können, welcher eine VPN-Verbindung zu der HTW-Dresden hat.
+    Außerdem sollte man auf einen Server die GPS-Tracks hochladen oder auch herunterladen können.
     Ebenso sollte es die Option geben, die GPS-Tracks nach dem abspeichern noch zu bearbeiten und dabei spezielle Punkte (special points of interests) 
     hinzuzufügen, sowie auch Punkte des aufegnommenen Weges zu verändern/verschieben.
     Bei der Aufnahme eines GPS-Tracks war es außerdem wichtig, die Genauigkeit des GPS-Signals so hoch wie möglich zu halten. 
@@ -79,11 +101,11 @@ feststellen zu können, ob mit den, von uns ausgewählten Technologien die Funkt
 \medskip
 Am Anfang des Projektes fehlte uns vor allem eines, Erfahrung. Erfahrung sowohl in der Verwendung der Technologien
 aber viel mehr noch, Erfahrung in der Teamarbeit und der Organisation eines solchen Softwareprojektes.
-Dies wurde uns vor allem am Ende von Softwareengineering-I klar, als wir das nochmal Abgabedokument durchschauten
+Dies wurde uns vor allem am Ende von Softwareengineering-I klar, als wir nochmal das Abgabedokument durchschauten
 und feststellten, wie ineffizient unsere Arbeit am Anfang war.
 
 \subsubsection{Softwareengineering-II}
-Am Ende des Moduls SE1 hatten wir einen guten umfassenden
+Am Ende des Moduls SE1 hatten wir einen umfassenden
 Überblick in das System und den funktionalen Anforderungen gewonnen. 
 Wir hatten jetzt auch schon den Code vom Prototyp. Viel wichtiger aber, wir hatten die Erfahrung und das Wissen, was
 wir beides bei der Erstellung des Prototyps erlangt hatten. Somit war der Start in Softwareengineering-II wesentlich
